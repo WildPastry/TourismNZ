@@ -24,3 +24,12 @@
     -o-transition: $o;
     transition: $all;
 }
+
+// POSITIONING
+@mixin positioning($pos: relative, $t: null, $b: null, $l: null, $r: null) {
+    position: $pos;
+    top: $t;
+    bottom: $b;
+    left: $l;
+    right: $r;
+}

@@ -1,14 +1,25 @@
 //COLOURS
 $wht: #fff;
 $blk: #0d0d0f;
-$red: #e51d13;
-$pch: #f28f87;
-$grn: #2db976;
-$l-grn: #bbfaab;
-$d-grn: #38704c;
+$l-blu: #a0ddf9;
+$m-blu: #2178a6;
+$d-blu: #2b2f3a;
 $gry: #e9e9e9;
 $l-gry: #f4f4f4;
 $d-gry: #727272;
 
 // TRANSITIONS
-$speed: all 0.3s ease-in-out;
+$speed: all 0.2s ease-in-out;
+
+// FONTS
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/open-sans/OpenSans-Light.ttf'),
+        url('../fonts/open-sans/OpenSans-Regular.ttf'),
+        url('../fonts/open-sans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Pure Pakati';
+    src: url('../fonts/pure-pakati/PurePakati-Regular.otf');
+}
