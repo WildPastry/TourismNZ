@@ -1,1 +1,42 @@
 @import 'variables.scss';
+
+// BRAND TITLE
+.brand-title svg {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -400px;
+}
+
+.brand-title-fill {
+    fill: $wht;
+}
+
+// PRELOADER
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 5;
+}
+
+#status {
+    width: 112px;
+    height: 112px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -57px 0 0 -57px;
+}
+
+.fas {
+    color: $wht;
+}

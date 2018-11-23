@@ -5,6 +5,60 @@
   text-decoration: none;
   list-style-type: none; }
 
+body {
+  font-family: 'Open Sans', sans-serif; }
+
+h1 {
+  font-family: 'Open Sans', sans-serif; }
+
+/* ROTATE EFFECT */
+#myVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-size: contain;
+  object-fit: cover; }
+
+.brand-title svg {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -300px;
+  margin-top: -400px; }
+
+.brand-title-fill {
+  fill: #fff; }
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 5; }
+
+#status {
+  width: 112px;
+  height: 112px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: -57px 0 0 -57px; }
+
+.fas {
+  color: #fff; }
+
 /*!
  * Bootstrap Grid v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
