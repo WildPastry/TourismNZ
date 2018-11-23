@@ -1,0 +1,26 @@
+@import 'variables.scss';
+
+// CSS RESETS
+@mixin reset ($pad: null, $mar: null, $box: null, $deco: null, $listo: null) {
+    padding: $pad;
+    margin: $mar;
+    box-sizing: $box;
+    text-decoration: $deco;
+    list-style-type: $listo;
+}
+
+// TEXT
+@mixin fontProperties ($family: null, $size: null, $space: null, $color: null) {
+    font-family: $family;
+    font-size: $size;
+    letter-spacing: $space;
+    color: $color;
+}
+
+// TRANSITIONS
+@mixin transitions ($web: null, $moz: null, $o: null, $all: null) {
+    -webkit-transition: $web;
+    -moz-transition: $moz;
+    -o-transition: $o;
+    transition: $all;
+}

@@ -1,1 +1,11 @@
-@import "../../framework/bootstrap/scss/bootstrap.scss";
+//IMPORT PARTIALS
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'base.scss';
+@import 'buttons.scss';
+@import 'content.scss';
+@import 'footer.scss';
+@import 'header.scss';
+@import 'icons.scss';
+@import 'img.scss';
+@import '../framework/scss/bootstrap-grid.scss';

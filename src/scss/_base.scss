@@ -1,0 +1,7 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+//CSS RESETS
+* {
+    @include reset(0, 0, border-box, none, none);
+}
