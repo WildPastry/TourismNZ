@@ -1,0 +1,26 @@
+{
+  "name": "tourism-nz",
+  "version": "1.0.0",
+  "description": "APP to plan a journey in New Zealand, and find a hire car for your journey.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tourism:test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WildPastry/Tourism-NZ.git"
+  },
+  "keywords": [
+    "New",
+    "Zealand",
+    "Tourism",
+    "NZ",
+    "Hire-Car",
+    "Rental-Car"
+  ],
+  "author": "Mike Parker",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}
