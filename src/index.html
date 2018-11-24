@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="img/brand/fav.ico" type="image/x-icon">
     <!--build:css css/main.min.css-->
     <link rel="stylesheet" type="text/css" href="css/normalize-8.0.1.css">
+    <link rel="stylesheet" type="text/css" href="css/fullpage.min.css">
     <link rel="stylesheet" type="text/css" href="css/tooltipster.bundle.min.css">
     <link rel="stylesheet" type="text/css" href="css/tooltipster-sideTip-light.min.css">
     <link rel="stylesheet" type="text/css" href="css/fontawesome-5.5.0.css">
@@ -24,65 +25,73 @@
         </div>
     </div>
 
-    <!-- BRAND TITLE -->
-    <div class="brand-title">
-        <img src="img/brand/brand-main.svg" alt="NZ Tourism Main Intro">
-    </div>
+    <!-- FULLPAGE -->
+    <div id="fullpage">
 
-    <!-- START BUTTON -->
-    <!-- <div class="start-button-container"> -->
-        <h1 class="start-button">CLICK TO START</h1>
-    <!-- </div> -->
+        <!-- SECTION 1 -->
+        <section class="section section-one" id="sectionOne">
 
-    <!-- BACKGROUND OVERLAY -->
-    <div id="background"></div>
+            <!-- BRAND TITLE -->
+            <div class="brand-title">
+                <img src="img/brand/brand-main.svg" alt="NZ Tourism Main Intro">
+            </div>
 
-    <!-- VIDEO -->
-    <video id="brand-video" autoplay loop>
-        <source src="media/brand-video.mp4" type="video/mp4" alt="NZ Tourism Video">
-    </video>
+            <!-- START BUTTON -->
+            <!-- <div class="start-button-container"> -->
+            <h1 class="start-button">CLICK TO START</h1>
+            <!-- </div> -->
 
-    <!-- HEADER -->
-    <header class="header-fixed">
-        <div class="header-map">
-            <img class="tool-tip-right" title="View Map" src="img/icons/ripple-blue.svg" alt="Map">
-        </div>
-        <div class="header-info">
-            <img class="tool-tip-left" title="Information" src="img/icons/info.svg" alt="Information">
-        </div>
-    </header>
+            <!-- BACKGROUND OVERLAY -->
+            <div id="background"></div>
 
-    <!-- FOOTER -->
-    <footer class="footer-fixed">
-        <div class="footer-brand">
-           <a href="https://www.tourismnewzealand.com/" target="new"><img src="img/brand/brand-fern.svg" alt="NZ Tourism Logo"></a>
-        </div>
-        <div class="footer-social">
-            <img src="img/icons/facebook.svg" alt="Facebook">
-            <img src="img/icons/pinterest.svg" alt="Pinterest">
-            <img src="img/icons/twitter.svg" alt="Twitter">
-            <img src="img/icons/instagram.svg" alt="Instagram">
-        </div>
-        <!-- <div class="footer-info">
+            <!-- VIDEO -->
+            <video id="brand-video" autoplay loop>
+                <source src="media/brand-video.mp4" type="video/mp4" alt="NZ Tourism Video">
+            </video>
+
+            <!-- HEADER -->
+            <header class="header-fixed">
+                <div class="header-map">
+                    <img class="tool-tip-right" title="View Map" src="img/icons/ripple-blue.svg" alt="Map">
+                </div>
+                <div class="header-info">
+                    <img class="tool-tip-left" title="Information" src="img/icons/info.svg" alt="Information">
+                </div>
+            </header>
+
+            <!-- FOOTER -->
+            <footer class="footer-fixed">
+                <div class="footer-brand">
+                    <a href="https://www.tourismnewzealand.com/" target="new"><img src="img/brand/brand-fern.svg" alt="NZ Tourism Logo"></a>
+                </div>
+                <div class="footer-social">
+                    <img src="img/icons/facebook.svg" alt="Facebook">
+                    <img src="img/icons/pinterest.svg" alt="Pinterest">
+                    <img src="img/icons/twitter.svg" alt="Twitter">
+                    <img src="img/icons/instagram.svg" alt="Instagram">
+                </div>
+                <!-- <div class="footer-info">
             <p>&copy; Mike Parker 2018</p>
         </div> -->
-    </footer>
+            </footer>
+        </section>
 
-    <!-- SECTION 1 -->
-    <section></section>
-    <!-- SECTION 2 -->
-    <section></section>
-    <!-- SECTION 3 -->
-    <section></section>
-    <!-- SECTION 4 -->
-    <section></section>
-    <!-- SECTION 5 -->
-    <section></section>
-    <!-- SECTION 6 -->
-    <section></section>
+        <!-- SECTION 2 -->
+        <section class="section section-two" id="sectionTwo"></section>
+        <!-- SECTION 3 -->
+        <section></section>
+        <!-- SECTION 4 -->
+        <section></section>
+        <!-- SECTION 5 -->
+        <section></section>
+        <!-- SECTION 6 -->
+        <section></section>
+    </div>
 
     <!--build:js js/main.min.js -->
     <script src="framework/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="js/fullpage.min.js" type="text/javascript"></script>
+    <script src="js/scrolloverflow.min.js" type="text/javascript"></script>
     <script src="js/tooltipster.bundle.min.js" type="text/javascript"></script>
     <script src="js/main.js" type="text/javascript"></script>
     <!-- endbuild -->

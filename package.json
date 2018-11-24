@@ -36,6 +36,7 @@
     "run-sequence": "^2.2.1"
   },
   "dependencies": {
-    "del": "^3.0.0"
+    "del": "^3.0.0",
+    "fullpage.js": "^3.0.3"
   }
 }

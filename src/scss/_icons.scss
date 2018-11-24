@@ -3,15 +3,16 @@
 
 // BRAND TITLE
 .brand-title img {
-        height: 325px;
-        left: 50%;
-        margin-left: -300px;
-        margin-top: -300px;
-        position: absolute;
-        top: 50%;
-        width: 600px;
-        z-index: 5;
-    }
+    cursor: pointer;
+    height: 325px;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -300px;
+    position: absolute;
+    top: 50%;
+    width: 600px;
+    z-index: 5;
+}
 
 // .icon-white {
 //     fill: $wht;

@@ -1,6 +1,7 @@
 /*jslint browser:true */
 
 // DOCUMENT READY
+$(document).ready(function() {
 console.log('JS READY');
 
 // IMMUTABLE VARIABLES
@@ -29,6 +30,52 @@ $('.tool-tip-right').tooltipster({
     animation: 'grow',
     delay: 200,
  });
+
+//  FULLPAGE
+// $('#fullpage').fullpage({
+//     verticalCentered: true,
+//     anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage'],
+//     sectionsColor: ['white', '#D66761', '#D66761', 'transparent', '#D66761'],
+//     bgSize: ['cover', 'cover', 'cover', 'cover', 'cover'],
+//     slidesNavigation: true,
+//   });
+
+
+
+
+
+
+
+// function showNextPage(idToShow, idToHide) {
+//     let elToHide = $(idToHide);
+
+//     elToHide.css({
+//         "transform": "scale(" + scaleFactor + ")",
+//         "opacity": "0"
+//     });
+
+//     setTimeout(() => {
+//         elToHide.css({
+//             "display": "none",
+//             "transform": "scale(0)"
+//         });
+//     }, transitionTime);
+
+//     showFormPage(idToShow);
+// }
+
+// $("#sectionOneButton").click((e) => {
+//     e.preventDefault();
+//     showNextPage("#sectionTwo", "#sectionOne");
+//     toggleBackgroundImage("hide");
+// });
+
+
+
+
+
+
+
 
 // LOADER
 // $(document).ajaxStart(() => {
@@ -67,3 +114,5 @@ $('.tool-tip-right').tooltipster({
 //          }
 //     });
 // }
+
+}); // DOCUMENT READY ENDS
