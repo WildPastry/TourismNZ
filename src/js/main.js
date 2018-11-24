@@ -15,6 +15,21 @@ $(window).on('load', function () {
     });
 });
 
+// TOOL TIPSTER
+$('.tool-tip-right').tooltipster({
+    theme: 'tooltipster-light',
+    position: 'right',
+    animation: 'grow',
+    delay: 200,
+ });
+
+ $('.tool-tip-left').tooltipster({
+    theme: 'tooltipster-light',
+    position: 'left',
+    animation: 'grow',
+    delay: 200,
+ });
+
 // LOADER
 // $(document).ajaxStart(() => {
 //     $("#preLoading").fadeIn(transitionTime);

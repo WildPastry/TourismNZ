@@ -3,7 +3,7 @@
 // BRAND TITLE
 .brand-title {
 
-    svg {
+    img {
         width: 600px;
         height: 325px;
         position: absolute;
@@ -16,9 +16,13 @@
     }
 }
 
-.brand-title-fill {
-    fill: $wht;
-}
+// .icon-white {
+//     fill: $wht;
+// }
+
+// .icon-blue {
+//     fill: $l-blu;
+// }
 
 // PRELOADER
 #preloader {

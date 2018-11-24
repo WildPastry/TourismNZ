@@ -121,7 +121,6 @@ h1 {
   height: 130px;
   position: fixed;
   bottom: 0;
-  text-align: center;
   z-index: 15; }
 
 .footer-info p {
@@ -172,6 +171,38 @@ h1 {
   font-family: 'Pure Pakati';
   src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
 
+.header-fixed {
+  width: 100%;
+  height: 130px;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  z-index: 15; }
+
+.header-map {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin: 20px 20px 60px 20px; }
+  .header-map img {
+    width: 50px;
+    margin: 0 5px 0 5px; }
+
+.header-map::after {
+  clear: left; }
+
+.header-info {
+  width: 30px;
+  height: 40px;
+  float: right;
+  margin: 20px 20px 70px 20px; }
+  .header-info img {
+    width: 30px;
+    margin: 0 5px 0 5px; }
+
+.header-info::after {
+  clear: right; }
+
 @font-face {
   font-family: 'Open Sans Light';
   src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
@@ -188,7 +219,7 @@ h1 {
   font-family: 'Pure Pakati';
   src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
 
-.brand-title svg {
+.brand-title img {
   width: 600px;
   height: 325px;
   position: absolute;
@@ -197,9 +228,6 @@ h1 {
   margin-left: -300px;
   margin-top: -250px;
   z-index: 5; }
-
-.brand-title-fill {
-  fill: #fff; }
 
 #preloader {
   position: fixed;
