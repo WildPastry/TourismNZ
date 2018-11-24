@@ -13,13 +13,53 @@ $speed: all 0.2s ease-in-out;
 
 // FONTS
 @font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/open-sans/OpenSans-Light.ttf'),
-        url('../fonts/open-sans/OpenSans-Regular.ttf'),
-        url('../fonts/open-sans/OpenSans-Bold.ttf');
+    font-family: 'Open Sans Light';
+    src: url('../fonts/open-sans/OpenSans-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Open Sans Regular';
+    src: url('../fonts/open-sans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url('../fonts/open-sans/OpenSans-Bold.ttf');
 }
 
 @font-face {
     font-family: 'Pure Pakati';
     src: url('../fonts/pure-pakati/PurePakati-Regular.otf');
 }
+
+$font-lgt: 'Open Sans Light';
+$font-reg: 'Open Sans Regular';
+$font-bld: 'Open Sans Bold';
+
+$spc: 1px;
+$spc-zero: 0px;
+
+$bdy: 1em;
+$bdy-mob: 0.9em;
+$hdg: 2.4em;
+$hdg-tab: 1.8em;
+$hdg-mob: 1.5em;
+
+$hdg-1: 2em;
+$hdg-2: 2em;
+$hdg-3: 1.2em;
+$hdg-4: 1.2em;
+
+//MARGINS
+$main-mar: 0 auto;
+$twty-mar: 20px auto;
+$thty-mar: 30px auto;
+
+$ftr-mar: 91.6px auto 20px auto;
+
+$main-wdth: 1200px;
+
+//PADDING
+$menu-pad: 20px 0;
+$text-pad: 10px;
+$btn-pad: 15px;

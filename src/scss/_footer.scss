@@ -1,1 +1,50 @@
 @import 'variables.scss';
+
+// FOOTER
+.footer-fixed {
+    width: 100%;
+    height: 130px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    z-index: 15;
+}
+
+.footer-info p {
+    @include fontProperties($font-lgt, $bdy, $spc-zero, $wht);
+}
+
+.footer-info {
+    margin: $ftr-mar;
+}
+
+.footer-brand {
+    width: 80px;
+    height: 90px;
+    float: left;
+    margin: 20px;
+
+    img {
+        width: 80px;
+    }
+}
+
+.footer-brand::after {
+    clear: left;
+}
+
+.footer-social {
+    width: 180px;
+    height: 40px;
+    float: right;
+    margin: 70px 20px 20px 20px;
+
+    img {
+        width: 30px;
+        margin: 0 5px 0 5px;
+    }
+}
+
+.footer-social::after {
+    clear: right;
+}
