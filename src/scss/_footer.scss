@@ -17,6 +17,7 @@
     margin: $ftr-mar;
 }
 
+// FOOTER BRAND
 .footer-brand {
     width: 80px;
     height: 90px;
@@ -32,19 +33,62 @@
     clear: left;
 }
 
+// FOOTER SOCIAL
 .footer-social {
     width: 180px;
     height: 40px;
     float: right;
     margin: 70px 20px 20px 20px;
 
-    img {
+    svg {
         cursor: pointer;
         width: 30px;
         margin: 0 5px 0 5px;
     }
+
 }
 
 .footer-social::after {
     clear: right;
+}
+
+// SOCIAL ICONS
+.social-wht {
+    fill: $wht;
+}
+
+// FACEBOOK
+.fb-blu {
+    fill: $fb-blu;
+}
+
+.fb-icon:hover .fb-blu{
+    fill: $d-gry;
+}
+
+// PINTEREST
+.p-red {
+    fill: $p-red;
+}
+
+.p-icon:hover .p-red{
+    fill: $d-gry;
+}
+
+// TWITTER
+.tw-blu {
+    fill: $tw-blu;
+}
+
+.tw-icon:hover .tw-blu{
+    fill: $d-gry;
+}
+
+// INSTAGRAM
+.in-ylw {
+    fill: $in-ylw;
+}
+
+.in-icon:hover .in-ylw{
+    fill: $d-gry;
 }

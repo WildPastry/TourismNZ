@@ -40,12 +40,6 @@ $('.tool-tip-right').tooltipster({
 //     slidesNavigation: true,
 //   });
 
-
-
-
-
-
-
 // function showNextPage(idToShow, idToHide) {
 //     let elToHide = $(idToHide);
 
@@ -69,13 +63,6 @@ $('.tool-tip-right').tooltipster({
 //     showNextPage("#sectionTwo", "#sectionOne");
 //     toggleBackgroundImage("hide");
 // });
-
-
-
-
-
-
-
 
 // LOADER
 // $(document).ajaxStart(() => {

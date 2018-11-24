@@ -97,7 +97,7 @@ h2 {
   bottom: 35%;
   width: 600px;
   z-index: 5;
-  color: #a0ddf9;
+  color: #f79e33;
   text-align: center; }
 
 @font-face {
@@ -204,13 +204,40 @@ h2 {
   height: 40px;
   float: right;
   margin: 70px 20px 20px 20px; }
-  .footer-social img {
+  .footer-social svg {
     cursor: pointer;
     width: 30px;
     margin: 0 5px 0 5px; }
 
 .footer-social::after {
   clear: right; }
+
+.social-wht {
+  fill: #fff; }
+
+.fb-blu {
+  fill: #3B5999; }
+
+.fb-icon:hover .fb-blu {
+  fill: #727272; }
+
+.p-red {
+  fill: #850D17; }
+
+.p-icon:hover .p-red {
+  fill: #727272; }
+
+.tw-blu {
+  fill: #61C9F0; }
+
+.tw-icon:hover .tw-blu {
+  fill: #727272; }
+
+.in-ylw {
+  fill: #f79e33; }
+
+.in-icon:hover .in-ylw {
+  fill: #727272; }
 
 @font-face {
   font-family: 'Open Sans Light';
@@ -257,10 +284,22 @@ h2 {
   height: 50px;
   margin: 20px 20px 60px 20px;
   width: 50px; }
-  .header-map img {
+  .header-map svg {
     cursor: pointer;
     margin: 0;
     width: 50px; }
+
+.header-map-icon-inner {
+  stroke: #fff; }
+
+.header-map-icon-outer {
+  stroke: #a0ddf9; }
+
+.header-map:hover .header-map-icon-inner {
+  stroke: #f79e33; }
+
+.header-map:hover .header-map-icon-outer {
+  stroke: #f79e33; }
 
 .header-map::after {
   clear: left; }
@@ -270,10 +309,12 @@ h2 {
   height: 40px;
   margin: 25px 20px 65px 20px;
   width: 40px; }
-  .header-info img {
+  .header-info svg {
     cursor: pointer;
     margin: 0;
     width: 40px; }
+    .header-info svg :hover {
+      fill: #f79e33; }
 
 .header-info::after {
   clear: right; }

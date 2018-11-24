@@ -18,11 +18,27 @@
     margin: 20px 20px 60px 20px;
     width: 50px;
 
-    img {
+    svg {
         cursor: pointer;
         margin: 0;
         width: 50px;
     }
+}
+
+.header-map-icon-inner {
+    stroke: $wht;
+}
+
+.header-map-icon-outer {
+    stroke: $l-blu;
+}
+
+.header-map:hover .header-map-icon-inner {
+    stroke: $in-ylw;
+}
+
+.header-map:hover .header-map-icon-outer {
+    stroke: $in-ylw;
 }
 
 .header-map::after {
@@ -36,10 +52,14 @@
     margin: 25px 20px 65px 20px;
     width: 40px;
 
-    img {
+    svg {
         cursor: pointer;
         margin: 0;
         width: 40px;
+
+        :hover {
+            fill: $in-ylw;
+        }
     }
 }
 
