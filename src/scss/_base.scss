@@ -7,26 +7,37 @@
 }
 
 body{
-    font-family: 'Open Sans', sans-serif;
+    @include fontProperties($fnt-lgt, $bdy, $spc-zero, $wht);
 }
 
 h1{
-    font-family: 'Open Sans', sans-serif;
+    @include fontProperties($fnt-pure, $hdg-1, $spc, $wht);
 }
 
-// BACKGROUND OVERLAY
-#background {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background: #154b55c4;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+h2{
+    @include fontProperties($fnt-bld, $hdg-2, $spc, $wht);
 }
 
+
+
+// background: linear-gradient(to right, $blu-t, $blu-t);
+
+// .background__start {
+//     background: linear-gradient(to right, $blk-t, $blk-t)
+
+    // background: radial-gradient(
+//     circle closest-side,
+//     #f8d50d98,
+//     #00000085,
+//   );
+// .background__start {
+//     background: radial-gradient()
+
+//     radial-gradient(
+//       circle closest-side,
+//       yellow,
+//       #f06d06
+//     );
 /* ROTATE EFFECT */
 // @-webkit-keyframes rotating {
 //     from {

@@ -1,24 +1,26 @@
 @import 'variables.scss';
+@import 'mixins.scss';
 
 // HEADER
 .header-fixed {
-    width: 100%;
     height: 130px;
     position: fixed;
-    top: 0;
     text-align: center;
+    top: 0;
+    width: 100%;
     z-index: 15;
 }
 
+// HEADER MAP BUTTON
 .header-map {
-    width: 50px;
-    height: 50px;
     float: left;
+    height: 50px;
     margin: 20px 20px 60px 20px;
+    width: 50px;
 
     img {
+        margin: 0;
         width: 50px;
-        margin: 0 5px 0 5px;
     }
 }
 
@@ -26,15 +28,16 @@
     clear: left;
 }
 
+// HEADER INFO BUTTON
 .header-info {
-    width: 30px;
-    height: 40px;
     float: right;
-    margin: 20px 20px 70px 20px;
+    height: 40px;
+    margin: 25px 20px 65px 20px;
+    width: 40px;
 
     img {
-        width: 30px;
-        margin: 0 5px 0 5px;
+        margin: 0;
+        width: 40px;
     }
 }
 

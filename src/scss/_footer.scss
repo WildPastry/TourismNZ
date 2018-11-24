@@ -10,7 +10,7 @@
 }
 
 .footer-info p {
-    @include fontProperties($font-lgt, $bdy, $spc-zero, $wht);
+    @include fontProperties($fnt-lgt, $bdy, $spc-zero, $wht);
 }
 
 .footer-info {

@@ -1,20 +1,17 @@
 @import 'variables.scss';
+@import 'mixins.scss';
 
 // BRAND TITLE
-.brand-title {
-
-    img {
-        width: 600px;
+.brand-title img {
         height: 325px;
-        position: absolute;
         left: 50%;
-        top: 50%;
         margin-left: -300px;
-        margin-top: -250px;
+        margin-top: -300px;
+        position: absolute;
+        top: 50%;
+        width: 600px;
         z-index: 5;
-
     }
-}
 
 // .icon-white {
 //     fill: $wht;
@@ -26,22 +23,22 @@
 
 // PRELOADER
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background: #2b2f3aef;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
     z-index: 10;
 
     img {
-        width: 200px;
-        height: 200px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        background-repeat: no-repeat;
         background-position: center;
+        background-repeat: no-repeat;
+        height: 200px;
+        left: 50%;
         margin: -100px 0 0 -100px;
+        position: absolute;
+        top: 50%;
+        width: 200px;
     }
 }

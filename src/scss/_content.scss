@@ -1,4 +1,22 @@
 @import 'variables.scss';
+@import 'mixins.scss';
+
+// BACKGROUND OVERLAY
+#background {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: radial-gradient(
+        circle farthest-side,
+        rgba(130, 9, 167, 0.506),
+        rgba(33, 36, 44, 0.89),
+      );
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
 
 // VIDEO
 #brand-video {

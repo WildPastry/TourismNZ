@@ -1,1 +1,26 @@
 @import 'variables.scss';
+@import 'mixins.scss';
+
+// START BUTTON
+// .start-button-container {
+//     height: 325px;
+//     left: 50%;
+//     margin-left: -300px;
+//     margin-top: -300px;
+//     position: absolute;
+//     top: 50%;
+//     width: 600px;
+//     z-index: 5;
+// }
+
+.start-button {
+    left: 50%;
+    margin-left: -300px;
+    margin-bottom: -5px;
+    position: absolute;
+    bottom: 35%;
+    width: 600px;
+    z-index: 5;
+    color: $l-blu;
+    text-align: center;
+}
