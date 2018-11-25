@@ -4,6 +4,7 @@
 //CSS RESETS
 * {
     @include reset(0, 0, border-box, none, none);
+    @include transitions($speed, $speed, $speed, $speed);
 }
 
 body{
@@ -12,14 +13,16 @@ body{
 
 h1{
     @include fontProperties($fnt-pure, $hdg-1, $spc, $wht);
+    font-weight: 900;
 }
 
 h2{
     @include fontProperties($fnt-bld, $hdg-2, $spc, $wht);
 }
 
-
-
+.center {
+    text-align: center;
+}
 // background: linear-gradient(to right, $blu-t, $blu-t);
 
 // .background__start {

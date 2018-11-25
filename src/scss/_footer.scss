@@ -24,10 +24,18 @@
     float: left;
     margin: 20px;
 
-    img {
+    svg {
         width: 80px;
+
+        :hover {
+            fill: $in-ylw;
+        }
     }
 }
+
+// .footer-brand:hover .footer-brand-inner {
+//     fill: $in-ylw;
+// }
 
 .footer-brand::after {
     clear: left;
@@ -92,3 +100,5 @@
 .in-icon:hover .in-ylw{
     fill: $d-gry;
 }
+
+// TRIAL

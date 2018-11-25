@@ -1,11 +1,5 @@
 /*jslint browser:true */
-
-// DOCUMENT READY
-$(document).ready(function() {
 console.log('JS READY');
-
-// IMMUTABLE VARIABLES
-// const transitionTime = 400;
 
 // LOADER
 $(window).on('load', function () {
@@ -22,26 +16,22 @@ $('.tool-tip-right').tooltipster({
     position: 'right',
     animation: 'grow',
     delay: 200,
- });
+});
 
- $('.tool-tip-left').tooltipster({
+$('.tool-tip-left').tooltipster({
     theme: 'tooltipster-light',
     position: 'left',
     animation: 'grow',
     delay: 200,
- });
+});
 
-//  FULLPAGE
-// $('#fullpage').fullpage({
-//     verticalCentered: true,
-//     anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage'],
-//     sectionsColor: ['white', '#D66761', '#D66761', 'transparent', '#D66761'],
-//     bgSize: ['cover', 'cover', 'cover', 'cover', 'cover'],
-//     slidesNavigation: true,
-//   });
+// // IMMUTABLE VARIABLES
+// const transitionTime = 400;
+// const scaleFactor = 2;
 
+// // SHOW NEXT - HIDE CURRENT
 // function showNextPage(idToShow, idToHide) {
-//     let elToHide = $(idToHide);
+//     var elToHide = $(idToHide);
 
 //     elToHide.css({
 //         "transform": "scale(" + scaleFactor + ")",
@@ -58,48 +48,39 @@ $('.tool-tip-right').tooltipster({
 //     showFormPage(idToShow);
 // }
 
-// $("#sectionOneButton").click((e) => {
-//     e.preventDefault();
-//     showNextPage("#sectionTwo", "#sectionOne");
-//     toggleBackgroundImage("hide");
-// });
+// // SHOW PREVIOUS - HIDE CURRENT
+// function showPreviousPage(idToShow, idToHide) {
+//     var elToShow = $(idToShow);
+//     var elToHide = $(idToHide);
 
-// LOADER
-// $(document).ajaxStart(() => {
-//     $("#preLoading").fadeIn(transitionTime);
-//     $("#mask").fadeIn(transitionTime);
-// }).ajaxStop(() => {
-//     $("#preLoading").fadeOut(transitionTime);
-//     $("#mask").fadeOut(transitionTime);
-// });
-
-// LOADER
-// $('body').jmspinner();
-// $('body').jmspinner(false);
-
-// $(document).ready(function(){
-//     $(document).ajaxStart(function(){
-//         $("#preloader").css("display", "block");
+//     elToHide.css({
+//         "opacity": "0",
+//         "transform": "scale(0)"
 //     });
-//     $(document).ajaxComplete(function(){
-//         $("#preloader").css("display", "none");
-//     });
-// });
 
-// function loadingAjax(div_id) {
-//     var divIdHtml = $("#"+div_id).html();
-//     $.ajax({
-//          type: "POST",
-//          url: "script.php",
-//          data: "name=John&id=28",
-//          beforeSend: function() {
-//             $("#loading-image").show();
-//          },
-//          success: function(msg) {
-//             $("#"+div_id).html(divIdHtml + msg);
-//             $("#loading-image").hide();
-//          }
+//     setTimeout(() => {
+//         elToHide.css("display", "none");
+//     }, transitionTime);
+
+//     elToShow.css({
+//         "transition": "0ms",
+//         "transform": "scale(" + scaleFactor + ")"
+//     });
+
+//     setTimeout(() => {
+//         elToShow.css("transition", transitionTime + "ms");
+//         showFormPage(idToShow);
 //     });
 // }
 
-}); // DOCUMENT READY ENDS
+// // SECTION ONE
+// $("#sectionOneButton").click((e) => {
+//     e.preventDefault();
+//     showNextPage("#sectionTwo", "#sectionOne");
+// });
+
+// // SECTION TWO
+// $("#sectionTwoButtonBack").click((e) => {
+//     e.preventDefault();
+//     showPreviousPage("#sectionOne", "#sectionTwo");
+// });
