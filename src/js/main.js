@@ -276,10 +276,12 @@ function removeMarker() {
 }
 
 // POP-UPS
+
+// INFORMATION POP-UP
 $("#info-pop").iziModal({
-    title: 'Information',
+    title: 'NZ Journey Planner Information',
     headerColor: '#2b2f3a',
-    padding: 10,
+    padding: 15,
     radius: 0,
 });
 

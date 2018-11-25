@@ -7,15 +7,37 @@
     @include transitions($speed, $speed, $speed, $speed);
 }
 
-body{
+body {
     @include fontProperties($fnt-lgt, $bdy, $spc-zero, $wht);
 }
 
-h1{
-    @include fontProperties($fnt-pure, $hdg-1, $spc, $wht);
-    font-weight: 900;
+p {
+    @include fontProperties($fnt-lgt, $bdy, $spc-zero, $d-blu);
 }
 
-h2{
-    @include fontProperties($fnt-bld, $hdg-2, $spc, $wht);
+h1 {
+    @include fontProperties($fnt-pure, $hdg-1, $spc, $wht);
+}
+
+h2 {
+    @include fontProperties($fnt-pure, $hdg-2, $spc-zero, $d-blu);
+}
+
+h3 {
+    @include fontProperties($fnt-bld, $hdg-3, $spc-zero, $d-blu);
+}
+
+h4 {
+    @include fontProperties($fnt-reg, $hdg-4, $spc-zero, $d-blu);
+}
+
+.bold {
+    font-family: $fnt-bld;
+}
+
+a {
+    color: none;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
 }

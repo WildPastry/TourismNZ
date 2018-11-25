@@ -6393,18 +6393,44 @@ body {
   letter-spacing: 0px;
   color: #fff; }
 
+p {
+  font-family: "Open Sans Light";
+  font-size: 1em;
+  letter-spacing: 0px;
+  color: #2b2f3a; }
+
 h1 {
   font-family: "Pure Pakati";
-  font-size: 6.4em;
-  letter-spacing: 1px;
-  color: #fff;
-  font-weight: 900; }
-
-h2 {
-  font-family: "Open Sans Bold";
-  font-size: 3em;
+  font-size: 4em;
   letter-spacing: 1px;
   color: #fff; }
+
+h2 {
+  font-family: "Pure Pakati";
+  font-size: 2.5em;
+  letter-spacing: 0px;
+  color: #2b2f3a; }
+
+h3 {
+  font-family: "Open Sans Bold";
+  font-size: 1.8em;
+  letter-spacing: 0px;
+  color: #2b2f3a; }
+
+h4 {
+  font-family: "Open Sans Regular";
+  font-size: 1.4em;
+  letter-spacing: 0px;
+  color: #2b2f3a; }
+
+.bold {
+  font-family: "Open Sans Bold"; }
+
+a {
+  color: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects; }
 
 @font-face {
   font-family: 'Open Sans Light';
@@ -6686,7 +6712,3 @@ h2 {
 #map {
   height: 100%;
   width: 100%; }
-
-.iziModal h2,
-p {
-  color: #2b2f3a; }
