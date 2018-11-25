@@ -33,8 +33,45 @@
     object-fit: cover;
 }
 
-.section-two{
-    background-color: black;
-    width: 100%;
+// SECTIONS
+.section {
+    background-attachment: fixed; 
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+}
+
+// #section2{
+//     background-color: $d-blu;
+// }
+
+#section3{
+    background-color: $fb-blu;
+}
+
+#section4{
+    background-color: $d-blu;
+}
+
+#section5{
+    background-color: $fb-blu;
+}
+
+#section6{
+    background-color: $d-blu;
+}
+
+// SIDE LIST
+#pp-nav {
+color: $wht;
+}
+
+#pp-nav li .active span, .pp-slidesNav .active span {
+    background: $in-ylw;
+}
+
+// MAP
+#map {
     height: 100%;
+    width: 100%;
 }
