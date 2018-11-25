@@ -2,20 +2,19 @@
 @import 'mixins.scss';
 
 // BACKGROUND OVERLAY
-#background {
+.background {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background: radial-gradient(
-        circle farthest-side,
+    background: radial-gradient(circle farthest-side,
         rgba(130, 9, 167, 0.506),
         rgba(33, 36, 44, 0.89),
-      );
+        );
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 5;
 }
 
 // VIDEO
@@ -35,38 +34,39 @@
 
 // SECTIONS
 .section {
-    background-attachment: fixed; 
+    background-attachment: fixed;
     background-size: cover;
     background-position: 50% 0%;
     background-repeat: no-repeat;
 }
 
-// #section2{
-//     background-color: $d-blu;
-// }
-
-#section3{
-    background-color: $fb-blu;
-}
-
-#section4{
+#section2 {
     background-color: $d-blu;
 }
 
-#section5{
+#section3 {
     background-color: $fb-blu;
 }
 
-#section6{
+#section4 {
+    background-color: $d-blu;
+}
+
+#section5 {
+    background-color: $fb-blu;
+}
+
+#section6 {
     background-color: $d-blu;
 }
 
 // SIDE LIST
 #pp-nav {
-color: $wht;
+    color: $wht;
 }
 
-#pp-nav li .active span, .pp-slidesNav .active span {
+#pp-nav li .active span,
+.pp-slidesNav .active span {
     background: $in-ylw;
 }
 
@@ -74,4 +74,10 @@ color: $wht;
 #map {
     height: 100%;
     width: 100%;
+}
+
+// POP-UPS
+.iziModal h2,
+p {
+    color: $d-blu;
 }

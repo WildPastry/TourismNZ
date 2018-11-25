@@ -6344,6 +6344,38 @@ a.text-dark:hover, a.text-dark:focus {
   font-family: 'Pure Pakati';
   src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
 
+@font-face {
+  font-family: 'Open Sans Light';
+  src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
+
+@font-face {
+  font-family: 'Open Sans Regular';
+  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
+
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url("../fonts/open-sans/OpenSans-Bold.ttf"); }
+
+@font-face {
+  font-family: 'Pure Pakati';
+  src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
+
+@font-face {
+  font-family: 'Open Sans Light';
+  src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
+
+@font-face {
+  font-family: 'Open Sans Regular';
+  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
+
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url("../fonts/open-sans/OpenSans-Bold.ttf"); }
+
+@font-face {
+  font-family: 'Pure Pakati';
+  src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
+
 * {
   padding: 0;
   margin: 0;
@@ -6390,140 +6422,12 @@ h2 {
   font-family: 'Pure Pakati';
   src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
 
-@font-face {
-  font-family: 'Open Sans Light';
-  src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Regular';
-  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Bold';
-  src: url("../fonts/open-sans/OpenSans-Bold.ttf"); }
-
-@font-face {
-  font-family: 'Pure Pakati';
-  src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
-
-.start-button {
-  cursor: pointer;
-  left: 50%;
-  margin-left: -300px;
-  margin-bottom: -5px;
-  position: absolute;
-  bottom: 35%;
-  width: 600px;
-  z-index: 5;
-  color: #f79e33;
-  text-align: center; }
-
-@font-face {
-  font-family: 'Open Sans Light';
-  src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Regular';
-  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Bold';
-  src: url("../fonts/open-sans/OpenSans-Bold.ttf"); }
-
-@font-face {
-  font-family: 'Pure Pakati';
-  src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
-
-@font-face {
-  font-family: 'Open Sans Light';
-  src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Regular';
-  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Bold';
-  src: url("../fonts/open-sans/OpenSans-Bold.ttf"); }
-
-@font-face {
-  font-family: 'Pure Pakati';
-  src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
-
-#background {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background: radial-gradient(circle farthest-side, rgba(130, 9, 167, 0.506), rgba(33, 36, 44, 0.89));
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 1; }
-
-#brand-video {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-size: 100% 100%;
-  background-position: center center;
-  background-size: contain;
-  object-fit: cover; }
-
-.section {
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: 50% 0%;
-  background-repeat: no-repeat; }
-
-#section3 {
-  background-color: #3B5999; }
-
-#section4 {
-  background-color: #2b2f3a; }
-
-#section5 {
-  background-color: #3B5999; }
-
-#section6 {
-  background-color: #2b2f3a; }
-
-#pp-nav {
-  color: #fff; }
-
-#pp-nav li .active span, .pp-slidesNav .active span {
-  background: #f79e33; }
-
-#map {
-  height: 100%;
-  width: 100%; }
-
-@font-face {
-  font-family: 'Open Sans Light';
-  src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Regular';
-  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Bold';
-  src: url("../fonts/open-sans/OpenSans-Bold.ttf"); }
-
-@font-face {
-  font-family: 'Pure Pakati';
-  src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
-
 .footer-fixed {
   width: 100%;
   height: 130px;
   position: fixed;
   bottom: 0;
-  z-index: 15; }
+  z-index: 30; }
 
 .footer-info p {
   font-family: "Open Sans Light";
@@ -6619,13 +6523,41 @@ h2 {
   font-family: 'Pure Pakati';
   src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
 
+#preloader {
+  background: #2b2f3aef;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100; }
+  #preloader img {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px;
+    left: 50%;
+    margin: -100px 0 0 -100px;
+    position: absolute;
+    top: 50%;
+    width: 200px; }
+
+.brand-title img {
+  cursor: pointer;
+  left: 50%;
+  margin-left: -300px;
+  margin-top: -300px;
+  position: absolute;
+  top: 50%;
+  width: 600px;
+  z-index: 30; }
+
 .header-fixed {
   height: 130px;
   position: fixed;
   text-align: center;
   top: 0;
   width: 100%;
-  z-index: 15; }
+  z-index: 30; }
 
 .header-map {
   float: left;
@@ -6699,95 +6631,62 @@ h2 {
   font-family: 'Pure Pakati';
   src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
 
-.brand-title img {
-  cursor: pointer;
-  height: 325px;
-  left: 50%;
-  margin-left: -300px;
-  margin-top: -300px;
-  position: absolute;
-  top: 50%;
-  width: 600px;
+.background {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: radial-gradient(circle farthest-side, rgba(130, 9, 167, 0.506), rgba(33, 36, 44, 0.89));
+  position: fixed;
+  width: 100%;
+  height: 100%;
   z-index: 5; }
 
-#preloader {
-  background: #2b2f3aef;
-  bottom: 0;
-  left: 0;
-  position: fixed;
+#brand-video {
+  position: absolute;
   right: 0;
+  bottom: 0;
   top: 0;
-  z-index: 100; }
-  #preloader img {
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 200px;
-    left: 50%;
-    margin: -100px 0 0 -100px;
-    position: absolute;
-    top: 50%;
-    width: 200px; }
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-size: contain;
+  object-fit: cover; }
 
-@font-face {
-  font-family: 'Open Sans Light';
-  src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
+.section {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 0%;
+  background-repeat: no-repeat; }
 
-@font-face {
-  font-family: 'Open Sans Regular';
-  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
+#section2 {
+  background-color: #2b2f3a; }
 
-@font-face {
-  font-family: 'Open Sans Bold';
-  src: url("../fonts/open-sans/OpenSans-Bold.ttf"); }
+#section3 {
+  background-color: #3B5999; }
 
-@font-face {
-  font-family: 'Pure Pakati';
-  src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
+#section4 {
+  background-color: #2b2f3a; }
 
-@font-face {
-  font-family: 'Open Sans Light';
-  src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
+#section5 {
+  background-color: #3B5999; }
 
-@font-face {
-  font-family: 'Open Sans Regular';
-  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
+#section6 {
+  background-color: #2b2f3a; }
 
-@font-face {
-  font-family: 'Open Sans Bold';
-  src: url("../fonts/open-sans/OpenSans-Bold.ttf"); }
+#pp-nav {
+  color: #fff; }
 
-@font-face {
-  font-family: 'Pure Pakati';
-  src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
+#pp-nav li .active span,
+.pp-slidesNav .active span {
+  background: #f79e33; }
 
-@font-face {
-  font-family: 'Open Sans Light';
-  src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
+#map {
+  height: 100%;
+  width: 100%; }
 
-@font-face {
-  font-family: 'Open Sans Regular';
-  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Bold';
-  src: url("../fonts/open-sans/OpenSans-Bold.ttf"); }
-
-@font-face {
-  font-family: 'Pure Pakati';
-  src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
-
-@font-face {
-  font-family: 'Open Sans Light';
-  src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Regular';
-  src: url("../fonts/open-sans/OpenSans-Regular.ttf"); }
-
-@font-face {
-  font-family: 'Open Sans Bold';
-  src: url("../fonts/open-sans/OpenSans-Bold.ttf"); }
-
-@font-face {
-  font-family: 'Pure Pakati';
-  src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
+.iziModal h2,
+p {
+  color: #2b2f3a; }

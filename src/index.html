@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/tooltipster.bundle.min.css">
     <link rel="stylesheet" type="text/css" href="css/tooltipster-sideTip-light.min.css">
     <link rel="stylesheet" type="text/css" href="css/fontawesome-5.5.0.css">
+    <link rel="stylesheet" type="text/css" href="css/iziModal.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--endbuild-->
 </head>
@@ -21,7 +22,7 @@
     <!-- LOADER -->
     <div id="preloader">
         <div id="preloader-icon">
-            <img src="img/icons/ripple-large.svg" alt="Loading"/>
+            <img src="img/icons/ripple-large.svg" alt="Loading" />
         </div>
     </div>
 
@@ -31,11 +32,13 @@
         <!-- SECTION 1 -->
         <div class="section" id="section1">
 
+            <!-- BACKGROUND OVERLAY -->
+            <div class="background"></div>
+
             <!-- HEADER -->
             <header class="header-fixed">
                 <a href="#secondPage">
                     <div class="header-map">
-                        <!-- <img class="tool-tip-right" title="View Map" src="img/icons/ripple-blue.svg" alt="Map"> -->
                         <svg alt="Map Icon" class="tool-tip-right" title="View Map" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ripple" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
                             <circle class="header-map-icon-inner" cx="50" cy="50" r="0" fill="none" ng-attr-stroke="{{config.c1}}"
@@ -56,8 +59,7 @@
                     </div>
                 </a>
                 <div class="header-info">
-                    <!-- <img class="tool-tip-left" title="Information" src="img/icons/info.svg" alt="Information"> -->
-                    <svg alt="Information Icon" class="tool-tip-left" title="Information" version="1.1" id="Layer_1"
+                    <svg alt="Information Icon" class="tool-tip-left info-trigger" title="Information" version="1.1" id="Layer_1"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 294.32 294.32" style="enable-background:new 0 0 294.32 294.32;" xml:space="preserve">
                         <path class="social-wht" d="M211.18,34.37c0,9.47-3.51,17.56-10.58,24.21c-7.04,6.67-15.53,10.01-25.46,10.01
@@ -75,15 +77,14 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
             </header>
 
             <!-- BRAND TITLE -->
-            <div class="brand-title">
-                <img src="img/brand/brand-main.svg" alt="NZ Tourism Main Intro">
-            </div>
-
             <div id="myMenu">
                 <a href="#secondPage">
-                    <h1 class="start-button">CLICK TO START</h1>
+                    <div class="brand-title">
+                        <img src="img/brand/brand-title.svg" alt="NZ Tourism Main Intro">
+                    </div>
                 </a>
             </div>
+
             <!-- VIDEO -->
             <video id="brand-video" autoplay loop>
                 <source src="media/brand-video.mp4" type="video/mp4" alt="NZ Tourism Video">
@@ -217,30 +218,65 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
             <p>&copy; Mike Parker 2018</p>
         </div> -->
             </footer>
-            <!-- BACKGROUND OVERLAY -->
-            <div id="background"></div>
         </div>
 
         <!-- SECTION 2 -->
         <div class="section" id="section2">
+
+            <!-- BACKGROUND OVERLAY -->
+            <div class="background"></div>
+
+            <!-- MAP -->
             <div id="map"></div>
+
         </div>
         <!-- SECTION 3 -->
-        <div class="section" id="section3"></div>
+        <div class="section" id="section3">
+
+            <!-- BACKGROUND OVERLAY -->
+            <div class="background"></div>
+
+        </div>
         <!-- SECTION 4 -->
-        <div class="section" id="section4"></div>
+        <div class="section" id="section4">
+
+            <!-- BACKGROUND OVERLAY -->
+            <div class="background"></div>
+
+        </div>
         <!-- SECTION 5 -->
-        <div class="section" id="section5"></div>
+        <div class="section" id="section5">
+
+            <!-- BACKGROUND OVERLAY -->
+            <div class="background"></div>
+
+        </div>
         <!-- SECTION 6 -->
-        <div class="section" id="section6"></div>
+        <div class="section" id="section6">
+
+            <!-- BACKGROUND OVERLAY -->
+            <div class="background"></div>
+
+        </div>
     </div>
 
+    <!-- POP-UPS -->
+    <div id="info-pop" class="iziModal">
+            <h2>How do I work?</h2>
+            <p>Hi there! I see you want to know how this application works. The TL;DR is enter some info, click some buttons and *poof*, we'll recommend the perfect options for your travels!</p>
+            <p>A more 'technical' version of the above is:</p>
+            <p>1. Enter the route you would like to take.</p>
+            <p>2. Enter how many people are coming along on this journey.</p>
+            <p>3. Enter the number of days you'd like this vehicle for.</p>
+            <p>4. Select your preferred vehicle from the provided options.</p>
+                </div>
+
     <!--build:js js/main.min.js -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ5qWqvPupVZb1AlLikNVFw4U3Lm5Oycs&callback=initMap"
-        type="text/javascript"></script>
+
     <script src="framework/js/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="js/jquery.pagepiling.min.js" type="text/javascript"></script>
     <script src="js/scrolloverflow.min.js" type="text/javascript"></script>
+    <script src="js/iziModal.min.js" type="text/javascript"></script>
     <script src="js/tooltipster.bundle.min.js" type="text/javascript"></script>
     <script src="js/main.js" type="text/javascript"></script>
     <!-- endbuild -->

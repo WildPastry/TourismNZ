@@ -38,13 +38,13 @@ $(document).ready(function () {
         touchSensitivity: 5,
         keyboardScrolling: true,
         animateAnchor: false,
-        anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage','lastPage'],
+        anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'lastPage'],
         menu: '#myMenu',
         navigation: {
             'textColor': '#f79e33',
             'bulletsColor': '#f79e33',
             'position': 'left',
-            'tooltips': ['Index', 'Input', 'Plan', 'Select', 'Options', 'Confirm']
+            'tooltips': ['Index', 'Map', 'Plan', 'Select', 'Options', 'Confirm']
         }
     });
 });
@@ -54,7 +54,7 @@ var map;
 var yoobee = {
     lat: -41.279178,
     lng: 174.780331
-}
+};
 var newMarker;
 var clickMarkerLocation;
 var radioOptions = document.getElementsByName("mode");
@@ -62,9 +62,9 @@ var radioOptions = document.getElementsByName("mode");
 function initMap() {
 
     for (var i = 0; i < radioOptions.length; i++) {
-        radioOptions[i].addEventListener('change', function(){
+        radioOptions[i].addEventListener('change', function () {
             var transportMode = getTransportMode();
-            if(clickMarkerLocation){
+            if (clickMarkerLocation) {
                 showDirections(clickMarkerLocation, transportMode);
             }
         });
@@ -78,93 +78,128 @@ function initMap() {
         zoom: 6,
         scrollwheel: false,
         disableDefaultUI: true,
-        styles: [
-            {
+        styles: [{
                 elementType: 'geometry',
-                stylers: [{color: '#242f3e'}]
+                stylers: [{
+                    color: '#242f3e'
+                }]
             },
             {
                 elementType: 'labels.text.stroke',
-                stylers: [{color: '#242f3e'}]
+                stylers: [{
+                    color: '#242f3e'
+                }]
             },
             {
                 elementType: 'labels.text.fill',
-                stylers: [{color: '#746855'}]
+                stylers: [{
+                    color: '#746855'
+                }]
             },
             {
                 featureType: 'administrative.locality',
                 elementType: 'labels.text.fill',
-                stylers: [{color: '#d59563'}]
+                stylers: [{
+                    color: '#d59563'
+                }]
             },
             {
                 featureType: 'poi',
                 elementType: 'labels.text.fill',
-                stylers: [{color: '#d59563'}]
+                stylers: [{
+                    color: '#d59563'
+                }]
             },
             {
                 featureType: 'poi.park',
                 elementType: 'geometry',
-                stylers: [{color: '#263c3f'}]
+                stylers: [{
+                    color: '#263c3f'
+                }]
             },
             {
                 featureType: 'poi.park',
                 elementType: 'labels.text.fill',
-                stylers: [{color: '#6b9a76'}]
+                stylers: [{
+                    color: '#6b9a76'
+                }]
             },
             {
                 featureType: 'road',
                 elementType: 'geometry',
-                stylers: [{color: '#38414e'}]
+                stylers: [{
+                    color: '#38414e'
+                }]
             },
             {
                 featureType: 'road',
                 elementType: 'geometry.stroke',
-                stylers: [{color: '#212a37'}]
+                stylers: [{
+                    color: '#212a37'
+                }]
             },
             {
                 featureType: 'road',
                 elementType: 'labels.text.fill',
-                stylers: [{color: '#9ca5b3'}]
+                stylers: [{
+                    color: '#9ca5b3'
+                }]
             },
             {
                 featureType: 'road.highway',
                 elementType: 'geometry',
-                stylers: [{color: '#746855'}]
+                stylers: [{
+                    color: '#746855'
+                }]
             },
             {
                 featureType: 'road.highway',
                 elementType: 'geometry.stroke',
-                stylers: [{color: '#1f2835'}]
+                stylers: [{
+                    color: '#1f2835'
+                }]
             },
             {
                 featureType: 'road.highway',
                 elementType: 'labels.text.fill',
-                stylers: [{color: '#f3d19c'}]
+                stylers: [{
+                    color: '#f3d19c'
+                }]
             },
             {
                 featureType: 'transit',
                 elementType: 'geometry',
-                stylers: [{color: '#2f3948'}]
+                stylers: [{
+                    color: '#2f3948'
+                }]
             },
             {
                 featureType: 'transit.station',
                 elementType: 'labels.text.fill',
-                stylers: [{color: '#d59563'}]
+                stylers: [{
+                    color: '#d59563'
+                }]
             },
             {
                 featureType: 'water',
                 elementType: 'geometry',
-                stylers: [{color: '#17263c'}]
+                stylers: [{
+                    color: '#17263c'
+                }]
             },
             {
                 featureType: 'water',
                 elementType: 'labels.text.fill',
-                stylers: [{color: '#515c6d'}]
+                stylers: [{
+                    color: '#515c6d'
+                }]
             },
             {
                 featureType: 'water',
                 elementType: 'labels.text.stroke',
-                stylers: [{color: '#17263c'}]
+                stylers: [{
+                    color: '#17263c'
+                }]
             }
         ]
     });
@@ -176,15 +211,15 @@ function initMap() {
         map: map
     });
 
-    map.addListener('click', function(event) {
+    map.addListener('click', function (event) {
         var transportMode = getTransportMode();
         clickMarkerLocation = event.latLng;
 
         showDirections(clickMarkerLocation, transportMode);
     });
 
-    function showDirections(destinationLocation, transportMode){
-        if(directionsDisplay){
+    function showDirections(destinationLocation, transportMode) {
+        if (directionsDisplay) {
             directionsDisplay.setMap(null);
         }
 
@@ -193,19 +228,19 @@ function initMap() {
             destination: destinationLocation,
             travelMode: transportMode
         };
-        directionsService.route(request, function(result, status) {
+        directionsService.route(request, function (result, status) {
             if (status == 'OK') {
                 directionsDisplay.setMap(map);
                 directionsDisplay.setDirections(result);
-                document.getElementById('time').innerText = 'Time to get to destination is '+ result.routes[0].legs[0].duration.text;
-                document.getElementById('distance').innerText = 'Total distance to destination is '+result.routes[0].legs[0].distance.text;
+                document.getElementById('time').innerText = 'Time to get to destination is ' + result.routes[0].legs[0].duration.text;
+                document.getElementById('distance').innerText = 'Total distance to destination is ' + result.routes[0].legs[0].distance.text;
                 addMarker();
-            } else if(status == 'NOT_FOUND'){
+            } else if (status == 'NOT_FOUND') {
                 document.getElementById('time').innerText = '';
                 document.getElementById('distance').innerText = '';
                 removeMarker();
-                alert("At least one of the locations specified in the request's origin, destination could not be geocoded.")
-            } else if(status == 'ZERO_RESULTS'){
+                alert("At least one of the locations specified in the request's origin, destination could not be geocoded.");
+            } else if (status == 'ZERO_RESULTS') {
                 document.getElementById('time').innerText = '';
                 document.getElementById('distance').innerText = '';
                 removeMarker();
@@ -215,17 +250,17 @@ function initMap() {
     }
 }
 
-function getTransportMode(){
+function getTransportMode() {
     if (radioOptions) {
         for (var i = 0; i < radioOptions.length; i++) {
-            if (radioOptions[i].checked){
-                 return radioOptions[i].value;
+            if (radioOptions[i].checked) {
+                return radioOptions[i].value;
             }
         }
     }
 }
 
-function addMarker(){
+function addMarker() {
     removeMarker();
 
     newMarker = new google.maps.Marker({
@@ -234,8 +269,50 @@ function addMarker(){
     });
 }
 
-function removeMarker(){
-    if(newMarker && newMarker.setMap){
+function removeMarker() {
+    if (newMarker && newMarker.setMap) {
         newMarker.setMap(null);
     }
 }
+
+// POP-UPS
+$("#info-pop").iziModal({
+    title: 'Information',
+    headerColor: '#2b2f3a',
+    padding: 10,
+    radius: 0,
+});
+
+$(document).on('click', '.info-trigger', function (event) {
+    event.preventDefault();
+    $('#info-pop').iziModal('open');
+    console.log(document.getElementsByClassName('iziModal'));
+});
+
+// CONSOLE LOGS (WORKING WITH DOM)
+
+// LOG VIA CLASS OR TAG NAME
+// console.log(document.getElementsByClassName('myPhotos'));
+// console.log(document.getElementsByTagName('h5'));
+
+// LOG THE CHILD NODES
+// console.log(productsContainer.childNodes[2]);
+// var child = productsContainer.childNodes[2];
+// console.log(child.parentNode);
+// console.log(child.previousSibling);
+// console.log(child.nextSibling);
+// console.log(productsContainer.lastChild);
+// console.log(productsContainer.firstChild);
+
+// LOG THE NODE LIST
+// console.log(document.querySelectorAll(".myPhotos"));
+
+// LOG VIA IMAGES
+// GIVES TRUE OR FALSE IF IT HAS THE ATTRIBUTE "SRC"
+// console.log(photo[1].hasAttribute("src"));
+// console.log(photo[1]);
+
+// SETS NEW ALT DESCRIPTION
+// photo[2].setAttribute("alt", "I am the black circle of the wolf");
+// console.log(photo[2].getAttribute("alt"));
+// console.log(photo[2]);
