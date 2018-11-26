@@ -6427,6 +6427,8 @@ h4 {
   font-family: "Open Sans Bold"; }
 
 a {
+  height: 100%;
+  width: 100%;
   color: none;
   text-decoration: none;
   background-color: transparent;
@@ -6453,7 +6455,7 @@ a {
   height: 130px;
   position: fixed;
   bottom: 0;
-  z-index: 30; }
+  z-index: 15; }
 
 .footer-info p {
   font-family: "Open Sans Light";
@@ -6571,9 +6573,10 @@ a {
   cursor: pointer;
   left: 50%;
   margin-left: -300px;
-  margin-top: -300px;
+  margin-top: -270px;
   position: absolute;
   top: 50%;
+  height: 444.85px;
   width: 600px;
   z-index: 30; }
 
@@ -6583,7 +6586,7 @@ a {
   text-align: center;
   top: 0;
   width: 100%;
-  z-index: 30; }
+  z-index: 15; }
 
 .header-map {
   float: left;
@@ -6670,15 +6673,14 @@ a {
 
 #brand-video {
   position: absolute;
-  right: 0;
-  bottom: 0;
   top: 0;
+  bottom: 0;
+  left: 0;
   right: 0;
   width: 100%;
   height: 100%;
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center center;
-  background-size: contain;
   object-fit: cover; }
 
 .section {
@@ -6688,19 +6690,19 @@ a {
   background-repeat: no-repeat; }
 
 #section2 {
-  background-color: #2b2f3a; }
+  background-image: url("../img/sections/2.jpg"); }
 
 #section3 {
-  background-color: #3B5999; }
+  background-color: #2b2f3a; }
 
 #section4 {
-  background-color: #2b2f3a; }
+  background-image: url("../img/sections/4.jpg"); }
 
 #section5 {
-  background-color: #3B5999; }
+  background-image: url("../img/sections/5.jpg"); }
 
 #section6 {
-  background-color: #2b2f3a; }
+  background-image: url("../img/sections/6.jpg"); }
 
 #pp-nav {
   color: #fff; }
@@ -6712,3 +6714,23 @@ a {
 #map {
   height: 100%;
   width: 100%; }
+
+.checkInOut {
+  margin-top: 2.5em;
+  display: flex;
+  justify-content: center; }
+
+.checkIn,
+.checkOut {
+  box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px; }
+
+.invalid-feedback {
+  margin-top: 1em;
+  color: #850D17; }
+
+.datepicker1,
+.datepicker2 {
+  cursor: pointer; }
+
+.paddingTop {
+  padding-top: 130px; }
