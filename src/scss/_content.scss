@@ -55,7 +55,7 @@
     background-image: url('../img/sections/6.jpg');
 }
 
-// SIDE LIST
+// SIDE NAVIGATION
 #fp-nav {
     color: $wht;
 }
@@ -119,17 +119,33 @@
     margin-top: 20px;
 }
 
-// CONTAINER
+// CONTAINERS AND ROWS
 .paddingTop {
     padding-top: 130px;
 }
 
 .container-fluid {
-    max-width: 1300px;
+    max-width: 700px;
     margin: $main-mar;
 
     h2 {
-        @include fontProperties($fnt-pure, $hdg-1, $spc, $wht);
+        @include fontProperties($fnt-pure, $hdg-1, $spc, $l-blu);
         text-align: center;
     }
 }
+
+.row-blue {
+    background-color: $blu-t;
+    padding: 1em;
+    border: 1px solid $wht;
+    border-radius: .5em;
+    left: 50%;
+    margin-left: -400px;
+    margin-top: -270px;
+    position: absolute;
+    top: 50%;
+    height: 444.85px;
+    width: 800px;
+}
+
+// POP-UPS

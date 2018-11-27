@@ -6564,7 +6564,7 @@ h4 {
     top: 50%;
     width: 200px; }
 
-.brand-title img {
+.brand-title {
   cursor: pointer;
   left: 50%;
   margin-left: -300px;
@@ -6574,6 +6574,12 @@ h4 {
   height: 444.85px;
   width: 600px;
   z-index: 30; }
+
+.brand-title:hover .in-ylw {
+  fill: #fff; }
+
+.l-blu {
+  fill: #a0ddf9; }
 
 .header-fixed {
   height: 130px;
@@ -6751,11 +6757,24 @@ h4 {
   padding-top: 130px; }
 
 .container-fluid {
-  max-width: 1300px;
+  max-width: 700px;
   margin: 0 auto; }
   .container-fluid h2 {
     font-family: "Pure Pakati";
     font-size: 4em;
     letter-spacing: 1px;
-    color: #fff;
+    color: #a0ddf9;
     text-align: center; }
+
+.row-blue {
+  background-color: rgba(43, 47, 58, 0.87);
+  padding: 1em;
+  border: 1px solid #fff;
+  border-radius: .5em;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -270px;
+  position: absolute;
+  top: 50%;
+  height: 444.85px;
+  width: 800px; }

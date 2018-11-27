@@ -1,14 +1,14 @@
 /*jslint browser:true */
 console.log('JS READY');
 
-function initialize() {
-    var startPoint = document.getElementById('startPoint');
-    new google.maps.places.Autocomplete(startPoint);
-    var endPoint = document.getElementById('endPoint');
-    new google.maps.places.Autocomplete(endPoint);
-}
+// function initialize() {
+//     var startPoint = document.getElementById('startPoint');
+//     new google.maps.places.Autocomplete(startPoint);
+//     var endPoint = document.getElementById('endPoint');
+//     new google.maps.places.Autocomplete(endPoint);
+// }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+// google.maps.event.addDomListener(window, 'load', initialize);
 
 // LOADER
 $(window).on('load', function () {
@@ -37,6 +37,13 @@ $('.tool-tip-left').tooltipster({
 $('.tool-tip-bottom').tooltipster({
     theme: 'tooltipster-light',
     position: 'bottom',
+    animation: 'grow',
+    delay: 200,
+});
+
+$('.tool-tip-top').tooltipster({
+    theme: 'tooltipster-light',
+    position: 'top',
     animation: 'grow',
     delay: 200,
 });
@@ -119,7 +126,7 @@ $(function () {
 // var clickMarkerLocation;
 // var radioOptions = document.getElementsByName("mode");
 
-// function initMap() {
+// function initialize() {
 
 //     for (var i = 0; i < radioOptions.length; i++) {
 //         radioOptions[i].addEventListener('change', function () {
