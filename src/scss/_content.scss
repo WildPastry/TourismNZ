@@ -8,8 +8,8 @@
     -o-background-size: cover;
     background-size: cover;
     background: radial-gradient(circle farthest-side,
-        rgba(130, 9, 167, 0.506),
-        rgba(33, 36, 44, 0.89),
+        rgba(8, 88, 179, 0.37),
+        rgba(10, 15, 27, 0.89),
         );
     position: fixed;
     width: 100%;
@@ -18,7 +18,6 @@
 }
 
 // VIDEO
-
 #brand-video {
     @include positioning(absolute, 0, 0, 0, 0);
     width: 100%;
@@ -41,7 +40,7 @@
 }
 
 #section3 {
-    background-color: $d-blu
+    background-image: url('../img/sections/3.jpg');
 }
 
 #section4 {
@@ -57,12 +56,30 @@
 }
 
 // SIDE LIST
-#pp-nav {
+#fp-nav {
     color: $wht;
 }
 
-#pp-nav li .active span,
-.pp-slidesNav .active span {
+#fp-nav li .active span,
+.fp-slidesNav .active span {
+    background: $wht;
+}
+
+#fp-nav ul li .fp-tooltip {
+    top: -4px;
+}
+
+#fp-nav ul li, .fp-slidesNav ul li {
+    margin: 10px;
+}
+
+#fp-nav ul li .fp-tooltip.fp-right {
+    right: 22px;
+}
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+    height: 6px;
+    width: 6px;
     background: $in-ylw;
 }
 
@@ -74,13 +91,12 @@
 
 // CALENDER
 .checkInOut {
-    margin-top: 2.5em;
+    margin-top: 1em;
     display: flex;
     justify-content: center;
 }
 
-.checkIn,
-.checkOut {
+.form-control {
     box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px;
 }
 
@@ -94,7 +110,26 @@
     cursor: pointer;
 }
 
+// DATE
+.date h4 {
+    text-align: center;
+    color: $wht;
+    font-size: $bdy;
+    z-index: 15;
+    margin-top: 20px;
+}
+
 // CONTAINER
 .paddingTop {
     padding-top: 130px;
+}
+
+.container-fluid {
+    max-width: 1300px;
+    margin: $main-mar;
+
+    h2 {
+        @include fontProperties($fnt-pure, $hdg-1, $spc, $wht);
+        text-align: center;
+    }
 }

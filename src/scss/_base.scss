@@ -35,11 +35,6 @@ h4 {
     font-family: $fnt-bld;
 }
 
-a {
-    height: 100%;
-    width: 100%;
-    color: none;
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
+.marginTop {
+    margin-top: 1em;
 }
