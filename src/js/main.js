@@ -1,6 +1,15 @@
 /*jslint browser:true */
 console.log('JS READY');
 
+// function initialize() {
+//     var startPoint = document.getElementById('startPoint');
+//     new google.maps.places.Autocomplete(startPoint);
+//     var endPoint = document.getElementById('endPoint');
+//     new google.maps.places.Autocomplete(endPoint);
+// }
+
+// google.maps.event.addDomListener(window, 'load', initialize);
+
 // MAP
 var map;
 var yoobee = {
@@ -189,6 +198,7 @@ function removeMarker(){
         newMarker.setMap(null);
     }
 }
+
 // function initialize() {
 //     var startPoint = document.getElementById('startPoint');
 //     new google.maps.places.Autocomplete(startPoint);
@@ -432,3 +442,280 @@ $('.datepicker1').change(function () {
 //         .addClass( "overflow" );
  
 //   } );
+
+/*jslint browser:true */
+console.log("JS LOADED")
+
+// CREATE ARRAY
+var allProducts = [{
+        name: 'Rainbow',
+        price: 44,
+        image: '1.jpg',
+        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
+    },
+    {
+        name: 'Bear',
+        price: 64,
+        image: '2.jpg',
+        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
+    },
+    {
+        name: 'Eagle',
+        price: 144,
+        image: '3.jpg',
+        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
+    },
+    {
+        name: 'Black Circle',
+        price: 23,
+        image: '4.jpg',
+        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
+    },
+    {
+        name: 'Space',
+        price: 7,
+        image: '5.jpg',
+        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
+    },
+    {
+        name: 'Landscape',
+        price: 37,
+        image: '6.jpg',
+        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
+    },
+    {
+        name: 'Shine',
+        price: 447,
+        image: '7.jpg',
+        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
+    },
+    {
+        name: 'Red Circle',
+        price: 34,
+        image: '8.jpg',
+        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
+    },
+    {
+        name: 'Queen',
+        price: 59,
+        image: '9.jpg',
+        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
+    }
+];
+
+// LOG ARRAY
+console.log(allProducts);
+
+// EVENT LISTENERS
+document.getElementById('addCardBtn').addEventListener('click', addCard);
+document.getElementById('removeCardBtn').addEventListener('click', removeCard);
+document.getElementById('allCardsBtn').addEventListener('click', allCards);
+document.getElementById('loadCardsBtn').addEventListener('click', loadCards);
+
+// GLOBAL VARIABLES
+var productsContainer = document.getElementById('allProducts');
+var cardWrapper = document.createElement('div');
+var cardDiv = document.createElement('div');
+var cardBody = document.createElement('div');
+
+var photo = [];
+photo = document.getElementsByClassName("myPhotos");
+
+// ADD CARD BUTTON
+function addCard() {
+
+    function singleCard() {
+        productsContainer = document.getElementById('allProducts');
+        cardWrapper = document.createElement('div');
+        cardDiv = document.createElement('div');
+        cardBody = document.createElement('div');
+
+        cardWrapper.className = 'col-md-4';
+        cardDiv.className = 'card';
+        cardBody.className = 'card-body';
+        cardWrapper.appendChild(cardDiv);
+        cardDiv.innerHTML += '<img class="card-img-top myPhotos" src="images/' + allProducts[j].image + '">';
+        cardDiv.appendChild(cardBody);
+        cardBody.innerHTML += '<h4 class="card-title float-right"> $' + allProducts[j].price + '</h4>';
+        cardBody.innerHTML += '<h5 class="card-title">' + allProducts[j].name + '</h5>';
+        cardBody.innerHTML += '<p class="card-text">' + allProducts[j].desc + '</p>';
+        cardBody.innerHTML += '<p class="btn btn-dark">' + "View Card" + '</p>';
+        productsContainer.appendChild(cardWrapper);
+    }
+
+    outerloop:
+        for (var i = 0; i < allProducts.length; i++) {
+            for (var j = 0; j < photo.length; j++) {
+                var left = (photo[j].getAttribute("src"));
+                var right = ("images/" + allProducts[i].image);
+
+                console.log(left);
+                console.log(right);
+
+                if (left == right) {
+                    continue outerloop;
+                }
+            }
+            if (i >= allProducts.length - 1) {
+                singleCard(i);
+                alert("no more photos");
+            } else {
+                singleCard(i);
+            }
+            break;
+        }
+    return photo;
+}
+
+// REMOVE CARD BUTTON
+function removeCard() {
+    var child;
+
+    var x = prompt("Enter product number");
+    for (var i = 0; i < photo.length; i++) {
+
+        console.log(photo);
+
+        var filename = photo[i].getAttribute("src");
+
+        console.log(filename);
+
+        // EXTRACTS ONE NUMBER FROM THE 14TH POSITION OF THE FILENAME
+        var filenumber = filename.substr(7, 1);
+        console.log(filenumber);
+
+        if (photo.length > 3) {
+            if (x == (filenumber)) {
+                child = productsContainer.childNodes[i + 1];
+                console.log(child);
+                productsContainer.removeChild(child);
+                break;
+            }
+        } else {
+            alert("Minimum 3 products must be on display");
+            break;
+        }
+    }
+}
+
+// ALL CARDS BUTTON
+function allCards() {
+    document.getElementById("allProducts").innerHTML = "";
+
+    for (var i = 0; i < allProducts.length; i++) {
+
+        productsContainer = document.getElementById('allProducts');
+        cardWrapper = document.createElement('div');
+        cardDiv = document.createElement('div');
+        cardBody = document.createElement('div');
+
+        cardWrapper.className = 'col-md-4';
+        cardDiv.className = 'card';
+        cardBody.className = 'card-body';
+        cardWrapper.appendChild(cardDiv);
+        cardDiv.innerHTML += '<img class="card-img-top myPhotos" src="images/' + allProducts[i].image + '">';
+        cardDiv.appendChild(cardBody);
+        cardBody.innerHTML += '<h4 class="card-title float-right"> $' + allProducts[i].price + '</h4>';
+        cardBody.innerHTML += '<h5 class="card-title">' + allProducts[i].name + '</h5>';
+        cardBody.innerHTML += '<p class="card-text">' + allProducts[i].desc + '</p>';
+        cardBody.innerHTML += '<p class="btn btn-dark">' + "View Card" + '</p>';
+
+        // LOG ARRAY
+        console.log(allProducts);
+        // LOG CREATED SITE CONTENT
+        console.log(productsContainer);
+
+        // LOG TEXT AND MARKUP
+        console.log(productsContainer.innerHTML);
+
+        // LOG AND SET TEXT
+        console.log(productsContainer.textContent);
+
+        productsContainer.appendChild(cardWrapper);
+    }
+}
+
+// RESET CARDS BUTTON
+function loadCards() {
+    document.getElementById("allProducts").innerHTML = "";
+
+    for (var i = 0; i < 3; i++) {
+
+        productsContainer = document.getElementById('allProducts');
+        cardWrapper = document.createElement('div');
+        cardDiv = document.createElement('div');
+        cardBody = document.createElement('div');
+
+        cardWrapper.className = 'col-md-4';
+        cardDiv.className = 'card';
+        cardBody.className = 'card-body';
+        cardWrapper.appendChild(cardDiv);
+        cardDiv.innerHTML += '<img class="card-img-top myPhotos" src="images/' + allProducts[i].image + '">';
+        cardDiv.appendChild(cardBody);
+        cardBody.innerHTML += '<h4 class="card-title float-right"> $' + allProducts[i].price + '</h4>';
+        cardBody.innerHTML += '<h5 class="card-title">' + allProducts[i].name + '</h5>';
+        cardBody.innerHTML += '<p class="card-text">' + allProducts[i].desc + '</p>';
+        cardBody.innerHTML += '<p class="btn btn-dark">' + "View Card" + '</p>';
+        productsContainer.appendChild(cardWrapper);
+    }
+    console.log("RESET TO 3 PRODUCTS")
+}
+
+// ISOTOPE
+var $grid = $(productsContainer).isotope({
+    itemSelector: '.col-md-4',
+    layoutMode: 'fitRows',
+    getSortData: {
+        name: function (element) {
+            return $(element).text();
+        }
+    }
+});
+
+// FILTER BUTTON
+$('.filter button').on("click", function () {
+    var value = $(this).attr('data-name');
+    $grid.isotope({
+        filter: value
+    });
+    $('.filter button').removeClass("active");
+    $(this).addClass("active");
+});
+
+// SORT BUTTON
+$('.sort button').on("click",  function () {
+    var value = $(this).attr('data-name');
+    $grid.isotope({
+        sortBy: value
+    });
+    $('.sort button').removeClass("active");
+    $(this).addClass("active");
+});
+
+// CONSOLE LOGS (WORKING WITH DOM)
+
+// LOG VIA CLASS OR TAG NAME
+// console.log(document.getElementsByClassName('myPhotos'));
+// console.log(document.getElementsByTagName('h5'));
+
+// LOG THE CHILD NODES
+// console.log(productsContainer.childNodes[2]);
+// var child = productsContainer.childNodes[2];
+// console.log(child.parentNode);
+// console.log(child.previousSibling);
+// console.log(child.nextSibling);
+// console.log(productsContainer.lastChild);
+// console.log(productsContainer.firstChild);
+
+// LOG THE NODE LIST
+// console.log(document.querySelectorAll(".myPhotos"));
+
+// LOG VIA IMAGES
+// GIVES TRUE OR FALSE IF IT HAS THE ATTRIBUTE "SRC"
+// console.log(photo[1].hasAttribute("src"));
+// console.log(photo[1]);
+
+// SETS NEW ALT DESCRIPTION
+// photo[2].setAttribute("alt", "I am the black circle of the wolf");
+// console.log(photo[2].getAttribute("alt"));
+// console.log(photo[2]);

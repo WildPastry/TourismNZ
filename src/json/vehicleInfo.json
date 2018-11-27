@@ -1,9 +1,9 @@
 {
     "vehicles": [
         {
-            "name": "Motorbike",
-            "vehicle": "motorbike",
-            "imageURL": "./img/motorbike.png",
+            "name": "Model of Bike",
+            "vehicle": "motorBike",
+            "imageURL": "",
             "persons": {
                 "min": 1,
                 "max": 1
@@ -16,9 +16,9 @@
             "mileage": 3.7
         },
         {
-            "name": "2017 Toyota Yaris",
+            "name": "",
             "vehicle": "smallCar",
-            "imageURL": "./img/small-car-avis.png",
+            "imageURL": "",
             "persons": {
                 "min": 1,
                 "max": 2
@@ -31,9 +31,9 @@
             "mileage": 8.5
         },
         {
-            "name": "2017 BMW X5",
+            "name": "",
             "vehicle": "largeCar",
-            "imageURL": "./img/large-car-avis.png",
+            "imageURL": "",
             "persons": {
                 "min": 1,
                 "max": 5
@@ -46,9 +46,9 @@
             "mileage": 9.7
         },
         {
-            "name": "Motor Home",
+            "name": "",
             "vehicle": "motorHome",
-            "imageURL": "./img/motorhome.png",
+            "imageURL": "",
             "persons": {
                 "min": 2,
                 "max": 6
@@ -61,5 +61,5 @@
             "mileage": 17
         }
     ],
-    "fuelPrice": 2.129
+    "fuelPrice": 2.3
 }

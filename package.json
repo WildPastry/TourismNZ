@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "del": "^3.0.0",
-    "event-stream": "^3.3.4",
+    "event-stream": "^3.3.3",
     "fullpage.js": "^3.0.3"
   }
 }
