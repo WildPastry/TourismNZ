@@ -6715,13 +6715,15 @@ h4 {
 #fp-nav ul li .fp-tooltip {
   top: -4px; }
 
-#fp-nav ul li, .fp-slidesNav ul li {
+#fp-nav ul li,
+.fp-slidesNav ul li {
   margin: 10px; }
 
 #fp-nav ul li .fp-tooltip.fp-right {
   right: 22px; }
 
-#fp-nav ul li a span, .fp-slidesNav ul li a span {
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
   height: 6px;
   width: 6px;
   background: #f79e33; }
@@ -6729,6 +6731,16 @@ h4 {
 #map {
   height: 100%;
   width: 100%; }
+
+.controls {
+  margin-top: 1em; }
+
+.radio-inline {
+  display: inline-block;
+  margin-right: 2em; }
+
+.text p {
+  color: #fff; }
 
 .checkInOut {
   margin-top: 1em;
@@ -6757,11 +6769,11 @@ h4 {
   padding-top: 130px; }
 
 .container-fluid {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto; }
   .container-fluid h2 {
     font-family: "Pure Pakati";
-    font-size: 4em;
+    font-size: 3em;
     letter-spacing: 1px;
     color: #a0ddf9;
     text-align: center; }
@@ -6778,3 +6790,24 @@ h4 {
   top: 50%;
   height: 444.85px;
   width: 800px; }
+
+.row-blue-small {
+  background-color: rgba(43, 47, 58, 0.87);
+  padding: 1em;
+  border: 1px solid #fff;
+  border-radius: .5em;
+  left: 20%;
+  margin-left: -250px;
+  margin-top: -100px;
+  position: absolute;
+  top: 20%;
+  height: 200px;
+  width: 500px; }
+
+select::-ms-expand {
+  display: none; }
+
+select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none; }
