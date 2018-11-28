@@ -1,213 +1,6 @@
 /*jslint browser:true */
 console.log('JS READY');
 
-// function initialize() {
-//     var startPoint = document.getElementById('startPoint');
-//     new google.maps.places.Autocomplete(startPoint);
-//     var endPoint = document.getElementById('endPoint');
-//     new google.maps.places.Autocomplete(endPoint);
-// }
-
-// google.maps.event.addDomListener(window, 'load', initialize);
-
-// MAP
-var map;
-var yoobee = {
-    lat: -41.279178,
-    lng: 174.780331
-};
-var newMarker;
-var clickMarkerLocation;
-var radioOptions = document.getElementsByName("mode");
-
-function initMap() {
-
-    for (var i = 0; i < radioOptions.length; i++) {
-        radioOptions[i].addEventListener('change', function(){
-            var transportMode = getTransportMode();
-            if(clickMarkerLocation){
-                showDirections(clickMarkerLocation, transportMode);
-            }
-        });
-    }
-
-    var directionsService = new google.maps.DirectionsService();
-    var directionsDisplay = new google.maps.DirectionsRenderer();
-
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: yoobee,
-        zoom: 6,
-        scrollwheel: true,
-        disableDefaultUI: true,
-        styles: [
-            {
-                elementType: 'geometry',
-                stylers: [{color: '#242f3e'}]
-            },
-            {
-                elementType: 'labels.text.stroke',
-                stylers: [{color: '#242f3e'}]
-            },
-            {
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#746855'}]
-            },
-            {
-                featureType: 'administrative.locality',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#d59563'}]
-            },
-            {
-                featureType: 'poi',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#d59563'}]
-            },
-            {
-                featureType: 'poi.park',
-                elementType: 'geometry',
-                stylers: [{color: '#263c3f'}]
-            },
-            {
-                featureType: 'poi.park',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#6b9a76'}]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry',
-                stylers: [{color: '#38414e'}]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry.stroke',
-                stylers: [{color: '#212a37'}]
-            },
-            {
-                featureType: 'road',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#9ca5b3'}]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry',
-                stylers: [{color: '#746855'}]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry.stroke',
-                stylers: [{color: '#1f2835'}]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#f3d19c'}]
-            },
-            {
-                featureType: 'transit',
-                elementType: 'geometry',
-                stylers: [{color: '#2f3948'}]
-            },
-            {
-                featureType: 'transit.station',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#d59563'}]
-            },
-            {
-                featureType: 'water',
-                elementType: 'geometry',
-                stylers: [{color: '#17263c'}]
-            },
-            {
-                featureType: 'water',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#515c6d'}]
-            },
-            {
-                featureType: 'water',
-                elementType: 'labels.text.stroke',
-                stylers: [{color: '#17263c'}]
-            }
-        ]
-    });
-
-    // var marker = new google.maps.Marker({
-    //     position: yoobee,
-    //     map: map
-    // });
-
-    map.addListener('click', function(event) {
-        var transportMode = getTransportMode();
-        clickMarkerLocation = event.latLng;
-
-        showDirections(clickMarkerLocation, transportMode);
-    });
-
-    function showDirections(destinationLocation, transportMode){
-        if(directionsDisplay){
-            directionsDisplay.setMap(null);
-        }
-
-        var request = {
-            origin: yoobee,
-            destination: destinationLocation,
-            travelMode: transportMode
-        };
-        directionsService.route(request, function(result, status) {
-            if (status == 'OK') {
-                directionsDisplay.setMap(map);
-                directionsDisplay.setDirections(result);
-                document.getElementById('time').innerText = 'Time to get to destination is '+ result.routes[0].legs[0].duration.text;
-                document.getElementById('distance').innerText = 'Total distance to destination is '+result.routes[0].legs[0].distance.text;
-                addMarker();
-            } else if(status == 'NOT_FOUND'){
-                document.getElementById('time').innerText = '';
-                document.getElementById('distance').innerText = '';
-                removeMarker();
-                alert("At least one of the locations specified in the request's origin, destination could not be geocoded.");
-            } else if(status == 'ZERO_RESULTS'){
-                document.getElementById('time').innerText = '';
-                document.getElementById('distance').innerText = '';
-                removeMarker();
-                alert("No route could be found between the origin and destination.");
-            }
-        });
-    }
-}
-
-function getTransportMode(){
-    if (radioOptions) {
-        for (var i = 0; i < radioOptions.length; i++) {
-            if (radioOptions[i].checked){
-                 return radioOptions[i].value;
-            }
-        }
-    }
-}
-
-function addMarker(){
-    removeMarker();
-
-    newMarker = new google.maps.Marker({
-        position: clickMarkerLocation,
-        map: map
-    });
-}
-
-function removeMarker(){
-    if(newMarker && newMarker.setMap){
-        newMarker.setMap(null);
-    }
-}
-
-// function initialize() {
-//     var startPoint = document.getElementById('startPoint');
-//     new google.maps.places.Autocomplete(startPoint);
-//     var endPoint = document.getElementById('endPoint');
-//     new google.maps.places.Autocomplete(endPoint);
-// }
-
-// google.maps.event.addDomListener(window, 'load', initialize);
-
 // LOADER
 $(window).on('load', function () {
     $('#preloader-icon').fadeOut('slow');
@@ -216,6 +9,250 @@ $(window).on('load', function () {
         'overflow': 'visible'
     });
 });
+
+// MAP
+var map;
+var newMarker;
+var newZealand = {
+    lat: -41.279178,
+    lng: 174.780331
+};
+
+// CITIES
+var allCities = [{
+        "name": "Christchurch",
+        "lat": "-43.513046",
+        "lng": "172.4589949"
+    },
+    {
+        "name": "Dunedin",
+        "lat": "-45.8726724",
+        "lng": "170.4570794"
+    },
+    {
+        "name": "Wellington",
+        "lat": "-41.284526",
+        "lng": "174.7712372"
+    },
+    {
+        "name": "Auckland",
+        "lat": "-36.8629409",
+        "lng": "174.7253864"
+    }
+];
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: newZealand,
+        zoom: 6,
+        disableDefaultUI: true,
+        styles: [{
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#242f3e'
+                }]
+            },
+            {
+                elementType: 'labels.text.stroke',
+                stylers: [{
+                    color: '#242f3e'
+                }]
+            },
+            {
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#746855'
+                }]
+            },
+            {
+                featureType: 'administrative.locality',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#d59563'
+                }]
+            },
+            {
+                featureType: 'poi',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#d59563'
+                }]
+            },
+            {
+                featureType: 'poi.park',
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#263c3f'
+                }]
+            },
+            {
+                featureType: 'poi.park',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#6b9a76'
+                }]
+            },
+            {
+                featureType: 'road',
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#38414e'
+                }]
+            },
+            {
+                featureType: 'road',
+                elementType: 'geometry.stroke',
+                stylers: [{
+                    color: '#212a37'
+                }]
+            },
+            {
+                featureType: 'road',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#9ca5b3'
+                }]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#746855'
+                }]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'geometry.stroke',
+                stylers: [{
+                    color: '#1f2835'
+                }]
+            },
+            {
+                featureType: 'road.highway',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#f3d19c'
+                }]
+            },
+            {
+                featureType: 'transit',
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#2f3948'
+                }]
+            },
+            {
+                featureType: 'transit.station',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#d59563'
+                }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#17263c'
+                }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#515c6d'
+                }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'labels.text.stroke',
+                stylers: [{
+                    color: '#17263c'
+                }]
+            }
+        ]
+    });
+    var startPoint = document.getElementById('startPoint');
+    new google.maps.places.Autocomplete(startPoint);
+    var endPoint = document.getElementById('endPoint');
+    new google.maps.places.Autocomplete(endPoint);
+
+    console.log(map);
+}
+
+// google.maps.event.addDomnumListener(window, 'load', initMap);
+
+// function initMap() {
+
+//     for (var i = 0; i < radioOptions.length; i++) {
+//         radioOptions[i].addEventnumListener('change', function(){
+//             var transportMode = getTransportMode();
+//             if(clickMarkerLocation){
+//                 showDirections(clickMarkerLocation, transportMode);
+//             }
+//         });
+//     }
+
+//     var directionsService = new google.maps.DirectionsService();
+//     var directionsDisplay = new google.maps.DirectionsRenderer();
+
+//     // var marker = new google.maps.Marker({
+//     //     position: yoobee,
+//     //     map: map
+//     // });
+
+//     map.addnumListener('click', function(event) {
+//         var transportMode = getTransportMode();
+//         clickMarkerLocation = event.latLng;
+
+//         showDirections(clickMarkerLocation, transportMode);
+//     });
+
+//     function showDirections(destinationLocation, transportMode){
+//         if(directionsDisplay){
+//             directionsDisplay.setMap(null);
+//         }
+
+//         var request = {
+//             origin: yoobee,
+//             destination: destinationLocation,
+//             travelMode: 'DRIVING'
+//         };
+//         directionsService.route(request, function(result, status) {
+//             if (status == 'OK') {
+//                 directionsDisplay.setMap(map);
+//                 directionsDisplay.setDirections(result);
+//                 document.getElementById('time').innerText = 'Time to get to destination is '+ result.routes[0].legs[0].duration.text;
+//                 document.getElementById('distance').innerText = 'Total distance to destination is '+result.routes[0].legs[0].distance.text;
+//                 addMarker();
+//             } else if(status == 'NOT_FOUND'){
+//                 document.getElementById('time').innerText = '';
+//                 document.getElementById('distance').innerText = '';
+//                 removeMarker();
+//                 alert("At least one of the locations specified in the request's origin, destination could not be geocoded.");
+//             } else if(status == 'ZERO_RESULTS'){
+//                 document.getElementById('time').innerText = '';
+//                 document.getElementById('distance').innerText = '';
+//                 removeMarker();
+//                 alert("No route could be found between the origin and destination.");
+//             }
+//         });
+//     }
+// }
+
+// function addMarker(){
+//     removeMarker();
+
+//     newMarker = new google.maps.Marker({
+//         position: clickMarkerLocation,
+//         map: map
+//     });
+// }
+
+// function removeMarker(){
+//     if(newMarker && newMarker.setMap){
+//         newMarker.setMap(null);
+//     }
+// }
 
 // TOOL TIPSTER
 $('.tool-tip-right').tooltipster({
@@ -246,84 +283,34 @@ $('.tool-tip-top').tooltipster({
     delay: 200,
 });
 
-// DATE
-// document.getElementById("date").innerHTML += Date();
-// var d = new Date();
-
 // PAGE SCROLLING
-// $(document).ready(function () {
-//     $('#mainContainer').fullpage({
-//         verticalCentered: false,
-//         css3: false,
-//         scrollingSpeed: 200,
-//         loopBottom: true,
-//         loopTop: false,
-//         normalScrollElements: null,
-//         normalScrollElementTouchThreshold: 5,
-//         touchSensitivity: 5,
-//         keyboardScrolling: true,
-//         animateAnchor: false,
-//         anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'lastPage'],
-//         menu: '#myMenu',
-//         navigation: {
-//             'textColor': '#f79e33',
-//             'bulletsColor': '#f79e33',
-//             'position': 'left',
-//             'tooltips': ['Index', 'Plan', 'View', 'Select', 'Options', 'Confirm']
-//         }
-//     });
-// });
-
 $(document).ready(function () {
-    $('#mainContainer').fullpage({
-        // licenseKey: 'YOUR_KEY_HERE',
+    $('#mainContainer').pagepiling({
         verticalCentered: false,
         css3: false,
-        scrollingSpeed: 100,
+        scrollingSpeed: 200,
         loopBottom: false,
         loopTop: false,
         normalScrollElements: null,
         normalScrollElementTouchThreshold: 5,
         touchSensitivity: 5,
-        keyboardScrolling: true,
-        animateAnchor: true,
+        keyboardScrolling: false,
+        animateAnchor: false,
         anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'lastPage'],
-        menu: '.myMenu',
-        showActiveTooltip: true,
-        navigation: true,
-        navigationPosition: 'left',
-        navigationTooltips: ['INDEX', 'PLAN', 'VIEW', 'MAP', 'OPTIONS', 'CONFIRM'],
+        menu: '#myMenu',
+        navigation: {
+            'textColor': '#f79e33',
+            'bulletsColor': '#f79e33',
+            'position': 'left',
+            'tooltips': ['Index', 'Dates', 'People', 'Destination', 'Vehicles', 'Confirm']
+        }
     });
 });
 
 $(function () {
-    $.fn.fullpage.setMouseWheelScrolling(false);
-    $.fn.fullpage.setAllowScrolling(false);
+    $.fn.pagepiling.setMouseWheelScrolling(false);
+    $.fn.pagepiling.setAllowScrolling(false);
 });
-
-// MAP
-// MAP CALCULATE DISTANCE
-
-// function initialize() {
-//     var startPoint = document.getElementById('startPoint');
-//     new google.maps.places.Autocomplete(startPoint);
-//     var endPoint = document.getElementById('endPoint');
-//     new google.maps.places.Autocomplete(endPoint);
-// }
-// console.log(document.getElementById('startPoint'));
-
-// google.maps.event.addDomListener(window, 'load', initialize);
-
-// VIDEO
-// document.getElementById('brand-title').addEventListener('click', hideVideo);
-
-// function hideVideo() {
-//     $(function () {
-//         $('#brand-video').hide();
-//     });
-
-//     console.log(document.getElementsByClassName('brand-title'));
-// }
 
 // POP-UPS
 // INFORMATION POP-UP
@@ -340,7 +327,7 @@ $(document).on('click', '.info-trigger', function (event) {
     console.log(document.getElementsByClassName('iziModal'));
 });
 
-// CALENDER
+// DATE PICKER
 var getCheckInDate = document.getElementById('getCheckIn');
 var getCheckOutDate = document.getElementById('getCheckOut');
 
@@ -349,9 +336,6 @@ $('.datepicker1').pickadate({
     clear: '',
     min: new Date(),
 });
-
-console.log(document.getElementsByClassName('datepicker1'));
-console.log(document.getElementsByClassName('datepicker2'));
 
 $('.datepicker1').change(function () {
 
@@ -362,360 +346,23 @@ $('.datepicker1').change(function () {
         clear: '',
         min: new Date(firstDate),
     });
+    console.log('Date Picker');
+    console.log(firstDate);
 });
 
-// CONSOLE LOGS (WORKING WITH DOM)
+// ADD NUMBER OF PEOPLE
+document.getElementById('peopleNum').addEventListener('mouseup', addNumber);
 
-// LOG VIA CLASS OR TAG NAME
-// console.log(document.getElementsByClassName('myPhotos'));
-// console.log(document.getElementsByTagName('h5'));
+// CREATE NUMBER LIST
+var numList = [];
+var numListValues = ["1", "2", "3", "4", "5", "6"];
 
-// LOG THE CHILD NODES
-// console.log(productsContainer.childNodes[2]);
-// var child = productsContainer.childNodes[2];
-// console.log(child.parentNode);
-// console.log(child.previousSibling);
-// console.log(child.nextSibling);
-// console.log(productsContainer.lastChild);
-// console.log(productsContainer.firstChild);
-
-// LOG THE NODE LIST
-// console.log(document.querySelectorAll(".myPhotos"));
-
-// LOG VIA IMAGES
-// GIVES TRUE OR FALSE IF IT HAS THE ATTRIBUTE "SRC"
-// console.log(photo[1].hasAttribute("src"));
-// console.log(photo[1]);
-
-// SETS NEW ALT DESCRIPTION
-// photo[2].setAttribute("alt", "I am the black circle of the wolf");
-// console.log(photo[2].getAttribute("alt"));
-// console.log(photo[2]);
-
-// TEST
-// document.getElementById("date").innerHTML += Date();
-// var d = new Date();
-// document.getElementById("time").innerHTML += d.getHours() + ":" + d.getMinutes();
-// $(function () {
-//     $('#startDate').datepicker();
-//     $('#endDate').datepicker();
-// });
-
-// function dateDiff() {
-//     var start = $('#startDate').datepicker('getDate');
-//     var end = $('#endDate').datepicker('getDate');
-//     var days = (end - start) / 1000 / 60 / 60 / 24;
-//     document.getElementById("dayNumber").value = days;
-//     console.log(days);
-//     return;
-// }
-
-// google.maps.event.addDomListener(window, 'load', initialize);
-
-// function calculate() {
-//     var mode = document.getElementById('mode').value;
-//     var distanceService = new google.maps.DistanceMatrixService();
-//     distanceService.getDistanceMatrix({
-//             origins: [document.getElementById('startPoint').value],
-//             destinations: [document.getElementById('endPoint').value],
-//             travelMode: mode,
-//             unitSystem: google.maps.UnitSystem.METRIC
-//         },
-//         function (response, status) {
-//             if (status !== google.maps.DistanceMatrixStatus.OK) {
-//                 console.log('Error:', status);
-
-//             } else {
-//                 console.log(response);
-//                 document.getElementById('distance').value = response.rows[0].elements[0].distance.text;
-//                 document.getElementById('duration').value = response.rows[0].elements[0].duration.text;
-//             }
-//         });
-// }
-
-// SELECT MENU
-// $( function() {
-
-//     $( "#peopleNum" )
-//       .selectmenu()
-//       .selectmenu( "menuWidget" )
-//         .addClass( "overflow" );
- 
-//   } );
-
-/*jslint browser:true */
-console.log("JS LOADED")
-
-// CREATE ARRAY
-var allProducts = [{
-        name: 'Rainbow',
-        price: 44,
-        image: '1.jpg',
-        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
-    },
-    {
-        name: 'Bear',
-        price: 64,
-        image: '2.jpg',
-        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
-    },
-    {
-        name: 'Eagle',
-        price: 144,
-        image: '3.jpg',
-        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
-    },
-    {
-        name: 'Black Circle',
-        price: 23,
-        image: '4.jpg',
-        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
-    },
-    {
-        name: 'Space',
-        price: 7,
-        image: '5.jpg',
-        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
-    },
-    {
-        name: 'Landscape',
-        price: 37,
-        image: '6.jpg',
-        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
-    },
-    {
-        name: 'Shine',
-        price: 447,
-        image: '7.jpg',
-        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
-    },
-    {
-        name: 'Red Circle',
-        price: 34,
-        image: '8.jpg',
-        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
-    },
-    {
-        name: 'Queen',
-        price: 59,
-        image: '9.jpg',
-        desc: 'Some quick example text to build on the card title and make up the bulk of the cards content.'
-    }
-];
-
-// LOG ARRAY
-console.log(allProducts);
-
-// EVENT LISTENERS
-document.getElementById('addCardBtn').addEventListener('click', addCard);
-document.getElementById('removeCardBtn').addEventListener('click', removeCard);
-document.getElementById('allCardsBtn').addEventListener('click', allCards);
-document.getElementById('loadCardsBtn').addEventListener('click', loadCards);
-
-// GLOBAL VARIABLES
-var productsContainer = document.getElementById('allProducts');
-var cardWrapper = document.createElement('div');
-var cardDiv = document.createElement('div');
-var cardBody = document.createElement('div');
-
-var photo = [];
-photo = document.getElementsByClassName("myPhotos");
-
-// ADD CARD BUTTON
-function addCard() {
-
-    function singleCard() {
-        productsContainer = document.getElementById('allProducts');
-        cardWrapper = document.createElement('div');
-        cardDiv = document.createElement('div');
-        cardBody = document.createElement('div');
-
-        cardWrapper.className = 'col-md-4';
-        cardDiv.className = 'card';
-        cardBody.className = 'card-body';
-        cardWrapper.appendChild(cardDiv);
-        cardDiv.innerHTML += '<img class="card-img-top myPhotos" src="images/' + allProducts[j].image + '">';
-        cardDiv.appendChild(cardBody);
-        cardBody.innerHTML += '<h4 class="card-title float-right"> $' + allProducts[j].price + '</h4>';
-        cardBody.innerHTML += '<h5 class="card-title">' + allProducts[j].name + '</h5>';
-        cardBody.innerHTML += '<p class="card-text">' + allProducts[j].desc + '</p>';
-        cardBody.innerHTML += '<p class="btn btn-dark">' + "View Card" + '</p>';
-        productsContainer.appendChild(cardWrapper);
-    }
-
-    outerloop:
-        for (var i = 0; i < allProducts.length; i++) {
-            for (var j = 0; j < photo.length; j++) {
-                var left = (photo[j].getAttribute("src"));
-                var right = ("images/" + allProducts[i].image);
-
-                console.log(left);
-                console.log(right);
-
-                if (left == right) {
-                    continue outerloop;
-                }
-            }
-            if (i >= allProducts.length - 1) {
-                singleCard(i);
-                alert("no more photos");
-            } else {
-                singleCard(i);
-            }
-            break;
-        }
-    return photo;
+// FUNCTION
+function addNumber(newNum) {
+    newNum = document.getElementById("peopleNum").selectedIndex;
+    document.getElementsByTagName("option")[newNum].value;
+    numList.splice(0, 1);
+    numList.push(newNum);
+    console.log('Number of People');
+    console.log(numList);
 }
-
-// REMOVE CARD BUTTON
-function removeCard() {
-    var child;
-
-    var x = prompt("Enter product number");
-    for (var i = 0; i < photo.length; i++) {
-
-        console.log(photo);
-
-        var filename = photo[i].getAttribute("src");
-
-        console.log(filename);
-
-        // EXTRACTS ONE NUMBER FROM THE 14TH POSITION OF THE FILENAME
-        var filenumber = filename.substr(7, 1);
-        console.log(filenumber);
-
-        if (photo.length > 3) {
-            if (x == (filenumber)) {
-                child = productsContainer.childNodes[i + 1];
-                console.log(child);
-                productsContainer.removeChild(child);
-                break;
-            }
-        } else {
-            alert("Minimum 3 products must be on display");
-            break;
-        }
-    }
-}
-
-// ALL CARDS BUTTON
-function allCards() {
-    document.getElementById("allProducts").innerHTML = "";
-
-    for (var i = 0; i < allProducts.length; i++) {
-
-        productsContainer = document.getElementById('allProducts');
-        cardWrapper = document.createElement('div');
-        cardDiv = document.createElement('div');
-        cardBody = document.createElement('div');
-
-        cardWrapper.className = 'col-md-4';
-        cardDiv.className = 'card';
-        cardBody.className = 'card-body';
-        cardWrapper.appendChild(cardDiv);
-        cardDiv.innerHTML += '<img class="card-img-top myPhotos" src="images/' + allProducts[i].image + '">';
-        cardDiv.appendChild(cardBody);
-        cardBody.innerHTML += '<h4 class="card-title float-right"> $' + allProducts[i].price + '</h4>';
-        cardBody.innerHTML += '<h5 class="card-title">' + allProducts[i].name + '</h5>';
-        cardBody.innerHTML += '<p class="card-text">' + allProducts[i].desc + '</p>';
-        cardBody.innerHTML += '<p class="btn btn-dark">' + "View Card" + '</p>';
-
-        // LOG ARRAY
-        console.log(allProducts);
-        // LOG CREATED SITE CONTENT
-        console.log(productsContainer);
-
-        // LOG TEXT AND MARKUP
-        console.log(productsContainer.innerHTML);
-
-        // LOG AND SET TEXT
-        console.log(productsContainer.textContent);
-
-        productsContainer.appendChild(cardWrapper);
-    }
-}
-
-// RESET CARDS BUTTON
-function loadCards() {
-    document.getElementById("allProducts").innerHTML = "";
-
-    for (var i = 0; i < 3; i++) {
-
-        productsContainer = document.getElementById('allProducts');
-        cardWrapper = document.createElement('div');
-        cardDiv = document.createElement('div');
-        cardBody = document.createElement('div');
-
-        cardWrapper.className = 'col-md-4';
-        cardDiv.className = 'card';
-        cardBody.className = 'card-body';
-        cardWrapper.appendChild(cardDiv);
-        cardDiv.innerHTML += '<img class="card-img-top myPhotos" src="images/' + allProducts[i].image + '">';
-        cardDiv.appendChild(cardBody);
-        cardBody.innerHTML += '<h4 class="card-title float-right"> $' + allProducts[i].price + '</h4>';
-        cardBody.innerHTML += '<h5 class="card-title">' + allProducts[i].name + '</h5>';
-        cardBody.innerHTML += '<p class="card-text">' + allProducts[i].desc + '</p>';
-        cardBody.innerHTML += '<p class="btn btn-dark">' + "View Card" + '</p>';
-        productsContainer.appendChild(cardWrapper);
-    }
-    console.log("RESET TO 3 PRODUCTS")
-}
-
-// ISOTOPE
-var $grid = $(productsContainer).isotope({
-    itemSelector: '.col-md-4',
-    layoutMode: 'fitRows',
-    getSortData: {
-        name: function (element) {
-            return $(element).text();
-        }
-    }
-});
-
-// FILTER BUTTON
-$('.filter button').on("click", function () {
-    var value = $(this).attr('data-name');
-    $grid.isotope({
-        filter: value
-    });
-    $('.filter button').removeClass("active");
-    $(this).addClass("active");
-});
-
-// SORT BUTTON
-$('.sort button').on("click",  function () {
-    var value = $(this).attr('data-name');
-    $grid.isotope({
-        sortBy: value
-    });
-    $('.sort button').removeClass("active");
-    $(this).addClass("active");
-});
-
-// CONSOLE LOGS (WORKING WITH DOM)
-
-// LOG VIA CLASS OR TAG NAME
-// console.log(document.getElementsByClassName('myPhotos'));
-// console.log(document.getElementsByTagName('h5'));
-
-// LOG THE CHILD NODES
-// console.log(productsContainer.childNodes[2]);
-// var child = productsContainer.childNodes[2];
-// console.log(child.parentNode);
-// console.log(child.previousSibling);
-// console.log(child.nextSibling);
-// console.log(productsContainer.lastChild);
-// console.log(productsContainer.firstChild);
-
-// LOG THE NODE LIST
-// console.log(document.querySelectorAll(".myPhotos"));
-
-// LOG VIA IMAGES
-// GIVES TRUE OR FALSE IF IT HAS THE ATTRIBUTE "SRC"
-// console.log(photo[1].hasAttribute("src"));
-// console.log(photo[1]);
-
-// SETS NEW ALT DESCRIPTION
-// photo[2].setAttribute("alt", "I am the black circle of the wolf");
-// console.log(photo[2].getAttribute("alt"));
-// console.log(photo[2]);

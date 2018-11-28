@@ -6415,7 +6415,7 @@ h3 {
   font-family: "Open Sans Bold";
   font-size: 2em;
   letter-spacing: 0px;
-  color: #2b2f3a; }
+  color: #fff; }
 
 h4 {
   font-family: "Open Sans Regular";
@@ -6697,7 +6697,7 @@ h4 {
   background-image: url("../img/sections/3.jpg"); }
 
 #section4 {
-  background-image: url("../img/sections/4.jpg"); }
+  background: #2b2f3a; }
 
 #section5 {
   background-image: url("../img/sections/5.jpg"); }
@@ -6705,32 +6705,16 @@ h4 {
 #section6 {
   background-image: url("../img/sections/6.jpg"); }
 
-#fp-nav {
-  color: #fff; }
-
-#fp-nav li .active span,
-.fp-slidesNav .active span {
-  background: #fff; }
-
-#fp-nav ul li .fp-tooltip {
-  top: -4px; }
-
-#fp-nav ul li,
-.fp-slidesNav ul li {
-  margin: 10px; }
-
-#fp-nav ul li .fp-tooltip.fp-right {
-  right: 22px; }
-
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
-  height: 6px;
-  width: 6px;
+#pp-nav ul li a span,
+.pp-slidesNav ul li a span {
+  height: 9px;
+  width: 9px;
   background: #f79e33; }
 
 #map {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  cursor: pointer; }
 
 .controls {
   margin-top: 1em; }
@@ -6769,7 +6753,7 @@ h4 {
   padding-top: 130px; }
 
 .container-fluid {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto; }
   .container-fluid h2 {
     font-family: "Pure Pakati";
@@ -6777,6 +6761,9 @@ h4 {
     letter-spacing: 1px;
     color: #a0ddf9;
     text-align: center; }
+
+.peopleNumDisplay h3 {
+  color: #fff; }
 
 .row-blue {
   background-color: rgba(43, 47, 58, 0.87);
@@ -6811,3 +6798,17 @@ select {
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none; }
+
+.btn-dark {
+  font-family: "Open Sans Regular";
+  font-size: 1em;
+  letter-spacing: 1px;
+  color: #2b2f3a;
+  background-color: #a0ddf9;
+  border-color: #343a40; }
+
+.floatRight {
+  float: right; }
+
+.floatRight::after {
+  clear: right; }

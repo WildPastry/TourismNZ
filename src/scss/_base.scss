@@ -24,7 +24,7 @@ h2 {
 }
 
 h3 {
-    @include fontProperties($fnt-bld, $hdg-3, $spc-zero, $d-blu);
+    @include fontProperties($fnt-bld, $hdg-3, $spc-zero, $wht);
 }
 
 h4 {

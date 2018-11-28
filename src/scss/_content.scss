@@ -44,7 +44,8 @@
 }
 
 #section4 {
-    background-image: url('../img/sections/4.jpg');
+    // background-image: url('../img/sections/4.jpg');
+    background: $d-blu;
 }
 
 #section5 {
@@ -56,32 +57,10 @@
 }
 
 // SIDE NAVIGATION
-#fp-nav {
-    color: $wht;
-}
-
-#fp-nav li .active span,
-.fp-slidesNav .active span {
-    background: $wht;
-}
-
-#fp-nav ul li .fp-tooltip {
-    top: -4px;
-}
-
-#fp-nav ul li,
-.fp-slidesNav ul li {
-    margin: 10px;
-}
-
-#fp-nav ul li .fp-tooltip.fp-right {
-    right: 22px;
-}
-
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
-    height: 6px;
-    width: 6px;
+#pp-nav ul li a span,
+.pp-slidesNav ul li a span {
+    height: 9px;
+    width: 9px;
     background: $in-ylw;
 }
 
@@ -100,13 +79,10 @@
     display: inline-block;
     margin-right: 2em;
 }
-.text p{
+
+.text p {
     color: $wht;
 }
-
-// .buttons {
-//     float: left;
-// }
 
 // CALENDER
 .checkInOut {
@@ -144,13 +120,17 @@
 }
 
 .container-fluid {
-    max-width: 800px;
+    max-width: 1200px;
     margin: $main-mar;
 
     h2 {
         @include fontProperties($fnt-pure, $hdg-2, $spc, $l-blu);
         text-align: center;
     }
+}
+
+.peopleNumDisplay h3 {
+    color: $wht;
 }
 
 .row-blue {
@@ -181,20 +161,7 @@
     width: 500px;
 }
 
-// POP-UPS
-
 // SELECT MENU
-// fieldset {
-//     border: 0;
-//   }
-//   label {
-//     display: block;
-//     margin: 30px 0 0 0;
-//   }
-//   .overflow {
-//     height: 200px;
-//   }
-
 select::-ms-expand {
     display: none;
 }
@@ -203,4 +170,20 @@ select {
     cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
+}
+
+// BUTTONS
+.btn-dark {
+    @include fontProperties($fnt-reg, $bdy, $spc, $d-blu);
+    background-color: $l-blu;
+    border-color: #343a40;
+}
+
+.floatRight {
+    float: right;
+}
+
+.floatRight::after {
+    clear: right;
+
 }
