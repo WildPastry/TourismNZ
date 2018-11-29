@@ -6805,14 +6805,6 @@ h4 {
   height: 200px;
   width: 500px; }
 
-select::-ms-expand {
-  display: none; }
-
-select {
-  cursor: pointer;
-  -webkit-appearance: none;
-  appearance: none; }
-
 .btn-dark {
   font-family: "Open Sans Regular";
   font-size: 1em;
@@ -6827,16 +6819,36 @@ select {
 .floatRight::after {
   clear: right; }
 
+.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated
+.custom-select:invalid,
+.custom-select.is-invalid {
+  border-color: #f79e33; }
+
 .fa-check {
   font-size: 1em; }
 
 .invalid-feedback {
-  margin-top: 1em;
-  color: #f18a93;
+  margin-top: 0.5em;
+  color: #f79e33;
   font-size: 100%; }
 
 .picker__input.picker__input--active {
   border-color: #a0ddf9; }
 
-.errorMessage {
-  margin-top: 1em; }
+#dateErrorMessage {
+  display: none;
+  color: #f79e33;
+  font-size: 100%; }
+
+.col-date {
+  height: 100px; }
+
+.col-info {
+  height: 50px; }
+
+.note p {
+  text-align: center;
+  color: #a0ddf9; }
+
+.col-info {
+  text-align: center; }

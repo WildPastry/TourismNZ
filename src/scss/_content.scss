@@ -179,17 +179,6 @@
     width: 500px;
 }
 
-// SELECT MENU
-select::-ms-expand {
-    display: none;
-}
-
-select {
-    cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
-}
-
 // BUTTONS
 .btn-dark {
     @include fontProperties($fnt-reg, $bdy, $spc, $d-blu);
@@ -207,13 +196,19 @@ select {
 
 // FORMS
 
+.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated .custom-select:invalid, .custom-select.is-invalid {
+
+    border-color: $in-ylw;
+
+}
 .fa-check {
     font-size: 1em;
 }
 
 .invalid-feedback {
-    margin-top: 1em;
-    color: rgb(241, 138, 147);
+    margin-top: 0.5em;
+    color: $in-ylw;
+    // color: rgb(255, 66, 82);
     font-size: 100%;
 }
 
@@ -221,5 +216,49 @@ select {
     border-color: $l-blu;
 }
 
-.errorMessage {
-    margin-top: 1em; }
+#dateErrorMessage {
+    display: none;
+    // margin-top: 0.5em;
+    color: $in-ylw;
+    // color: rgb(255, 66, 82);
+    font-size: 100%;
+}
+
+.col-date {
+    height: 100px;
+}
+
+.col-info {
+    height: 50px;
+}
+
+.note p {
+    text-align: center;
+    color: $l-blu;
+}
+
+.col-info {
+    text-align: center;
+}
+// input {
+//     padding-bottom: 1em;
+// }
+// SPINNER
+// input { 
+//     text-align: center; 
+// }
+
+// .peopleNum input {
+//     width: 300px;
+// }
+
+// SELECT MENU
+// select::-ms-expand {
+//     display: none;
+// }
+
+// select {
+//     cursor: pointer;
+//     -webkit-appearance: none;
+//     appearance: none;
+// }

@@ -185,25 +185,25 @@ function initMap() {
 
     document.getElementById('startPoint').addEventListener('click', addMarker);
 
-    function addMarker(){
-    var marker = new google.maps.Marker({
-        position: newZealand,
-        map: map,
-        zoom: 14
-      });
+    function addMarker() {
+        var marker = new google.maps.Marker({
+            position: newZealand,
+            map: map,
+            zoom: 14
+        });
         map.setZoom(10);
         map.setCenter(marker.getPosition());
     }
 
     // function addMarker(){
     //     removeMarker();
-    
+
     //     newMarker = new google.maps.Marker({
     //         position: clickMarkerLocation,
     //         map: map
     //     });
     // }
-    
+
     // function removeMarker(){
     //     if(newMarker && newMarker.setMap){
     //         newMarker.setMap(null);
@@ -254,23 +254,23 @@ function initMap() {
 //     }
 // }
 
-    // google.maps.event.addListener(places, 'place_changed', function () {
-    //     var geocoder = new google.maps.Geocoder();
-    //     var place = places.getPlace();
-    //     var address = place.formatted_address;
-    //     geocoder.geocode({ 'address': address }, function (results, status) {
-    //         if (status == google.maps.GeocoderStatus.OK) {
-    //             var latitude = results[0].geometry.location.lat();
-    //             var longitude = results[0].geometry.location.lng();
-    //             var mapOptions = { center: new google.maps.LatLng(latitude, longitude), zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP };
-    //             var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    //             var marker = new google.maps.Marker({ position: new google.maps.LatLng(latitude, longitude), map: map });
+// google.maps.event.addListener(places, 'place_changed', function () {
+//     var geocoder = new google.maps.Geocoder();
+//     var place = places.getPlace();
+//     var address = place.formatted_address;
+//     geocoder.geocode({ 'address': address }, function (results, status) {
+//         if (status == google.maps.GeocoderStatus.OK) {
+//             var latitude = results[0].geometry.location.lat();
+//             var longitude = results[0].geometry.location.lng();
+//             var mapOptions = { center: new google.maps.LatLng(latitude, longitude), zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP };
+//             var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+//             var marker = new google.maps.Marker({ position: new google.maps.LatLng(latitude, longitude), map: map });
 
-    //         } else {
-    //             alert("Request failed.")
-    //         }
-    //     });
-    // });
+//         } else {
+//             alert("Request failed.")
+//         }
+//     });
+// });
 
 // TOOL TIPSTER
 $('.tool-tip-right').tooltipster({
@@ -353,37 +353,39 @@ var dayListValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "1
 
 // DATE FORMAT
 var dateFormat = 'mm/dd/yy',
-	from = $('#pickDate')
-		.datepicker({
-			dateFormat: 'dd/mm/yy',
-			defaultDate: 0,
-			minDate: 0,
-			numberOfMonths: 1
-		})
-		.on('change', function() {
-			to.datepicker('option', 'minDate', getDate(this));
-		});
-	to = $('#dropDate').datepicker({
-		dateFormat: 'dd/mm/yy',
-		defaultDate: 0,
-		minDate: 0,
-		numberOfMonths: 1
-	})
-	.on( "change", function() {
-        from.datepicker( "option", "maxDate", getDate( this ) );
-      });
+    from = $('#pickDate')
+    .datepicker({
+        dateFormat: 'dd/mm/yy',
+        defaultDate: 0,
+        minDate: 0,
+        numberOfMonths: 1
+    })
+    .on('change', function () {
+        to.datepicker('option', 'minDate', getDate(this));
+    });
+to = $('#dropDate').datepicker({
+        dateFormat: 'dd/mm/yy',
+        defaultDate: 0,
+        minDate: 0,
+        numberOfMonths: 1
+    })
+    .on("change", function () {
+        from.datepicker("option", "maxDate", getDate(this));
+    });
 
 // RETURN DATE
 function getDate(element) {
-	var dateFormat = 'dd/mm/yy';
-	var newDate = $('#pickDate').datepicker({dateFormat: 'mm/dd/yy'});
-	var date;
-	try {
-		date = $.datepicker.parseDate(dateFormat, element.value);
-	} catch (error) {
-		date = null;
-	}
-	return date;
+    var dateFormat = 'dd/mm/yy';
+    var newDate = $('#pickDate').datepicker({
+        dateFormat: 'mm/dd/yy'
+    });
+    var date;
+    try {
+        date = $.datepicker.parseDate(dateFormat, element.value);
+    } catch (error) {
+        date = null;
+    }
+    return date;
 }
 
 // EVENT LISTENER
@@ -392,6 +394,7 @@ function getDate(element) {
 var getCheckInDate = document.getElementById('getCheckIn');
 var getCheckOutDate = document.getElementById('getCheckOut');
 var daysSelected = document.getElementById('daysSelected');
+var getDateBtn = document.getElementById('dateBtn');
 
 // FIRST DATE
 $('.datepicker1').pickadate({
@@ -409,12 +412,12 @@ $('.datepicker1').change(function () {
         min: new Date(firstDate),
         onClose: function () {
             calculateDays();
-          }
+        }
     });
 });
 
 // FUNCTION
-function calculateDays () {
+function calculateDays() {
 
     // CALCULATE DAYS BETWEEN DATES
     var startDate = Date.parse(getCheckIn.value);
@@ -426,10 +429,14 @@ function calculateDays () {
     daysSelected.innerText = daysDiff;
     console.log('Number of Days');
     console.log(daysDiff);
-  }
+}
 
 // ADD NUMBER OF PEOPLE
 document.getElementById('peopleBtn').addEventListener('click', addNumber);
+
+// $("#peopleNum").mouseleave(function(){
+//     addNumber();
+//  });
 
 // CREATE NUMBER LIST
 var numList = [];
@@ -445,21 +452,33 @@ function addNumber(newNum) {
     console.log(numList);
 }
 
-// VALIDATION
-// (function() {
-//     'use strict';
-//     window.addEventListener('load', function() {
-//       // Fetch all the forms we want to apply custom Bootstrap validation styles to
-//       var forms = document.getElementsByClassName('needs-validation');
-//       // Loop over them and prevent submission
-//       var validation = Array.prototype.filter.call(forms, function(form) {
-//         form.addEventListener('submit', function(event) {
-//           if (form.checkValidity() === false) {
-//             event.preventDefault();
-//             event.stopPropagation();
-//           }
-//           form.classList.add('was-validated');
-//         }, false);
-//       });
-//     }, false);
-//   })();
+// FORM
+window.addEventListener('load',
+    function formValidation() {
+
+        // FETCH FORMS
+        var forms = document.getElementsByClassName('needs-validation');
+        // PREVENT SUBMISSION
+        var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false || daysSelected.textContent > 15 || daysSelected.textContent < 1) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    // CUSTOM ERROR SHOW
+                    document.getElementById('dateErrorMessage').style.display = 'block';
+
+                }
+                form.classList.add('was-validated');
+            }, false);
+
+        });
+    }, false);
+
+// NO REFRESH
+$('form').submit(function () {
+    return false;
+});
+
+// CUSTOM ERROR HIDE
+// document.getElementById('dateErrorMessage').style.display = 'none';
