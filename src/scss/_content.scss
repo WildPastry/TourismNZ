@@ -204,3 +204,22 @@ select {
 .floatRight::after {
     clear: right;
 }
+
+// FORMS
+
+.fa-check {
+    font-size: 1em;
+}
+
+.invalid-feedback {
+    margin-top: 1em;
+    color: rgb(241, 138, 147);
+    font-size: 100%;
+}
+
+.picker__input.picker__input--active {
+    border-color: $l-blu;
+}
+
+.errorMessage {
+    margin-top: 1em; }

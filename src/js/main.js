@@ -30,6 +30,11 @@ var allCities = [{
         "lng": "170.4570794"
     },
     {
+        "name": "Hamilton",
+        "lat": "-37.7751208",
+        "lng": "175.1948842"
+    },
+    {
         "name": "Wellington",
         "lat": "-41.284526",
         "lng": "174.7712372"
@@ -44,7 +49,7 @@ var allCities = [{
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: newZealand,
-        zoom: 6,
+        zoom: 7,
         disableDefaultUI: true,
         styles: [{
                 elementType: 'geometry',
@@ -177,6 +182,34 @@ function initMap() {
     new google.maps.places.Autocomplete(endPoint);
 
     console.log(map);
+
+    document.getElementById('startPoint').addEventListener('click', addMarker);
+
+    function addMarker(){
+    var marker = new google.maps.Marker({
+        position: newZealand,
+        map: map,
+        zoom: 14
+      });
+        map.setZoom(10);
+        map.setCenter(marker.getPosition());
+    }
+
+    // function addMarker(){
+    //     removeMarker();
+    
+    //     newMarker = new google.maps.Marker({
+    //         position: clickMarkerLocation,
+    //         map: map
+    //     });
+    // }
+    
+    // function removeMarker(){
+    //     if(newMarker && newMarker.setMap){
+    //         newMarker.setMap(null);
+    //     }
+    // }
+
 }
 
 //     var directionsService = new google.maps.DirectionsService();
@@ -221,20 +254,23 @@ function initMap() {
 //     }
 // }
 
-// function addMarker(){
-//     removeMarker();
+    // google.maps.event.addListener(places, 'place_changed', function () {
+    //     var geocoder = new google.maps.Geocoder();
+    //     var place = places.getPlace();
+    //     var address = place.formatted_address;
+    //     geocoder.geocode({ 'address': address }, function (results, status) {
+    //         if (status == google.maps.GeocoderStatus.OK) {
+    //             var latitude = results[0].geometry.location.lat();
+    //             var longitude = results[0].geometry.location.lng();
+    //             var mapOptions = { center: new google.maps.LatLng(latitude, longitude), zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP };
+    //             var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    //             var marker = new google.maps.Marker({ position: new google.maps.LatLng(latitude, longitude), map: map });
 
-//     newMarker = new google.maps.Marker({
-//         position: clickMarkerLocation,
-//         map: map
-//     });
-// }
-
-// function removeMarker(){
-//     if(newMarker && newMarker.setMap){
-//         newMarker.setMap(null);
-//     }
-// }
+    //         } else {
+    //             alert("Request failed.")
+    //         }
+    //     });
+    // });
 
 // TOOL TIPSTER
 $('.tool-tip-right').tooltipster({
@@ -408,3 +444,22 @@ function addNumber(newNum) {
     console.log('Number of People');
     console.log(numList);
 }
+
+// VALIDATION
+// (function() {
+//     'use strict';
+//     window.addEventListener('load', function() {
+//       // Fetch all the forms we want to apply custom Bootstrap validation styles to
+//       var forms = document.getElementsByClassName('needs-validation');
+//       // Loop over them and prevent submission
+//       var validation = Array.prototype.filter.call(forms, function(form) {
+//         form.addEventListener('submit', function(event) {
+//           if (form.checkValidity() === false) {
+//             event.preventDefault();
+//             event.stopPropagation();
+//           }
+//           form.classList.add('was-validated');
+//         }, false);
+//       });
+//     }, false);
+//   })();

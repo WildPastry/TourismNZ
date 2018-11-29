@@ -336,11 +336,57 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
                 <!-- CONTAINER -->
                 <div class="container-fluid paddingTop">
                     <div class="row row-blue">
+                        <!-- <form class="needs-validation">
+                            <div class="form-row">
+
+                                <div class="col-md-6">
+                                    <label for="getCheckIn">Pick up date</label>
+                                    <input type="text" class="form-control checkIn datepicker1" id="getCheckIn"
+                                        autocomplete="off" placeholder="Pick up date" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a date
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Thanks bro
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="getCheckOut">Drop off date</label>
+                                    <input type="text" class="form-control checkOut datepicker2" id="getCheckOut"
+                                        autocomplete="off" placeholder="Drop off date" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a date
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Thanks bro
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                    <div class="optionsFont howManyDays">You have selected...</div>
+                                    <div class="optionsFont howManyDays" id="daysSelected">0</div>
+                                    <div class="optionsFont howManyDays" id="daysText">Days</div>
+                                    <div class="note">
+                                        <p>Minimum 1 day required, max hire is 15 days</p>
+                                    </div>
+                                </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <a href="#firstPage"><button class="btn btn-dark">BACK</button></a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#thirdPage"><button id="dateBtn" class="btn btn-dark floatRight">CONTINUE</button></a>
+                                </div>
+                            </div>
+                        </form> -->
+
                         <div class="col-md-12">
                             <h2>SELECT DATES</h2>
                         </div>
                         <div class="col-md-6">
-                            <label for="getCheckIn">Pick up date*</label>
+                            <label for="getCheckIn">Pick up date</label>
                             <input type="text" class="form-control checkIn datepicker1" id="getCheckIn" autocomplete="off"
                                 placeholder="Pick up date" required>
                             <div class="invalid-feedback">
@@ -348,7 +394,7 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="getCheckOut">Drop off date*</label>
+                            <label for="getCheckOut">Drop off date</label>
                             <input type="text" class="form-control checkOut datepicker2" id="getCheckOut" autocomplete="off"
                                 placeholder="Drop off date" required>
                             <div class="invalid-feedback">
@@ -385,8 +431,7 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
                         </div>
                         <div class="col-md-12">
                             <label for="peopleNum">Number of people*</label>
-                            <select name="peopleNum" class="form-control marginTop" id="peopleNum" autocomplete="off"
-                                placeholder="Number of people" required>
+                            <select name="peopleNum" class="form-control marginTop" id="peopleNum" autocomplete="off" required>
                                 <option value="0" disabled hidden>0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -421,18 +466,18 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="startPoint">Pick up location*</label>
+                                <label for="startPoint">Pick up location</label>
                                 <input type="text" class="form-control" id="startPoint" autocomplete="off" placeholder="Pick up location">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="endPoint">Drop off location*</label>
+                                <label for="endPoint">Drop off location</label>
                                 <input type="text" class="form-control" id="endPoint" autocomplete="off" placeholder="Drop off location">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <a href="#thirdPage"><button class="btn btn-dark">BACK</button>
+                            <a href="#thirdPage"><button id="testMarker" class="btn btn-dark">BACK</button>
                         </div></a>
                         <div class="col-md-6">
                             <a href="#fifthPage"><button id="destBtn" class="btn btn-dark floatRight">CONTINUE</button></a>
@@ -577,9 +622,10 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
 
             <!-- CLOSE MAIN CONTAINER -->
         </div>
-
+        <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ5qWqvPupVZb1AlLikNVFw4U3Lm5Oycs&libraries=places&callback=initMap"
+        type="text/javascript"></script> -->
         <!--build:js js/main.min.js -->
-
+        <!-- <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
         <script src="framework/js/jquery-3.3.1.min.js" type="text/javascript"></script>
         <script src="js/jquery-ui.js" type="text/javascript"></script>
         <script src="js/jquery.lockscroll.min.js" type="text/javascript"></script>

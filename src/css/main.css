@@ -6826,3 +6826,17 @@ select {
 
 .floatRight::after {
   clear: right; }
+
+.fa-check {
+  font-size: 1em; }
+
+.invalid-feedback {
+  margin-top: 1em;
+  color: #f18a93;
+  font-size: 100%; }
+
+.picker__input.picker__input--active {
+  border-color: #a0ddf9; }
+
+.errorMessage {
+  margin-top: 1em; }
