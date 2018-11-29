@@ -6576,7 +6576,7 @@ h4 {
   z-index: 30; }
 
 .brand-title:hover .in-ylw {
-  fill: #fff; }
+  fill: #2178a6; }
 
 .l-blu {
   fill: #a0ddf9; }
@@ -6748,6 +6748,20 @@ h4 {
   font-size: 1em;
   z-index: 15;
   margin-top: 20px; }
+
+.optionsFont {
+  margin-bottom: 0;
+  font-size: 2em;
+  color: #fff; }
+
+.note p {
+  color: #fff; }
+
+.howManyDays {
+  display: inline; }
+
+.daySelectedTitle {
+  margin-top: 1.5em; }
 
 .paddingTop {
   padding-top: 130px; }

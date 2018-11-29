@@ -114,6 +114,24 @@
     margin-top: 20px;
 }
 
+.optionsFont {
+    margin-bottom: 0;
+    font-size: 2em;
+    color: $wht;
+}
+
+.note p {
+    color: $wht;
+}
+
+.howManyDays {
+    display: inline;
+}
+
+.daySelectedTitle {
+    margin-top: 1.5em;
+}
+
 // CONTAINERS AND ROWS
 .paddingTop {
     padding-top: 130px;
@@ -185,5 +203,4 @@ select {
 
 .floatRight::after {
     clear: right;
-
 }

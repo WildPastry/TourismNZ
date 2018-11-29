@@ -179,26 +179,8 @@ function initMap() {
     console.log(map);
 }
 
-// google.maps.event.addDomnumListener(window, 'load', initMap);
-
-// function initMap() {
-
-//     for (var i = 0; i < radioOptions.length; i++) {
-//         radioOptions[i].addEventnumListener('change', function(){
-//             var transportMode = getTransportMode();
-//             if(clickMarkerLocation){
-//                 showDirections(clickMarkerLocation, transportMode);
-//             }
-//         });
-//     }
-
 //     var directionsService = new google.maps.DirectionsService();
 //     var directionsDisplay = new google.maps.DirectionsRenderer();
-
-//     // var marker = new google.maps.Marker({
-//     //     position: yoobee,
-//     //     map: map
-//     // });
 
 //     map.addnumListener('click', function(event) {
 //         var transportMode = getTransportMode();
@@ -296,6 +278,7 @@ $(document).ready(function () {
         touchSensitivity: 5,
         keyboardScrolling: false,
         animateAnchor: false,
+        // showActiveTooltip: true,
         anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'lastPage'],
         menu: '#myMenu',
         navigation: {
@@ -324,12 +307,55 @@ $("#info-pop").iziModal({
 $(document).on('click', '.info-trigger', function (event) {
     event.preventDefault();
     $('#info-pop').iziModal('open');
-    console.log(document.getElementsByClassName('iziModal'));
+    // console.log(document.getElementsByClassName('iziModal'));
 });
 
 // DATE PICKER
+// CREATE DAYS LIST
+var dayList = [];
+var dayListValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
+
+// DATE FORMAT
+var dateFormat = 'mm/dd/yy',
+	from = $('#pickDate')
+		.datepicker({
+			dateFormat: 'dd/mm/yy',
+			defaultDate: 0,
+			minDate: 0,
+			numberOfMonths: 1
+		})
+		.on('change', function() {
+			to.datepicker('option', 'minDate', getDate(this));
+		});
+	to = $('#dropDate').datepicker({
+		dateFormat: 'dd/mm/yy',
+		defaultDate: 0,
+		minDate: 0,
+		numberOfMonths: 1
+	})
+	.on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+
+// RETURN DATE
+function getDate(element) {
+	var dateFormat = 'dd/mm/yy';
+	var newDate = $('#pickDate').datepicker({dateFormat: 'mm/dd/yy'});
+	var date;
+	try {
+		date = $.datepicker.parseDate(dateFormat, element.value);
+	} catch (error) {
+		date = null;
+	}
+	return date;
+}
+
+// EVENT LISTENER
+// document.getElementById('dateBtn').addEventListener('click', calculateDays);
+
 var getCheckInDate = document.getElementById('getCheckIn');
 var getCheckOutDate = document.getElementById('getCheckOut');
+var daysSelected = document.getElementById('daysSelected');
 
 // FIRST DATE
 $('.datepicker1').pickadate({
@@ -345,13 +371,29 @@ $('.datepicker1').change(function () {
     $('.datepicker2').pickadate({
         clear: '',
         min: new Date(firstDate),
+        onClose: function () {
+            calculateDays();
+          }
     });
-    console.log('Date Picker');
-    console.log(firstDate);
 });
 
+// FUNCTION
+function calculateDays () {
+
+    // CALCULATE DAYS BETWEEN DATES
+    var startDate = Date.parse(getCheckIn.value);
+    var endDate = Date.parse(getCheckOut.value);
+    var timeDiff = endDate - startDate;
+    daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+    // PUSH THE DATE
+    daysSelected.innerText = daysDiff;
+    console.log('Number of Days');
+    console.log(daysDiff);
+  }
+
 // ADD NUMBER OF PEOPLE
-document.getElementById('peopleNum').addEventListener('mouseup', addNumber);
+document.getElementById('peopleBtn').addEventListener('click', addNumber);
 
 // CREATE NUMBER LIST
 var numList = [];

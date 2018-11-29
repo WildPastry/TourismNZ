@@ -30,7 +30,7 @@
     </div>
     <!-- MAIN CONTAINER -->
     <div id="mainContainer">
-        <!-- SECTION 1 -->
+        <!-- SECTION 1 (INDEX)-->
         <div class="section" id="section1">
             <!-- BACKGROUND OVERLAY -->
             <div class="background"></div>
@@ -329,7 +329,7 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
             </footer>
         </div>
 
-        <!-- SECTION 2 -->
+        <!-- SECTION 2 (DATES) -->
         <div class="section" id="section2">
             <!-- BACKGROUND OVERLAY -->
             <div class="background">
@@ -355,18 +355,26 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
                                 Please enter a date
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="optionsFont howManyDays">You have selected...</div>
+                            <div class="optionsFont howManyDays" id="daysSelected">0</div>
+                            <div class="optionsFont howManyDays" id="daysText">Days</div>
+                            <div class="note">
+                                <p>Minimum 1 day required, max hire is 15 days</p>
+                            </div>
+                        </div>
                         <div class="col-md-6">
-                                <button class="btn btn-dark">BACK</button>
-                            </div>
-                            <div class="col-md-6">
-                                <button id="dateBtn" class="btn btn-dark floatRight">CONTINUE</button>
-                            </div>
+                            <a href="#firstPage"><button class="btn btn-dark">BACK</button></a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#thirdPage"><button id="dateBtn" class="btn btn-dark floatRight">CONTINUE</button></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION 3 -->
+        <!-- SECTION 3 (PEOPLE) -->
         <div class="section" id="section3">
             <!-- BACKGROUND OVERLAY -->
             <div class="background">
@@ -392,17 +400,17 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <button class="btn btn-dark">BACK</button>
+                            <a href="#secondPage"><button class="btn btn-dark">BACK</button></a>
                         </div>
                         <div class="col-md-6">
-                            <button id="peopleNumBtn" class="btn btn-dark floatRight">CONTINUE</button>
+                            <a href="#fourthPage"><button id="peopleBtn" class="btn btn-dark floatRight">CONTINUE</button></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION 4 -->
+        <!-- SECTION 4 (DESTINATIONS) -->
         <div class="section" id="section4">
             <!-- BACKGROUND OVERLAY -->
             <div class="background">
@@ -424,10 +432,10 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <button class="btn btn-dark">BACK</button>
-                        </div>
+                            <a href="#thirdPage"><button class="btn btn-dark">BACK</button>
+                        </div></a>
                         <div class="col-md-6">
-                            <button id="destBtn" class="btn btn-dark floatRight">CONTINUE</button>
+                            <a href="#fifthPage"><button id="destBtn" class="btn btn-dark floatRight">CONTINUE</button></a>
                         </div>
                     </div>
                 </div>
@@ -435,7 +443,7 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
             <div id="map"></div>
         </div>
 
-        <!-- SECTION 5 -->
+        <!-- SECTION 5 (VEHICLES) -->
         <div class="section" id="section5">
             <!-- BACKGROUND OVERLAY -->
             <div class="background">
@@ -518,7 +526,7 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
                 </div>
             </div>
         </div>
-        <!-- SECTION 6 -->
+        <!-- SECTION 6 (CONFIRM) -->
         <div class="section" id="section6">
 
             <!-- BACKGROUND OVERLAY -->
@@ -526,63 +534,66 @@ c3.68,0,7.86-0.66,12.5-1.96C201.87,264.7,205.25,263.56,207.34,262.56" />
                 <div class="container-fluid paddingTop">
                     <div class="row row-blue">
                         <div class="col-md-12">
-                            <h2>CONFIRMATION</h2>
-                        </div>
-                        <div class="col-md-6">
+                            <a href="#firstPage">
+                                <h2>CONFIRMATION</h2>
+                            </a>
+                            <div class="col-md-6">
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- POP-UPS -->
-    <!-- INFORMATION POP-UP -->
-    <div id="info-pop" class="iziModal">
-        <h2>How to use</h2>
-        <p>Welcome to the Tourism New Zealand Journey Planner. This APP allows you to create a custom
-            journey
-            through
-            NZ, and will recommend a rental vehicle to suit your journey.</p>
-        <h4>
-            <span class="bold">1:&nbsp;</span>
-            Click to start
-        </h4>
-        <h4>
-            <span class="bold">2:&nbsp;</span>
-            Enter the pick up and drop off dates
-        </h4>
-        <h4>
-            <span class="bold">3:&nbsp;</span>
-            Enter the detination details
-        </h4>
-        <h4>
-            <span class="bold">4:&nbsp;</span>
-            Enter the number of people travelling
-        </h4>
-        <h4>
-            <span class="bold">5:&nbsp;</span>
-            Select the vehicle from the options provided
-        </h4>
+        <!-- POP-UPS -->
+        <!-- INFORMATION POP-UP -->
+        <div id="info-pop" class="iziModal">
+            <h2>How to use</h2>
+            <p>Welcome to the Tourism New Zealand Journey Planner. This APP allows you to create a custom
+                journey
+                through
+                NZ, and will recommend a rental vehicle to suit your journey.</p>
+            <h4>
+                <span class="bold">1:&nbsp;</span>
+                Click to start
+            </h4>
+            <h4>
+                <span class="bold">2:&nbsp;</span>
+                Enter the pick up and drop off dates
+            </h4>
+            <h4>
+                <span class="bold">3:&nbsp;</span>
+                Enter the detination details
+            </h4>
+            <h4>
+                <span class="bold">4:&nbsp;</span>
+                Enter the number of people travelling
+            </h4>
+            <h4>
+                <span class="bold">5:&nbsp;</span>
+                Select the vehicle from the options provided
+            </h4>
 
-        <!-- CLOSE MAIN CONTAINER -->
-    </div>
+            <!-- CLOSE MAIN CONTAINER -->
+        </div>
 
-    <!--build:js js/main.min.js -->
+        <!--build:js js/main.min.js -->
 
-    <script src="framework/js/jquery-3.3.1.min.js" type="text/javascript"></script>
-    <script src="js/jquery-ui.js" type="text/javascript"></script>
-    <script src="js/jquery.lockscroll.min.js" type="text/javascript"></script>
-    <script src="js/scrolloverflow.min.js" type="text/javascript"></script>
-    <script src="js/jquery.pagepiling.min.js" type="text/javascript"></script>
-    <script src="js/easings.min.js" type="text/javascript"></script>
-    <script src="js/iziModal.min.js" type="text/javascript"></script>
-    <script src="js/tooltipster.bundle.min.js" type="text/javascript"></script>
-    <script src="js//picker.min.js" type="text/javascript"></script>
-    <script src="js/picker.date.min.js" type="text/javascript"></script>
-    <script src="js/main.js" type="text/javascript"></script>
-    <!-- endbuild -->
+        <script src="framework/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="js/jquery-ui.js" type="text/javascript"></script>
+        <script src="js/jquery.lockscroll.min.js" type="text/javascript"></script>
+        <script src="js/scrolloverflow.min.js" type="text/javascript"></script>
+        <script src="js/jquery.pagepiling.js" type="text/javascript"></script>
+
+        <!-- <script src="js/jquery.pagepiling.min.js" type="text/javascript"></script> -->
+        <script src="js/easings.min.js" type="text/javascript"></script>
+        <script src="js/iziModal.min.js" type="text/javascript"></script>
+        <script src="js/tooltipster.bundle.min.js" type="text/javascript"></script>
+        <script src="js//picker.min.js" type="text/javascript"></script>
+        <script src="js/picker.date.min.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+        <!-- endbuild -->
 </body>
 
 </html>
