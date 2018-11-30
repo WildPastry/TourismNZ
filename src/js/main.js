@@ -1,4 +1,5 @@
 /*jslint browser:true */
+// $(document).ready(() => {
 console.log('JS READY');
 
 // LOADER
@@ -14,8 +15,8 @@ $(window).on('load', function () {
 var map;
 var newMarker;
 var newZealand = {
-    lat: -41.279178,
-    lng: 174.780331
+    lat: -41.278919,
+    lng: 172.5
 };
 
 // CITIES
@@ -225,7 +226,7 @@ $('.tool-tip-top').tooltipster({
     delay: 200,
 });
 
-// PAGE SCROLLING
+// PAGE ANIMATION
 function show1() {
     $(function () {
         $("#section1").show();
@@ -338,6 +339,19 @@ $(document).on('click', '.info-trigger', function (event) {
     $('#info-pop').iziModal('open');
 });
 
+// CONFIRM POP-UP
+$("#confirm-pop").iziModal({
+    title: 'NZ Journey Planner Confirmation',
+    headerColor: '#2b2f3a',
+    padding: 15,
+    radius: 0,
+});
+
+$(document).on('click', '.confirm-trigger', function (event) {
+    event.preventDefault();
+    $('#confirm-pop').iziModal('open');
+});
+
 // DATE PICKER
 $(function () {
     var dateFormat = "mm/dd/yy",
@@ -369,6 +383,7 @@ $(function () {
     }
 });
 
+// DATEPICKER VALIDATION
 $('.needs-validation').submit(function (event) {
     if (event.stopPropagation) {
         event.stopPropagation();
@@ -383,15 +398,12 @@ $('.needs-validation').submit(function (event) {
         endDate = new Date(endDate);
 
         var dif = endDate - startDate;
-        console.log(dif);
         dif = dif / 86400000;
+        console.log('Number of Days');
         console.log(dif);
         daysSelected.innerText = dif;
         $("#dateErrorMessage").hide();
-
-    } else {
-        console.log('You must enter a start and end date');
-    }
+    } 
 });
 
 // ADD NUMBER OF PEOPLE
@@ -404,14 +416,14 @@ var numListValues = ["1", "2", "3", "4", "5", "6"];
 // FUNCTION
 function addNumber(newNum) {
     newNum = document.getElementById("peopleNum").selectedIndex;
-    document.getElementsByTagName("option")[newNum].value;
+    newNumVal = document.getElementsByTagName("option")[newNum].value;
     numList.splice(0, 1);
     numList.push(newNum);
     console.log('Number of People');
     console.log(numList);
 }
 
-// FORM
+// FORM VALIDATION
 window.addEventListener('load',
     function formValidation() {
 
@@ -433,7 +445,4 @@ window.addEventListener('load',
         });
     }, false);
 
-// NO REFRESH
-$('form').submit(function () {
-    return false;
-});
+// });

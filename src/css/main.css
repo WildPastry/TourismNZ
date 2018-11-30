@@ -6701,34 +6701,93 @@ h4 {
   background-position: center center;
   object-fit: cover; }
 
+.section2 {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background: radial-gradient(circle farthest-side, rgba(8, 88, 179, 0.37), rgba(10, 15, 27, 0.89)), url("../img/sections/2.jpg");
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
+.section3 {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background: radial-gradient(circle farthest-side, rgba(8, 88, 179, 0.37), rgba(10, 15, 27, 0.89));
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
+.section4 {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background: radial-gradient(circle farthest-side, rgba(8, 88, 179, 0.37), rgba(10, 15, 27, 0.89)), url("../img/sections/4.jpg");
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
+.section5 {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background: radial-gradient(circle farthest-side, rgba(8, 88, 179, 0.37), rgba(10, 15, 27, 0.89)), url("../img/sections/5.jpg");
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
+.section6 {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background: radial-gradient(circle farthest-side, rgba(8, 88, 179, 0.37), rgba(10, 15, 27, 0.89)), url("../img/sections/6.jpg");
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
+.section7 {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background: radial-gradient(circle farthest-side, rgba(8, 88, 179, 0.37), rgba(10, 15, 27, 0.89));
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
 #section2 {
-  display: none;
-  background-image: url("../img/sections/2.jpg"); }
+  display: none; }
 
 #section3 {
-  display: none;
-  background-image: url("../img/sections/3.jpg"); }
+  display: none; }
 
 #section4 {
-  display: none;
-  background: #2b2f3a; }
+  display: none; }
 
 #section5 {
-  display: none;
-  background-image: url("../img/sections/5.jpg"); }
+  display: none; }
 
 #section6 {
-  display: none;
-  background-image: url("../img/sections/6.jpg"); }
+  display: none; }
 
 #section7 {
-  display: none;
-  background: #2b2f3a; }
+  display: none; }
 
 #map {
   height: 100%;
-  width: 100%;
-  cursor: pointer; }
+  width: 100%; }
 
 input {
   cursor: pointer; }
@@ -6746,7 +6805,7 @@ input {
   color: #f79e33;
   font-size: 100%; }
 
-.col-date {
+.col-title {
   height: 100px; }
 
 .col-info {

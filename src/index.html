@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="img/brand/favicon.ico" type="image/x-icon">
     <!--build:css css/main.min.css-->
     <link rel="stylesheet" href="framework/css/jquery-ui-1.12.1.min.css">
-    <link rel="stylesheet" href="framework/css/jquery-ui-theme-1.12.1.min.css">
+    <link rel="stylesheet" href="framework/css/jquery-ui-oc-1.12.1.min.css">
     <link rel="stylesheet" href="framework/css/tooltipster-4.2.6.min.css">
     <link rel="stylesheet" href="framework/css/tooltipster-sideTip-light.min.css">
     <link rel="stylesheet" href="framework/css/izimodal-1.6.0.min.css">
@@ -328,7 +328,7 @@
         <!-- SECTION 2 (DATES) -->
         <div class="section" id="section2">
             <!-- BACKGROUND OVERLAY -->
-            <div class="background">
+            <div class="section2">
                 <!-- CONTAINER -->
                 <div class="container-fluid paddingTop">
                     <form class="needs-validation" novalidate>
@@ -339,231 +339,287 @@
                                     <p>Minimum 1 day required, max hire is 15 days.</p>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-date">
+                            <div class="col-md-6 col-title">
                                 <label for="startDate">Pick up date</label>
-                                <input " class=" form-control checkIn startDate" id="startDate" autocomplete="off"
+                                <input type="text" class=" form-control startDate" id="startDate" autocomplete="off"
                                     placeholder="Enter here" required>
                                 <div class="invalid-feedback">
                                     Please enter a date
                                 </div>
                                 <div class="valid-feedback">
-                                    <i class="fas fa-check"></i> </div>
+                                    <i class="fas fa-check"></i></div>
                             </div>
-                            <div class="col-md-6 col-date">
-                                <label for="endDate"">Drop off date</label>
-                                <input type="
-                                    " class=" form-control checkOut endDate" id="endDate" autocomplete="off"
+                            <div class="col-md-6 col-title">
+                                <label for="endDate">Drop off date</label>
+                                <input type="text" class=" form-control endDate" id="endDate" autocomplete="off"
                                     placeholder="Enter here" required>
-                                    <div class="invalid-feedback">
-                                        Please enter a date
-                                    </div>
-                                    <div class="valid-feedback">
-                                        <i class="fas fa-check"></i> </div>
+                                <div class="invalid-feedback">
+                                    Please enter a date
+                                </div>
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i></div>
                             </div>
                             <div class="col-md-12 col-info">
                                 <div class="optionsFont howManyDays">You have selected...</div>
-                                <div class="optionsFont howManyDays" id="daysSelected">0</div>
-                                <div class="optionsFont howManyDays" id="daysText">Days</div>
+                                <div class="optionsFont howManyDays" id="daysSelected"></div>
+                                <div class="optionsFont howManyDays" id="daysText"></div>
                                 <div id="dateErrorMessage" class="dateErrorMessage">
                                     Max car hire is 15 days
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <a href="#firstPage"><button class="btn btn-dark">BACK</button></a>
+                                <button class="btn btn-dark" onclick="show1()">BACK</button>
                             </div>
                             <div class="col-md-6">
-                                <a href="#thirdPage"><button id="dateBtn" class="btn btn-dark floatRight dateBtn" value="submit">CONTINUE</button></a>
+                                <button id="dateBtn" class="btn btn-dark floatRight dateBtn" value="submit" onclick="show3()">CONTINUE</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 
-    <!-- SECTION 3 (PEOPLE) -->
-    <div class="section" id="section3">
-        <!-- BACKGROUND OVERLAY -->
-        <div class="background">
-            <div class="container-fluid paddingTop">
-                <div class="row row-blue">
-                    <div class="col-md-12">
-                        <h2>HOW MANY PEOPLE?</h2>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="peopleNum">Number of people*</label>
-                        <select name="peopleNum" class="form-control marginTop" id="peopleNum">
-                            <option value="0" disabled hidden>0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a number
+        <!-- SECTION 3 (PEOPLE) -->
+        <div class="section" id="section3">
+            <!-- BACKGROUND OVERLAY -->
+            <div class="section3">
+                <div class="container-fluid paddingTop">
+                    <form class="needs-validation" novalidate>
+                        <div class="row row-blue">
+                            <div class="col-md-12">
+                                <h2>HOW MANY PEOPLE ARE TRAVELLING?</h2>
+                                <div class="note">
+                                    <p>Minimum 1 person, max 6 people.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6 col-title">
+                                <label for="peopleNum">Number of people*</label>
+                                <select name="peopleNum" class="form-control" id="peopleNum" autocomplete="off">
+                                    <option value="0" disabled hidden>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a number
+                                </div>
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-12 col-info">
+                                <div class="optionsFont howManyDays">You have selected...</div>
+                                <div class="optionsFont howManyDays" id="daysSelected"></div>
+                                <div id="dateErrorMessage" class="dateErrorMessage">
+                                    Max car hire is 15 days
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-dark" onclick="show2()">BACK</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button id="peopleBtn" class="btn btn-dark floatRight peopleBtn" onclick="show4()">CONTINUE</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="#secondPage"><button class="btn btn-dark">BACK</button></a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="#fourthPage"><button id="peopleBtn" class="btn btn-dark floatRight">CONTINUE</button></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- SECTION 4 (DESTINATIONS) -->
-    <div class="section" id="section4">
-        <!-- BACKGROUND OVERLAY -->
-        <div class="background">
-            <div class="container-fluid paddingTop">
-                <div class="row row-blue">
-                    <div class="col-md-12">
-                        <h2>SELECT DESTINATIONS</h2>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="startPoint">Pick up location</label>
-                            <input " class=" form-control" id="startPoint" autocomplete="off" placeholder="Pick up location">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="endPoint">Drop off location</label>
-                            <input " class=" form-control" id="endPoint" autocomplete="off" placeholder="Drop off location">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="#thirdPage"><button id="testMarker" class="btn btn-dark">BACK</button>
-                    </div></a>
-                    <div class="col-md-6">
-                        <a href="#fifthPage"><button id="destBtn" class="btn btn-dark floatRight">CONTINUE</button></a>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div id="map"></div>
-    </div>
 
-    <!-- SECTION 5 (VEHICLES) -->
-    <div class="section" id="section5">
-        <!-- BACKGROUND OVERLAY -->
-        <div class="background">
-            <div class="container-fluid paddingTop">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>VEHICLE OPTIONS</h2>
-                    </div>
+        <!-- SECTION 4 (DESTINATIONS) -->
+        <div class="section" id="section4">
+            <!-- BACKGROUND OVERLAY -->
+            <div class="section4">
+                <div class="container-fluid paddingTop">
+                    <form class="needs-validation" novalidate>
+                        <div class="row row-blue">
+                            <div class="col-md-12">
+                                <h2>SELECT DESTINATIONS</h2>
+                                <div class="note">
+                                    <p>Where would you like to travel to?</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-title">
+                                <label for="startPoint">Pick up location</label>
+                                <input type="text" class=" form-control" id="startPoint" autocomplete="off" placeholder="Enter here">
+                                <div class="invalid-feedback">
+                                    Please enter a pick up location
+                                </div>
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="col-md-6 col-title">
+                                <label for="endPoint">Drop off location</label>
+                                <input type="text" class=" form-control" id="endPoint" autocomplete="off" placeholder="Enter here">
+                                <div class="invalid-feedback">
+                                    Please enter a drop off location
+                                </div>
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="col-md-12 col-info">
+                                <div class="optionsFont howManyDays">You have selected...</div>
+                                <div class="optionsFont howManyDays" id="daysSelected"></div>
+                                <div class="optionsFont howManyDays" id="daysText"></div>
+                                <div id="dateErrorMessage" class="dateErrorMessage">
+                                    Pick up location cannot match drop off location
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-dark" onclick="show3()">BACK</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button id="destBtn" class="btn btn-dark floatRight destBtn" value="submit" onclick="show5()">CONTINUE</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="allVehicles">
+            </div>
+            <div id="map"></div>
+        </div>
+
+        <!-- SECTION 5 (VEHICLES) -->
+        <div class="section" id="section5">
+            <!-- BACKGROUND OVERLAY -->
+            <div class="section5">
+                <div class="container-fluid paddingTop">
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="card mb-4 shadow-sm">
-                                <img class="card-img-top" src="img/sections/2.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class=">This is a wider card with suppo below as
-                                        a natural lead-in to additional content. This content is a little
-                                        bit longer.</p>
-                                    <div class="
+                        <div class="col-md-12">
+                            <h2>VEHICLE OPTIONS</h2>
+                        </div>
+                    </div>
+                    <div class="allVehicles">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="card-img-top" src="img/sections/2.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p>This is a wider card with suppo below as
+                                            a natural lead-in to additional content. This content is a little
+                                            bit longer.</p>
+                                        <div class="
                                         d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                            </div>
+                                            <small class="muted">$</small>
                                         </div>
-                                        <small c-muted">$</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" src="img/sections/3.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class=">This is a wider card with suppo below as
-                                        a natural lead-in to additional content. This content is a little
-                                        bit longer.</p>
-                                    <div class="
-                                    d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
                                     </div>
-                                    <small c-muted">$</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" src="img/sections/4.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class=">This is a wider card with suppo below as
-                                        a natural lead-in to additional content. This content is a little
-                                        bit longer.</p>
-                                    <div class="
-                                d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
                                 </div>
-                                <small c-muted">$</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" src="img/sections/5.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class=">This is a wider card with suppo below as
-                                        a natural lead-in to additional content. This content is a little
-                                        bit longer.</p>
-                                    <div class="
-                            d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
                             </div>
-                            <small c-muted">$</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- SECTION 6 (CONFIRM) -->
-    <div class="section" id="section6">
-
-        <!-- BACKGROUND OVERLAY -->
-        <div class="background">
-            <div class="container-fluid paddingTop">
-                <div class="row row-blue">
-                    <div class="col-md-12">
-                        <a href="#firstPage">
-                            <h2>CONFIRMATION</h2>
-                        </a>
-                        <div class="col-md-6">
+                            <div class="col-md-3">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="card-img-top" src="img/sections/3.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p>This is a wider card with suppo below as
+                                            a natural lead-in to additional content. This content is a little
+                                            bit longer.</p>
+                                        <div class="
+                                    d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                            </div>
+                                            <small class="muted">$</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="card-img-top" src="img/sections/4.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p>This is a wider card with suppo below as
+                                            a natural lead-in to additional content. This content is a little
+                                            bit longer.</p>
+                                        <div class="
+                                d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                            </div>
+                                            <small class="muted">$</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="card-img-top" src="img/sections/5.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <p>This is a wider card with suppo below as
+                                            a natural lead-in to additional content. This content is a little
+                                            bit longer.</p>
+                                        <div class="
+                            d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                            </div>
+                                            <small class="muted">$</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="btn btn-dark" onclick="show4()">BACK</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button id="vehicleBtn" class="btn btn-dark floatRight vehicleBtn" onclick="show6()">CONTINUE</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- SECTION 7 (JUST MAP) -->
-    <div class="section" id="section7">
+        <!-- SECTION 6 (CONFIRM) -->
+        <div class="section" id="section6">
 
-        <!-- BACKGROUND OVERLAY -->
-        <div class="background">
-            <div class="container-fluid paddingTop">
+            <!-- BACKGROUND OVERLAY -->
+            <div class="section6">
+                <div class="container-fluid paddingTop">
+                    <div class="row row-blue">
+                        <div class="col-md-12">
+                            <h2>CONFIRMATION</h2>
+                            <div class="note">
+                                <p>Please find the details of your journey below</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-title">
+                        </div>
+                        <div class="col-md-6 col-title">
+                        </div>
+                        <div class="col-md-12 col-info">
+                            <div class="optionsFont howManyDays">You have selected...</div>
+                            <div class="optionsFont howManyDays" id="daysSelected"></div>
+                            <div class="optionsFont howManyDays" id="daysText"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-dark" onclick="show5()">BACK</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button id="confirmBtn" class="btn btn-dark floatRight confirmBtn confirm-trigger" value="submit">CONFIRM</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- SECTION 7 (JUST MAP) -->
+        <div class="section" id="section7">
+
+            <!-- BACKGROUND OVERLAY -->
+            <div class="background">
+                <div class="container-fluid paddingTop">
+                </div>
+            </div>
+        </div>
+
+        <!-- CLOSE MAIN CONTAINER -->
     </div>
 
     <!-- POP-UPS -->
@@ -584,7 +640,7 @@
         </h4>
         <h4>
             <span class="bold">3:&nbsp;</span>
-            Enter the detination details
+            Enter the destination details
         </h4>
         <h4>
             <span class="bold">4:&nbsp;</span>
@@ -594,8 +650,28 @@
             <span class="bold">5:&nbsp;</span>
             Select the vehicle from the options provided
         </h4>
+    </div>
 
-        <!-- CLOSE MAIN CONTAINER -->
+    <!-- CONFIRMATION POP-UP -->
+    <div id="confirm-pop" class="iziModal">
+        <h2>BOOKING CONFIRMATION</h2>
+        <p>Thank you for booking with Tourism New Zealand. Please find your booking number and customer details below.
+            We hope you have a safe trip.<br><br>If you need to contact us for any reason please call <span class="bold">+64
+                4 457 678&nbsp;</span><br>or send a message to <span class="bold">info@tourismnz.co.nz&nbsp;</span></p>
+        <h4>
+            <span class="bold">Booking Number:&nbsp;</span>
+            #189534
+        </h4>
+        <h4>
+            <span class="bold">Customer Name:&nbsp;</span>
+            Joshua
+        </h4>
+        <h4>
+            <span class="bold">Customer Email:&nbsp;</span>
+            joshua@gmail.com
+        </h4>
+        <button class="btn btn-dark" data-izimodal-close>BACK</button>
+        <button class="btn btn-dark floatRight" data-izimodal-close onclick="show1()">FINISH</button>
     </div>
 
     <!--build:js js/main.min.js -->
