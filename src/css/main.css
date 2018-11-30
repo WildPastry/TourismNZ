@@ -6429,6 +6429,24 @@ h4 {
 .marginTop {
   margin-top: 1em; }
 
+.marginBot {
+  margin-bottom: 1em; }
+
+.paddingTop {
+  padding-top: 130px; }
+
+.paddingBot {
+  padding-bottom: 130px; }
+
+.floatRight {
+  float: right; }
+
+.floatRight::after {
+  clear: right; }
+
+.tool-tip-right {
+  cursor: pointer; }
+
 @font-face {
   font-family: 'Open Sans Light';
   src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
@@ -6452,14 +6470,13 @@ h4 {
   bottom: 0;
   z-index: 15; }
 
-.footer-info p {
-  font-family: "Open Sans Light";
-  font-size: 1em;
-  letter-spacing: 0px;
-  color: #fff; }
-
 .footer-info {
   margin: 91.6px auto 20px auto; }
+  .footer-info p {
+    font-family: "Open Sans Light";
+    font-size: 1em;
+    letter-spacing: 0px;
+    color: #fff; }
 
 .footer-brand {
   width: 80px;
@@ -6684,59 +6701,70 @@ h4 {
   background-position: center center;
   object-fit: cover; }
 
-.section {
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: 50% 0%;
-  background-repeat: no-repeat; }
-
 #section2 {
+  display: none;
   background-image: url("../img/sections/2.jpg"); }
 
 #section3 {
+  display: none;
   background-image: url("../img/sections/3.jpg"); }
 
 #section4 {
+  display: none;
   background: #2b2f3a; }
 
 #section5 {
+  display: none;
   background-image: url("../img/sections/5.jpg"); }
 
 #section6 {
+  display: none;
   background-image: url("../img/sections/6.jpg"); }
 
-#pp-nav ul li a span,
-.pp-slidesNav ul li a span {
-  height: 9px;
-  width: 9px;
-  background: #f79e33; }
+#section7 {
+  display: none;
+  background: #2b2f3a; }
 
 #map {
   height: 100%;
   width: 100%;
   cursor: pointer; }
 
-.controls {
-  margin-top: 1em; }
-
-.radio-inline {
-  display: inline-block;
-  margin-right: 2em; }
-
-.text p {
-  color: #fff; }
-
-.checkInOut {
-  margin-top: 1em;
-  display: flex;
-  justify-content: center; }
+input {
+  cursor: pointer; }
 
 .form-control {
   box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px; }
 
+.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated
+.custom-select:invalid,
+.custom-select.is-invalid {
+  border-color: #f79e33; }
+
+#dateErrorMessage {
+  display: none;
+  color: #f79e33;
+  font-size: 100%; }
+
+.col-date {
+  height: 100px; }
+
+.col-info {
+  height: 50px;
+  text-align: center; }
+
+.note p {
+  text-align: center;
+  color: #a0ddf9; }
+
 .invalid-feedback {
-  margin-top: 1em;
-  color: #850D17; }
+  margin-top: 0.5em;
+  color: #f79e33;
+  font-size: 100%; }
+
+.valid-feedback {
+  margin-top: 0.5em;
+  font-size: 100%; }
 
 .datepicker1,
 .datepicker2 {
@@ -6754,17 +6782,11 @@ h4 {
   font-size: 2em;
   color: #fff; }
 
-.note p {
-  color: #fff; }
-
 .howManyDays {
   display: inline; }
 
-.daySelectedTitle {
-  margin-top: 1.5em; }
-
-.paddingTop {
-  padding-top: 130px; }
+.picker__input.picker__input--active {
+  border-color: #a0ddf9; }
 
 .container-fluid {
   max-width: 1200px;
@@ -6775,9 +6797,8 @@ h4 {
     letter-spacing: 1px;
     color: #a0ddf9;
     text-align: center; }
-
-.peopleNumDisplay h3 {
-  color: #fff; }
+  .container-fluid h3 {
+    color: #fff; }
 
 .row-blue {
   background-color: rgba(43, 47, 58, 0.87);
@@ -6792,19 +6813,6 @@ h4 {
   height: 444.85px;
   width: 800px; }
 
-.row-blue-small {
-  background-color: rgba(43, 47, 58, 0.87);
-  padding: 1em;
-  border: 1px solid #fff;
-  border-radius: .5em;
-  left: 20%;
-  margin-left: -250px;
-  margin-top: -100px;
-  position: absolute;
-  top: 20%;
-  height: 200px;
-  width: 500px; }
-
 .btn-dark {
   font-family: "Open Sans Regular";
   font-size: 1em;
@@ -6813,42 +6821,5 @@ h4 {
   background-color: #a0ddf9;
   border-color: #343a40; }
 
-.floatRight {
-  float: right; }
-
-.floatRight::after {
-  clear: right; }
-
-.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated
-.custom-select:invalid,
-.custom-select.is-invalid {
-  border-color: #f79e33; }
-
 .fa-check {
   font-size: 1em; }
-
-.invalid-feedback {
-  margin-top: 0.5em;
-  color: #f79e33;
-  font-size: 100%; }
-
-.picker__input.picker__input--active {
-  border-color: #a0ddf9; }
-
-#dateErrorMessage {
-  display: none;
-  color: #f79e33;
-  font-size: 100%; }
-
-.col-date {
-  height: 100px; }
-
-.col-info {
-  height: 50px; }
-
-.note p {
-  text-align: center;
-  color: #a0ddf9; }
-
-.col-info {
-  text-align: center; }

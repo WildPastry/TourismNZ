@@ -28,40 +28,34 @@
 }
 
 // SECTIONS
-.section {
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: 50% 0%;
-    background-repeat: no-repeat;
-}
-
 #section2 {
+    display: none;
     background-image: url('../img/sections/2.jpg');
 }
 
 #section3 {
+    display: none;
     background-image: url('../img/sections/3.jpg');
 }
 
 #section4 {
-    // background-image: url('../img/sections/4.jpg');
+    display: none;
     background: $d-blu;
 }
 
 #section5 {
+    display: none;
     background-image: url('../img/sections/5.jpg');
 }
 
 #section6 {
+    display: none;
     background-image: url('../img/sections/6.jpg');
 }
 
-// SIDE NAVIGATION
-#pp-nav ul li a span,
-.pp-slidesNav ul li a span {
-    height: 9px;
-    width: 9px;
-    background: $in-ylw;
+#section7 {
+    display: none;
+    background: $d-blu;
 }
 
 // MAP
@@ -71,41 +65,60 @@
     cursor: pointer;
 }
 
-.controls {
-    margin-top: 1em;
-}
-
-.radio-inline {
-    display: inline-block;
-    margin-right: 2em;
-}
-
-.text p {
-    color: $wht;
-}
-
-// CALENDER
-.checkInOut {
-    margin-top: 1em;
-    display: flex;
-    justify-content: center;
+// FORM
+input {
+    cursor: pointer;
 }
 
 .form-control {
     box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px;
 }
 
-.invalid-feedback {
-    margin-top: 1em;
-    color: $p-red;
+.was-validated .form-control:invalid,
+.form-control.is-invalid,
+.was-validated .custom-select:invalid,
+.custom-select.is-invalid {
+    border-color: $in-ylw;
 }
 
+#dateErrorMessage {
+    display: none;
+    color: $in-ylw;
+    font-size: 100%;
+}
+
+.col-date {
+    height: 100px;
+}
+
+.col-info {
+    height: 50px;
+    text-align: center;
+}
+
+.note p {
+    text-align: center;
+    color: $l-blu;
+}
+
+// FEEDBACK
+.invalid-feedback {
+    margin-top: 0.5em;
+    color: $in-ylw;
+    font-size: 100%;
+}
+
+.valid-feedback {
+    margin-top: 0.5em;
+    font-size: 100%;
+}
+
+// DATE PICKER
 .datepicker1,
 .datepicker2 {
     cursor: pointer;
 }
 
-// DATE
 .date h4 {
     text-align: center;
     color: $wht;
@@ -120,23 +133,15 @@
     color: $wht;
 }
 
-.note p {
-    color: $wht;
-}
-
 .howManyDays {
     display: inline;
 }
 
-.daySelectedTitle {
-    margin-top: 1.5em;
+.picker__input.picker__input--active {
+    border-color: $l-blu;
 }
 
-// CONTAINERS AND ROWS
-.paddingTop {
-    padding-top: 130px;
-}
-
+// LAYOUT
 .container-fluid {
     max-width: 1200px;
     margin: $main-mar;
@@ -145,10 +150,10 @@
         @include fontProperties($fnt-pure, $hdg-2, $spc, $l-blu);
         text-align: center;
     }
-}
 
-.peopleNumDisplay h3 {
-    color: $wht;
+    h3 {
+        color: $wht;
+    }
 }
 
 .row-blue {
@@ -165,20 +170,6 @@
     width: 800px;
 }
 
-.row-blue-small {
-    background-color: $blu-t;
-    padding: 1em;
-    border: 1px solid $wht;
-    border-radius: .5em;
-    left: 20%;
-    margin-left: -250px;
-    margin-top: -100px;
-    position: absolute;
-    top: 20%;
-    height: 200px;
-    width: 500px;
-}
-
 // BUTTONS
 .btn-dark {
     @include fontProperties($fnt-reg, $bdy, $spc, $d-blu);
@@ -186,79 +177,7 @@
     border-color: #343a40;
 }
 
-.floatRight {
-    float: right;
-}
-
-.floatRight::after {
-    clear: right;
-}
-
-// FORMS
-
-.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated .custom-select:invalid, .custom-select.is-invalid {
-
-    border-color: $in-ylw;
-
-}
+// TICK
 .fa-check {
     font-size: 1em;
 }
-
-.invalid-feedback {
-    margin-top: 0.5em;
-    color: $in-ylw;
-    // color: rgb(255, 66, 82);
-    font-size: 100%;
-}
-
-.picker__input.picker__input--active {
-    border-color: $l-blu;
-}
-
-#dateErrorMessage {
-    display: none;
-    // margin-top: 0.5em;
-    color: $in-ylw;
-    // color: rgb(255, 66, 82);
-    font-size: 100%;
-}
-
-.col-date {
-    height: 100px;
-}
-
-.col-info {
-    height: 50px;
-}
-
-.note p {
-    text-align: center;
-    color: $l-blu;
-}
-
-.col-info {
-    text-align: center;
-}
-// input {
-//     padding-bottom: 1em;
-// }
-// SPINNER
-// input { 
-//     text-align: center; 
-// }
-
-// .peopleNum input {
-//     width: 300px;
-// }
-
-// SELECT MENU
-// select::-ms-expand {
-//     display: none;
-// }
-
-// select {
-//     cursor: pointer;
-//     -webkit-appearance: none;
-//     appearance: none;
-// }

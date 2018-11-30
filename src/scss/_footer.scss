@@ -9,12 +9,12 @@
     z-index: 15;
 }
 
-.footer-info p {
-    @include fontProperties($fnt-lgt, $bdy, $spc-zero, $wht);
-}
-
 .footer-info {
     margin: $ftr-mar;
+
+    p {
+        @include fontProperties($fnt-lgt, $bdy, $spc-zero, $wht);
+    }
 }
 
 // FOOTER BRAND
@@ -26,7 +26,6 @@
 
     svg {
         width: 80px;
-
         :hover {
             fill: $in-ylw;
         }
@@ -65,7 +64,7 @@
     fill: $fb-blu;
 }
 
-.fb-icon:hover .fb-blu{
+.fb-icon:hover .fb-blu {
     fill: $d-gry;
 }
 
@@ -74,7 +73,7 @@
     fill: $p-red;
 }
 
-.p-icon:hover .p-red{
+.p-icon:hover .p-red {
     fill: $d-gry;
 }
 
@@ -83,7 +82,7 @@
     fill: $tw-blu;
 }
 
-.tw-icon:hover .tw-blu{
+.tw-icon:hover .tw-blu {
     fill: $d-gry;
 }
 
@@ -92,6 +91,6 @@
     fill: $in-ylw;
 }
 
-.in-icon:hover .in-ylw{
+.in-icon:hover .in-ylw {
     fill: $d-gry;
 }

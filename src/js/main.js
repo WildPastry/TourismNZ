@@ -194,83 +194,7 @@ function initMap() {
         map.setZoom(10);
         map.setCenter(marker.getPosition());
     }
-
-    // function addMarker(){
-    //     removeMarker();
-
-    //     newMarker = new google.maps.Marker({
-    //         position: clickMarkerLocation,
-    //         map: map
-    //     });
-    // }
-
-    // function removeMarker(){
-    //     if(newMarker && newMarker.setMap){
-    //         newMarker.setMap(null);
-    //     }
-    // }
-
 }
-
-//     var directionsService = new google.maps.DirectionsService();
-//     var directionsDisplay = new google.maps.DirectionsRenderer();
-
-//     map.addnumListener('click', function(event) {
-//         var transportMode = getTransportMode();
-//         clickMarkerLocation = event.latLng;
-
-//         showDirections(clickMarkerLocation, transportMode);
-//     });
-
-//     function showDirections(destinationLocation, transportMode){
-//         if(directionsDisplay){
-//             directionsDisplay.setMap(null);
-//         }
-
-//         var request = {
-//             origin: yoobee,
-//             destination: destinationLocation,
-//             travelMode: 'DRIVING'
-//         };
-//         directionsService.route(request, function(result, status) {
-//             if (status == 'OK') {
-//                 directionsDisplay.setMap(map);
-//                 directionsDisplay.setDirections(result);
-//                 document.getElementById('time').innerText = 'Time to get to destination is '+ result.routes[0].legs[0].duration.text;
-//                 document.getElementById('distance').innerText = 'Total distance to destination is '+result.routes[0].legs[0].distance.text;
-//                 addMarker();
-//             } else if(status == 'NOT_FOUND'){
-//                 document.getElementById('time').innerText = '';
-//                 document.getElementById('distance').innerText = '';
-//                 removeMarker();
-//                 alert("At least one of the locations specified in the request's origin, destination could not be geocoded.");
-//             } else if(status == 'ZERO_RESULTS'){
-//                 document.getElementById('time').innerText = '';
-//                 document.getElementById('distance').innerText = '';
-//                 removeMarker();
-//                 alert("No route could be found between the origin and destination.");
-//             }
-//         });
-//     }
-// }
-
-// google.maps.event.addListener(places, 'place_changed', function () {
-//     var geocoder = new google.maps.Geocoder();
-//     var place = places.getPlace();
-//     var address = place.formatted_address;
-//     geocoder.geocode({ 'address': address }, function (results, status) {
-//         if (status == google.maps.GeocoderStatus.OK) {
-//             var latitude = results[0].geometry.location.lat();
-//             var longitude = results[0].geometry.location.lng();
-//             var mapOptions = { center: new google.maps.LatLng(latitude, longitude), zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP };
-//             var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-//             var marker = new google.maps.Marker({ position: new google.maps.LatLng(latitude, longitude), map: map });
-
-//         } else {
-//             alert("Request failed.")
-//         }
-//     });
-// });
 
 // TOOL TIPSTER
 $('.tool-tip-right').tooltipster({
@@ -302,34 +226,103 @@ $('.tool-tip-top').tooltipster({
 });
 
 // PAGE SCROLLING
-$(document).ready(function () {
-    $('#mainContainer').pagepiling({
-        verticalCentered: false,
-        css3: false,
-        scrollingSpeed: 200,
-        loopBottom: false,
-        loopTop: false,
-        normalScrollElements: null,
-        normalScrollElementTouchThreshold: 5,
-        touchSensitivity: 5,
-        keyboardScrolling: false,
-        animateAnchor: false,
-        // showActiveTooltip: true,
-        anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'lastPage'],
-        menu: '#myMenu',
-        navigation: {
-            'textColor': '#f79e33',
-            'bulletsColor': '#f79e33',
-            'position': 'left',
-            'tooltips': ['Index', 'Dates', 'People', 'Destination', 'Vehicles', 'Confirm']
-        }
+function show1() {
+    $(function () {
+        $("#section1").show();
     });
-});
+    $(function () {
+        $("#section2").hide();
+        $("#section3").hide();
+        $("#section4").hide();
+        $("#section5").hide();
+        $("#section6").hide();
+        $("#section7").hide();
+    });
+}
 
-$(function () {
-    $.fn.pagepiling.setMouseWheelScrolling(false);
-    $.fn.pagepiling.setAllowScrolling(false);
-});
+function show2() {
+    $(function () {
+        $("#section2").show();
+    });
+    $(function () {
+        $("#section1").hide();
+        $("#section3").hide();
+        $("#section4").hide();
+        $("#section5").hide();
+        $("#section6").hide();
+        $("#section7").hide();
+    });
+}
+
+function show3() {
+    $(function () {
+        $("#section3").show();
+    });
+    $(function () {
+        $("#section1").hide();
+        $("#section2").hide();
+        $("#section4").hide();
+        $("#section5").hide();
+        $("#section6").hide();
+        $("#section7").hide();
+    });
+}
+
+function show4() {
+    $(function () {
+        $("#section4").show();
+    });
+    $(function () {
+        $("#section1").hide();
+        $("#section2").hide();
+        $("#section3").hide();
+        $("#section5").hide();
+        $("#section6").hide();
+        $("#section7").hide();
+    });
+}
+
+function show5() {
+    $(function () {
+        $("#section5").show();
+    });
+    $(function () {
+        $("#section1").hide();
+        $("#section2").hide();
+        $("#section3").hide();
+        $("#section4").hide();
+        $("#section6").hide();
+        $("#section7").hide();
+    });
+}
+
+function show6() {
+    $(function () {
+        $("#section6").show();
+    });
+    $(function () {
+        $("#section1").hide();
+        $("#section2").hide();
+        $("#section3").hide();
+        $("#section4").hide();
+        $("#section5").hide();
+        $("#section7").hide();
+    });
+}
+
+function show7() {
+    $(function () {
+        $("#section7").show();
+    });
+    $(function () {
+        $("#section1").hide();
+        $("#section2").hide();
+        $("#section3").hide();
+        $("#section4").hide();
+        $("#section5").hide();
+        $("#section6").hide();
+    });
+}
 
 // POP-UPS
 // INFORMATION POP-UP
@@ -343,100 +336,66 @@ $("#info-pop").iziModal({
 $(document).on('click', '.info-trigger', function (event) {
     event.preventDefault();
     $('#info-pop').iziModal('open');
-    // console.log(document.getElementsByClassName('iziModal'));
 });
 
 // DATE PICKER
-// CREATE DAYS LIST
-var dayList = [];
-var dayListValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
+$(function () {
+    var dateFormat = "mm/dd/yy",
+        from = $("#startDate")
+        .datepicker({
+            minDate: 0,
+            defaultDate: "0",
+            changeMonth: true,
+        })
+        .on("change", function () {
+            to.datepicker("option", "minDate", getDate(this));
+        }),
+        to = $("#endDate").datepicker({
+            defaultDate: "+1d",
+            changeMonth: true,
+        })
+        .on("change", function () {
+            from.datepicker("option", "maxDate", getDate(this));
+        });
 
-// DATE FORMAT
-var dateFormat = 'mm/dd/yy',
-    from = $('#pickDate')
-    .datepicker({
-        dateFormat: 'dd/mm/yy',
-        defaultDate: 0,
-        minDate: 0,
-        numberOfMonths: 1
-    })
-    .on('change', function () {
-        to.datepicker('option', 'minDate', getDate(this));
-    });
-to = $('#dropDate').datepicker({
-        dateFormat: 'dd/mm/yy',
-        defaultDate: 0,
-        minDate: 0,
-        numberOfMonths: 1
-    })
-    .on("change", function () {
-        from.datepicker("option", "maxDate", getDate(this));
-    });
-
-// RETURN DATE
-function getDate(element) {
-    var dateFormat = 'dd/mm/yy';
-    var newDate = $('#pickDate').datepicker({
-        dateFormat: 'mm/dd/yy'
-    });
-    var date;
-    try {
-        date = $.datepicker.parseDate(dateFormat, element.value);
-    } catch (error) {
-        date = null;
-    }
-    return date;
-}
-
-// EVENT LISTENER
-// document.getElementById('dateBtn').addEventListener('click', calculateDays);
-
-var getCheckInDate = document.getElementById('getCheckIn');
-var getCheckOutDate = document.getElementById('getCheckOut');
-var daysSelected = document.getElementById('daysSelected');
-var getDateBtn = document.getElementById('dateBtn');
-
-// FIRST DATE
-$('.datepicker1').pickadate({
-    clear: '',
-    min: new Date(),
-});
-
-$('.datepicker1').change(function () {
-
-    var firstDate = $('#getCheckIn').val();
-
-    //SECOND DATE
-    $('.datepicker2').pickadate({
-        clear: '',
-        min: new Date(firstDate),
-        onClose: function () {
-            calculateDays();
+    function getDate(element) {
+        var date;
+        try {
+            date = $.datepicker.parseDate(dateFormat, element.value);
+        } catch (error) {
+            date = null;
         }
-    });
+        return date;
+    }
 });
 
-// FUNCTION
-function calculateDays() {
+$('.needs-validation').submit(function (event) {
+    if (event.stopPropagation) {
+        event.stopPropagation();
+        event.preventDefault();
+    }
+    var startDate = $('#startDate').val();
+    var endDate = $('#endDate').val();
 
-    // CALCULATE DAYS BETWEEN DATES
-    var startDate = Date.parse(getCheckIn.value);
-    var endDate = Date.parse(getCheckOut.value);
-    var timeDiff = endDate - startDate;
-    daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    if ((startDate.length > 0) && (endDate.length > 0)) {
 
-    // PUSH THE DATE
-    daysSelected.innerText = daysDiff;
-    console.log('Number of Days');
-    console.log(daysDiff);
-}
+        startDate = new Date(startDate);
+        endDate = new Date(endDate);
+
+        var dif = endDate - startDate;
+        console.log(dif);
+        dif = dif / 86400000;
+        console.log(dif);
+        daysSelected.innerText = dif;
+        $("#dateErrorMessage").hide();
+
+    } else {
+        console.log('You must enter a start and end date');
+    }
+});
 
 // ADD NUMBER OF PEOPLE
 document.getElementById('peopleBtn').addEventListener('click', addNumber);
-
-// $("#peopleNum").mouseleave(function(){
-//     addNumber();
-//  });
 
 // CREATE NUMBER LIST
 var numList = [];
@@ -466,8 +425,7 @@ window.addEventListener('load',
                     event.stopPropagation();
 
                     // CUSTOM ERROR SHOW
-                    document.getElementById('dateErrorMessage').style.display = 'block';
-
+                    $("#dateErrorMessage").show();
                 }
                 form.classList.add('was-validated');
             }, false);
@@ -479,6 +437,3 @@ window.addEventListener('load',
 $('form').submit(function () {
     return false;
 });
-
-// CUSTOM ERROR HIDE
-// document.getElementById('dateErrorMessage').style.display = 'none';

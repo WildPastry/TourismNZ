@@ -7,6 +7,7 @@
     @include transitions($speed, $speed, $speed, $speed);
 }
 
+// TYPOGRAPHY
 body {
     @include fontProperties($fnt-lgt, $bdy, $spc-zero, $wht);
 }
@@ -35,6 +36,32 @@ h4 {
     font-family: $fnt-bld;
 }
 
+// GLOBAL ADJUSTMENTS
 .marginTop {
     margin-top: 1em;
+}
+
+.marginBot {
+    margin-bottom: 1em;
+}
+
+.paddingTop {
+    padding-top: 130px;
+}
+
+.paddingBot {
+    padding-bottom: 130px;
+}
+
+.floatRight {
+    float: right;
+}
+
+.floatRight::after {
+    clear: right;
+}
+
+// TOOL TIPSTER
+.tool-tip-right {
+    cursor: pointer;
 }
