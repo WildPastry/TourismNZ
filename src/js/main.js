@@ -18,6 +18,22 @@ var newZealand = {
     lng: 172.5
 };
 
+var allCitiesPointO = [
+    ['Christchurch', -'43.513046', '172.4589949'],
+    ['Dunedin', -'45.8726724', '170.4570794'],
+    ['Hamilton', -'37.7751208', '175.1948842'],
+    ['Wellington', -'41.284526', '174.7712372'],
+    ['Auckland', -'36.8629409', '174.7253864']
+];
+
+// for( i = 0; i < markers.length; i++ ) {
+// var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+// bounds.extend(position);
+// marker = new google.maps.Marker({
+// position: position,
+// map: map
+// });
+
 // CITIES
 var allCities = [{
         "name": "Christchurch",
@@ -49,7 +65,7 @@ var allCities = [{
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: newZealand,
-        zoom: 7,
+        zoom: 8,
         disableDefaultUI: true,
         styles: [{
                 elementType: 'geometry',
@@ -176,14 +192,32 @@ function initMap() {
             }
         ]
     });
-    var startPoint = document.getElementById('startPoint');
-    new google.maps.places.Autocomplete(startPoint);
+    // var startPoint = document.getElementById('startPoint');
+    // new google.maps.places.Autocomplete(startPoint);
     var endPoint = document.getElementById('endPoint');
     new google.maps.places.Autocomplete(endPoint);
 
     console.log(map);
 
-    document.getElementById('startPoint').addEventListener('click', addMarker);
+    // document.getElementById('startPoint').addEventListener('click', addMarker);
+
+    // // CREATE NUMBER LIST
+    // var numList = [];
+    // var numListValues = ["1", "2", "3", "4", "5", "6"];
+    // var p = document.getElementById("peopleNum");
+    // var peopleOption = p.options[p.selectedIndex].text;
+
+    // // FUNCTION
+    // function addNumber(newNum) {
+    //     newNum = p.options[p.selectedIndex].value;
+    //     numList.splice(0, 1);
+    //     numList.push(newNum);
+    //     console.log('Number of People');
+    //     console.log(newNum);
+    //     peopleSelected.innerText = newNum;
+    // }
+
+    // document.getElementById('startPoint').addEventListener('click', addMarker);
 
     function addMarker() {
         var marker = new google.maps.Marker({
@@ -191,9 +225,25 @@ function initMap() {
             map: map,
             zoom: 14
         });
-        map.setZoom(10);
+        map.setZoom(11);
         map.setCenter(marker.getPosition());
     }
+}
+
+// ADD START POINT
+var startPointList = [];
+var s = document.getElementById("startPoint");
+// var startPointOption = s.options[s.selectedIndex].text;
+
+// FUNCTION
+function addStartPoint() {
+    var newStartPoint = s.options[s.selectedIndex].value;
+    startPointList.splice(0, 1);
+    startPointList.push(newStartPoint);
+    console.log('Start Point');
+    console.log(newStartPoint);
+    console.log(startPointList);
+    destSelected.innerText = newStartPoint;
 }
 
 // TOOL TIPSTER
@@ -325,8 +375,7 @@ function addNumber(newNum) {
     numList.push(newNum);
     console.log('Number of People');
     console.log(newNum);
-    // console.log(numList);
-    // console.log(peopleOption);
+    console.log(numList);
     peopleSelected.innerText = newNum;
 }
 
@@ -364,6 +413,15 @@ function show4from5() {
     });
     $(function () {
         $("#section5").hide();
+    });
+}
+
+function show5from6() {
+    $(function () {
+        $("#section5").show();
+    });
+    $(function () {
+        $("#section6").hide();
     });
 }
 
@@ -424,12 +482,20 @@ function show4() {
 }
 
 function show5() {
-    $(function () {
-        $("#section5").show();
-    });
-    $(function () {
-        $("#section4").hide();
-    });
+
+    if (destSelected.textContent.length > 12 || destSelected.textContent.length < 1) {
+
+        console.log("No location entered");
+
+    } else {
+
+        $(function () {
+            $("#section5").show();
+        });
+        $(function () {
+            $("#section4").hide();
+        });
+    }
 }
 
 function show6() {

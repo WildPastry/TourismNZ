@@ -67,7 +67,7 @@
     background: radial-gradient(circle farthest-side,
         rgba(8, 88, 179, 0.37),
         rgba(10, 15, 27, 0.89),
-        );
+        ), url('../img/sections/4.jpg');
     position: fixed;
     width: 100%;
     height: 100%;
@@ -144,6 +144,7 @@
 
 // MAP
 #map {
+    position: absolute;
     height: 100%;
     width: 100%;
 }
@@ -153,9 +154,9 @@ input {
     cursor: pointer;
 }
 
-// .needs-validation {
-//     width: 100%;
-// }
+select {
+    cursor: pointer;
+}
 
 .form-control {
     box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px;
