@@ -1,5 +1,4 @@
 /*jslint browser:true */
-// $(document).ready(() => {
 console.log('JS READY');
 
 // LOADER
@@ -226,105 +225,6 @@ $('.tool-tip-top').tooltipster({
     delay: 200,
 });
 
-// PAGE ANIMATION
-function show1() {
-    $(function () {
-        $("#section1").show();
-    });
-    $(function () {
-        $("#section2").hide();
-        $("#section3").hide();
-        $("#section4").hide();
-        $("#section5").hide();
-        $("#section6").hide();
-        $("#section7").hide();
-    });
-}
-
-function show2() {
-    $(function () {
-        $("#section2").show();
-    });
-    $(function () {
-        $("#section1").hide();
-        $("#section3").hide();
-        $("#section4").hide();
-        $("#section5").hide();
-        $("#section6").hide();
-        $("#section7").hide();
-    });
-}
-
-function show3() {
-    $(function () {
-        $("#section3").show();
-    });
-    $(function () {
-        $("#section1").hide();
-        $("#section2").hide();
-        $("#section4").hide();
-        $("#section5").hide();
-        $("#section6").hide();
-        $("#section7").hide();
-    });
-}
-
-function show4() {
-    $(function () {
-        $("#section4").show();
-    });
-    $(function () {
-        $("#section1").hide();
-        $("#section2").hide();
-        $("#section3").hide();
-        $("#section5").hide();
-        $("#section6").hide();
-        $("#section7").hide();
-    });
-}
-
-function show5() {
-    $(function () {
-        $("#section5").show();
-    });
-    $(function () {
-        $("#section1").hide();
-        $("#section2").hide();
-        $("#section3").hide();
-        $("#section4").hide();
-        $("#section6").hide();
-        $("#section7").hide();
-    });
-}
-
-function show6() {
-    $(function () {
-        $("#section6").show();
-    });
-    $(function () {
-        $("#section1").hide();
-        $("#section2").hide();
-        $("#section3").hide();
-        $("#section4").hide();
-        $("#section5").hide();
-        $("#section7").hide();
-    });
-}
-
-function show7() {
-    $(function () {
-        $("#section7").show();
-    });
-    $(function () {
-        $("#section1").hide();
-        $("#section2").hide();
-        $("#section3").hide();
-        $("#section4").hide();
-        $("#section5").hide();
-        $("#section6").hide();
-    });
-}
-
 // POP-UPS
 // INFORMATION POP-UP
 $("#info-pop").iziModal({
@@ -367,6 +267,9 @@ $(function () {
         to = $("#endDate").datepicker({
             defaultDate: "+1d",
             changeMonth: true,
+            onClose: function () {
+                calculateDays();
+            }
         })
         .on("change", function () {
             from.datepicker("option", "maxDate", getDate(this));
@@ -383,66 +286,187 @@ $(function () {
     }
 });
 
-// DATEPICKER VALIDATION
-$('.needs-validation').submit(function (event) {
-    if (event.stopPropagation) {
-        event.stopPropagation();
-        event.preventDefault();
-    }
+function calculateDays() {
+
     var startDate = $('#startDate').val();
     var endDate = $('#endDate').val();
 
-    if ((startDate.length > 0) && (endDate.length > 0)) {
+    startDate = new Date(startDate);
+    endDate = new Date(endDate);
 
-        startDate = new Date(startDate);
-        endDate = new Date(endDate);
+    var dif = endDate - startDate;
+    dif = dif / 86400000;
+    console.log('Number of Days');
+    console.log(dif);
+    daysSelected.innerText = dif;
 
-        var dif = endDate - startDate;
-        dif = dif / 86400000;
-        console.log('Number of Days');
-        console.log(dif);
-        daysSelected.innerText = dif;
-        $("#dateErrorMessage").hide();
-    } 
-});
+    if (daysSelected.textContent > 15 || daysSelected.textContent < 1) {
 
-// ADD NUMBER OF PEOPLE
-document.getElementById('peopleBtn').addEventListener('click', addNumber);
+        // SHOW CUSTOM ERROR
+        $("#dateError").show();
+
+    } else if (daysSelected.textContent < 15 || daysSelected.textContent > 1) {
+
+        // HIDE CUSTOM ERROR
+        $("#dateError").hide();
+    }
+}
 
 // CREATE NUMBER LIST
 var numList = [];
 var numListValues = ["1", "2", "3", "4", "5", "6"];
+var p = document.getElementById("peopleNum");
+var peopleOption = p.options[p.selectedIndex].text;
 
 // FUNCTION
 function addNumber(newNum) {
-    newNum = document.getElementById("peopleNum").selectedIndex;
-    newNumVal = document.getElementsByTagName("option")[newNum].value;
+    newNum = p.options[p.selectedIndex].value;
     numList.splice(0, 1);
     numList.push(newNum);
     console.log('Number of People');
-    console.log(numList);
+    console.log(newNum);
+    // console.log(numList);
+    // console.log(peopleOption);
+    peopleSelected.innerText = newNum;
 }
 
-// FORM VALIDATION
-window.addEventListener('load',
-    function formValidation() {
+// PAGE ANIMATION
+function show1from2() {
+    $(function () {
+        $("#section1").show();
+    });
+    $(function () {
+        $("#section2").hide();
+    });
+}
+
+function show2from3() {
+    $(function () {
+        $("#section2").show();
+    });
+    $(function () {
+        $("#section3").hide();
+    });
+}
+
+function show3from4() {
+    $(function () {
+        $("#section3").show();
+    });
+    $(function () {
+        $("#section4").hide();
+    });
+}
+
+function show4from5() {
+    $(function () {
+        $("#section4").show();
+    });
+    $(function () {
+        $("#section5").hide();
+    });
+}
+
+function show1() {
+    $(function () {
+        $("#section1").show();
+    });
+    $(function () {
+        $("#section2").hide();
+        $("#section3").hide();
+        $("#section4").hide();
+        $("#section5").hide();
+        $("#section6").hide();
+        $("#section7").hide();
+    });
+}
+
+function show2() {
+    $(function () {
+        $("#section2").show();
+    });
+    $(function () {
+        $("#section1").hide();
+    });
+}
+
+function show3() {
+
+    if (daysSelected.textContent > 15 || daysSelected.textContent < 1) {
+
+        console.log("No dates or wrong dates entered");
+
+    } else {
+
+        $(function () {
+            $("#section3").show();
+        });
+        $(function () {
+            $("#section2").hide();
+        });
+    }
+}
+
+function show4() {
+
+    if (numList.length <= 0)
+
+        console.log("No number entered");
+
+    else {
+        $(function () {
+            $("#section4").show();
+        });
+        $(function () {
+            $("#section3").hide();
+        });
+    }
+}
+
+function show5() {
+    $(function () {
+        $("#section5").show();
+    });
+    $(function () {
+        $("#section4").hide();
+    });
+}
+
+function show6() {
+    $(function () {
+        $("#section6").show();
+    });
+    $(function () {
+        $("#section5").hide();
+    });
+}
+
+function show7() {
+    $(function () {
+        $("#section7").show();
+    });
+    $(function () {
+        $("#section1").hide();
+    });
+}
+
+// BOOTSTRAP FORM VALIDATION
+(function () {
+    'use strict';
+    window.addEventListener('load', function () {
 
         // FETCH FORMS
         var forms = document.getElementsByClassName('needs-validation');
+
         // PREVENT SUBMISSION
         var validation = Array.prototype.filter.call(forms, function (form) {
             form.addEventListener('submit', function (event) {
-                if (form.checkValidity() === false || daysSelected.textContent > 15 || daysSelected.textContent < 1) {
+                if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
-
-                    // CUSTOM ERROR SHOW
-                    $("#dateErrorMessage").show();
                 }
                 form.classList.add('was-validated');
             }, false);
-
         });
     }, false);
-
-// });
+})();
