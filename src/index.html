@@ -322,7 +322,7 @@
         </div>
         <!-- VIDEO -->
         <video id="brand-video" autoplay muted loop data-autoplay>
-            <source src="media/brand-video.mp4" type="video/mp4" alt="NZ Tourism Video">
+            <source src="media/brand-video-2.mp4" type="video/mp4" alt="NZ Tourism Video">
         </video>
     </div>
 
@@ -374,7 +374,7 @@
                             <button type="button" class="btn btn-dark" onclick="show1from2()">BACK</button>
                         </div>
                         <div class="col-md-6">
-                            <button type="button" id="dateBtn" class="btn btn-dark floatRight dateBtn" onclick="show3()">CONTINUE</button>
+                            <button type="submit" id="dateBtn" class="btn btn-dark floatRight dateBtn" onclick="show3()">CONTINUE</button>
                         </div>
                     </div>
 
@@ -427,7 +427,7 @@
                             <button type="button" class="btn btn-dark" onclick="show2from3()">BACK</button>
                         </div>
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-dark floatRight" onclick="show4()">CONTINUE</button>
+                            <button type="submit" class="btn btn-dark floatRight" onclick="show4()">CONTINUE</button>
                         </div>
                     </div>
                 </form>
@@ -453,19 +453,19 @@
                         <div class="col-md-6 col-title">
                             <label for="startPoint">Pick up location*</label>
                             <input type="text" class=" form-control" id="startPoint" autocomplete="off" placeholder="Enter here">
-                            <div class="invalid-feedback">
+                            <div id="destError1" class="invalid-feedback">
                                 Please enter a pick up location
                             </div>
-                            <div class="valid-feedback">
+                            <div id="destValid1" class="validMessage">
                                 <i class="fas fa-check"></i></div>
                         </div>
                         <div class="col-md-6 col-title">
                             <label for="endPoint">Drop off location*</label>
                             <input type="text" class=" form-control" id="endPoint" autocomplete="off" placeholder="Enter here">
-                            <div class="invalid-feedback">
-                                Please select a drop off location
+                            <div id="destError2" class="invalid-feedback">
+                                Please enter a drop off location
                             </div>
-                            <div class="valid-feedback">
+                            <div id="destValid2" class="validMessage">
                                 <i class="fas fa-check"></i></div>
                         </div>
                         <div class="col-md-12 col-info">
@@ -473,7 +473,7 @@
                             <div class="optionsFont howManyDays" id="destSelectedStart"></div>
                             <div class="optionsFont howManyDays" id="destSelectedEnd"></div>
                             <!-- <div class="optionsFont howManyDays" id="destText"></div> -->
-                            <div id="destErrorMessage" class="errorMessage">
+                            <div class="errorMessage">
                                 Pick up location cannot match drop off location
                             </div>
                         </div>
@@ -482,7 +482,7 @@
                             <button type="button" class="btn btn-dark" onclick="show3from4()">BACK</button>
                         </div>
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-dark floatRight" onclick="show5()">CONTINUE</button>
+                            <button type="submit" class="btn btn-dark floatRight" onclick="show5()">CONTINUE</button>
                         </div>
                     </div>
                 </form>

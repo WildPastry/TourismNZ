@@ -6812,6 +6812,10 @@ select {
   color: #f79e33;
   font-size: 100%; }
 
+.validMessage {
+  display: none;
+  color: #28a745; }
+
 .col-title {
   height: 100px; }
 
@@ -6821,6 +6825,9 @@ select {
 
 .note p {
   text-align: center;
+  font-family: "Open Sans Regular";
+  font-size: 1em;
+  letter-spacing: 0px;
   color: #a0ddf9; }
 
 .invalid-feedback {

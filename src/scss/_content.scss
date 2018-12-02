@@ -180,6 +180,11 @@ select {
     font-size: 100%;
 }
 
+.validMessage {
+    display: none;
+    color: #28a745;
+}
+
 .col-title {
     height: 100px;
 }
@@ -191,7 +196,7 @@ select {
 
 .note p {
     text-align: center;
-    color: $l-blu;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $l-blu);
 }
 
 // FEEDBACK
