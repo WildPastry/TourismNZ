@@ -339,7 +339,7 @@
                         <div class="col-md-12">
                             <h2>SELECT DATES</h2>
                             <div class="note">
-                                <p>Minimum 1 day required, max hire is 15 days.</p>
+                                <p>Minimum 1 day required, maximum hire is 15 days.</p>
                             </div>
                         </div>
                         <div class="col-md-6 col-title">
@@ -395,7 +395,7 @@
                         <div class="col-md-12">
                             <h2>HOW MANY PEOPLE ARE TRAVELLING?</h2>
                             <div class="note">
-                                <p>Minimum 1 person, max 6 people.</p>
+                                <p>Minimum 1 person, maximum 6 people.</p>
                             </div>
                         </div>
                         <div class="col-md-3"></div>
@@ -452,30 +452,13 @@
                         </div>
                         <div class="col-md-6 col-title">
                             <label for="startPoint">Pick up location*</label>
-                            <select name="startPoint" class="form-control" id="startPoint" autocomplete="off" required>
-                                <option value="" disabled selected hidden>Select here</option>
-                                <option value="0" disabled hidden>0</option>
-                                <option onclick="addStartPoint()" value="Christchurch">Christchurch</option>
-                                <option onclick="addStartPoint()" value="Dunedin">Dunedin</option>
-                                <option onclick="addStartPoint()" value="Hamilton">Hamilton</option>
-                                <option onclick="addStartPoint()" value="Wellington">Wellington</option>
-                                <option onclick="addStartPoint()" value="Auckland">Auckland</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a pick up location
-                            </div>
-                            <div class="valid-feedback">
-                                <i class="fas fa-check"></i></div>
-                        </div>
-                        <!-- <div class="col-md-6 col-title">
-                            <label for="startPoint">Pick up location*</label>
                             <input type="text" class=" form-control" id="startPoint" autocomplete="off" placeholder="Enter here">
                             <div class="invalid-feedback">
                                 Please enter a pick up location
                             </div>
                             <div class="valid-feedback">
                                 <i class="fas fa-check"></i></div>
-                        </div> -->
+                        </div>
                         <div class="col-md-6 col-title">
                             <label for="endPoint">Drop off location*</label>
                             <input type="text" class=" form-control" id="endPoint" autocomplete="off" placeholder="Enter here">
@@ -487,8 +470,9 @@
                         </div>
                         <div class="col-md-12 col-info">
                             <div class="optionsFont howManyDays">You have selected...</div>
-                            <div class="optionsFont howManyDays" id="destSelected"></div>
-                            <div class="optionsFont howManyDays" id="destText"></div>
+                            <div class="optionsFont howManyDays" id="destSelectedStart"></div>
+                            <div class="optionsFont howManyDays" id="destSelectedEnd"></div>
+                            <!-- <div class="optionsFont howManyDays" id="destText"></div> -->
                             <div id="destErrorMessage" class="errorMessage">
                                 Pick up location cannot match drop off location
                             </div>
@@ -702,7 +686,7 @@
     </div>
 
     <!-- MAP -->
-    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ5qWqvPupVZb1AlLikNVFw4U3Lm5Oycs&libraries=places&callback=initMap"></script> -->
+
     <!--build:js js/main.min.js -->
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/jquery-ui-1.12.1.min.js"></script>
