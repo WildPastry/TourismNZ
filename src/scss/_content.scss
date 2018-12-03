@@ -8,9 +8,9 @@
     -o-background-size: cover;
     background-size: cover;
     background: radial-gradient(circle farthest-side,
-    rgba(69, 149, 241, 0),
-    rgba(10, 15, 27, 0.699),
-    );
+        rgba(69, 149, 241, 0),
+        rgba(10, 15, 27, 0.699),
+        );
     position: fixed;
     width: 100%;
     height: 100%;
@@ -35,9 +35,9 @@
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-    rgba(69, 149, 241, 0),
-    rgba(10, 15, 27, 0.699),
-    ), url('../img/sections/2.jpg');
+        rgba(69, 149, 241, 0),
+        rgba(10, 15, 27, 0.699),
+        ), url('../img/sections/2.jpg');
     position: fixed;
     width: 100%;
     height: 100%;
@@ -50,9 +50,9 @@
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-    rgba(69, 149, 241, 0),
-    rgba(10, 15, 27, 0.699),
-    ), url('../img/sections/3.jpg');
+        rgba(69, 149, 241, 0),
+        rgba(10, 15, 27, 0.699),
+        ), url('../img/sections/3.jpg');
     position: fixed;
     width: 100%;
     height: 100%;
@@ -65,9 +65,9 @@
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-    rgba(69, 149, 241, 0),
-    rgba(10, 15, 27, 0.699),
-    );
+        rgba(69, 149, 241, 0),
+        rgba(10, 15, 27, 0.699),
+        );
     position: fixed;
     width: 100%;
     height: 100%;
@@ -80,9 +80,9 @@
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-    rgba(69, 149, 241, 0),
-    rgba(10, 15, 27, 0.699),
-    ), url('../img/sections/5.jpg');
+        rgba(69, 149, 241, 0),
+        rgba(10, 15, 27, 0.699),
+        );
     position: fixed;
     width: 100%;
     height: 100%;
@@ -95,9 +95,9 @@
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-    rgba(69, 149, 241, 0),
-    rgba(10, 15, 27, 0.699),
-    ), url('../img/sections/6.jpg');
+        rgba(69, 149, 241, 0),
+        rgba(10, 15, 27, 0.699),
+        ), url('../img/sections/6.jpg');
     position: fixed;
     width: 100%;
     height: 100%;
@@ -110,7 +110,7 @@
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-    rgba(69, 149, 241, 0),
+        rgba(69, 149, 241, 0),
         rgba(10, 15, 27, 0.699),
         );
     position: fixed;
@@ -181,6 +181,7 @@ select {
 }
 
 .validMessage {
+    margin-top: 0.5em;
     display: none;
     color: #28a745;
 }
@@ -203,6 +204,17 @@ select {
 .invalid-feedback {
     margin-top: 0.5em;
     color: $in-ylw;
+    font-size: 100%;
+}
+
+.invalid-feedback-start {
+    margin-top: 0.5em;
+    color: $in-ylw;
+    font-size: 100%;
+}
+
+.valid-feedback-end {
+    margin-top: 0.5em;
     font-size: 100%;
 }
 
@@ -268,6 +280,20 @@ select {
     width: 800px;
 }
 
+.row-blue-long {
+    background-color: $blu-t;
+    padding: 1em;
+    border: 1px solid $wht;
+    border-radius: .5em;
+    left: 50%;
+    margin-left: -600px;
+    margin-top: -300px;
+    position: absolute;
+    top: 50%;
+    height: 600px;
+    width: 1200px;
+}
+
 // BUTTONS
 .btn-dark {
     @include fontProperties($fnt-reg, $bdy, $spc, $d-blu);
@@ -279,3 +305,39 @@ select {
 .fa-check {
     font-size: 1em;
 }
+
+// TEST MAP STUFF
+// #origin-input,
+// #destination-input {
+//   background-color: #fff;
+//   font-size: 15px;
+//   font-weight: 300;
+//   margin-left: 12px;
+//   padding: 0 11px 0 13px;
+//   text-overflow: ellipsis;
+//   width: 200px;
+// }
+
+// #origin-input:focus,
+// #destination-input:focus {
+//   border-color: #4d90fe;
+// }
+
+#mode-selector {
+    // color: #fff;
+    // padding: 5px 15px 0px 15px;
+    // text-align: center;
+    display: none;
+    visibility: hidden;
+}
+
+// #changemode-walking,
+// #changemode-transit,
+// #changemode-driving {
+//     margin: 5px 2px 5px 15px;
+// }
+
+// #mode-selector label {
+//   font-size: 13px;
+//   font-weight: 300;
+// }

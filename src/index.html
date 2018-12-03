@@ -322,7 +322,7 @@
         </div>
         <!-- VIDEO -->
         <video id="brand-video" autoplay muted loop data-autoplay>
-            <source src="media/brand-video-2.mp4" type="video/mp4" alt="NZ Tourism Video">
+            <source src="media/brand-video.mp4" type="video/mp4" alt="NZ Tourism Video">
         </video>
     </div>
 
@@ -343,23 +343,23 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-title">
-                            <label for="startDate">Pick up date*</label>
+                            <label for="startDate">Start date*</label>
                             <input type="text" class=" form-control startDate" id="startDate" autocomplete="off" name="startDate"
                                 placeholder="Enter here" required>
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback invalid-feedback-start">
                                 Please enter a date
                             </div>
                             <div class="valid-feedback">
                                 <i class="fas fa-check"></i></div>
                         </div>
                         <div class="col-md-6 col-title">
-                            <label for="endDate">Drop off date*</label>
+                            <label for="endDate">End date*</label>
                             <input type="text" class=" form-control endDate" id="endDate" autocomplete="off" name="endDate"
                                 placeholder="Enter here" required>
                             <div class="invalid-feedback">
                                 Please enter a date
                             </div>
-                            <div class="valid-feedback">
+                            <div class="valid-feedback valid-feedback-end">
                                 <i class="fas fa-check"></i></div>
                         </div>
                         <div class="col-md-12 col-info">
@@ -436,11 +436,14 @@
         </div>
     </div>
 
-    <!-- SECTION 4 (DESTINATIONS + MAP) -->
+    <!-- SECTION 4 + 5 (DESTINATIONS + MAP) -->
     <div class="section" id="section4">
+
+        <!-- MAP -->
         <div id="map"></div>
+
         <!-- BACKGROUND OVERLAY -->
-        <div class="section4">
+        <div id="section4mapInput" class="section4">
             <div class="container-fluid paddingTop">
                 <form class="needs-validation" novalidate>
                     <div class="row row-blue">
@@ -451,28 +454,42 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-title">
-                            <label for="startPoint">Pick up location*</label>
+                            <label for="startPoint">Start location*</label>
                             <input type="text" class=" form-control" id="startPoint" autocomplete="off" placeholder="Enter here">
                             <div id="destError1" class="invalid-feedback">
-                                Please enter a pick up location
+                                Please enter a start location
                             </div>
                             <div id="destValid1" class="validMessage">
                                 <i class="fas fa-check"></i></div>
                         </div>
                         <div class="col-md-6 col-title">
-                            <label for="endPoint">Drop off location*</label>
+                            <label for="endPoint">End location*</label>
                             <input type="text" class=" form-control" id="endPoint" autocomplete="off" placeholder="Enter here">
                             <div id="destError2" class="invalid-feedback">
-                                Please enter a drop off location
+                                Please enter an end location
                             </div>
                             <div id="destValid2" class="validMessage">
                                 <i class="fas fa-check"></i></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div id="mode-selector" class="controls">
+                                <input type="radio" name="type" id="changemode-walking" checked="checked">
+                                <label for="changemode-walking">Walking</label>
+                                <input type="radio" name="type" id="changemode-transit">
+                                <label for="changemode-transit">Transit</label>
+
+                                <input type="radio" name="type" id="changemode-driving">
+                                <label for="changemode-driving">Driving</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div id="time"></div>
+                            <div id="distance"></div>
                         </div>
                         <div class="col-md-12 col-info">
                             <div class="optionsFont howManyDays">You have selected...</div>
                             <div class="optionsFont howManyDays" id="destSelectedStart"></div>
                             <div class="optionsFont howManyDays" id="destSelectedEnd"></div>
-                            <!-- <div class="optionsFont howManyDays" id="destText"></div> -->
                             <div class="errorMessage">
                                 Pick up location cannot match drop off location
                             </div>
@@ -489,98 +506,96 @@
             </div>
         </div>
 
-    </div>
+        <!-- SECTION 5 (VEHICLES) -->
+        <div class="section" id="section5">
 
-    <!-- SECTION 5 (VEHICLES) -->
-    <div class="section" id="section5">
+            <!-- BACKGROUND OVERLAY -->
+            <div class="section5">
+                <div class="container-fluid paddingTop">
 
-        <!-- BACKGROUND OVERLAY -->
-        <div class="section5">
-            <div class="container-fluid paddingTop">
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <h2>VEHICLE OPTIONS</h2>
-                    </div>
-
-                    <div class="allVehicles">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="card mb-4 shadow-sm">
-                                    <img class="card-img-top" src="img/sections/2.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <p>This is a wider card with suppo below as
-                                            a natural lead-in to additional content. This content is a little
-                                            bit longer.</p>
-                                        <div class="
-                                        d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
-                                            </div>
-                                            <small class="muted">$</small>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="row row-blue-long">
+                        <div class="col-md-12">
+                            <h2>VEHICLE OPTIONS</h2>
+                            <div class="note">
+                                <p>Please select a vehicle</p>
                             </div>
-                            <div class="col-md-3">
-                                <div class="card mb-4 shadow-sm">
-                                    <img class="card-img-top" src="img/sections/3.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <p>This is a wider card with suppo below as
-                                            a natural lead-in to additional content. This content is a little
-                                            bit longer.</p>
-                                        <div class="
-                                    d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
-                                            </div>
-                                            <small class="muted">$</small>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="img/vehicles/ninja.jpg" alt="Ninja H2-R">
+                                <div class="card-body">
+                                    <h4>Kawasaki Ninja H2-R</h4>
+                                    <p>The development of the Ninja H2-R motorcycle goes beyond the boundaries of
+                                        others.</p>
+                                    <div class="
+                                            d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card mb-4 shadow-sm">
-                                    <img class="card-img-top" src="img/sections/4.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <p>This is a wider card with suppo below as
-                                            a natural lead-in to additional content. This content is a little
-                                            bit longer.</p>
-                                        <div class="
-                                d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
-                                            </div>
-                                            <small class="muted">$</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card mb-4 shadow-sm">
-                                    <img class="card-img-top" src="img/sections/5.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <p>This is a wider card with suppo below as
-                                            a natural lead-in to additional content. This content is a little
-                                            bit longer.</p>
-                                        <div class="
-                            d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
-                                            </div>
-                                            <small class="muted">$</small>
-                                        </div>
+                                        <small>$109 Per day</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-dark" onclick="show4from5()">BACK</button>
+                        <div class="col-md-3">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="img/vehicles/s4.jpg" alt="Audi S4 Sportback">
+                                <div class="card-body">
+                                    <h4>Audi S3 Sportback</h4>
+                                    <p>More power, more sportiness, more driving enjoyment: progressive design.</p>
+                                    <div class="
+                                                d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                        </div>
+                                        <small>$129 Per day</small>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-dark floatRight" onclick="show6()">CONTINUE</button>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="img/vehicles/m5.jpg" alt="BMW M5 Sedan">
+                                <div class="card-body">
+                                    <h4>BMW M5 Sedan</h4>
+                                    <p>The new generation of the BMW M5 is a statement of supreme engineering skill.</p>
+                                    <div class="
+                                                    d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                        </div>
+                                        <small>$144 Per day</small>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="img/vehicles/gls.jpg" alt="Mercedes GLS SUV">
+                                <div class="card-body">
+                                    <h4>Mercedes GLS SUV</h4>
+                                    <p>It's the S-Class of the SUV world: jump in, buckle up and enjoy a first drive in
+                                        the GLS!</p>
+                                    <div class="
+                                                        d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                        </div>
+                                        <small>$200 Per day</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-info">
+                            <div class="optionsFont howManyDays">You have selected...</div>
+                            <div class="optionsFont howManyDays" id="time"></div>
+                            <div class="optionsFont howManyDays" id="distance"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-dark" onclick="show4from5()">BACK</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-dark floatRight" onclick="show6()">CONTINUE</button>
                         </div>
                     </div>
 
@@ -608,8 +623,8 @@
                     </div>
                     <div class="col-md-12 col-info">
                         <div class="optionsFont howManyDays">You have selected...</div>
-                        <div class="optionsFont howManyDays" id="daysSelected"></div>
-                        <div class="optionsFont howManyDays" id="daysText"></div>
+                        <div class="optionsFont howManyDays" id="time"></div>
+                        <div class="optionsFont howManyDays" id="distance"></div>
                     </div>
                     <div class="col-md-6">
                         <button class="btn btn-dark" onclick="show5from6()">BACK</button>
@@ -686,7 +701,7 @@
     </div>
 
     <!-- MAP -->
-    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ5qWqvPupVZb1AlLikNVFw4U3Lm5Oycs&libraries=places&callback=initMap"></script> -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ5qWqvPupVZb1AlLikNVFw4U3Lm5Oycs&libraries=places&callback=initMap"></script>
     <!--build:js js/main.min.js -->
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/jquery-ui-1.12.1.min.js"></script>

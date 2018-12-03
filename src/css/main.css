@@ -6426,6 +6426,9 @@ h4 {
 .bold {
   font-family: "Open Sans Bold"; }
 
+small, .small body {
+  color: #2b2f3a; }
+
 .marginTop {
   margin-top: 1em; }
 
@@ -6740,7 +6743,7 @@ h4 {
   -o-background-size: cover;
   background-size: cover;
   background-position: center center;
-  background: radial-gradient(circle farthest-side, rgba(69, 149, 241, 0), rgba(10, 15, 27, 0.699)), url("../img/sections/5.jpg");
+  background: radial-gradient(circle farthest-side, rgba(69, 149, 241, 0), rgba(10, 15, 27, 0.699));
   position: fixed;
   width: 100%;
   height: 100%; }
@@ -6813,6 +6816,7 @@ select {
   font-size: 100%; }
 
 .validMessage {
+  margin-top: 0.5em;
   display: none;
   color: #28a745; }
 
@@ -6833,6 +6837,15 @@ select {
 .invalid-feedback {
   margin-top: 0.5em;
   color: #f79e33;
+  font-size: 100%; }
+
+.invalid-feedback-start {
+  margin-top: 0.5em;
+  color: #f79e33;
+  font-size: 100%; }
+
+.valid-feedback-end {
+  margin-top: 0.5em;
   font-size: 100%; }
 
 .valid-feedback {
@@ -6886,6 +6899,19 @@ select {
   height: 444.85px;
   width: 800px; }
 
+.row-blue-long {
+  background-color: rgba(43, 47, 58, 0.87);
+  padding: 1em;
+  border: 1px solid #fff;
+  border-radius: .5em;
+  left: 50%;
+  margin-left: -600px;
+  margin-top: -300px;
+  position: absolute;
+  top: 50%;
+  height: 600px;
+  width: 1200px; }
+
 .btn-dark {
   font-family: "Open Sans Regular";
   font-size: 1em;
@@ -6896,3 +6922,7 @@ select {
 
 .fa-check {
   font-size: 1em; }
+
+#mode-selector {
+  display: none;
+  visibility: hidden; }
