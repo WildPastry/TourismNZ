@@ -6865,7 +6865,9 @@ select {
 
 .optionsFont {
   margin-bottom: 0;
-  font-size: 2em;
+  font-family: "Open Sans Regular";
+  font-size: 1em;
+  letter-spacing: 0px;
   color: #fff; }
 
 .howManyDays {
@@ -6926,3 +6928,6 @@ select {
 #mode-selector {
   display: none;
   visibility: hidden; }
+
+#time, #distance {
+  text-align: center; }

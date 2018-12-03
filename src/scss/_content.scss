@@ -239,8 +239,8 @@ select {
 
 .optionsFont {
     margin-bottom: 0;
-    font-size: 2em;
-    color: $wht;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+
 }
 
 .howManyDays {
@@ -307,37 +307,11 @@ select {
 }
 
 // TEST MAP STUFF
-// #origin-input,
-// #destination-input {
-//   background-color: #fff;
-//   font-size: 15px;
-//   font-weight: 300;
-//   margin-left: 12px;
-//   padding: 0 11px 0 13px;
-//   text-overflow: ellipsis;
-//   width: 200px;
-// }
-
-// #origin-input:focus,
-// #destination-input:focus {
-//   border-color: #4d90fe;
-// }
-
 #mode-selector {
-    // color: #fff;
-    // padding: 5px 15px 0px 15px;
-    // text-align: center;
     display: none;
     visibility: hidden;
 }
 
-// #changemode-walking,
-// #changemode-transit,
-// #changemode-driving {
-//     margin: 5px 2px 5px 15px;
-// }
-
-// #mode-selector label {
-//   font-size: 13px;
-//   font-weight: 300;
-// }
+#time, #distance {
+    text-align: center;
+}
