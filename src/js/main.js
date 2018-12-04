@@ -13,6 +13,7 @@ $(window).on('load', function () {
 // MAP
 var map;
 var newMarker;
+var journeyList = [];
 var newZealand = {
   lat: -41.278919,
   lng: 172.5
@@ -330,13 +331,17 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (au
     }
     if (mode === 'ORIG') {
       me.originPlaceId = place.place_id;
-      destText1.innerText = ('You have selected... ');
-      destSelectedStart.innerText = place.name + (' ');
+      destText1.innerHTML = ('You have selected... ');
+      destSelectedStart.innerHTML = place.name + (' ');
+      journeyList.splice(0, 1);
+      journeyList.push(place.name);
       $("#destError1").hide();
       $("#destValid1").show();
     } else {
       me.destinationPlaceId = place.place_id;
-      destSelectedEnd.innerText = (' to ') + place.name;
+      destSelectedEnd.innerHTML = (' to ') + place.name;
+      journeyList.push(place.name);
+      console.log(journeyList);
       $("#destError2").hide();
       $("#destValid2").show();
     }
@@ -364,8 +369,8 @@ AutocompleteDirectionsHandler.prototype.route = function () {
   }, function (response, status) {
     if (status === 'OK') {
 
-      document.getElementById('time').innerText = 'Time to get to destination is ' + response.routes[0].legs[0].duration.text;
-      document.getElementById('distance').innerText = 'Total distance to destination is ' + response.routes[0].legs[0].distance.text;
+      document.getElementById('time').innerHTML = 'Time to get to destination is ' + response.routes[0].legs[0].duration.text;
+      document.getElementById('distance').innerHTML = 'Total distance to destination is ' + response.routes[0].legs[0].distance.text;
 
       me.directionsDisplay.setDirections(response);
 
@@ -386,7 +391,7 @@ AutocompleteDirectionsHandler.prototype.route = function () {
 //   });
 //   map.setZoom(12);
 //   map.setCenter(newMarker.getPosition());
-//   destSelectedStart.innerText = place.name;
+//   destSelectedStart.innerHTML = place.name;
 // }
 
 // function removeMarker() {
@@ -404,7 +409,7 @@ AutocompleteDirectionsHandler.prototype.route = function () {
 //   });
 //   map.setZoom(12);
 //   map.setCenter(newMarker.getPosition());
-//   destSelectedEnd.innerText = (' to ') + place.name;
+//   destSelectedEnd.innerHTML = (' to ') + place.name;
 // }
 
 // autocompleteStart.addListener('place_changed', function () {
@@ -488,6 +493,9 @@ $(document).on('click', '.confirm-trigger', function (event) {
 });
 
 // DATE PICKER
+var dateList = [];
+var daysList = [];
+
 $(function () {
   var dateFormat = "mm/dd/yy",
     from = $("#startDate")
@@ -504,7 +512,7 @@ $(function () {
       to.datepicker("option", "minDate", getDate(this));
     }),
     to = $("#endDate").datepicker({
-      defaultDate: "+1d",
+      defaultDate: "0",
       changeMonth: true,
       onClose: function () {
 
@@ -525,12 +533,9 @@ $(function () {
       date = null;
     }
     return date;
-    
+
   }
 });
-
-// var daysSelected = document.getElementById('#daysSelected');
-// var daysText = document.getElementById('#daysText');
 
 // CALCULATE DAYS
 function calculateDays() {
@@ -548,15 +553,23 @@ function calculateDays() {
   } else {
     console.log('Start date');
     console.log(startDate);
+    dateList.splice(0, 1);
+    dateList.push(startDate);
     console.log('End date');
     console.log(endDate);
+    dateList.splice(1, 1);
+    dateList.push(endDate);
+    console.log(dateList);
     var dif = endDate - startDate;
     dif = dif / 86400000;
     console.log('Number of Days');
     console.log(dif);
-    daysText1.innerText = ('You have selected... ');
-    daysSelected.innerText = dif;
-    daysText2.innerText = (' days');
+    daysList.splice(0, 1);
+    daysList.push(dif);
+    console.log(daysList);
+    daysText1.innerHTML = ('You have selected... ');
+    daysSelected.innerHTML = dif;
+    daysText2.innerHTML = (' days');
 
     if (dif > 15 || dif < 1) {
 
@@ -586,15 +599,23 @@ function reCalculateDays() {
   } else {
     console.log('Start date');
     console.log(startDate);
+    dateList.splice(0, 1);
+    dateList.push(startDate);
     console.log('End date');
     console.log(endDate);
+    dateList.splice(1, 1);
+    dateList.push(endDate);
+    console.log(dateList);
     var dif = endDate - startDate;
     dif = dif / 86400000;
     console.log('Number of Days');
     console.log(dif);
-    daysText1.innerText = ('You have selected... ');
-    daysSelected.innerText = dif;
-    daysText2.innerText = (' days');
+    daysList.splice(0, 1);
+    daysList.push(dif);
+    console.log(daysList);
+    daysText1.innerHTML = ('You have selected... ');
+    daysSelected.innerHTML = dif;
+    daysText2.innerHTML = (' days');
 
     if (dif > 15 || dif < 1) {
 
@@ -623,10 +644,9 @@ function addNumber(newNum) {
   console.log('Number of People');
   console.log(newNum);
   console.log(numList);
-  peopleText1.innerText = ('You have selected... ');
-  peopleSelected.innerText = newNum;
-  peopleText2.innerText = (' people');
-
+  peopleText1.innerHTML = ('You have selected... ');
+  peopleSelected.innerHTML = newNum;
+  peopleText2.innerHTML = (' people');
 }
 
 // PAGE ANIMATION
@@ -702,7 +722,7 @@ function show2() {
 
 function show3() {
 
-if (daysSelected.textContent > 15 || daysSelected.textContent < 1) {
+  if (daysSelected.textContent > 15 || daysSelected.textContent < 1) {
 
     console.log("No dates or wrong dates entered");
 
@@ -754,20 +774,39 @@ function show5() {
   }
 }
 
-function show6() {
-  $(function () {
-    $("#section6").show();
-  });
-  $(function () {
-    $("#section4").hide();
-    $("#section4mapInput").hide();
-    $("#section5").hide();
-  });
+function calculateData() {
+  if (vehicleSelected.textContent.length < 1 || vehicleSelected.textContent.length < 1) {
+
+    console.log("No vehicle selected");
+
+    // SHOW CUSTOM ERROR
+    $("#vehicleError").show();
+
+  } else {
+
+    datesFinal.innerHTML = '<span class="boldBlu">Dates travelling: </span>' + dateList[0] + '<br>' + dateList[1];
+    daysFinal.innerHTML = '<span class="boldBlu">Total days: </span>' + daysList[0];
+    peopleFinal.innerHTML = '<span class="boldBlu"> Total people: </span>' + numList[0];
+    journeyFinal.innerHTML = '<span class="boldBlu">Your journey: </span>' + journeyList[0] + ' to ' + journeyList[1];
+    vehicleFinal.innerHTML = '<span class="boldBlu">Your vehicle: </span>' + vehicleList[0];
+    petrolFinal.innerHTML = '<span class="boldBlu">Estimated fuel cost: </span>' + petrolPrice[0];
+    priceFinal.innerHTML = '<span class="boldBlu">Total hire cost: </span>' + totalPrice[0];
+
+    $(function () {
+      $("#section6").show();
+    });
+    $(function () {
+      $("#section4").hide();
+      $("#section4mapInput").hide();
+      $("#section5").hide();
+    });
+  }
 }
 
 function show7() {
   $(function () {
     $("#section4").show();
+    $("#section4mapInput").hide();
     $("#section5").show();
   });
   $(function () {
@@ -798,10 +837,17 @@ function show7() {
   }, false);
 })();
 
+// RESET DATA
+function resetData() {
+  location.reload();
+  show1();
+}
+
 // VEHICLES
-var vehicles = [{
+var vehicleList = [];
+var allVehicles = [{
     "name": "2019 Kawasaki Ninja H2-R",
-    "vehicle": "motorbike",
+    "vehicle": "motorBike",
     "imageURL": "../img/vehicles.ninja.jpg",
     "persons": {
       "min": 1,
@@ -846,7 +892,7 @@ var vehicles = [{
   },
   {
     "name": "2019 Mercedes GLS SUV",
-    "vehicle": "suv",
+    "vehicle": "sportsUtilityVehicle",
     "imageURL": "../img/vehicles.gls.jpg",
     "persons": {
       "min": 2,
@@ -862,3 +908,52 @@ var vehicles = [{
     "fuelPrice": 2.06
   }
 ];
+
+// VEHICLE BUTTONS
+function addMotorBike(motorBike) {
+  motorBike = (allVehicles[0].name);
+  vehicleList.splice(0, 1);
+  vehicleList.push(motorBike);
+  console.log('Motorbike selected');
+  console.log(motorBike);
+  console.log(vehicleList);
+  vehicleText.innerHTML = ('You have selected... ');
+  vehicleSelected.innerHTML = motorBike;
+  $("#vehicleError").hide();
+}
+
+function addSmallCar(smallCar) {
+  smallCar = (allVehicles[1].name);
+  vehicleList.splice(0, 1);
+  vehicleList.push(smallCar);
+  console.log('Small car selected');
+  console.log(smallCar);
+  console.log(vehicleList);
+  vehicleText.innerHTML = ('You have selected... ');
+  vehicleSelected.innerHTML = smallCar;
+  $("#vehicleError").hide();
+}
+
+function addLargeCar(largeCar) {
+  largeCar = (allVehicles[2].name);
+  vehicleList.splice(0, 1);
+  vehicleList.push(largeCar);
+  console.log('Large car selected');
+  console.log(largeCar);
+  console.log(vehicleList);
+  vehicleText.innerHTML = ('You have selected... ');
+  vehicleSelected.innerHTML = largeCar;
+  $("#vehicleError").hide();
+}
+
+function addSportsUtilityVehicle(sportsUtilityVehicle) {
+  sportsUtilityVehicle = (allVehicles[3].name);
+  vehicleList.splice(0, 1);
+  vehicleList.push(sportsUtilityVehicle);
+  console.log('SUV selected');
+  console.log(sportsUtilityVehicle);
+  console.log(vehicleList);
+  vehicleText.innerHTML = ('You have selected... ');
+  vehicleSelected.innerHTML = sportsUtilityVehicle;
+  $("#vehicleError").hide();
+}

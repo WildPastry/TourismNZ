@@ -437,7 +437,7 @@
         </div>
     </div>
 
-    <!-- SECTION 4 + 5 (DESTINATIONS + MAP) -->
+    <!-- SECTION 4 + 5 (DESTINATIONS + VEHICLES) -->
     <div class="section" id="section4">
 
         <!-- MAP -->
@@ -483,10 +483,6 @@
                                 <label for="changemode-driving">Driving</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div id="time"></div>
-                            <div id="distance"></div>
-                        </div>
                         <div class="col-md-12 col-info">
                             <div id="destText1" class="optionsFont howManyDays"></div>
                             <div class="optionsFont howManyDays" id="destSelectedStart"></div>
@@ -531,7 +527,7 @@
                                     <div class="
                                             d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addMotorBike()">Select</button>
                                         </div>
                                         <small>$109 Per day</small>
                                     </div>
@@ -547,7 +543,7 @@
                                     <div class="
                                                 d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addSmallCar()">Select</button>
                                         </div>
                                         <small>$129 Per day</small>
                                     </div>
@@ -563,7 +559,7 @@
                                     <div class="
                                                     d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addLargeCar()">Select</button>
                                         </div>
                                         <small>$144 Per day</small>
                                     </div>
@@ -580,7 +576,7 @@
                                     <div class="
                                                         d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Select</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="addSportsUtilityVehicle()">Select</button>
                                         </div>
                                         <small>$200 Per day</small>
                                     </div>
@@ -588,15 +584,18 @@
                             </div>
                         </div>
                         <div class="col-md-12 col-info">
-                            <div class="optionsFont howManyDays">You have selected...</div>
-                            <div class="optionsFont howManyDays" id="time"></div>
-                            <div class="optionsFont howManyDays" id="distance"></div>
+                            <div id="vehicleText" class="optionsFont howManyDays"></div>
+                            <div class="optionsFont howManyDays" id="vehicleSelected"></div>
+                            <div class="optionsFont howManyDays" id="vehicleText"></div>
+                            <div id="vehicleError" class="errorMessage">
+                                Please select a vehicle
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <button type="button" class="btn btn-dark" onclick="show4from5()">BACK</button>
                         </div>
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-dark floatRight" onclick="show6()">CONTINUE</button>
+                            <button type="button" class="btn btn-dark floatRight" onclick="calculateData()">CONTINUE</button>
                         </div>
                     </div>
 
@@ -618,15 +617,29 @@
                             <p>Please find the details of your journey below</p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-title">
+
+                    <div class="col-md-12">
+                        <p id="datesFinal" class="optionsFont"></p>
                     </div>
-                    <div class="col-md-6 col-title">
+                    <div class="col-md-12">
+                        <p id="daysFinal" class="optionsFont"></p>
+                        <p id="peopleFinal" class="optionsFont"></p>
                     </div>
-                    <div class="col-md-12 col-info">
-                        <div class="optionsFont howManyDays">You have selected...</div>
-                        <div class="optionsFont howManyDays" id="time"></div>
-                        <div class="optionsFont howManyDays" id="distance"></div>
+                    <div class="col-md-12">
+                        <p id="journeyFinal" class="optionsFont"></p>
                     </div>
+                    <div class="col-md-12">
+                        <p id="vehicleFinal" class="optionsFont"></p>
+                    </div>
+                    <div class="col-md-12">
+                        <p id="time" class="optionsFont"></p>
+                        <p id="distance" class="optionsFont"></p>
+                    </div>
+                    <div class="col-md-12">
+                        <p id="petrolFinal" class="optionsFont boldWht"></p>
+                        <p id="priceFinal" class="optionsFont boldWht"></p>
+                    </div>
+
                     <div class="col-md-6">
                         <button class="btn btn-dark" onclick="show5from6()">BACK</button>
                     </div>
@@ -698,7 +711,7 @@
             joshua@gmail.com
         </h4>
         <button class="btn btn-dark" data-izimodal-close>BACK</button>
-        <button class="btn btn-dark floatRight" data-izimodal-close onclick="show1()">FINISH</button>
+        <button class="btn btn-dark floatRight" data-izimodal-close onclick="resetData()">FINISH</button>
     </div>
 
     <!-- MAP -->

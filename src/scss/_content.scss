@@ -240,7 +240,7 @@ select {
 .optionsFont {
     margin-bottom: 0;
     @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
-
+    text-align: center;
 }
 
 .howManyDays {
@@ -310,8 +310,4 @@ select {
 #mode-selector {
     display: none;
     visibility: hidden;
-}
-
-#time, #distance {
-    text-align: center;
 }

@@ -6426,7 +6426,16 @@ h4 {
 .bold {
   font-family: "Open Sans Bold"; }
 
-small, .small body {
+.boldWht {
+  font-family: "Open Sans Bold";
+  color: #fff; }
+
+.boldBlu {
+  font-family: "Open Sans Bold";
+  color: #a0ddf9; }
+
+small,
+.small body {
   color: #2b2f3a; }
 
 .marginTop {
@@ -6446,6 +6455,9 @@ small, .small body {
 
 .floatRight::after {
   clear: right; }
+
+.alignCenter {
+  text-align: center; }
 
 .tool-tip-right {
   cursor: pointer; }
@@ -6868,7 +6880,8 @@ select {
   font-family: "Open Sans Regular";
   font-size: 1em;
   letter-spacing: 0px;
-  color: #fff; }
+  color: #fff;
+  text-align: center; }
 
 .howManyDays {
   display: inline; }
@@ -6928,6 +6941,3 @@ select {
 #mode-selector {
   display: none;
   visibility: hidden; }
-
-#time, #distance {
-  text-align: center; }

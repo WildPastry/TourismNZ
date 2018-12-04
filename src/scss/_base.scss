@@ -36,7 +36,18 @@ h4 {
     font-family: $fnt-bld;
 }
 
-small, .small body {
+.boldWht {
+    font-family: $fnt-bld;
+    color: $wht;
+}
+
+.boldBlu {
+    font-family: $fnt-bld;
+    color: $l-blu;
+}
+
+small,
+.small body {
     color: $d-blu;
 }
 
@@ -63,6 +74,10 @@ small, .small body {
 
 .floatRight::after {
     clear: right;
+}
+
+.alignCenter {
+    text-align: center;
 }
 
 // TOOL TIPSTER
