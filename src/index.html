@@ -517,7 +517,7 @@
                                 <p>Please select a vehicle</p>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3" id="motorBike">
                             <div class="card mb-4 shadow-sm">
                                 <img class="card-img-top" src="img/vehicles/ninja.jpg" alt="Ninja H2-R">
                                 <div class="card-body">
@@ -534,7 +534,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3" id="smallCar">
                             <div class="card mb-4 shadow-sm">
                                 <img class="card-img-top" src="img/vehicles/s4.jpg" alt="Audi S4 Sportback">
                                 <div class="card-body">
@@ -550,7 +550,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3" id="largeCar">
                             <div class="card mb-4 shadow-sm">
                                 <img class="card-img-top" src="img/vehicles/m5.jpg" alt="BMW M5 Sedan">
                                 <div class="card-body">
@@ -566,7 +566,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3" id="sportsUtilityVehicle">
                             <div class="card mb-4 shadow-sm">
                                 <img class="card-img-top" src="img/vehicles/gls.jpg" alt="Mercedes GLS SUV">
                                 <div class="card-body">
@@ -636,7 +636,10 @@
                         <p id="distance" class="optionsFont"></p>
                     </div>
                     <div class="col-md-12">
+                        <p id="rentalFinal" class="optionsFont boldWht"></p>
                         <p id="petrolFinal" class="optionsFont boldWht"></p>
+                        <p id="perDayFinal" class="optionsFont boldWht"></p>
+                        <p id="perPersonFinal" class="optionsFont boldWht"></p>
                         <p id="priceFinal" class="optionsFont boldWht"></p>
                     </div>
 
@@ -715,7 +718,7 @@
     </div>
 
     <!-- MAP -->
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ5qWqvPupVZb1AlLikNVFw4U3Lm5Oycs&libraries=places&callback=initMap"></script>
     <!--build:js js/main.min.js -->
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/jquery-ui-1.12.1.min.js"></script>

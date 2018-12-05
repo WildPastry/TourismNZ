@@ -13,6 +13,7 @@ $(window).on('load', function () {
 // MAP
 var map;
 var newMarker;
+var distanceList = [];
 var journeyList = [];
 var newZealand = {
   lat: -41.278919,
@@ -266,6 +267,7 @@ function initMap() {
   });
 
   console.log(map);
+  console.log("MAP READY");
 
   new AutocompleteDirectionsHandler(map);
 }
@@ -319,9 +321,9 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (au
     var place = autocomplete.getPlace();
     var latitude = place.geometry.location.lat();
     var longitude = place.geometry.location.lng();
+    console.log("Latitude and longitude");
     console.log(latitude);
     console.log(longitude);
-    console.log(place.address_components);
 
     // console.log(map); UNDEFINED
 
@@ -341,6 +343,7 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (au
       me.destinationPlaceId = place.place_id;
       destSelectedEnd.innerHTML = (' to ') + place.name;
       journeyList.push(place.name);
+      console.log("Start and end locations");
       console.log(journeyList);
       $("#destError2").hide();
       $("#destValid2").show();
@@ -372,8 +375,17 @@ AutocompleteDirectionsHandler.prototype.route = function () {
       document.getElementById('time').innerHTML = 'Time to get to destination is ' + response.routes[0].legs[0].duration.text;
       document.getElementById('distance').innerHTML = 'Total distance to destination is ' + response.routes[0].legs[0].distance.text;
 
-      me.directionsDisplay.setDirections(response);
+      var distanceMin = response.routes[0].legs[0].distance;
+      
+      newDistance = (distanceMin.value / 1000);
+      console.log("Distance in kilometres");
+      console.log(newDistance);
 
+      distanceList.splice(0, 1);
+      distanceList.push(newDistance);
+
+      console.log("Start and end locations as waypoints");
+      me.directionsDisplay.setDirections(response);
       console.log(response);
 
     } else {
@@ -381,60 +393,6 @@ AutocompleteDirectionsHandler.prototype.route = function () {
     }
   });
 };
-
-// function addMarker() {
-//   removeMarker();
-//   var place = autocomplete.getPlace();
-//   newMarker = new google.maps.Marker({
-//     position: newZealand,
-//     map: map,
-//   });
-//   map.setZoom(12);
-//   map.setCenter(newMarker.getPosition());
-//   destSelectedStart.innerHTML = place.name;
-// }
-
-// function removeMarker() {
-//   if (newMarker && newMarker.setMap) {
-//     newMarker.setMap(null);
-//   }
-// }
-
-// function addMarkerJourney() {
-//   removeMarker();
-//   var place = autocompleteEnd.getPlace();
-//   newMarker = new google.maps.Marker({
-//     position: place.geometry.location,
-//     map: map,
-//   });
-//   map.setZoom(12);
-//   map.setCenter(newMarker.getPosition());
-//   destSelectedEnd.innerHTML = (' to ') + place.name;
-// }
-
-// autocompleteStart.addListener('place_changed', function () {
-//   var place = autocompleteStart.getPlace();
-//   var latitude = place.geometry.location.lat();
-//   var longitude = place.geometry.location.lng();
-//   console.log(latitude);
-//   console.log(longitude);
-//   console.log(place.address_components);
-//   addMarker();
-//   $("#destError1").hide();
-//   $("#destValid1").show();
-// });
-
-// autocompleteEnd.addListener('place_changed', function () {
-//   var place = autocompleteEnd.getPlace();
-//   var latitude = place.geometry.location.lat();
-//   var longitude = place.geometry.location.lng();
-//   console.log(latitude);
-//   console.log(longitude);
-//   console.log(place.address_components);
-//   addMarkerJourney();
-//   $("#destError2").hide();
-//   $("#destValid2").show();
-// });
 
 // TOOL TIPSTER
 $('.tool-tip-right').tooltipster({
@@ -515,7 +473,6 @@ $(function () {
       defaultDate: "0",
       changeMonth: true,
       onClose: function () {
-
         calculateDays();
       }
     })
@@ -528,6 +485,7 @@ $(function () {
     var date;
     try {
       date = $.datepicker.parseDate(dateFormat, element.value);
+
     } catch (error) {
 
       date = null;
@@ -566,7 +524,6 @@ function calculateDays() {
     console.log(dif);
     daysList.splice(0, 1);
     daysList.push(dif);
-    console.log(daysList);
     daysText1.innerHTML = ('You have selected... ');
     daysSelected.innerHTML = dif;
     daysText2.innerHTML = (' days');
@@ -612,7 +569,6 @@ function reCalculateDays() {
     console.log(dif);
     daysList.splice(0, 1);
     daysList.push(dif);
-    console.log(daysList);
     daysText1.innerHTML = ('You have selected... ');
     daysSelected.innerHTML = dif;
     daysText2.innerHTML = (' days');
@@ -643,7 +599,6 @@ function addNumber(newNum) {
   numList.push(newNum);
   console.log('Number of People');
   console.log(newNum);
-  console.log(numList);
   peopleText1.innerHTML = ('You have selected... ');
   peopleSelected.innerHTML = newNum;
   peopleText2.innerHTML = (' people');
@@ -783,14 +738,23 @@ function calculateData() {
     $("#vehicleError").show();
 
   } else {
+    getRentalPrice();
+    var dateString1 = dateList[0];
+    dateString1 = dateString1.toString();
 
-    datesFinal.innerHTML = '<span class="boldBlu">Dates travelling: </span>' + dateList[0] + '<br>' + dateList[1];
+    var dateString2 = dateList[0];
+    dateString2 = dateString2.toString();
+
+    datesFinal.innerHTML = '<span class="boldBlu">Dates travelling: </span>' + dateString1.substring(0, 15) + ' - ' + dateString2.substring(0, 15);
     daysFinal.innerHTML = '<span class="boldBlu">Total days: </span>' + daysList[0];
     peopleFinal.innerHTML = '<span class="boldBlu"> Total people: </span>' + numList[0];
     journeyFinal.innerHTML = '<span class="boldBlu">Your journey: </span>' + journeyList[0] + ' to ' + journeyList[1];
-    vehicleFinal.innerHTML = '<span class="boldBlu">Your vehicle: </span>' + vehicleList[0];
-    petrolFinal.innerHTML = '<span class="boldBlu">Estimated fuel cost: </span>' + petrolPrice[0];
-    priceFinal.innerHTML = '<span class="boldBlu">Total hire cost: </span>' + totalPrice[0];
+    vehicleFinal.innerHTML = '<span class="boldBlu">Your vehicle: </span>' + vehicleList[0].name;
+    rentalFinal.innerHTML = '<span class="boldBlu">Rental cost: </span>$' + rentalPriceList[0];
+    petrolFinal.innerHTML = '<span class="boldBlu">Estimated fuel cost: </span>$' + petrolPriceList[0];
+    perDayFinal.innerHTML = '<span class="boldBlu">Cost per day: </span>$' + perDayList[0];
+    perPersonFinal.innerHTML = '<span class="boldBlu">Cost per person: </span>$' + perPersonList[0];
+    priceFinal.innerHTML = '<span class="boldBlu">Total cost: </span>$' + totalPriceList[0];
 
     $(function () {
       $("#section6").show();
@@ -858,8 +822,10 @@ var allVehicles = [{
       "min": 1,
       "max": 5
     },
-    "mileage": 3.7
+    "mileage": 3.7,
+    "fuelPerKM": 0.07622
   },
+
   {
     "name": "2019 Audi S3 Sportback",
     "vehicle": "smallCar",
@@ -873,7 +839,8 @@ var allVehicles = [{
       "min": 1,
       "max": 10
     },
-    "mileage": 8.5
+    "mileage": 8.5,
+    "fuelPerKM": 0.1751
   },
   {
     "name": "2019 BMW M5 Sedan",
@@ -888,7 +855,8 @@ var allVehicles = [{
       "min": 3,
       "max": 10
     },
-    "mileage": 9.7
+    "mileage": 9.7,
+    "fuelPerKM": 0.19982
   },
   {
     "name": "2019 Mercedes GLS SUV",
@@ -903,7 +871,8 @@ var allVehicles = [{
       "min": 2,
       "max": 15
     },
-    "mileage": 17
+    "mileage": 17,
+    "fuelPerKM": 0.3502
   }, {
     "fuelPrice": 2.06
   }
@@ -911,49 +880,119 @@ var allVehicles = [{
 
 // VEHICLE BUTTONS
 function addMotorBike(motorBike) {
-  motorBike = (allVehicles[0].name);
+  motorBikeName = allVehicles[0].name;
+  motorBike = allVehicles[0];
   vehicleList.splice(0, 1);
   vehicleList.push(motorBike);
   console.log('Motorbike selected');
   console.log(motorBike);
-  console.log(vehicleList);
   vehicleText.innerHTML = ('You have selected... ');
-  vehicleSelected.innerHTML = motorBike;
+  vehicleSelected.innerHTML = motorBikeName;
   $("#vehicleError").hide();
 }
 
 function addSmallCar(smallCar) {
-  smallCar = (allVehicles[1].name);
+  smallCarName = allVehicles[1].name;
+  smallCar = allVehicles[1];
   vehicleList.splice(0, 1);
   vehicleList.push(smallCar);
   console.log('Small car selected');
   console.log(smallCar);
-  console.log(vehicleList);
   vehicleText.innerHTML = ('You have selected... ');
-  vehicleSelected.innerHTML = smallCar;
+  vehicleSelected.innerHTML = smallCarName;
   $("#vehicleError").hide();
 }
 
 function addLargeCar(largeCar) {
-  largeCar = (allVehicles[2].name);
+  largeCarName = allVehicles[2].name;
+  largeCar = allVehicles[2];
   vehicleList.splice(0, 1);
   vehicleList.push(largeCar);
   console.log('Large car selected');
   console.log(largeCar);
-  console.log(vehicleList);
   vehicleText.innerHTML = ('You have selected... ');
-  vehicleSelected.innerHTML = largeCar;
+  vehicleSelected.innerHTML = largeCarName;
   $("#vehicleError").hide();
 }
 
 function addSportsUtilityVehicle(sportsUtilityVehicle) {
-  sportsUtilityVehicle = (allVehicles[3].name);
+  sportsUtilityVehicleName = allVehicles[3].name;
+  sportsUtilityVehicle = allVehicles[3];
   vehicleList.splice(0, 1);
   vehicleList.push(sportsUtilityVehicle);
   console.log('SUV selected');
   console.log(sportsUtilityVehicle);
-  console.log(vehicleList);
   vehicleText.innerHTML = ('You have selected... ');
-  vehicleSelected.innerHTML = sportsUtilityVehicle;
+  vehicleSelected.innerHTML = sportsUtilityVehicleName;
   $("#vehicleError").hide();
+}
+
+// VEHICLE FILTER FUNCTIONS
+
+// CALCULATION FUNCTIONS
+rentalPriceList = [];
+petrolPriceList = [];
+totalPriceList = [];
+perDayList = [];
+perPersonList = [];
+
+function getRentalPrice() {
+  hirePerDay = vehicleList[0].dailyRate;
+  numberOfDays = daysList[0];
+  rentalPrice = hirePerDay * numberOfDays;
+  var r = rentalPrice.toFixed(2);
+  rentalPriceList.splice(0, 1);
+  rentalPriceList.push(r);
+  console.log('Rental price');
+  console.log(rentalPrice);
+  getPetrolPrice();
+}
+
+function getPetrolPrice() {
+  var totalDistance = (distanceList[0]);
+  console.log('Total distance');
+  console.log(totalDistance);
+  fuelPricePerKM = vehicleList[0].fuelPerKM;
+  console.log('Fuel price per KM');
+  console.log(fuelPricePerKM);
+  petrolPrice = (totalDistance * fuelPricePerKM);
+  finalPetrolPrice = petrolPrice.toFixed(2);
+  petrolPriceList.splice(0, 1);
+  petrolPriceList.push(finalPetrolPrice);
+  console.log('Fuel price');
+  console.log(finalPetrolPrice);
+  getFinalPrice();
+}
+
+function getFinalPrice() {
+  var newPetrol = parseFloat(petrolPriceList[0]);
+  var newRental = parseFloat(rentalPriceList[0]);
+  finalPrice = (newPetrol + newRental);
+  var f = finalPrice.toFixed(2);
+  totalPriceList.splice(0, 1);
+  totalPriceList.push(f);
+  console.log('Final price');
+  console.log(f);
+  getCostPerDay();
+}
+
+function getCostPerDay() {
+var newDayPrice = parseInt(daysList[0]);
+  costPerDayPrice = (totalPriceList / newDayPrice);
+  var dayFloat = costPerDayPrice.toFixed(2);
+  perDayList.splice(0, 1);
+  perDayList.push(dayFloat);
+  console.log('Cost per day');
+  console.log(dayFloat);
+  getCostPerPerson();
+}
+
+function getCostPerPerson() {
+  var newPersonPrice = parseInt(numList[0]);
+  costPerPersonPrice = (totalPriceList / newPersonPrice);
+  var personFloat = costPerPersonPrice.toFixed(2);
+  perPersonList.splice(0, 1);
+  perPersonList.push(personFloat);
+  console.log('Cost per person');
+  console.log(personFloat);
 }

@@ -6600,7 +6600,7 @@ small,
   cursor: pointer;
   left: 50%;
   margin-left: -300px;
-  margin-top: -270px;
+  margin-top: -222.425px;
   position: absolute;
   top: 50%;
   height: 444.85px;
@@ -6902,20 +6902,20 @@ select {
     color: #fff; }
 
 .row-blue {
-  background-color: rgba(43, 47, 58, 0.87);
+  background-color: rgba(43, 47, 58, 0.8);
   padding: 1em;
   border: 1px solid #fff;
   border-radius: .5em;
   left: 50%;
   margin-left: -400px;
-  margin-top: -270px;
+  margin-top: -250px;
   position: absolute;
   top: 50%;
-  height: 444.85px;
+  height: 500px;
   width: 800px; }
 
 .row-blue-long {
-  background-color: rgba(43, 47, 58, 0.87);
+  background-color: rgba(43, 47, 58, 0.8);
   padding: 1em;
   border: 1px solid #fff;
   border-radius: .5em;
