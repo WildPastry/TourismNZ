@@ -376,19 +376,40 @@
                                 <i class="fas fa-check"></i></div>
                         </div>
                         <div class="col-md-3"></div>
-                        <div class="col-md-12 col-info">
+                        <div class="col-md-12 col-info paddingBot">
                             <div id="peopleText1" class="optionsFont howManyDays"></div>
                             <div class="optionsFont howManyDays" id="peopleSelected"></div>
                             <div class="optionsFont howManyDays" id="peopleText2"></div>
                         </div>
-                        <div class="col-md-12 col-bottom">
+                        <!-- PROGRESS BAR BOTTOM-->
+                        <div class="progressBarBottomWrapper">
+                            <div class="progressBar">
+                                <button type="button" class="btn btn-dark" onclick="show1from2()">BACK</button>
+                            </div>
+                            <div class="progressBar progressBarIconInactive progressBarIconActive">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="progressBar progressBarIconInactive progressBarIconActive">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                            <div class="progressBar progressBarIconInactive progressBarIconActive">
+                                <i class="fas fa-globe-asia"></i>
+                            </div>
+                            <div class="progressBar">
+                                <button type="submit" class="btn btn-dark" onclick="show3()">CONTINUE</button>
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="col-md-12 col-bottom">
                             <button type="button" class="btn btn-dark" onclick="show1from2()">BACK</button>
                         
                             <i class="fas fa-user"></i>
 
-
                             <button type="submit" class="btn btn-dark floatRight" onclick="show3()">CONTINUE</button>
-                        </div>
+                        </div> -->
+
+
                     </div>
                 </form>
             </div>
@@ -798,7 +819,6 @@
     </div>
 
     <!-- MAP -->
-
     <!--build:js js/main.min.js -->
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/jquery-ui-1.12.1.min.js"></script>

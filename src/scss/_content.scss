@@ -336,7 +336,9 @@ select {
     font-size: 1em;
 }
 
-.fa-user {
+.fa-user,
+.fa-calendar-alt,
+.fa-globe-asia {
     color: $wht;
     font-size: 2em;
 }
@@ -368,6 +370,7 @@ select {
 .progressBarWrapper {
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
+    // border-bottom: 1px solid $blk;
     display: flex;
     height: 40px;
     width: 100%;
@@ -381,16 +384,43 @@ select {
     }
 }
 
+.progressBarBottomWrapper {
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    display: flex;
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    padding: 0 15px;
+
+    p {
+        text-align: center;
+        @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+        opacity: 0.4;
+    }
+}
+
 .progressBar {
     width: 20%;
     line-height: 40px;
-    height: 100%;
     flex-direction: row;
+    text-align: center;
 
-    i {
-        text-align: center;
+    button {
+        width: 80%;
+        height: 100%;
     }
 }
+
+.progressBarIconInactive i {
+    opacity: 0.4;
+}
+
+// .progressBarIconActive i {
+//     display: none;
+//     opacity: 1;
+// }
 
 .progress1 {
     border-top-left-radius: 0.5em;

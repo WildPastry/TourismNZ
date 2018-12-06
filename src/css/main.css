@@ -6454,7 +6454,7 @@ small,
   padding-top: 15px; }
 
 .paddingBot {
-  padding-bottom: 130px; }
+  padding-bottom: 70px; }
 
 .floatRight {
   float: right; }
@@ -6965,7 +6965,9 @@ select {
 .fa-check {
   font-size: 1em; }
 
-.fa-user {
+.fa-user,
+.fa-calendar-alt,
+.fa-globe-asia {
   color: #fff;
   font-size: 2em; }
 
@@ -7001,13 +7003,34 @@ select {
     color: #fff;
     opacity: 0.4; }
 
+.progressBarBottomWrapper {
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  display: flex;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  padding: 0 15px; }
+  .progressBarBottomWrapper p {
+    text-align: center;
+    font-family: "Open Sans Regular";
+    font-size: 1em;
+    letter-spacing: 0px;
+    color: #fff;
+    opacity: 0.4; }
+
 .progressBar {
   width: 20%;
   line-height: 40px;
-  height: 100%;
-  flex-direction: row; }
-  .progressBar i {
-    text-align: center; }
+  flex-direction: row;
+  text-align: center; }
+  .progressBar button {
+    width: 80%;
+    height: 100%; }
+
+.progressBarIconInactive i {
+  opacity: 0.4; }
 
 .progress1 {
   border-top-left-radius: 0.5em;
