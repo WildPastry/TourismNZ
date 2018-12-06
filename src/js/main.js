@@ -2,7 +2,7 @@
 console.log('JS READY');
 
 // LOAD MAP
-$(document).ready(function() {
+$(document).ready(function () {
   initMap();
 });
 
@@ -458,27 +458,53 @@ $(document).on('click', '.confirm-trigger', function (event) {
 // DATE PICKER
 var dateList = [];
 var daysList = [];
+var startFeedBack = $('#startDate').val();
+var endFeedBack = $('#endDate').val();
+
+// console.log(startFeedBack);
+// console.log(endFeedBack);
 
 $(function () {
   var dateFormat = "mm/dd/yy",
     from = $("#startDate")
     .datepicker({
+      // selectOtherMonths: true,
       minDate: 0,
-      defaultDate: "0",
-      changeMonth: true,
+      // defaultDate: "-1y",
+      // changeMonth: true,
+      // changeYear: true,
       onClose: function () {
-
-        reCalculateDays();
+        var selected = $(this).val();
+        if (selected == "") {
+          $(".invalid-feedback-start").show();
+        } else {
+          // console.log(document.getElementById('startDate').innerText);
+          $(".valid-feedback-start").show();
+          $(".invalid-feedback-start").hide();
+          reCalculateDays();
+        }
       }
     })
     .on("change", function () {
       to.datepicker("option", "minDate", getDate(this));
     }),
     to = $("#endDate").datepicker({
-      defaultDate: "0",
-      changeMonth: true,
+      // selectOtherMonths: true,
+      // minDate: 0,
+      // maxDate: 0,
+      // defaultDate: "-1y",
+      // changeMonth: true,
+      // changeYear: true,
       onClose: function () {
-        calculateDays();
+        var selected = $(this).val();
+        if (selected == "") {
+          $(".invalid-feedback-end").show();
+        } else {
+          // console.log(document.getElementById('startDate').innerText);
+          $(".valid-feedback-end").show();
+          $(".invalid-feedback-end").hide();
+          reCalculateDays();
+        }
       }
     })
     .on("change", function () {
@@ -529,10 +555,15 @@ function calculateDays() {
     console.log(dif);
     daysList.splice(0, 1);
     daysList.push(dif);
-    daysText1.innerHTML = ('You have selected... ');
-    daysSelected.innerHTML = dif;
-    daysText2.innerHTML = (' days');
-
+    if (dif <= 1) {
+      daysText1.innerHTML = ('You have selected... ');
+      daysSelected.innerHTML = dif;
+      daysText2.innerHTML = (' day');
+    } else {
+      daysText1.innerHTML = ('You have selected... ');
+      daysSelected.innerHTML = dif;
+      daysText2.innerHTML = (' days');
+    }
     if (dif > 15 || dif < 1) {
 
       // SHOW CUSTOM ERROR
@@ -542,6 +573,8 @@ function calculateDays() {
 
       // HIDE CUSTOM ERROR
       $("#dateError").hide();
+      // $(".invalid-feedback-start").hide();
+
     }
   }
 }
@@ -574,9 +607,15 @@ function reCalculateDays() {
     console.log(dif);
     daysList.splice(0, 1);
     daysList.push(dif);
-    daysText1.innerHTML = ('You have selected... ');
-    daysSelected.innerHTML = dif;
-    daysText2.innerHTML = (' days');
+    if (dif <= 1) {
+      daysText1.innerHTML = ('You have selected... ');
+      daysSelected.innerHTML = dif;
+      daysText2.innerHTML = (' day');
+    } else {
+      daysText1.innerHTML = ('You have selected... ');
+      daysSelected.innerHTML = dif;
+      daysText2.innerHTML = (' days');
+    }
 
     if (dif > 15 || dif < 1) {
 
@@ -587,6 +626,8 @@ function reCalculateDays() {
 
       // HIDE CUSTOM ERROR
       $("#dateError").hide();
+      // $(".invalid-feedback-start").hide();
+
     }
   }
 }
@@ -604,9 +645,16 @@ function addNumber(newNum) {
   numList.push(newNum);
   console.log('Number of People');
   console.log(newNum);
-  peopleText1.innerHTML = ('You have selected... ');
-  peopleSelected.innerHTML = newNum;
-  peopleText2.innerHTML = (' people');
+  if (newNum <= 1) {
+    peopleText1.innerHTML = ('You have selected... ');
+    peopleSelected.innerHTML = newNum;
+    peopleText2.innerHTML = (' person');
+  } else {
+    peopleText1.innerHTML = ('You have selected... ');
+    peopleSelected.innerHTML = newNum;
+    peopleText2.innerHTML = (' people');
+    $(".valid-feedback-num").show();
+  }
 }
 
 // PAGE ANIMATION
@@ -681,10 +729,9 @@ function show2() {
 }
 
 function show3() {
+  if (numList.length <= 0) {
 
-  if (daysSelected.textContent > 15 || daysSelected.textContent < 1) {
-
-    console.log("No dates or wrong dates entered");
+    console.log("No number entered");
 
   } else {
 
@@ -699,11 +746,14 @@ function show3() {
 
 function show4() {
 
-  if (numList.length <= 0)
+  if (daysSelected.textContent > 15 || daysSelected.textContent < 1 || daysSelected.textContent == 'NaN') {
 
-    console.log("No number entered");
+    console.log("No dates or wrong dates entered");
 
-  else {
+    // $(".invalid-feedback-start").show();
+    // $(".valid-feedback-start").hide();
+
+  } else {
     $(function () {
       $("#section4").show();
       $("#section4mapInput").show();
@@ -736,12 +786,22 @@ function show5() {
 }
 
 function calculateData() {
+  var daysCheck = daysList[0];
+  var peopleCheck = numList[0];
+  // var conditionalError = document.getElementById('vehicleError2')
   if (vehicleSelected.textContent.length < 1 || vehicleSelected.textContent.length < 1) {
 
     console.log("No vehicle selected");
 
     // SHOW CUSTOM ERROR
     $("#vehicleError").show();
+
+    if ((daysCheck >= 11 && daysCheck <= 15) && peopleCheck == 1) {
+      $("#vehicleError2").show();
+    }
+    if (daysCheck == 1 && peopleCheck == 6) {
+      $("#vehicleError2").show();
+    }
 
   } else {
     getRentalPrice();
@@ -771,17 +831,6 @@ function calculateData() {
       $("#section5").hide();
     });
   }
-}
-
-function show7() {
-  $(function () {
-    $("#section4").show();
-    $("#section4mapInput").hide();
-    $("#section5").show();
-  });
-  $(function () {
-    $("#section1").hide();
-  });
 }
 
 // FORM VALIDATION
@@ -938,6 +987,9 @@ function filterVehicles() {
   var daysCheck = daysList[0];
   var peopleCheck = numList[0];
 
+  $("#vehicleError").hide();
+  $("#vehicleError2").hide();
+  $("#vehicleErrorInfo").hide();
   $("#motorBike").hide();
   $("#smallCar").hide();
   $("#largeCar").hide();
@@ -949,11 +1001,17 @@ function filterVehicles() {
   if ((daysCheck >= 1 && daysCheck <= 10) && (peopleCheck <= 2)) {
     $("#smallCar").show();
   }
-  if ((daysCheck >= 3 && daysCheck <= 10) && (peopleCheck >= 1 && peopleCheck <=5)) {
+  if ((daysCheck >= 3 && daysCheck <= 10) && (peopleCheck >= 1 && peopleCheck <= 5)) {
     $("#largeCar").show();
   }
-  if ((daysCheck >= 2 && daysCheck <= 15) && (peopleCheck >= 2 && peopleCheck <=6)) {
+  if ((daysCheck >= 2 && daysCheck <= 15) && (peopleCheck >= 2 && peopleCheck <= 6)) {
     $("#sportsUtilityVehicle").show();
+  }
+  if ((daysCheck >= 11 && daysCheck <= 15) && peopleCheck == 1) {
+    $("#vehicleErrorInfo").show();
+  }
+  if (daysCheck == 1 && peopleCheck == 6) {
+    $("#vehicleErrorInfo").show();
   }
 }
 
@@ -1023,4 +1081,10 @@ function getCostPerPerson() {
   perPersonList.push(personFloat);
   console.log('Cost per person');
   console.log(personFloat);
+}
+
+// TOGGLE FOREGROUND FUNCTION
+function toggleForeground() {
+  $("#brand-title").toggle();
+  // $(".invalid-feedback-start").toggle();
 }

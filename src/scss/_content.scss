@@ -9,7 +9,7 @@
     background-size: cover;
     background: radial-gradient(circle farthest-side,
         rgba(69, 149, 241, 0),
-        rgba(10, 15, 27, 0.699),
+        rgba(10, 15, 27, 0.651),
         );
     position: fixed;
     width: 100%;
@@ -29,14 +29,17 @@
 
 // SECTIONS
 .section2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-        rgba(69, 149, 241, 0),
-        rgba(10, 15, 27, 0.699),
+        rgba(255, 255, 255, 0),
+        rgba(10, 15, 27, 0.651),
         ), url('../img/sections/2.jpg');
     position: fixed;
     width: 100%;
@@ -44,14 +47,17 @@
 }
 
 .section3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-        rgba(69, 149, 241, 0),
-        rgba(10, 15, 27, 0.699),
+        rgba(255, 255, 255, 0),
+        rgba(10, 15, 27, 0.651),
         ), url('../img/sections/3.jpg');
     position: fixed;
     width: 100%;
@@ -59,14 +65,17 @@
 }
 
 .section4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-        rgba(69, 149, 241, 0),
-        rgba(10, 15, 27, 0.699),
+        rgba(255, 255, 255, 0),
+        rgba(10, 15, 27, 0.651),
         );
     position: fixed;
     width: 100%;
@@ -74,14 +83,17 @@
 }
 
 .section5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-        rgba(69, 149, 241, 0),
-        rgba(10, 15, 27, 0.699),
+        rgba(255, 255, 255, 0),
+        rgba(10, 15, 27, 0.651),
         );
     position: fixed;
     width: 100%;
@@ -89,30 +101,18 @@
 }
 
 .section6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-position: center center;
     background: radial-gradient(circle farthest-side,
-        rgba(69, 149, 241, 0),
-        rgba(10, 15, 27, 0.699),
+        rgba(255, 255, 255, 0),
+        rgba(10, 15, 27, 0.651),
         ), url('../img/sections/6.jpg');
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-
-.section7 {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: center center;
-    background: radial-gradient(circle farthest-side,
-        rgba(69, 149, 241, 0),
-        rgba(10, 15, 27, 0.699),
-        );
     position: fixed;
     width: 100%;
     height: 100%;
@@ -142,6 +142,46 @@
     display: none;
 }
 
+// LAYOUT
+.container-fluid {
+    max-width: 900px;
+    margin: $main-mar;
+
+    h2 {
+        @include fontProperties($fnt-pure, $hdg-2, $spc, $l-blu);
+        text-align: center;
+    }
+
+    h3 {
+        color: $wht;
+    }
+}
+
+// padding: 0.375rem 0.75rem;
+
+.row-blue {
+    position: relative;
+    background-color: $blu-t;
+    // padding: 1em;
+    border: 2px solid $wht;
+    border-radius: .5em;
+    margin: 0 auto;
+    height: 500px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.row-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.col-flex {
+    text-align: center;
+}
+
 // MAP
 #map {
     position: absolute;
@@ -163,27 +203,52 @@ select {
     cursor: pointer;
 }
 
+// option {
+//     text-align: center;
+// }
+
 .form-control {
     box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px;
+    // width: 300px;
+    // margin: 0 auto;
 }
 
 .was-validated .form-control:invalid,
 .form-control.is-invalid,
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
-    border-color: $in-ylw;
+    border-color: $l-blu;
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid,
+.was-validated .custom-select:invalid,
+.custom-select.is-invalid {
+    border-color: $l-blu;
+}
+
+.was-validated .form-control:invalid:focus,
+.form-control.is-invalid:focus,
+.was-validated .custom-select:invalid:focus,
+.custom-select.is-invalid:focus {
+    border-color: $l-blu;
+    box-shadow: 0 0 0 0.2rem rgba(160, 221, 249, 0.705);
 }
 
 .errorMessage {
     display: none;
-    color: $in-ylw;
+    color: $l-blu;
     font-size: 100%;
+}
+
+#vehicleErrorInfo {
+    display: none;
 }
 
 .validMessage {
     margin-top: 0.5em;
     display: none;
-    color: #28a745;
+    color: $green;
 }
 
 .col-title {
@@ -195,21 +260,25 @@ select {
     text-align: center;
 }
 
+.col-bottom {
+    height: 50px;
+    line-height: 50px;
+}
+
 .note p {
     text-align: center;
-    @include fontProperties($fnt-reg, $bdy, $spc-zero, $l-blu);
+    @include fontProperties($fnt-bld, $hdg-4, $spc-zero, $wht);
 }
 
 // FEEDBACK
 .invalid-feedback {
     margin-top: 0.5em;
-    color: $in-ylw;
+    color: $l-blu;
     font-size: 100%;
 }
 
-.invalid-feedback-start {
+.valid-feedback-start {
     margin-top: 0.5em;
-    color: $in-ylw;
     font-size: 100%;
 }
 
@@ -251,60 +320,25 @@ select {
     border-color: $l-blu;
 }
 
-// LAYOUT
-.container-fluid {
-    max-width: 1200px;
-    margin: $main-mar;
-
-    h2 {
-        @include fontProperties($fnt-pure, $hdg-2, $spc, $l-blu);
-        text-align: center;
-    }
-
-    h3 {
-        color: $wht;
-    }
-}
-
-.row-blue {
-    background-color: $blu-t;
-    padding: 1em;
-    border: 1px solid $wht;
-    border-radius: .5em;
-    left: 50%;
-    margin-left: -400px;
-    margin-top: -250px;
-    position: absolute;
-    top: 50%;
-    height: 500px;
-    width: 800px;
-}
-
-.row-blue-long {
-    background-color: $blu-t;
-    padding: 1em;
-    border: 1px solid $wht;
-    border-radius: .5em;
-    left: 50%;
-    margin-left: -600px;
-    margin-top: -300px;
-    position: absolute;
-    top: 50%;
-    height: 600px;
-    width: 1200px;
-    justify-content: center;
-}
-
 // BUTTONS
 .btn-dark {
     @include fontProperties($fnt-reg, $bdy, $spc, $d-blu);
     background-color: $l-blu;
-    border-color: #343a40;
+    border-color: $d-gry;
 }
 
-// TICK
+.btn-dark:hover {
+    background-color: $m-blu;
+}
+
+// FONT AWESOME
 .fa-check {
     font-size: 1em;
+}
+
+.fa-user {
+    color: $wht;
+    font-size: 2em;
 }
 
 // TEST MAP STUFF
@@ -329,3 +363,73 @@ select {
 #sportsUtilityVehicle {
     display: none;
 }
+
+// PROGRESS BAR
+.progressBarWrapper {
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    display: flex;
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+
+    p {
+        text-align: center;
+        @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+        opacity: 0.4;
+    }
+}
+
+.progressBar {
+    width: 20%;
+    line-height: 40px;
+    height: 100%;
+    flex-direction: row;
+
+    i {
+        text-align: center;
+    }
+}
+
+.progress1 {
+    border-top-left-radius: 0.5em;
+    border-right: 1px solid $d-gry-t;
+}
+
+.progress2 {
+    border-right: 1px solid $d-gry-t;
+}
+
+.progress3 {
+    border-right: 1px solid $d-gry-t;
+}
+
+.progress4 {
+    border-right: 1px solid $d-gry-t;
+}
+
+.progress5 {
+    border-top-right-radius: 0.5em;
+
+}
+
+.progressActive {
+    background: $m-blu;
+
+    p {
+        opacity: 1;
+    }
+}
+
+.progressInactive {
+    background: $d-gry-t;
+}
+
+.progressComplete {
+    background: $green;
+}
+
+// #peopleNum {
+//     text-align: center;
+// }

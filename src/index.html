@@ -10,10 +10,10 @@
     <!--build:css css/main.min.css-->
     <link rel="stylesheet" href="framework/css/jquery-ui-1.12.1.min.css">
     <link rel="stylesheet" href="framework/css/jquery-ui-oc-1.12.1.min.css">
+    <link rel="stylesheet" href="framework/css/fontawesome.min-5.5.0.css">
     <link rel="stylesheet" href="framework/css/tooltipster-4.2.6.min.css">
     <link rel="stylesheet" href="framework/css/tooltipster-sideTip-light.min.css">
     <link rel="stylesheet" href="framework/css/izimodal-1.6.0.min.css">
-    <link rel="stylesheet" href="framework/css/fontawesome.min-5.5.0.css">
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="css/main.css">
     <!--endbuild-->
@@ -33,8 +33,8 @@
         <!-- HEADER -->
         <header class="header-fixed">
             <div class="header-map">
-                <svg onclick="show7()" alt="Map Icon" class="tool-tip-right" title="View Map" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ripple" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
+                <svg alt="Map Icon" class="tool-tip-right" title="View Map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid" class="lds-ripple" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
                     <circle class="header-map-icon-inner" cx="50" cy="50" r="0" fill="none" ng-attr-stroke="{{config.c1}}"
                         ng-attr-stroke-width="{{config.width}}" stroke-width="6">
                         <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="2" keySplines="0 0.2 0.8 1"
@@ -52,9 +52,10 @@
                 </svg>
             </div>
             <div class="header-info">
-                <svg alt="Information Icon" class="header-info-inner tool-tip-left info-trigger" title="Information" version="1.1" id="Layer_1"
-                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 294.32 294.32" style="enable-background:new 0 0 294.32 294.32;" xml:space="preserve">
+                <svg alt="Information Icon" class="header-info-inner tool-tip-left info-trigger" title="Information"
+                    version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px" y="0px" viewBox="0 0 294.32 294.32" style="enable-background:new 0 0 294.32 294.32;"
+                    xml:space="preserve">
                     <path class="social-wht" d="M211.18,34.37c0,9.47-3.51,17.56-10.58,24.21c-7.04,6.67-15.53,10.01-25.46,10.01
             c-9.96,0-18.47-3.34-25.59-10.01c-7.11-6.65-10.67-14.74-10.67-24.21c0-9.45,3.56-17.55,10.67-24.28C156.66,3.36,165.19,0,175.14,0
             c9.93,0,18.42,3.37,25.46,10.09C207.67,16.82,211.18,24.92,211.18,34.37 M207.34,262.56l-4.05,16.81
@@ -203,8 +204,6 @@
 
     <!-- SECTION 1 (INDEX)-->
     <div class="section" id="section1">
-        <!-- BACKGROUND OVERLAY -->
-        <div class="background"></div>
         <!-- BRAND TITLE -->
         <div class="brand-title" id="brand-title">
             <svg onclick="show2()" class="brand-title-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -326,74 +325,33 @@
         </video>
     </div>
 
-    <!-- SECTION 2 (DATES) -->
+    <!-- SECTION 2 (PEOPLE) -->
     <div class="section" id="section2">
         <!-- BACKGROUND OVERLAY -->
         <div class="section2">
-            <!-- CONTAINER -->
-            <div class="container-fluid paddingTop">
-
+            <div class="container-fluid">
                 <form class="needs-validation" novalidate>
-
-                    <div class="row row-blue">
-                        <div class="col-md-12">
-                            <h2>SELECT DATES</h2>
-                            <div class="note">
-                                <p>Minimum 1 day required, maximum hire is 15 days.</p>
+                    <div class="row row-blue row-flex">
+                        <!-- PROGRESS BAR -->
+                        <div class="progressBarWrapper">
+                            <div class="progressBar progressActive progress1">
+                                <p>STEP 1</p>
+                            </div>
+                            <div class="progressBar progressInactive progress2">
+                                <p>STEP 2</p>
+                            </div>
+                            <div class="progressBar progressInactive progress3">
+                                <p>STEP 3</p>
+                            </div>
+                            <div class="progressBar progressInactive progress4">
+                                <p>STEP 4</p>
+                            </div>
+                            <div class="progressBar progressInactive progress5">
+                                <p>CONFIRM</p>
                             </div>
                         </div>
-                        <div class="col-md-6 col-title">
-                            <label for="startDate">Start date*</label>
-                            <input type="text" class=" form-control startDate" id="startDate" autocomplete="off" name="startDate"
-                                placeholder="Enter here" required>
-                            <div class="invalid-feedback invalid-feedback-start">
-                                Please enter a date
-                            </div>
-                            <div class="valid-feedback">
-                                <i class="fas fa-check"></i></div>
-                        </div>
-                        <div class="col-md-6 col-title">
-                            <label for="endDate">End date*</label>
-                            <input type="text" class=" form-control endDate" id="endDate" autocomplete="off" name="endDate"
-                                placeholder="Enter here" required>
-                            <div class="invalid-feedback">
-                                Please enter a date
-                            </div>
-                            <div class="valid-feedback valid-feedback-end">
-                                <i class="fas fa-check"></i></div>
-                        </div>
-                        <div class="col-md-12 col-info">
-                            <div id="daysText1" class="optionsFont howManyDays"></div>
-                            <div class="optionsFont howManyDays" id="daysSelected"></div>
-                            <div class="optionsFont howManyDays" id="daysText2"></div>
-                            <div id="dateError" class="errorMessage">Minimum 1 day required, max hire is 15 days.
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <button type="button" class="btn btn-dark" onclick="show1from2()">BACK</button>
-                        </div>
-                        <div class="col-md-6">
-                            <button type="submit" id="dateBtn" class="btn btn-dark floatRight dateBtn" onclick="show3()">CONTINUE</button>
-                        </div>
-                    </div>
-
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- SECTION 3 (PEOPLE) -->
-    <div class="section" id="section3">
-        <!-- BACKGROUND OVERLAY -->
-        <div class="section3">
-            <div class="container-fluid paddingTop">
-
-                <form class="needs-validation" novalidate>
-                    <div class="row row-blue">
-                        <div class="col-md-12">
-                            <h2>HOW MANY PEOPLE ARE TRAVELLING?</h2>
+                        <div class="col-md-12 paddingTop">
+                            <h2>SELECT PEOPLE</h2>
                             <div class="note">
                                 <p>Minimum 1 person, maximum 6 people.</p>
                             </div>
@@ -414,7 +372,7 @@
                             <div class="invalid-feedback">
                                 Please select a number
                             </div>
-                            <div class="valid-feedback">
+                            <div class="valid-feedback valid-feedback-num">
                                 <i class="fas fa-check"></i></div>
                         </div>
                         <div class="col-md-3"></div>
@@ -423,16 +381,87 @@
                             <div class="optionsFont howManyDays" id="peopleSelected"></div>
                             <div class="optionsFont howManyDays" id="peopleText2"></div>
                         </div>
+                        <div class="col-md-12 col-bottom">
+                            <button type="button" class="btn btn-dark" onclick="show1from2()">BACK</button>
+                        
+                            <i class="fas fa-user"></i>
 
+
+                            <button type="submit" class="btn btn-dark floatRight" onclick="show3()">CONTINUE</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 (DATES) -->
+    <div class="section" id="section3">
+        <!-- BACKGROUND OVERLAY -->
+        <div class="section3">
+            <!-- CONTAINER -->
+            <div class="container-fluid">
+                <form class="needs-validation" novalidate>
+                    <div class="row row-blue row-flex">
+                        <!-- PROGRESS BAR -->
+                        <div class="progressBarWrapper">
+                            <div class="progressBar progressComplete progress1">
+                                <p>STEP 1&nbsp;&nbsp;<i class="fas fa-check"></i></p>
+                            </div>
+                            <div class="progressBar progressActive progress2">
+                                <p>STEP 2</p>
+                            </div>
+                            <div class="progressBar progressInactive progress3">
+                                <p>STEP 3</p>
+                            </div>
+                            <div class="progressBar progressInactive progress4">
+                                <p>STEP 4</p>
+                            </div>
+                            <div class="progressBar progressInactive progress5">
+                                <p>CONFIRM</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 paddingTop">
+                            <h2>SELECT DATES</h2>
+                            <div class="note">
+                                <p>Minimum 1 day, maximum 15 days.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-title">
+                            <label for="startDate">Start date*</label>
+                            <input type="text" class=" form-control startDate" id="startDate" autocomplete="off" name="startDate"
+                                placeholder="Enter here" required>
+                            <div class="invalid-feedback invalid-feedback-start">
+                                Please enter a date
+                            </div>
+                            <div class="valid-feedback valid-feedback-start">
+                                <i class="fas fa-check"></i></div>
+                        </div>
+                        <div class="col-md-6 col-title">
+                            <label for="endDate">End date*</label>
+                            <input type="text" class=" form-control endDate" id="endDate" autocomplete="off" name="endDate"
+                                placeholder="Enter here" required>
+                            <div class="invalid-feedback invalid-feedback-end">
+                                Please enter a date
+                            </div>
+                            <div class="valid-feedback valid-feedback-end">
+                                <i class="fas fa-check"></i></div>
+                        </div>
+                        <div class="col-md-12 col-info">
+                            <div id="daysText1" class="optionsFont howManyDays"></div>
+                            <div class="optionsFont howManyDays" id="daysSelected"></div>
+                            <div class="optionsFont howManyDays" id="daysText2"></div>
+                            <div id="dateError" class="errorMessage">Minimum 1 day required, max hire is 15 days.
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <button type="button" class="btn btn-dark" onclick="show2from3()">BACK</button>
                         </div>
                         <div class="col-md-6">
-                            <button type="submit" class="btn btn-dark floatRight" onclick="show4()">CONTINUE</button>
+                            <button type="submit" id="dateBtn" class="btn btn-dark floatRight dateBtn" onclick="show4()">CONTINUE</button>
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
@@ -440,15 +469,44 @@
     <!-- SECTION 4 + 5 (DESTINATIONS + VEHICLES) -->
     <div class="section" id="section4">
 
+        <!-- MODE SELECTOR -->
+        <!-- <div id="mode-selector" class="controls">
+            <input type="radio" name="type" id="changemode-walking" checked="checked">
+            <label for="changemode-walking">Walking</label>
+            <input type="radio" name="type" id="changemode-transit">
+            <label for="changemode-transit">Transit</label>
+            <input type="radio" name="type" id="changemode-driving">
+            <label for="changemode-driving">Driving</label>
+        </div> -->
+
         <!-- MAP -->
         <div id="map"></div>
 
         <!-- BACKGROUND OVERLAY -->
         <div id="section4mapInput" class="section4">
-            <div class="container-fluid paddingTop">
+            <div class="container-fluid">
                 <form class="needs-validation" novalidate>
-                    <div class="row row-blue">
-                        <div class="col-md-12">
+                    <div class="row row-blue row-flex">
+                        <!-- PROGRESS BAR -->
+                        <div class="progressBarWrapper">
+                            <div class="progressBar progressComplete progress1">
+                                <p>STEP 1&nbsp;&nbsp;<i class="fas fa-check"></i></p>
+                            </div>
+                            <div class="progressBar progressComplete progress2">
+                                <p>STEP 2&nbsp;&nbsp;<i class="fas fa-check"></i></p>
+
+                            </div>
+                            <div class="progressBar progressActive progress3">
+                                <p>STEP 3</p>
+                            </div>
+                            <div class="progressBar progressInactive progress4">
+                                <p>STEP 4</p>
+                            </div>
+                            <div class="progressBar progressInactive progress5">
+                                <p>CONFIRM</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 paddingTop">
                             <h2>SELECT DESTINATIONS</h2>
                             <div class="note">
                                 <p>Where would you like to travel to?</p>
@@ -471,17 +529,6 @@
                             </div>
                             <div id="destValid2" class="validMessage">
                                 <i class="fas fa-check"></i></div>
-                        </div>
-                        <div class="col-md-12">
-                            <div id="mode-selector" class="controls">
-                                <input type="radio" name="type" id="changemode-walking" checked="checked">
-                                <label for="changemode-walking">Walking</label>
-                                <input type="radio" name="type" id="changemode-transit">
-                                <label for="changemode-transit">Transit</label>
-
-                                <input type="radio" name="type" id="changemode-driving">
-                                <label for="changemode-driving">Driving</label>
-                            </div>
                         </div>
                         <div class="col-md-12 col-info">
                             <div id="destText1" class="optionsFont howManyDays"></div>
@@ -508,22 +555,40 @@
 
             <!-- BACKGROUND OVERLAY -->
             <div class="section5">
-                <div class="container-fluid paddingTop">
+                <div class="container-fluid">
 
-                    <div class="row row-blue-long">
-                        <div class="col-md-12">
-                            <h2>VEHICLE OPTIONS</h2>
-                            <div class="note">
-                                <p>Please select a vehicle</p>
+                    <div class="row row-blue row-flex">
+                        <!-- PROGRESS BAR -->
+                        <div class="progressBarWrapper">
+                            <div class="progressBar progressComplete progress1">
+                                <p>STEP 1&nbsp;&nbsp;<i class="fas fa-check"></i></p>
+                            </div>
+                            <div class="progressBar progressComplete progress2">
+                                <p>STEP 2&nbsp;&nbsp;<i class="fas fa-check"></i></p>
+                            </div>
+                            <div class="progressBar progressComplete progress3">
+                                <p>STEP 3&nbsp;&nbsp;<i class="fas fa-check"></i></p>
+                            </div>
+                            <div class="progressBar progressActive progress4">
+                                <p>STEP 4</p>
+                            </div>
+                            <div class="progressBar progressInactive progress5">
+                                <p>CONFIRM</p>
                             </div>
                         </div>
-                        <div class="col-md-3" id="motorBike">
+                        <div class="col-md-12 paddingTop">
+                            <h2>VEHICLE OPTIONS</h2>
+                            <!-- <div class="note">
+                                <p>Please select a vehicle</p>
+                            </div> -->
+                        </div>
+                        <div class="col-md-4" id="motorBike">
                             <div class="card mb-4 shadow-sm">
                                 <img class="card-img-top" src="img/vehicles/ninja.jpg" alt="Ninja H2-R">
                                 <div class="card-body">
                                     <h4>Kawasaki Ninja H2-R</h4>
-                                    <p>The development of the Ninja H2-R motorcycle goes beyond the boundaries of
-                                        others.</p>
+                                    <!-- <p>The development of the Ninja H2-R goes beyond the boundaries of
+                                        others.</p> -->
                                     <div class="
                                             d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
@@ -534,12 +599,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3" id="smallCar">
+                        <div class="col-md-4" id="smallCar">
                             <div class="card mb-4 shadow-sm">
                                 <img class="card-img-top" src="img/vehicles/s4.jpg" alt="Audi S4 Sportback">
                                 <div class="card-body">
                                     <h4>Audi S3 Sportback</h4>
-                                    <p>More power, more sportiness, more driving enjoyment: progressive design.</p>
+                                    <!-- <p> More power and agility, rogressive design that speaks a unique language.</p> -->
                                     <div class="
                                                 d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
@@ -550,12 +615,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3" id="largeCar">
+                        <div class="col-md-4" id="largeCar">
                             <div class="card mb-4 shadow-sm">
                                 <img class="card-img-top" src="img/vehicles/m5.jpg" alt="BMW M5 Sedan">
                                 <div class="card-body">
                                     <h4>BMW M5 Sedan</h4>
-                                    <p>The new generation of the BMW M5 is a statement of supreme engineering skill.</p>
+                                    <!-- <p>The new generation of the BMW M5 is a statement of supreme engineering skill.</p> -->
                                     <div class="
                                                     d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
@@ -566,13 +631,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3" id="sportsUtilityVehicle">
+                        <div class="col-md-4" id="sportsUtilityVehicle">
                             <div class="card mb-4 shadow-sm">
                                 <img class="card-img-top" src="img/vehicles/gls.jpg" alt="Mercedes GLS SUV">
                                 <div class="card-body">
                                     <h4>Mercedes GLS SUV</h4>
-                                    <p>It's the S-Class of the SUV world: jump in, buckle up and enjoy a first drive in
-                                        the GLS!</p>
+                                    <!-- <p>It's the S-Class of the SUV world: jump in, buckle up and enjoy the ride!</p> -->
                                     <div class="
                                                         d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
@@ -589,6 +653,13 @@
                             <div class="optionsFont howManyDays" id="vehicleText"></div>
                             <div id="vehicleError" class="errorMessage">
                                 Please select a vehicle
+                            </div>
+                            <div id="vehicleError2" class="errorMessage">
+                                Please go back and adjust the party size and days travelling.
+                            </div>
+                            <div id="vehicleErrorInfo" class="errorMessage">
+                                I'm sorry, there are no vehicle options based on your party size and the amount of days
+                                you are travelling. Please click the information icon for help.
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -609,9 +680,28 @@
 
         <!-- BACKGROUND OVERLAY -->
         <div class="section6">
-            <div class="container-fluid paddingTop">
-                <div class="row row-blue">
-                    <div class="col-md-12">
+            <div class="container-fluid">
+                <div class="row row-blue row-flex">
+                    <!-- PROGRESS BAR -->
+                    <div class="progressBarWrapper">
+                        <div class="progressBar progressComplete progress1">
+                            <p>STEP 1&nbsp;&nbsp;<i class="fas fa-check"></i></p>
+                        </div>
+                        <div class="progressBar progressComplete progress2">
+                            <p>STEP 2&nbsp;&nbsp;<i class="fas fa-check"></i></p>
+
+                        </div>
+                        <div class="progressBar progressComplete progress3">
+                            <p>STEP 3&nbsp;&nbsp;<i class="fas fa-check"></i></p>
+                        </div>
+                        <div class="progressBar progressComplete progress4">
+                            <p>STEP 4&nbsp;&nbsp;<i class="fas fa-check"></i></p>
+                        </div>
+                        <div class="progressBar progressActive progress5">
+                            <p>CONFIRM</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 paddingTop">
                         <h2>CONFIRMATION</h2>
                         <div class="note">
                             <p>Please find the details of your journey below</p>
@@ -650,16 +740,6 @@
                         <button id="confirmBtn" class="btn btn-dark floatRight confirmBtn confirm-trigger" value="submit">CONFIRM</button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SECTION 7 (JUST MAP) -->
-    <div class="section" id="section7">
-
-        <!-- BACKGROUND OVERLAY -->
-        <div class="background">
-            <div class="container-fluid paddingTop">
             </div>
         </div>
     </div>
@@ -707,11 +787,11 @@
         </h4>
         <h4>
             <span class="bold">Customer Name:&nbsp;</span>
-            Joshua
+            Your Name
         </h4>
         <h4>
             <span class="bold">Customer Email:&nbsp;</span>
-            joshua@gmail.com
+            youremail@gmail.com
         </h4>
         <button class="btn btn-dark" data-izimodal-close>BACK</button>
         <button class="btn btn-dark floatRight" data-izimodal-close onclick="resetData()">FINISH</button>
