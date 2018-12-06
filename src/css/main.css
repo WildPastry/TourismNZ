@@ -6500,8 +6500,10 @@ small,
   margin: 20px; }
   .footer-brand svg {
     width: 80px; }
-    .footer-brand svg :hover {
-      fill: #f79e33; }
+
+.footer-brand:hover svg path,
+.footer-brand-inner:hover {
+  fill: #f79e33; }
 
 .footer-brand::after {
   clear: left; }
@@ -6655,8 +6657,10 @@ small,
     cursor: pointer;
     margin: 0;
     width: 40px; }
-    .header-info svg :hover {
-      fill: #f79e33; }
+
+.header-info:hover svg path,
+.header-info-inner:hover {
+  fill: #f79e33; }
 
 .header-info::after {
   clear: right; }
@@ -6925,7 +6929,8 @@ select {
   position: absolute;
   top: 50%;
   height: 600px;
-  width: 1200px; }
+  width: 1200px;
+  justify-content: center; }
 
 .btn-dark {
   font-family: "Open Sans Regular";
@@ -6941,3 +6946,15 @@ select {
 #mode-selector {
   display: none;
   visibility: hidden; }
+
+#motorBike {
+  display: none; }
+
+#smallCar {
+  display: none; }
+
+#largeCar {
+  display: none; }
+
+#sportsUtilityVehicle {
+  display: none; }

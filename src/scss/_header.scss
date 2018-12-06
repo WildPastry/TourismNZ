@@ -100,11 +100,12 @@
         cursor: pointer;
         margin: 0;
         width: 40px;
-
-        :hover {
-            fill: $in-ylw;
-        }
     }
+}
+
+.header-info:hover svg path,
+.header-info-inner:hover{
+    fill: $in-ylw;
 }
 
 .header-info::after {

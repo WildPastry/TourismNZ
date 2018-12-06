@@ -292,6 +292,7 @@ select {
     top: 50%;
     height: 600px;
     width: 1200px;
+    justify-content: center;
 }
 
 // BUTTONS
@@ -310,4 +311,21 @@ select {
 #mode-selector {
     display: none;
     visibility: hidden;
+}
+
+// VEHICLES
+#motorBike {
+    display: none;
+}
+
+#smallCar {
+    display: none;
+}
+
+#largeCar {
+    display: none;
+}
+
+#sportsUtilityVehicle {
+    display: none;
 }

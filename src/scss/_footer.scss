@@ -26,10 +26,12 @@
 
     svg {
         width: 80px;
-        :hover {
-            fill: $in-ylw;
-        }
     }
+}
+
+.footer-brand:hover svg path,
+.footer-brand-inner:hover{
+    fill: $in-ylw;
 }
 
 .footer-brand::after {

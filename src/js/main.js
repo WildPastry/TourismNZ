@@ -1,6 +1,11 @@
 /*jslint browser:true */
 console.log('JS READY');
 
+// LOAD MAP
+$(document).ready(function() {
+  initMap();
+});
+
 // LOADER
 $(window).on('load', function () {
   $('#preloader-icon').fadeOut('slow');
@@ -55,7 +60,7 @@ var allCities = [{
   }
 ];
 
-// INIT MAP
+// MAP FUNCTION
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: newZealand,
@@ -376,7 +381,7 @@ AutocompleteDirectionsHandler.prototype.route = function () {
       document.getElementById('distance').innerHTML = 'Total distance to destination is ' + response.routes[0].legs[0].distance.text;
 
       var distanceMin = response.routes[0].legs[0].distance;
-      
+
       newDistance = (distanceMin.value / 1000);
       console.log("Distance in kilometres");
       console.log(newDistance);
@@ -720,6 +725,7 @@ function show5() {
     $("#destError2").show();
 
   } else {
+    filterVehicles();
     $(function () {
       $("#section5").show();
     });
@@ -928,6 +934,28 @@ function addSportsUtilityVehicle(sportsUtilityVehicle) {
 }
 
 // VEHICLE FILTER FUNCTIONS
+function filterVehicles() {
+  var daysCheck = daysList[0];
+  var peopleCheck = numList[0];
+
+  $("#motorBike").hide();
+  $("#smallCar").hide();
+  $("#largeCar").hide();
+  $("#sportsUtilityVehicle").hide();
+
+  if ((daysCheck >= 1 && daysCheck <= 5) && (peopleCheck == 1)) {
+    $("#motorBike").show();
+  }
+  if ((daysCheck >= 1 && daysCheck <= 10) && (peopleCheck <= 2)) {
+    $("#smallCar").show();
+  }
+  if ((daysCheck >= 3 && daysCheck <= 10) && (peopleCheck >= 1 && peopleCheck <=5)) {
+    $("#largeCar").show();
+  }
+  if ((daysCheck >= 2 && daysCheck <= 15) && (peopleCheck >= 2 && peopleCheck <=6)) {
+    $("#sportsUtilityVehicle").show();
+  }
+}
 
 // CALCULATION FUNCTIONS
 rentalPriceList = [];
@@ -977,7 +1005,7 @@ function getFinalPrice() {
 }
 
 function getCostPerDay() {
-var newDayPrice = parseInt(daysList[0]);
+  var newDayPrice = parseInt(daysList[0]);
   costPerDayPrice = (totalPriceList / newDayPrice);
   var dayFloat = costPerDayPrice.toFixed(2);
   perDayList.splice(0, 1);
