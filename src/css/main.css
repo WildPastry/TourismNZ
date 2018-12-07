@@ -6419,7 +6419,7 @@ h3 {
 
 h4 {
   font-family: "Open Sans Regular";
-  font-size: 1.2em;
+  font-size: 1.1em;
   letter-spacing: 0px;
   color: #2b2f3a; }
 
@@ -6445,7 +6445,7 @@ small,
   margin-bottom: 1em; }
 
 .paddingTop {
-  padding-top: 70px; }
+  padding-top: 60px; }
 
 .paddingRight {
   padding-top: 15px; }
@@ -6454,7 +6454,7 @@ small,
   padding-top: 15px; }
 
 .paddingBot {
-  padding-bottom: 70px; }
+  padding-bottom: 60px; }
 
 .floatRight {
   float: right; }
@@ -6464,6 +6464,9 @@ small,
 
 .alignCenter {
   text-align: center; }
+
+.layerZed {
+  z-index: 3; }
 
 .tool-tip-right {
   cursor: pointer; }
@@ -6671,6 +6674,27 @@ small,
 .header-info::after {
   clear: right; }
 
+@media (max-width: 1024px) {
+  .brand-title {
+    margin-left: -202px;
+    margin-top: -150px;
+    height: 300px;
+    width: 404px; } }
+
+@media (max-width: 578px) {
+  .brand-title {
+    margin-left: -150px;
+    margin-top: -111.5px;
+    height: 223px;
+    width: 300px; } }
+
+@media (max-width: 400px) {
+  .brand-title {
+    margin-left: -125px;
+    margin-top: -92.5px;
+    height: 185px;
+    width: 250px; } }
+
 @font-face {
   font-family: 'Open Sans Light';
   src: url("../fonts/open-sans/OpenSans-Light.ttf"); }
@@ -6832,7 +6856,7 @@ small,
   border: 2px solid #fff;
   border-radius: .5em;
   margin: 0 auto;
-  height: 500px;
+  height: 470px;
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
@@ -6891,23 +6915,82 @@ select {
   display: none;
   color: #28a745; }
 
+.col-heading {
+  height: 120px; }
+
 .col-title {
-  height: 100px; }
+  height: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px; }
 
 .col-info {
   height: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center; }
 
 .col-bottom {
   height: 50px;
   line-height: 50px; }
 
+.col-vehicles {
+  padding-top: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; }
+
+.row-vehicle {
+  height: 50%;
+  width: 100%; }
+
+.vehicleWrapper {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.vehicle {
+  cursor: pointer;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%; }
+
+.vehicle1 {
+  background: url("../img/vehicles/ninja.jpg") no-repeat;
+  background-size: cover;
+  min-width: 100%; }
+
+.vehicle2 {
+  background: url("../img/vehicles/s4.jpg") no-repeat;
+  background-size: cover; }
+
+.vehicle3 {
+  background: url("../img/vehicles/m5.jpg") no-repeat;
+  background-size: cover; }
+
+.vehicle4 {
+  background: url("../img/vehicles/gls.jpg") no-repeat;
+  background-size: cover; }
+
+.note {
+  text-align: center;
+  font-family: "Open Sans Regular";
+  font-size: 1.1em;
+  letter-spacing: 0px;
+  color: #fff; }
+
 .note p {
   text-align: center;
   font-family: "Open Sans Bold";
-  font-size: 1.2em;
+  font-size: 1.1em;
   letter-spacing: 0px;
-  color: #fff; }
+  color: #a0ddf9; }
 
 .invalid-feedback {
   margin-top: 0.5em;
@@ -6962,30 +7045,9 @@ select {
 .btn-dark:hover {
   background-color: #2178a6; }
 
-.fa-check {
-  font-size: 1em; }
-
-.fa-user,
-.fa-calendar-alt,
-.fa-globe-asia {
-  color: #fff;
-  font-size: 2em; }
-
 #mode-selector {
   display: none;
   visibility: hidden; }
-
-#motorBike {
-  display: none; }
-
-#smallCar {
-  display: none; }
-
-#largeCar {
-  display: none; }
-
-#sportsUtilityVehicle {
-  display: none; }
 
 .progressBarWrapper {
   border-top-left-radius: 0.5em;
@@ -7009,28 +7071,52 @@ select {
   display: flex;
   height: 40px;
   width: 100%;
-  position: absolute;
-  bottom: 30px;
+  margin-bottom: 15px;
   padding: 0 15px; }
   .progressBarBottomWrapper p {
     text-align: center;
     font-family: "Open Sans Regular";
     font-size: 1em;
     letter-spacing: 0px;
-    color: #fff;
-    opacity: 0.4; }
+    color: #fff; }
+
+.progressBarBottomVehicles {
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  display: flex;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  padding: 0 15px; }
+  .progressBarBottomVehicles p {
+    text-align: center;
+    font-family: "Open Sans Regular";
+    font-size: 1em;
+    letter-spacing: 0px;
+    color: #fff; }
 
 .progressBar {
   width: 20%;
   line-height: 40px;
   flex-direction: row;
   text-align: center; }
-  .progressBar button {
+
+.progressBarBot {
+  width: 20%;
+  flex-direction: row;
+  text-align: center; }
+  .progressBarBot button {
     width: 80%;
     height: 100%; }
 
-.progressBarIconInactive i {
-  opacity: 0.4; }
+.inlineIcons {
+  opacity: 0.4;
+  padding-top: 5px; }
+
+.iconOpacity {
+  opacity: 1; }
 
 .progress1 {
   border-top-left-radius: 0.5em;
@@ -7058,3 +7144,31 @@ select {
 
 .progressComplete {
   background: #28a745; }
+
+.inlineIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
+  line-height: 30px; }
+  .inlineIcons p {
+    font-family: "Open Sans Bold";
+    font-size: 1em;
+    letter-spacing: 0px;
+    color: #fff; }
+
+.iconP {
+  margin-left: 10px;
+  opacity: 1; }
+
+.fa-check {
+  font-size: 1em; }
+
+.fa-user,
+.fa-calendar-alt,
+.fa-globe-asia {
+  color: #fff;
+  font-size: 30px; }
+
+.iconPglobe {
+  display: none; }

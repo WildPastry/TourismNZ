@@ -15,6 +15,11 @@ $(window).on('load', function () {
   });
 });
 
+// GLOBAL VARIABLES
+var inlineIconsNums = document.getElementsByClassName('inlineIconsNums');
+var inlineIconsDays = document.getElementsByClassName('inlineIconsDays');
+var inlineIconsDest = document.getElementsByClassName('inlineIconsDest');
+
 // MAP
 var map;
 var newMarker;
@@ -388,6 +393,8 @@ AutocompleteDirectionsHandler.prototype.route = function () {
 
       distanceList.splice(0, 1);
       distanceList.push(newDistance);
+      $(".iconPglobe").show();
+      $(inlineIconsDest).addClass("iconOpacity");
 
       console.log("Start and end locations as waypoints");
       me.directionsDisplay.setDirections(response);
@@ -559,10 +566,20 @@ function calculateDays() {
       daysText1.innerHTML = ('You have selected... ');
       daysSelected.innerHTML = dif;
       daysText2.innerHTML = (' day');
+      iconPdays1.innerHTML = '<p>' + dif + '</p>';
+      iconPdays2.innerHTML = '<p>' + dif + '</p>';
+      iconPdays3.innerHTML = '<p>' + dif + '</p>';
+      iconPdays4.innerHTML = '<p>' + dif + '</p>';
+      $(inlineIconsDays).addClass("iconOpacity");
     } else {
       daysText1.innerHTML = ('You have selected... ');
       daysSelected.innerHTML = dif;
       daysText2.innerHTML = (' days');
+      iconPdays1.innerHTML = '<p>' + dif + '</p>';
+      iconPdays2.innerHTML = '<p>' + dif + '</p>';
+      iconPdays3.innerHTML = '<p>' + dif + '</p>';
+      iconPdays4.innerHTML = '<p>' + dif + '</p>';
+      $(inlineIconsDays).addClass("iconOpacity");
     }
     if (dif > 15 || dif < 1) {
 
@@ -611,10 +628,20 @@ function reCalculateDays() {
       daysText1.innerHTML = ('You have selected... ');
       daysSelected.innerHTML = dif;
       daysText2.innerHTML = (' day');
+      iconPdays1.innerHTML = '<p>' + dif + '</p>';
+      iconPdays2.innerHTML = '<p>' + dif + '</p>';
+      iconPdays3.innerHTML = '<p>' + dif + '</p>';
+      iconPdays4.innerHTML = '<p>' + dif + '</p>';
+      $(inlineIconsDays).addClass("iconOpacity");
     } else {
       daysText1.innerHTML = ('You have selected... ');
       daysSelected.innerHTML = dif;
       daysText2.innerHTML = (' days');
+      iconPdays1.innerHTML = '<p>' + dif + '</p>';
+      iconPdays2.innerHTML = '<p>' + dif + '</p>';
+      iconPdays3.innerHTML = '<p>' + dif + '</p>';
+      iconPdays4.innerHTML = '<p>' + dif + '</p>';
+      $(inlineIconsDays).addClass("iconOpacity");
     }
 
     if (dif > 15 || dif < 1) {
@@ -637,6 +664,7 @@ var numList = [];
 var numListValues = ["1", "2", "3", "4", "5", "6"];
 var p = document.getElementById("peopleNum");
 var peopleOption = p.options[p.selectedIndex].text;
+// var iconPnum = document.getElementById("iconPnum");
 
 // FUNCTION
 function addNumber(newNum) {
@@ -648,11 +676,22 @@ function addNumber(newNum) {
   if (newNum <= 1) {
     peopleText1.innerHTML = ('You have selected... ');
     peopleSelected.innerHTML = newNum;
+    iconPnum1.innerHTML = '<p>' + newNum + '</p>';
+    iconPnum2.innerHTML = '<p>' + newNum + '</p>';
+    iconPnum3.innerHTML = '<p>' + newNum + '</p>';
+    iconPnum4.innerHTML = '<p>' + newNum + '</p>';
     peopleText2.innerHTML = (' person');
+    $(inlineIconsNums).addClass("iconOpacity");
+    $(".valid-feedback-num").show();
   } else {
     peopleText1.innerHTML = ('You have selected... ');
     peopleSelected.innerHTML = newNum;
+    iconPnum1.innerHTML = '<p>' + newNum + '</p>';
+    iconPnum2.innerHTML = '<p>' + newNum + '</p>';
+    iconPnum3.innerHTML = '<p>' + newNum + '</p>';
+    iconPnum4.innerHTML = '<p>' + newNum + '</p>';
     peopleText2.innerHTML = (' people');
+    $(inlineIconsNums).addClass( "iconOpacity" );
     $(".valid-feedback-num").show();
   }
 }
@@ -1088,3 +1127,24 @@ function toggleForeground() {
   $("#brand-title").toggle();
   // $(".invalid-feedback-start").toggle();
 }
+
+function show5Temp() {
+  $(function () {
+    $("#section4").show();
+    $("#section5").show();
+    $("#section4mapInput").hide();
+
+  });
+  $(function () {
+    $("#section1").hide();
+  });
+}
+
+// IMAGE HOVER FUNCTION
+$(document).on("mouseenter", ".vehicle", function () {
+  $(this).find(".vehicleWrapper").toggle();
+
+});
+$(document).on("mouseleave", ".vehicle", function () {
+  $(this).find(".vehicleWrapper").toggle();
+});

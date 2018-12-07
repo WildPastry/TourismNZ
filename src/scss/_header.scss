@@ -111,3 +111,33 @@
 .header-info::after {
     clear: right;
 }
+
+@media (max-width: 1024px) {
+
+    .brand-title {
+        margin-left: -202px;
+        margin-top: -150px;
+        height: 300px;
+        width: 404px;
+    }
+}
+
+@media (max-width: 578px) {
+
+    .brand-title {
+        margin-left: -150px;
+        margin-top: -111.5px;
+        height: 223px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .brand-title {
+        margin-left: -125px;
+        margin-top: -92.5px;
+        height: 185px;
+        width: 250px;
+    }
+}
