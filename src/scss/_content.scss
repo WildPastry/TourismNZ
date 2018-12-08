@@ -273,10 +273,16 @@ select {
     line-height: 50px;
 }
 
+.col-vehicle-top {
+    height: 40px;
+}
+
 .col-vehicles {
-    padding-top: 40px;
-    // padding-top: 127.6px;
-    // padding-bottom: 100px;
+    // padding-top: 40px;
+    padding-top: 127.6px;
+    padding-bottom: 100px;
+    padding-right: 30px;
+    padding-left: 30px;
     position: absolute;
     top: 0;
     left: 0;
@@ -285,46 +291,52 @@ select {
     display: flex;
 }
 
-.row-vehicle {
-    height: 50%;
-    width: 100%;
-}
+// .row-vehicle {
+//     height: 100%;
+//     width: 100%;
+// }
 
-.vehicleWrapper{
+.vehicleWrapper {
     display: none;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    text-align: center;
+    background: $blu-t;
 }
 
 .vehicle {
     cursor: pointer;
-    height: 100%;
+    height: 270px;
     overflow: hidden;
     position: relative;
     width: 100%;
+    border-radius: .5em;
+    img {
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
 }
 
 .vehicle1 {
-    background: url('../img/vehicles/ninja.jpg') no-repeat;
+    background: url('../img/vehicles/ninjaMin.jpg') no-repeat center center;
     background-size: cover;
-    min-width: 100%;
 }
 
 .vehicle2 {
-    background: url('../img/vehicles/s4.jpg') no-repeat;
+    background: url('../img/vehicles/s4Min.jpg') no-repeat center center;
     background-size: cover;
 }
 
 .vehicle3 {
-    background: url('../img/vehicles/m5.jpg') no-repeat;
+    background: url('../img/vehicles/m5Min.jpg') no-repeat center center;
     background-size: cover;
 }
 
 .vehicle4 {
-    background: url('../img/vehicles/gls.jpg') no-repeat;
+    background: url('../img/vehicles/glsMin.jpg') no-repeat center center;
     background-size: cover;
 }
 
@@ -336,6 +348,17 @@ select {
 .note p {
     text-align: center;
     @include fontProperties($fnt-bld, $hdg-4, $spc-zero, $l-blu);
+}
+
+.vehicle p {
+    text-align: center;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+}
+
+.vehicle h3,
+.vehicle h4 {
+    text-align: center;
+    @include fontProperties($fnt-bld, $bdy, $spc-zero, $wht);
 }
 
 // FEEDBACK
@@ -572,3 +595,5 @@ select {
 .iconPglobe {
     display: none;
 }
+
+// TRANSITIONS

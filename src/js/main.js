@@ -2,9 +2,9 @@
 console.log('JS READY');
 
 // LOAD MAP
-$(document).ready(function () {
-  initMap();
-});
+// $(document).ready(function () {
+//   initMap();
+// });
 
 // LOADER
 $(window).on('load', function () {
@@ -562,7 +562,7 @@ function calculateDays() {
     console.log(dif);
     daysList.splice(0, 1);
     daysList.push(dif);
-    if (dif <= 1) {
+    if (dif == 1) {
       daysText1.innerHTML = ('You have selected... ');
       daysSelected.innerHTML = dif;
       daysText2.innerHTML = (' day');
@@ -624,7 +624,7 @@ function reCalculateDays() {
     console.log(dif);
     daysList.splice(0, 1);
     daysList.push(dif);
-    if (dif <= 1) {
+    if (dif == 1) {
       daysText1.innerHTML = ('You have selected... ');
       daysSelected.innerHTML = dif;
       daysText2.innerHTML = (' day');
@@ -654,7 +654,6 @@ function reCalculateDays() {
       // HIDE CUSTOM ERROR
       $("#dateError").hide();
       // $(".invalid-feedback-start").hide();
-
     }
   }
 }
@@ -663,17 +662,59 @@ function reCalculateDays() {
 var numList = [];
 var numListValues = ["1", "2", "3", "4", "5", "6"];
 var p = document.getElementById("peopleNum");
-var peopleOption = p.options[p.selectedIndex].text;
-// var iconPnum = document.getElementById("iconPnum");
+// var peopleOption = p.options[p.selectedIndex].text;
+
+var peopleOption = document.getElementById("peopleNum").selectedIndex;
+var newNumOption = document.getElementById("peopleNum").options;
+var newNum = peopleOption;
+// var peopleOption = p.options[p.selectedIndex].text;
+// var newNumOption = document.getElementById("peopleNum").options[2];
+
+// var newNum = [newNumOption.selectedIndex].value;
+// peopleOption.addEventListener('click', addNumber);
+
+// console.log('The actual id');
+// console.log(p);
+
+// console.log('Selected index');
+// console.log(peopleOption);
+// console.log('Selected index options');
+// console.log(newNumOption);
+// console.log('Number list');
+// console.log(numList);
+// console.log('Number list length');
+// console.log(numList.length);
+// console.log('Number of people');
+// console.log(newNum);
+
+// $("#peopleNum: selected").text();
+// $("#peopleNum").val();
+
+// document.getElementById('loadCardsBtn').addEventListener('click', loadCards);
+// if(newNum.value == "1") {
+//   console.log(p);
+//   console.log(newNum);
+
+// alert("Index: " + y[x].index + " is " + y[x].text);
+
+//   addNumber();
+// }
+// var newNum = p.selectedIndex.value;
+// console.log(newNum);
+
+// var newNum = p.selectedIndex = "2";
+
+// document.getElementById("mySelect").selectedIndex = "2";
 
 // FUNCTION
-function addNumber(newNum) {
-  newNum = p.options[p.selectedIndex].value;
+function addNumber() {
+  var peopleOption = document.getElementById("peopleNum").selectedIndex;
+  var newNum = peopleOption;
   numList.splice(0, 1);
   numList.push(newNum);
-  console.log('Number of People');
+  console.log('Number of people');
   console.log(newNum);
-  if (newNum <= 1) {
+  if (newNum == 1) {
     peopleText1.innerHTML = ('You have selected... ');
     peopleSelected.innerHTML = newNum;
     iconPnum1.innerHTML = '<p>' + newNum + '</p>';
@@ -683,6 +724,7 @@ function addNumber(newNum) {
     peopleText2.innerHTML = (' person');
     $(inlineIconsNums).addClass("iconOpacity");
     $(".valid-feedback-num").show();
+    $(".invalid-feedback-num").hide();
   } else {
     peopleText1.innerHTML = ('You have selected... ');
     peopleSelected.innerHTML = newNum;
@@ -691,8 +733,9 @@ function addNumber(newNum) {
     iconPnum3.innerHTML = '<p>' + newNum + '</p>';
     iconPnum4.innerHTML = '<p>' + newNum + '</p>';
     peopleText2.innerHTML = (' people');
-    $(inlineIconsNums).addClass( "iconOpacity" );
+    $(inlineIconsNums).addClass("iconOpacity");
     $(".valid-feedback-num").show();
+    $(".invalid-feedback-num").hide();
   }
 }
 
@@ -768,11 +811,16 @@ function show2() {
 }
 
 function show3() {
-  if (numList.length <= 0) {
+  if (numList.length == 0 || peopleSelected.innerHTML == '0') {
 
     console.log("No number entered");
+    $(".invalid-feedback-num").show();
+    $(".valid-feedback-num").hide();
 
   } else {
+
+    $(".invalid-feedback-num").hide();
+    $(".valid-feedback-num").show();
 
     $(function () {
       $("#section3").show();
@@ -1148,3 +1196,29 @@ $(document).on("mouseenter", ".vehicle", function () {
 $(document).on("mouseleave", ".vehicle", function () {
   $(this).find(".vehicleWrapper").toggle();
 });
+
+// TRANSITIONS
+// $(document).ready(function() {
+//   $(".animsition").animsition({
+//     inClass: 'fade-in',
+//     outClass: 'fade-out',
+//     inDuration: 1500,
+//     outDuration: 800,
+//   });
+// });
+
+$(".animsition").animsition({
+  inClass: 'fade-in',
+  outClass: 'fade-out',
+  inDuration: 1200,
+  outDuration: 800,
+  // loading: true,
+  // loadingParentElement: 'body',
+  // loadingClass: 'preLoader',
+  // timeout: false,
+  // timeoutCountdown: 5000,
+  // onLoadEvent: true,
+});
+
+// ('#section2').animsition('in');
+// $('#section2').on('animsition.inStart', function(){})

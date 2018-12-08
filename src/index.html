@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="img/brand/favicon.ico" type="image/x-icon">
     <!--build:css css/main.min.css-->
     <link rel="stylesheet" href="framework/css/jquery-ui-1.12.1.min.css">
+    <link rel="stylesheet" href="framework/css/animsition.min.css">
     <link rel="stylesheet" href="framework/css/jquery-ui-oc-1.12.1.min.css">
     <link rel="stylesheet" href="framework/css/fontawesome.min-5.5.0.css">
     <link rel="stylesheet" href="framework/css/tooltipster-4.2.6.min.css">
@@ -20,11 +21,8 @@
 </head>
 
 <body>
-
-    <!-- ALWAYS VISIBLE -->
-    <div class="alwaysVisible">
         <!-- LOADER -->
-        <div id="preloader">
+        <div id="preloader" class="preloader">
             <div id="preloader-icon">
                 <img src="img/icons/ripple-large.svg" alt="Image Loading" />
             </div>
@@ -200,15 +198,14 @@
                     </div> -->
         </footer>
 
-    </div>
-
+    
     <!-- SECTION 1 (INDEX)-->
     <div class="section" id="section1">
         <!-- BRAND TITLE -->
-        <div class="brand-title" id="brand-title">
-            <svg onclick="show2()" class="brand-title-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 584.01 433.02" style="enable-background:new 0 0 584.01 433.02;"
-                xml:space="preserve">
+        <div class="brand-title animsition" data-animsition-in-class="zoom-in" data-animsition-in-duration="1500"
+            data-animsition-out-class="zoom-out" data-animsition-out-duration="1500" id="brand-title" onclick="show2()">
+            <svg class="brand-title-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 584.01 433.02" style="enable-background:new 0 0 584.01 433.02;" xml:space="preserve">
                 <g>
                     <polygon class="social-wht" points="272.98,38.61 273.96,34.52 270.85,31.6 262.85,36.08 257.4,34.14 254.29,24.99 250.39,25.39 
                                250.78,29.85 249.8,30.83 247.08,26.74 247.85,23.05 246.1,16.44 239.87,11 235.39,11.19 231.89,5.75 228.57,7.89 233.25,12.94 
@@ -320,7 +317,7 @@
             </svg>
         </div>
         <!-- VIDEO -->
-        <video id="brand-video" autoplay muted loop data-autoplay>
+        <video id="brand-video" class="animsition" autoplay muted loop data-autoplay>
             <source src="media/brand-video.mp4" type="video/mp4" alt="NZ Tourism Video">
         </video>
     </div>
@@ -331,7 +328,8 @@
         <div class="section2">
             <div class="container-fluid">
                 <form class="needs-validation" novalidate>
-                    <div class="row row-blue row-flex">
+                    <div class="row row-blue row-flex animsition" data-animsition-in-class="zoom-in"
+                        data-animsition-in-duration="500">
                         <!-- PROGRESS BAR -->
                         <div class="progressBarWrapper">
                             <div class="progressBar progressActive progress1">
@@ -361,9 +359,9 @@
                         <div class="col-md-3 col-title"></div>
                         <div class="col-md-6 col-title">
                             <label for="peopleNum">Number of people*</label>
-                            <select name="peopleNum" class="form-control" id="peopleNum" autocomplete="off" required>
-                                <option value="" disabled selected hidden>Select here</option>
-                                <option value="0" disabled hidden>0</option>
+                            <select onmouseout="addNumber()" name="peopleNum" class="form-control" id="peopleNum" autocomplete="off" required>
+                                <option value="0" disabled selected hidden>Select here</option>
+                                <!-- <option value="0" disabled hidden></option> -->
                                 <option onclick="addNumber()" value="1">1</option>
                                 <option onclick="addNumber()" value="2">2</option>
                                 <option onclick="addNumber()" value="3">3</option>
@@ -371,7 +369,7 @@
                                 <option onclick="addNumber()" value="5">5</option>
                                 <option onclick="addNumber()" value="6">6</option>
                             </select>
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback invalid-feedback-num">
                                 Please select a number
                             </div>
                             <div class="valid-feedback valid-feedback-num">
@@ -421,6 +419,7 @@
             </div>
         </div>
     </div>
+
     <!-- SECTION 3 (DATES) -->
     <div class="section" id="section3">
         <!-- BACKGROUND OVERLAY -->
@@ -428,7 +427,8 @@
             <!-- CONTAINER -->
             <div class="container-fluid">
                 <form class="needs-validation" novalidate>
-                    <div class="row row-blue row-flex">
+                    <div class="row row-blue row-flex animsition" data-animsition-in-class="zoom-in"
+                        data-animsition-in-duration="500">
                         <!-- PROGRESS BAR -->
                         <div class="progressBarWrapper">
                             <div class="progressBar progressComplete progress1">
@@ -540,10 +540,11 @@
         <div id="map"></div>
 
         <!-- BACKGROUND OVERLAY -->
-        <div id="section4mapInput" class="section4">
+        <div id="section4mapInput" class="section 4">
             <div class="container-fluid">
                 <form class="needs-validation" novalidate>
-                    <div class="row row-blue row-flex">
+                    <div class="row row-blue row-flex animsition" data-animsition-in-class="zoom-in"
+                        data-animsition-in-duration="500">
                         <!-- PROGRESS BAR -->
                         <div class="progressBarWrapper">
                             <div class="progressBar progressComplete progress1">
@@ -641,7 +642,8 @@
             <div class="section5">
                 <div class="container-fluid">
 
-                    <div class="row row-blue row-flex">
+                    <div class="row row-blue row-flex animsition" data-animsition-in-class="zoom-in"
+                        data-animsition-in-duration="500">
                         <!-- PROGRESS BAR -->
                         <div class="progressBarWrapper">
                             <div class="progressBar progressComplete progress1">
@@ -661,92 +663,63 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-heading paddingTop layerZed">
+                        <div class="col-md-12 col-vehicle-top paddingTop">
                             <h2>VEHICLE OPTIONS</h2>
-                            <!-- <div class="note">
-                                <p>Please select a vehicle</p>
-                            </div> -->
                         </div>
-                        <div class="col-vehicles">
-                            <div class="row-vehicle">
-                                <div class="vehicle vehicle1">
-                                    <div id="motorBike">
-                                        <div class="vehicleWrapper">
-                                            <div class="">
-                                                <h4>Kawasaki Ninja H2-R</h4>
-                                                <p>The development of the Ninja H2-R goes beyond the boundaries of
-                                                    others.</p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
-                                                            onclick="addMotorBike()">Select</button>
-                                                    </div>
-                                                    <small>$109 Per day</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="vehicle vehicle2">
-                                    <div id="smallCar">
-                                        <div class="vehicleWrapper">
-                                            <div class="">
-                                                <h4>Audi S3 Sportback</h4>
-                                                <p> More power and agility, rogressive design that speaks a unique
-                                                    language.</p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
-                                                            onclick="addSmallCar()">Select</button>
-                                                    </div>
-                                                    <small>$129 Per day</small>
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="col-md-3">
+                            <div class="vehicle vehicle1">
+                                <div id="motorBike" onclick="addMotorBike()">
+                                    <div class="vehicleWrapper">
+                                        <h3>Ninja H2-R</h3>
+                                        <p>People: 1</p>
+                                        <p>Days: 1 - 5</p>
+                                        <p>Fuel: 3.7L/100km</p>
+                                        <h4>$109 Per day</h4>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row-vehicle">
-                                <div class="vehicle vehicle3">
-                                    <div id="largeCar">
-                                        <div class="vehicleWrapper">
-                                            <div class="">
-                                                <h4>BMW M5 Sedan</h4>
-                                                <p>The new generation of the BMW M5 is a statement of supreme
-                                                    engineering skill.</p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
-                                                            onclick="addLargeCar()">Select</button>
-                                                    </div>
-                                                    <small>$144 Per day</small>
-                                                </div>
-                                            </div>
-                                        </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="vehicle vehicle2">
+                                <div id="smallCar" onclick="addSmallCar()">
+                                    <div class="vehicleWrapper">
+                                        <h3>Audi S3</h3>
+                                        <p>People: 1 - 2</p>
+                                        <p>Days: 1 - 10</p>
+                                        <p>Fuel: 8.5L/100km</p>
+                                        <h4>$109 Per day</h4>
                                     </div>
                                 </div>
-                                <div class="vehicle vehicle4">
-                                    <div id="sportsUtilityVehicle">
-                                        <div class="vehicleWrapper">
-                                            <div class="">
-                                                <h4>Mercedes GLS SUV</h4>
-                                                <p>It's the S-Class of the SUV world: jump in, buckle up and enjoy the
-                                                    ride!</p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-sm btn-outline-secondary"
-                                                            onclick="addSportsUtilityVehicle()">Select</button>
-                                                    </div>
-                                                    <small>$200 Per day</small>
-                                                </div>
-                                            </div>
-                                        </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="vehicle vehicle3">
+                                <div id="largeCar" onclick="addLargeCar()">
+                                    <div class="vehicleWrapper">
+                                        <h3>BMW M5</h3>
+                                        <p>People: 1 - 5</p>
+                                        <p>Days: 3 - 10</p>
+                                        <p>Fuel: 9.7L/100km</p>
+                                        <h4>$144 Per day</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="vehicle vehicle4">
+                                <div id="sportsUtilityVehicle" onclick="addSportsUtilityVehicle()">
+                                    <div class="vehicleWrapper">
+                                        <h3>GLS SUV</h3>
+                                        <p>People: 2 - 6</p>
+                                        <p>Days: 2 - 15</p>
+                                        <p>Fuel: 17L/100km</p>
+                                        <h4>$200 Per day</h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- PROGRESS BAR BOTTOM-->
-                        <div class="progressBarBottomVehicles layerZed">
+                        <div class="progressBarBottomVehicles">
                             <div class="progressBarBot">
                                 <button type="button" class="btn btn-dark" onclick="show4from5()">BACK</button>
                             </div>
@@ -778,43 +751,10 @@
                                 <button type="submit" class="btn btn-dark" onclick="calculateData()">CONFIRM</button>
                             </div>
                         </div>
-                        <!-- PROGRESS BAR BOTTOM-->
-                        <!-- <div class="progressBarBottomVehicles">
-                            <div class="progressBarBot">
-                                <button type="button" class="btn btn-dark" onclick="show4from5()">BACK</button>
-                            </div>
-                            <div class="progressBarBot progressBarIconInactive progressBarIconActive">
-                                <div class="inlineIcons inlineIconsNums">
-                                    <i class="fas fa-user"></i>
-                                    <div id="iconPnum4" class="iconP">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="progressBarBot progressBarIconInactive progressBarIconActive">
-                                <div class="inlineIcons inlineIconsDays">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <div id="iconPdays4" class="iconP">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="progressBarBot progressBarIconInactive progressBarIconActive">
-                                <div class="inlineIcons inlineIconsDest">
-                                    <i class="fas fa-globe-asia"></i>
-                                    <div class="iconP iconPglobe">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="progressBarBot">
-                                <button type="submit" class="btn btn-dark" onclick="calculateData()">CONFIRM</button>
-                            </div>
-                        </div> -->
-
                     </div>
 
                 </div>
+
             </div>
         </div>
     </div>
@@ -825,7 +765,8 @@
         <!-- BACKGROUND OVERLAY -->
         <div class="section6">
             <div class="container-fluid">
-                <div class="row row-blue row-flex">
+                <div class="row row-blue row-flex animsition" data-animsition-in-class="zoom-in"
+                    data-animsition-in-duration="500">
                     <!-- PROGRESS BAR -->
                     <div class="progressBarWrapper">
                         <div class="progressBar progressComplete progress1">
@@ -948,8 +889,10 @@
     </div>
 
     <!-- MAP -->
-
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ5qWqvPupVZb1AlLikNVFw4U3Lm5Oycs&libraries=places"></script> -->
+    <!--build:js js/main.min.js -->
     <script src="framework/js/jquery-3.3.1.min.js"></script>
+    <script src="framework/js/animsition.min.js"></script>
     <script src="framework/js/jquery-ui-1.12.1.min.js"></script>
     <script src="framework/js/bootstrap-4.1.3.min.js"></script>
     <script src="framework/js/popper-1.0.0.min.js"></script>
