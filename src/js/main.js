@@ -2,9 +2,9 @@
 console.log('JS READY');
 
 // LOAD MAP
-// $(document).ready(function () {
-//   initMap();
-// });
+$(document).ready(function () {
+  initMap();
+});
 
 // LOADER
 $(window).on('load', function () {
@@ -769,7 +769,7 @@ function show3from4() {
 
 function show4from5() {
   $(function () {
-    $("#section4mapInput").show();
+    $(".section4").show();
   });
   $(function () {
     $("#section5").hide();
@@ -778,7 +778,6 @@ function show4from5() {
 
 function show5from6() {
   $(function () {
-    $("#section4").show();
     $("#section5").show();
   });
   $(function () {
@@ -794,10 +793,8 @@ function show1() {
     $("#section2").hide();
     $("#section3").hide();
     $("#section4").hide();
-    $("#section4mapInput").hide();
     $("#section5").hide();
     $("#section6").hide();
-    $("#section7").hide();
   });
 }
 
@@ -843,7 +840,6 @@ function show4() {
   } else {
     $(function () {
       $("#section4").show();
-      $("#section4mapInput").show();
     });
     $(function () {
       $("#section3").hide();
@@ -867,7 +863,7 @@ function show5() {
       $("#section5").show();
     });
     $(function () {
-      $("#section4mapInput").hide();
+      $(".section4").hide();
     });
   }
 }
@@ -913,8 +909,6 @@ function calculateData() {
       $("#section6").show();
     });
     $(function () {
-      $("#section4").hide();
-      $("#section4mapInput").hide();
       $("#section5").hide();
     });
   }
@@ -1021,7 +1015,7 @@ var allVehicles = [{
 ];
 
 // VEHICLE BUTTONS
-function addMotorBike(motorBike) {
+function addMotorBike() {
   motorBikeName = allVehicles[0].name;
   motorBike = allVehicles[0];
   vehicleList.splice(0, 1);
@@ -1033,7 +1027,7 @@ function addMotorBike(motorBike) {
   $("#vehicleError").hide();
 }
 
-function addSmallCar(smallCar) {
+function addSmallCar() {
   smallCarName = allVehicles[1].name;
   smallCar = allVehicles[1];
   vehicleList.splice(0, 1);
@@ -1045,7 +1039,7 @@ function addSmallCar(smallCar) {
   $("#vehicleError").hide();
 }
 
-function addLargeCar(largeCar) {
+function addLargeCar() {
   largeCarName = allVehicles[2].name;
   largeCar = allVehicles[2];
   vehicleList.splice(0, 1);
@@ -1057,7 +1051,7 @@ function addLargeCar(largeCar) {
   $("#vehicleError").hide();
 }
 
-function addSportsUtilityVehicle(sportsUtilityVehicle) {
+function addSportsUtilityVehicle() {
   sportsUtilityVehicleName = allVehicles[3].name;
   sportsUtilityVehicle = allVehicles[3];
   vehicleList.splice(0, 1);
@@ -1074,9 +1068,11 @@ function filterVehicles() {
   var daysCheck = daysList[0];
   var peopleCheck = numList[0];
 
-  $("#vehicleError").hide();
-  $("#vehicleError2").hide();
-  $("#vehicleErrorInfo").hide();
+  // $("#vehicleError").hide();
+  // $("#motorBikeError").hide();
+  // $("#smallCarError").hide();
+  // $("#largeCarError").hide();
+  // $("#suvError").hide();
   $("#motorBike").hide();
   $("#smallCar").hide();
   $("#largeCar").hide();
@@ -1084,21 +1080,30 @@ function filterVehicles() {
 
   if ((daysCheck >= 1 && daysCheck <= 5) && (peopleCheck == 1)) {
     $("#motorBike").show();
+    $("#motorBikeError").hide();
   }
   if ((daysCheck >= 1 && daysCheck <= 10) && (peopleCheck <= 2)) {
     $("#smallCar").show();
+    $("#smallCarError").hide();
   }
   if ((daysCheck >= 3 && daysCheck <= 10) && (peopleCheck >= 1 && peopleCheck <= 5)) {
     $("#largeCar").show();
+    $("#largeCarError").hide();
   }
   if ((daysCheck >= 2 && daysCheck <= 15) && (peopleCheck >= 2 && peopleCheck <= 6)) {
     $("#sportsUtilityVehicle").show();
+    $("#suvError").hide();
   }
   if ((daysCheck >= 11 && daysCheck <= 15) && peopleCheck == 1) {
-    $("#vehicleErrorInfo").show();
+    // $("#motorBikeError").show();
+    // $("#smallCarError").show();
+    // $("#largeCarError").show();
   }
   if (daysCheck == 1 && peopleCheck == 6) {
-    $("#vehicleErrorInfo").show();
+    // $("#motorBikeError").show();
+    // $("#smallCarError").show();
+    // $("#largeCarError").show();
+    // $("#suvError").show();
   }
 }
 
@@ -1180,11 +1185,10 @@ function show5Temp() {
   $(function () {
     $("#section4").show();
     $("#section5").show();
-    $("#section4mapInput").hide();
-
   });
   $(function () {
     $("#section1").hide();
+    $(".section4").hide();
   });
 }
 

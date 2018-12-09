@@ -6441,6 +6441,18 @@ small,
 .marginTop {
   margin-top: 1em; }
 
+.marginTop10 {
+  margin-top: 10px; }
+
+.marginTop30 {
+  margin-top: 32px; }
+
+.marginTop20 {
+  margin-top: 25px; }
+
+.lessMarginTop {
+  margin-top: 5px; }
+
 .marginBot {
   margin-bottom: 1em; }
 
@@ -6787,7 +6799,7 @@ small,
   -o-background-size: cover;
   background-size: cover;
   background-position: center center;
-  background: radial-gradient(circle farthest-side, rgba(255, 255, 255, 0), rgba(10, 15, 27, 0.651));
+  background: radial-gradient(circle farthest-side, rgba(255, 255, 255, 0), rgba(10, 15, 27, 0.4));
   position: fixed;
   width: 100%;
   height: 100%; }
@@ -6801,7 +6813,7 @@ small,
   -o-background-size: cover;
   background-size: cover;
   background-position: center center;
-  background: radial-gradient(circle farthest-side, rgba(255, 255, 255, 0), rgba(10, 15, 27, 0.651));
+  background: radial-gradient(circle farthest-side, rgba(255, 255, 255, 0), rgba(10, 15, 27, 0.4));
   position: fixed;
   width: 100%;
   height: 100%; }
@@ -6857,6 +6869,18 @@ small,
   border-radius: .5em;
   margin: 0 auto;
   height: 470px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px; }
+
+.row-blue-vehicle {
+  position: relative;
+  background-color: rgba(43, 47, 58, 0.8);
+  border: 2px solid #fff;
+  border-radius: .5em;
+  margin: 0 auto;
+  height: 670px;
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
@@ -6918,15 +6942,17 @@ select {
 .col-heading {
   height: 120px; }
 
+.col-heading-vehicle {
+  height: 115px; }
+
 .col-title {
   height: 100px;
-  margin-top: 20px;
-  margin-bottom: 20px; }
+  margin-top: 10px; }
 
 .col-info {
-  height: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center; }
 
 .col-bottom {
@@ -6948,6 +6974,19 @@ select {
   height: 100%;
   display: flex; }
 
+.col-vehicle {
+  margin-top: 15px; }
+
+.vehicleWrapperError {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  text-align: center;
+  background: rgba(43, 47, 58, 0.8); }
+
 .vehicleWrapper {
   display: none;
   position: absolute;
@@ -6955,12 +6994,12 @@ select {
   left: 0;
   width: 100%;
   height: 100%;
+  padding: 15px;
   text-align: center;
-  background: rgba(43, 47, 58, 0.8); }
+  background: rgba(33, 119, 166, 0.808); }
 
 .vehicle {
-  cursor: pointer;
-  height: 270px;
+  height: 170px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -6970,19 +7009,19 @@ select {
     transition: all 0.5s ease-in-out; }
 
 .vehicle1 {
-  background: url("../img/vehicles/ninjaMin.jpg") no-repeat center center;
+  background: url("../img/vehicles/ninja.jpg") no-repeat center center;
   background-size: cover; }
 
 .vehicle2 {
-  background: url("../img/vehicles/s4Min.jpg") no-repeat center center;
+  background: url("../img/vehicles/s4.jpg") no-repeat center center;
   background-size: cover; }
 
 .vehicle3 {
-  background: url("../img/vehicles/m5Min.jpg") no-repeat center center;
+  background: url("../img/vehicles/m5.jpg") no-repeat center center;
   background-size: cover; }
 
 .vehicle4 {
-  background: url("../img/vehicles/glsMin.jpg") no-repeat center center;
+  background: url("../img/vehicles/gls.jpg") no-repeat center center;
   background-size: cover; }
 
 .note {
@@ -7002,15 +7041,21 @@ select {
 .vehicle p {
   text-align: center;
   font-family: "Open Sans Regular";
-  font-size: 1em;
+  font-size: 1.1em;
   letter-spacing: 0px;
   color: #fff; }
 
-.vehicle h3,
+.vehicle h3 {
+  text-align: center;
+  font-family: "Open Sans Bold";
+  font-size: 1.3em;
+  letter-spacing: 0px;
+  color: #fff; }
+
 .vehicle h4 {
   text-align: center;
   font-family: "Open Sans Bold";
-  font-size: 1em;
+  font-size: 1.2em;
   letter-spacing: 0px;
   color: #fff; }
 
@@ -7071,6 +7116,18 @@ select {
   display: none;
   visibility: hidden; }
 
+#motorBike {
+  cursor: pointer; }
+
+#smallCar {
+  cursor: pointer; }
+
+#largeCar {
+  cursor: pointer; }
+
+#sportsUtilityVehicle {
+  cursor: pointer; }
+
 .progressBarWrapper {
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
@@ -7111,7 +7168,7 @@ select {
   position: absolute;
   bottom: 15px;
   left: 0;
-  padding: 0 15px; }
+  padding: 0 15px 15px 15px; }
   .progressBarBottomVehicles p {
     text-align: center;
     font-family: "Open Sans Regular";
