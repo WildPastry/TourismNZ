@@ -6434,6 +6434,16 @@ h4 {
   font-family: "Open Sans Bold";
   color: #a0ddf9; }
 
+.boldBluLrg {
+  font-family: "Open Sans Bold";
+  color: #a0ddf9;
+  font-size: 1.3em; }
+
+.boldWhtLrg {
+  font-family: "Open Sans Bold";
+  color: #fff;
+  font-size: 1.3em; }
+
 small,
 .small body {
   color: #2b2f3a; }
@@ -6456,6 +6466,9 @@ small,
 .marginBot {
   margin-bottom: 1em; }
 
+.marginBotLrg {
+  margin-bottom: 1.5em; }
+
 .paddingTop {
   padding-top: 60px; }
 
@@ -6467,6 +6480,12 @@ small,
 
 .paddingBot {
   padding-bottom: 60px; }
+
+.floatLeft {
+  float: left; }
+
+.floatLeft::after {
+  clear: left; }
 
 .floatRight {
   float: right; }
@@ -6874,6 +6893,18 @@ small,
   padding-right: 15px;
   padding-bottom: 15px; }
 
+.row-blue-med {
+  position: relative;
+  background-color: rgba(43, 47, 58, 0.8);
+  border: 2px solid #fff;
+  border-radius: .5em;
+  margin: 0 auto;
+  height: 590px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px; }
+
 .row-blue-vehicle {
   position: relative;
   background-color: rgba(43, 47, 58, 0.8);
@@ -6892,6 +6923,10 @@ small,
 
 .col-flex {
   text-align: center; }
+
+.vehicle-flex {
+  display: flex;
+  justify-content: center; }
 
 #map {
   position: absolute;
@@ -6937,7 +6972,7 @@ select {
 .validMessage {
   margin-top: 0.5em;
   display: none;
-  color: #28a745; }
+  color: #0b9c60; }
 
 .col-heading {
   height: 120px; }
@@ -6987,6 +7022,16 @@ select {
   text-align: center;
   background: rgba(43, 47, 58, 0.8); }
 
+.vehicleWrapperCheck {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  text-align: center;
+  background: rgba(11, 156, 96, 0.815); }
+
 .vehicleWrapper {
   display: none;
   position: absolute;
@@ -7023,6 +7068,12 @@ select {
 .vehicle4 {
   background: url("../img/vehicles/gls.jpg") no-repeat center center;
   background-size: cover; }
+
+.finalVehicleImage {
+  width: 100%;
+  height: auto;
+  border-radius: .5em;
+  float: right; }
 
 .note {
   text-align: center;
@@ -7074,7 +7125,8 @@ select {
 
 .valid-feedback {
   margin-top: 0.5em;
-  font-size: 100%; }
+  font-size: 100%;
+  color: #0b9c60; }
 
 .datepicker1,
 .datepicker2 {
@@ -7089,6 +7141,37 @@ select {
 
 .optionsFont {
   margin-bottom: 0;
+  font-family: "Open Sans Regular";
+  font-size: 1em;
+  letter-spacing: 0px;
+  color: #fff;
+  text-align: center; }
+
+.finalFontCenter {
+  margin-bottom: 0;
+  font-family: "Open Sans Regular";
+  font-size: 1em;
+  letter-spacing: 0px;
+  color: #fff;
+  text-align: center; }
+
+.finalFont {
+  margin-bottom: 0.5em;
+  font-family: "Open Sans Regular";
+  font-size: 1em;
+  letter-spacing: 0px;
+  color: #fff;
+  text-align: left; }
+
+.finalFontHeading {
+  margin-bottom: 1em;
+  font-family: "Open Sans Regular";
+  font-size: 1em;
+  letter-spacing: 0px;
+  color: #fff;
+  text-align: center; }
+
+.finalFontHeadingNoMargin {
   font-family: "Open Sans Regular";
   font-size: 1em;
   letter-spacing: 0px;
@@ -7127,6 +7210,18 @@ select {
 
 #sportsUtilityVehicle {
   cursor: pointer; }
+
+#motorBikeCheck {
+  display: none; }
+
+#smallCarCheck {
+  display: none; }
+
+#largeCarCheck {
+  display: none; }
+
+#suvCheck {
+  display: none; }
 
 .progressBarWrapper {
   border-top-left-radius: 0.5em;
@@ -7222,7 +7317,7 @@ select {
   background: rgba(54, 54, 54, 0.87); }
 
 .progressComplete {
-  background: #28a745; }
+  background: #0b9c60; }
 
 .inlineIcons {
   display: flex;
@@ -7236,12 +7331,19 @@ select {
     letter-spacing: 0px;
     color: #fff; }
 
+.inlineIconsConfirm i {
+  font-size: 3em; }
+
 .iconP {
   margin-left: 10px;
   opacity: 1; }
 
 .fa-check {
   font-size: 1em; }
+
+.lrgTick i {
+  font-size: 2em;
+  color: #0b9c60; }
 
 .fa-user,
 .fa-calendar-alt,
@@ -7251,3 +7353,6 @@ select {
 
 .iconPglobe {
   display: none; }
+
+.marginBotLrg p {
+  font-size: 1.3em; }

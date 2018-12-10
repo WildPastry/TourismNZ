@@ -15,6 +15,27 @@ $(window).on('load', function () {
   });
 });
 
+// KEYBOARD
+// var startKey = a;
+// jQuery.event.trigger({ type: 'keydown', which: startKey });
+// var e = jQuery.Event("keydown");
+// e.which = 77; // m code value
+// e.altKey = true; // Alt key pressed
+// $("#inputBox").trigger(e);
+
+// $(function() {
+//   $('item').keydown();
+//   $('#startDate').keypress();
+//   $('item').keyup();
+//   $('item').blur();
+// });
+
+// $(function() {
+//   var e = $.Event('keypress');
+//   e.which = 65; // Character 'A'
+//   $('#startDate').trigger(e);
+// });
+
 // GLOBAL VARIABLES
 var inlineIconsNums = document.getElementsByClassName('inlineIconsNums');
 var inlineIconsDays = document.getElementsByClassName('inlineIconsDays');
@@ -382,8 +403,8 @@ AutocompleteDirectionsHandler.prototype.route = function () {
   }, function (response, status) {
     if (status === 'OK') {
 
-      document.getElementById('time').innerHTML = 'Time to get to destination is ' + response.routes[0].legs[0].duration.text;
-      document.getElementById('distance').innerHTML = 'Total distance to destination is ' + response.routes[0].legs[0].distance.text;
+      document.getElementById('time').innerHTML = '<span class="boldBlu">Travel time: </span>' + response.routes[0].legs[0].duration.text;
+      document.getElementById('distance').innerHTML = '<span class="boldBlu">Distance: </span>' + response.routes[0].legs[0].distance.text;
 
       var distanceMin = response.routes[0].legs[0].distance;
 
@@ -439,7 +460,7 @@ $('.tool-tip-top').tooltipster({
 // INFORMATION POP-UP
 $("#info-pop").iziModal({
   title: 'NZ Journey Planner Information',
-  headerColor: '#2b2f3a',
+  headerColor: '#2178a6',
   padding: 15,
   radius: 0,
 });
@@ -452,7 +473,7 @@ $(document).on('click', '.info-trigger', function (event) {
 // CONFIRM POP-UP
 $("#confirm-pop").iziModal({
   title: 'NZ Journey Planner Confirmation',
-  headerColor: '#2b2f3a',
+  headerColor: '#2178a6',
   padding: 15,
   radius: 0,
 });
@@ -611,12 +632,12 @@ function reCalculateDays() {
   } else {
     console.log('Start date');
     console.log(startDate);
-    dateList.splice(0, 1);
+    dateList.splice(0, 0);
     dateList.push(startDate);
-    console.log('End date');
-    console.log(endDate);
-    dateList.splice(1, 1);
-    dateList.push(endDate);
+    // console.log('End date');
+    // console.log(endDate);
+    // dateList.splice(1, 1);
+    // dateList.push(endDate);
     console.log(dateList);
     var dif = endDate - startDate;
     dif = dif / 86400000;
@@ -632,6 +653,7 @@ function reCalculateDays() {
       iconPdays2.innerHTML = '<p>' + dif + '</p>';
       iconPdays3.innerHTML = '<p>' + dif + '</p>';
       iconPdays4.innerHTML = '<p>' + dif + '</p>';
+      iconPdays5.innerHTML = '<p>' + dif + '</p>';
       $(inlineIconsDays).addClass("iconOpacity");
     } else {
       daysText1.innerHTML = ('You have selected... ');
@@ -641,6 +663,7 @@ function reCalculateDays() {
       iconPdays2.innerHTML = '<p>' + dif + '</p>';
       iconPdays3.innerHTML = '<p>' + dif + '</p>';
       iconPdays4.innerHTML = '<p>' + dif + '</p>';
+      iconPdays5.innerHTML = '<p>' + dif + '</p>';
       $(inlineIconsDays).addClass("iconOpacity");
     }
 
@@ -676,10 +699,20 @@ var newNum = peopleOption;
 // console.log('The actual id');
 // console.log(p);
 
-// console.log('Selected index');
-// console.log(peopleOption);
-// console.log('Selected index options');
-// console.log(newNumOption);
+console.log('Selected index');
+console.log(peopleOption);
+console.log('Selected index options');
+console.log(newNumOption);
+
+// newNumOption.addEventListener('mouseleave', addNumber);
+
+// $(newNumOption).mouseleave(function () {
+//   addNumber();
+// });
+
+// $(newNumOption).mouseout(function () {
+//   addNumber();
+// });
 // console.log('Number list');
 // console.log(numList);
 // console.log('Number list length');
@@ -721,6 +754,8 @@ function addNumber() {
     iconPnum2.innerHTML = '<p>' + newNum + '</p>';
     iconPnum3.innerHTML = '<p>' + newNum + '</p>';
     iconPnum4.innerHTML = '<p>' + newNum + '</p>';
+    iconPnum5.innerHTML = '<p>' + newNum + '</p>';
+    // iconPnum5confirm.innerHTML = '<p>' + newNum + 'Person' + '</p>';
     peopleText2.innerHTML = (' person');
     $(inlineIconsNums).addClass("iconOpacity");
     $(".valid-feedback-num").show();
@@ -732,6 +767,8 @@ function addNumber() {
     iconPnum2.innerHTML = '<p>' + newNum + '</p>';
     iconPnum3.innerHTML = '<p>' + newNum + '</p>';
     iconPnum4.innerHTML = '<p>' + newNum + '</p>';
+    iconPnum5.innerHTML = '<p>' + newNum + '</p>';
+    // iconPnum5confirm.innerHTML = '<p>' + newNum + 'People' + '</p>';
     peopleText2.innerHTML = (' people');
     $(inlineIconsNums).addClass("iconOpacity");
     $(".valid-feedback-num").show();
@@ -778,6 +815,8 @@ function show4from5() {
 
 function show5from6() {
   $(function () {
+    $("#section4").show();
+    $(".section4").hide();
     $("#section5").show();
   });
   $(function () {
@@ -894,16 +933,18 @@ function calculateData() {
     var dateString2 = dateList[0];
     dateString2 = dateString2.toString();
 
-    datesFinal.innerHTML = '<span class="boldBlu">Dates travelling: </span>' + dateString1.substring(0, 15) + ' - ' + dateString2.substring(0, 15);
-    daysFinal.innerHTML = '<span class="boldBlu">Total days: </span>' + daysList[0];
-    peopleFinal.innerHTML = '<span class="boldBlu"> Total people: </span>' + numList[0];
-    journeyFinal.innerHTML = '<span class="boldBlu">Your journey: </span>' + journeyList[0] + ' to ' + journeyList[1];
-    vehicleFinal.innerHTML = '<span class="boldBlu">Your vehicle: </span>' + vehicleList[0].name;
+    datesFinal.innerHTML = '<span class="boldBlu">Dates: </span>' + dateString1.substring(0, 15) + '  -  ' + dateString2.substring(0, 15);
+    // daysFinal.innerHTML = '<span class="boldBlu">Total days: </span>' + daysList[0];
+    // peopleFinal.innerHTML = '<span class="boldBlu"> Total people: </span>' + numList[0];
+    journeyFinal.innerHTML = '<span class="boldBlu">From: </span>' + journeyList[0] + ' to ' + journeyList[1];
+    vehicleFinal.innerHTML = '<span class="boldBlu">Vehicle: </span>' + vehicleList[0].name;
+    vehicleFinalImage.innerHTML = '<img class="finalVehicleImage" src="img/vehicles/' + vehicleList[0].imageURL + '">';
     rentalFinal.innerHTML = '<span class="boldBlu">Rental cost: </span>$' + rentalPriceList[0];
-    petrolFinal.innerHTML = '<span class="boldBlu">Estimated fuel cost: </span>$' + petrolPriceList[0];
+    petrolFinal.innerHTML = '<span class="boldBlu">Fuel cost: </span>$' + petrolPriceList[0];
     perDayFinal.innerHTML = '<span class="boldBlu">Cost per day: </span>$' + perDayList[0];
     perPersonFinal.innerHTML = '<span class="boldBlu">Cost per person: </span>$' + perPersonList[0];
-    priceFinal.innerHTML = '<span class="boldBlu">Total cost: </span>$' + totalPriceList[0];
+    priceFinal.innerHTML = '<span class="boldBluLrg">TOTAL: </span>' +
+      '<span class="boldWhtLrg">$' + totalPriceList[0] + '</span>';
 
     $(function () {
       $("#section6").show();
@@ -948,7 +989,7 @@ var vehicleList = [];
 var allVehicles = [{
     "name": "2019 Kawasaki Ninja H2-R",
     "vehicle": "motorBike",
-    "imageURL": "../img/vehicles.ninja.jpg",
+    "imageURL": "ninja.jpg",
     "persons": {
       "min": 1,
       "max": 1
@@ -965,7 +1006,7 @@ var allVehicles = [{
   {
     "name": "2019 Audi S3 Sportback",
     "vehicle": "smallCar",
-    "imageURL": "../img/vehicles.s4.jpg",
+    "imageURL": "s4.jpg",
     "persons": {
       "min": 1,
       "max": 2
@@ -981,7 +1022,7 @@ var allVehicles = [{
   {
     "name": "2019 BMW M5 Sedan",
     "vehicle": "largeCar",
-    "imageURL": "../img/vehicles.m5.jpg",
+    "imageURL": "m5.jpg",
     "persons": {
       "min": 1,
       "max": 5
@@ -997,7 +1038,7 @@ var allVehicles = [{
   {
     "name": "2019 Mercedes GLS SUV",
     "vehicle": "sportsUtilityVehicle",
-    "imageURL": "../img/vehicles.gls.jpg",
+    "imageURL": "gls.jpg",
     "persons": {
       "min": 2,
       "max": 6
@@ -1025,6 +1066,10 @@ function addMotorBike() {
   vehicleText.innerHTML = ('You have selected... ');
   vehicleSelected.innerHTML = motorBikeName;
   $("#vehicleError").hide();
+  $("#motorBikeCheck").show();
+  $("#smallCarCheck").hide();
+  $("#largeCarCheck").hide();
+  $("#suvCheck").hide();
 }
 
 function addSmallCar() {
@@ -1037,6 +1082,10 @@ function addSmallCar() {
   vehicleText.innerHTML = ('You have selected... ');
   vehicleSelected.innerHTML = smallCarName;
   $("#vehicleError").hide();
+  $("#motorBikeCheck").hide();
+  $("#smallCarCheck").show();
+  $("#largeCarCheck").hide();
+  $("#suvCheck").hide();
 }
 
 function addLargeCar() {
@@ -1049,6 +1098,10 @@ function addLargeCar() {
   vehicleText.innerHTML = ('You have selected... ');
   vehicleSelected.innerHTML = largeCarName;
   $("#vehicleError").hide();
+  $("#motorBikeCheck").hide();
+  $("#smallCarCheck").hide();
+  $("#largeCarCheck").show();
+  $("#suvCheck").hide();
 }
 
 function addSportsUtilityVehicle() {
@@ -1061,6 +1114,10 @@ function addSportsUtilityVehicle() {
   vehicleText.innerHTML = ('You have selected... ');
   vehicleSelected.innerHTML = sportsUtilityVehicleName;
   $("#vehicleError").hide();
+  $("#motorBikeCheck").hide();
+  $("#smallCarCheck").hide();
+  $("#largeCarCheck").hide();
+  $("#suvCheck").show();
 }
 
 // VEHICLE FILTER FUNCTIONS
@@ -1069,10 +1126,10 @@ function filterVehicles() {
   var peopleCheck = numList[0];
 
   // $("#vehicleError").hide();
-  // $("#motorBikeError").hide();
-  // $("#smallCarError").hide();
-  // $("#largeCarError").hide();
-  // $("#suvError").hide();
+  $("#motorBikeError").show();
+  $("#smallCarError").show();
+  $("#largeCarError").show();
+  $("#suvError").show();
   $("#motorBike").hide();
   $("#smallCar").hide();
   $("#largeCar").hide();
@@ -1094,17 +1151,17 @@ function filterVehicles() {
     $("#sportsUtilityVehicle").show();
     $("#suvError").hide();
   }
-  if ((daysCheck >= 11 && daysCheck <= 15) && peopleCheck == 1) {
-    // $("#motorBikeError").show();
-    // $("#smallCarError").show();
-    // $("#largeCarError").show();
-  }
-  if (daysCheck == 1 && peopleCheck == 6) {
-    // $("#motorBikeError").show();
-    // $("#smallCarError").show();
-    // $("#largeCarError").show();
-    // $("#suvError").show();
-  }
+  // if ((daysCheck >= 11 && daysCheck <= 15) && peopleCheck == 1) {
+  //   $("#motorBikeError").show();
+  //   $("#smallCarError").show();
+  //   $("#largeCarError").show();
+  // }
+  // if (daysCheck == 1 && peopleCheck == 6) {
+  //   $("#motorBikeError").show();
+  //   $("#smallCarError").show();
+  //   $("#largeCarError").show();
+  //   $("#suvError").show();
+  // }
 }
 
 // CALCULATION FUNCTIONS
@@ -1177,18 +1234,10 @@ function getCostPerPerson() {
 
 // TOGGLE FOREGROUND FUNCTION
 function toggleForeground() {
-  $("#brand-title").toggle();
-  // $(".invalid-feedback-start").toggle();
-}
-
-function show5Temp() {
   $(function () {
-    $("#section4").show();
-    $("#section5").show();
-  });
-  $(function () {
-    $("#section1").hide();
-    $(".section4").hide();
+    $(".row-blue").toggle();
+    $(".row-blue-med").toggle();
+    $(".row-blue-vehicle").toggle();
   });
 }
 

@@ -31,7 +31,7 @@
     <!-- HEADER -->
     <header class="header-fixed">
         <div class="header-map">
-            <svg onclick="show5Temp()" alt="Map Icon" class="tool-tip-right" title="View Map" xmlns="http://www.w3.org/2000/svg"
+            <svg alt="Map Icon" class="tool-tip-right" title="View Background" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ripple" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
                 <circle class="header-map-icon-inner" cx="50" cy="50" r="0" fill="none" ng-attr-stroke="{{config.c1}}"
                     ng-attr-stroke-width="{{config.width}}" stroke-width="6">
@@ -357,16 +357,15 @@
                         <div class="col-md-3 col-title"></div>
                         <div class="col-md-6 col-title">
                             <label for="peopleNum">Number of people*</label>
-                            <select onmouseout="addNumber()" name="peopleNum" class="form-control" id="peopleNum"
+                            <select name="peopleNum" class="form-control" id="peopleNum"
                                 autocomplete="off" required>
-                                <option value="0" disabled selected hidden>Select here</option>
-                                <!-- <option value="0" disabled hidden></option> -->
-                                <option onclick="addNumber()" value="1">1</option>
-                                <option onclick="addNumber()" value="2">2</option>
-                                <option onclick="addNumber()" value="3">3</option>
-                                <option onclick="addNumber()" value="4">4</option>
-                                <option onclick="addNumber()" value="5">5</option>
-                                <option onclick="addNumber()" value="6">6</option>
+                                <option value="" disabled selected hidden>Select here</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
                             </select>
                             <div class="invalid-feedback invalid-feedback-num">
                                 Please select a number
@@ -383,7 +382,7 @@
                         <!-- PROGRESS BAR BOTTOM-->
                         <div class="progressBarBottomWrapper">
                             <div class="progressBarBot">
-                                <button type="button" class="btn btn-dark" onclick="show1from2()">BACK</button>
+                                <button type="button" class="btn btn-dark floatLeft" onclick="show1from2()">BACK</button>
                             </div>
                             <div class="progressBarBot progressBarIconInactive">
                                 <div class="inlineIcons inlineIconsNums">
@@ -410,7 +409,7 @@
                                 </div>
                             </div>
                             <div class="progressBarBot">
-                                <button type="submit" class="btn btn-dark" onclick="show3()">NEXT</button>
+                                <button type="submit" class="btn btn-dark floatRight" onclick="show3()">NEXT</button>
                             </div>
                         </div>
                     </div>
@@ -486,7 +485,7 @@
                         <!-- PROGRESS BAR BOTTOM-->
                         <div class="progressBarBottomWrapper">
                             <div class="progressBarBot">
-                                <button type="button" class="btn btn-dark" onclick="show2from3()">BACK</button>
+                                <button type="button" class="btn btn-dark floatLeft" onclick="show2from3()">BACK</button>
                             </div>
                             <div class="progressBarBot progressBarIconInactive progressBarIconActive">
                                 <div class="inlineIcons inlineIconsNums">
@@ -513,7 +512,7 @@
                                 </div>
                             </div>
                             <div class="progressBarBot">
-                                <button type="submit" class="btn btn-dark" onclick="show4()">NEXT</button>
+                                <button type="submit" class="btn btn-dark floatRight" onclick="show4()">NEXT</button>
                             </div>
                         </div>
                     </div>
@@ -599,7 +598,7 @@
                         <!-- PROGRESS BAR BOTTOM-->
                         <div class="progressBarBottomWrapper">
                             <div class="progressBarBot">
-                                <button type="button" class="btn btn-dark" onclick="show3from4()">BACK</button>
+                                <button type="button" class="btn btn-dark floatLeft" onclick="show3from4()">BACK</button>
                             </div>
                             <div class="progressBarBot progressBarIconInactive progressBarIconActive">
                                 <div class="inlineIcons inlineIconsNums">
@@ -626,7 +625,7 @@
                                 </div>
                             </div>
                             <div class="progressBarBot">
-                                <button type="submit" class="btn btn-dark" onclick="show5()">NEXT</button>
+                                <button type="submit" class="btn btn-dark floatRight" onclick="show5()">NEXT</button>
                             </div>
                         </div>
                     </div>
@@ -669,8 +668,12 @@
                         <div class="col-md-6 col-vehicle">
                             <div class="vehicle vehicle1">
                                 <div class="vehicleWrapperError" id="motorBikeError">
-                                    <h3 class="marginTop30">VEHICLE UNAVAILABLE</h3>
+                                    <h3 class="marginTop30">Vehicle unavailable</h3>
                                     <p>People required: 1<br>Days required: 1 - 5</p>
+                                </div>
+                                <div class="vehicleWrapperCheck" id="motorBikeCheck">
+                                    <h3 class="marginTop30"><i class="fas fa-check"></i></h3>
+                                    <p>Vehicle selected</p>
                                 </div>
                                 <div id="motorBike" onclick="addMotorBike()">
                                     <div class="vehicleWrapper">
@@ -684,9 +687,13 @@
                         <div class="col-md-6 col-vehicle">
                             <div class="vehicle vehicle2">
                                 <div class="vehicleWrapperError" id="smallCarError">
-                                    <h3 class="marginTop30">VEHICLE UNAVAILABLE</h3>
+                                    <h3 class="marginTop30">Vehicle unavailable</h3>
                                     <p>People required: 1 - 2<br>
                                         Days required: 1 - 10</p>
+                                </div>
+                                <div class="vehicleWrapperCheck" id="smallCarCheck">
+                                    <h3 class="marginTop30"><i class="fas fa-check"></i></h3>
+                                    <p>Vehicle selected</p>
                                 </div>
                                 <div id="smallCar" onclick="addSmallCar()">
                                     <div class="vehicleWrapper">
@@ -700,9 +707,13 @@
                         <div class="col-md-6 col-vehicle">
                             <div class="vehicle vehicle3">
                                 <div class="vehicleWrapperError" id="largeCarError">
-                                    <h3 class="marginTop30">VEHICLE UNAVAILABLE</h3>
+                                    <h3 class="marginTop30">Vehicle unavailable</h3>
                                     <p>People required: 1 - 5<br>
                                         Days required: 3 - 10</p>
+                                </div>
+                                <div class="vehicleWrapperCheck" id="largeCarCheck">
+                                    <h3 class="marginTop30"><i class="fas fa-check"></i></h3>
+                                    <p>Vehicle selected</p>
                                 </div>
                                 <div id="largeCar" onclick="addLargeCar()">
                                     <div class="vehicleWrapper">
@@ -716,15 +727,19 @@
                         <div class="col-md-6 col-vehicle">
                             <div class="vehicle vehicle4">
                                 <div class="vehicleWrapperError" id="suvError">
-                                    <h3 class="marginTop30">VEHICLE UNAVAILABLE</h3>
+                                    <h3 class="marginTop30">Vehicle unavailable</h3>
                                     <p>People required: 2 - 6<br>
                                         Days required: 2 - 15</p>
+                                </div>
+                                <div class="vehicleWrapperCheck" id="suvCheck">
+                                    <h3 class="marginTop30"><i class="fas fa-check"></i></h3>
+                                    <p>Vehicle selected</p>
                                 </div>
                                 <div id="sportsUtilityVehicle" onclick="addSportsUtilityVehicle()">
                                     <div class="vehicleWrapper">
                                         <h3 class="marginTop30">Mercedes GLS SUV</h3>
                                         <p>Fuel: $35 Per 100km<br>
-                                        Rental: $200 Per day</p>
+                                            Rental: $200 Per day</p>
                                     </div>
                                 </div>
                             </div>
@@ -739,7 +754,7 @@
                         <!-- PROGRESS BAR BOTTOM-->
                         <div class="progressBarBottomWrapper">
                             <div class="progressBarBot">
-                                <button type="button" class="btn btn-dark" onclick="show4from5()">BACK</button>
+                                <button type="button" class="btn btn-dark floatLeft" onclick="show4from5()">BACK</button>
                             </div>
                             <div class="progressBarBot progressBarIconInactive progressBarIconActive">
                                 <div class="inlineIcons inlineIconsNums">
@@ -766,7 +781,7 @@
                                 </div>
                             </div>
                             <div class="progressBarBot">
-                                <button type="submit" class="btn btn-dark" onclick="calculateData()">NEXT</button>
+                                <button type="submit" class="btn btn-dark floatRight" onclick="calculateData()">NEXT</button>
                             </div>
                         </div>
                     </div>
@@ -784,7 +799,7 @@
         <!-- BACKGROUND OVERLAY -->
         <div class="section6">
             <div class="container-fluid">
-                <div class="row row-blue row-flex animsition" data-animsition-in-class="zoom-in"
+                <div class="row row-blue-med row-flex animsition" data-animsition-in-class="zoom-in"
                     data-animsition-in-duration="500">
                     <!-- PROGRESS BAR -->
                     <div class="progressBarWrapper">
@@ -793,7 +808,6 @@
                         </div>
                         <div class="progressBar progressComplete progress2">
                             <p>STEP 2&nbsp;&nbsp;<i class="fas fa-check"></i></p>
-
                         </div>
                         <div class="progressBar progressComplete progress3">
                             <p>STEP 3&nbsp;&nbsp;<i class="fas fa-check"></i></p>
@@ -808,47 +822,57 @@
                     <div class="col-md-12 col-heading paddingTop">
                         <h2>CONFIRMATION</h2>
                     </div>
-                    <div class="col-md-12">
-                        <div class="note">
-                            <p>Please find the details of your journey below</p>
-                        </div>
+                    <div class="col-md-12 marginBotLrg">
+                        <p id="datesFinal" class="optionsFont boldWht"></p>
+                        <p id="journeyFinal" class="finalFontCenter boldWht "></p>
                     </div>
-                    <div class="col-md-12">
-                        <p id="datesFinal" class="optionsFont"></p>
+                    <div class="col-md-7 marginBotLrg" id="vehicleFinalImage">
                     </div>
-                    <div class="col-md-12">
-                        <p id="daysFinal" class="optionsFont"></p>
-                        <p id="peopleFinal" class="optionsFont"></p>
-                    </div>
-                    <div class="col-md-12">
-                        <p id="journeyFinal" class="optionsFont"></p>
-                    </div>
-                    <div class="col-md-12">
-                        <p id="vehicleFinal" class="optionsFont"></p>
-                    </div>
-                    <div class="col-md-12">
-                        <p id="time" class="optionsFont"></p>
-                        <p id="distance" class="optionsFont"></p>
-                    </div>
-                    <div class="col-md-12">
-                        <p id="rentalFinal" class="optionsFont boldWht"></p>
-                        <p id="petrolFinal" class="optionsFont boldWht"></p>
-                        <p id="perDayFinal" class="optionsFont boldWht"></p>
-                        <p id="perPersonFinal" class="optionsFont boldWht"></p>
-                        <p id="priceFinal" class="optionsFont boldWht"></p>
+                    <div class="col-md-5 lrgTick">
+                        <p id="vehicleFinal" class="finalFont boldWht"></p>
+                        <p id="time" class="finalFont boldWht"></p>
+                        <p id="distance" class="finalFont boldWht"></p>
+                        <p id="rentalFinal" class="finalFont boldWht"></p>
+                        <p id="petrolFinal" class="finalFont boldWht"></p>
+                        <p id="perDayFinal" class="finalFont boldWht"></p>
+                        <p id="perPersonFinal" class="finalFont boldWht"></p>
+                        <p id="priceFinal" class="finalFontHeadingLeft boldWhtLrg"></p>
+                        <!-- <i class="fas fa-check"></i> -->
                     </div>
                     <!-- PROGRESS BAR BOTTOM-->
                     <div class="progressBarBottomWrapper">
                         <div class="progressBarBot">
-                            <button type="button" class="btn btn-dark" onclick="show5from6()">BACK</button>
+                            <button type="button" class="btn btn-dark floatLeft" onclick="show5from6()">BACK</button>
                         </div>
-                        <div class="progressBarBot"></div>
-                        <div class="progressBarBot"></div>
-                        <div class="progressBarBot"></div>
+                        <div class="progressBarBot progressBarIconInactive progressBarIconActive">
+                            <div class="inlineIcons inlineIconsNums">
+                                <i class="fas fa-user"></i>
+                                <div id="iconPnum5" class="iconP">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progressBarBot progressBarIconInactive progressBarIconActive">
+                            <div class="inlineIcons inlineIconsDays">
+                                <i class="far fa-calendar-alt"></i>
+                                <div id="iconPdays5" class="iconP">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progressBarBot progressBarIconInactive progressBarIconActive">
+                            <div class="inlineIcons inlineIconsDest">
+                                <i class="fas fa-globe-asia"></i>
+                                <div class="iconP iconPglobe">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
                         <div class="progressBarBot">
-                            <button id="confirmBtn" type="submit" class="btn btn-dark confirmBtn confirm-trigger">NEXT</button>
+                            <button id="confirmBtn" type="submit" class="btn btn-dark confirmBtn confirm-trigger floatRight">NEXT</button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -912,7 +936,7 @@
     </div>
 
     <!-- MAP -->
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ5qWqvPupVZb1AlLikNVFw4U3Lm5Oycs&libraries=places"></script>
     <!--build:js js/main.min.js -->
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/animsition.min.js"></script>

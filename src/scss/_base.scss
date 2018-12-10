@@ -46,6 +46,18 @@ h4 {
     color: $l-blu;
 }
 
+.boldBluLrg {
+    font-family: $fnt-bld;
+    color: $l-blu;
+    font-size: 1.3em;
+}
+
+.boldWhtLrg {
+    font-family: $fnt-bld;
+    color: $wht;
+    font-size: 1.3em;
+}
+
 small,
 .small body {
     color: $d-blu;
@@ -76,6 +88,10 @@ small,
     margin-bottom: 1em;
 }
 
+.marginBotLrg {
+    margin-bottom: 1.5em;
+}
+
 .paddingTop {
     padding-top: 60px;
 }
@@ -89,6 +105,13 @@ small,
     padding-bottom: 60px;
 }
 
+.floatLeft {
+    float: left;
+}
+
+.floatLeft::after {
+    clear: left;
+}
 .floatRight {
     float: right;
 }
