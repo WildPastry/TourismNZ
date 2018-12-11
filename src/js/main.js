@@ -632,12 +632,12 @@ function reCalculateDays() {
   } else {
     console.log('Start date');
     console.log(startDate);
-    dateList.splice(0, 0);
+    dateList.splice(0, 1);
     dateList.push(startDate);
-    // console.log('End date');
-    // console.log(endDate);
-    // dateList.splice(1, 1);
-    // dateList.push(endDate);
+    console.log('End date');
+    console.log(endDate);
+    dateList.splice(1, 1);
+    dateList.push(endDate);
     console.log(dateList);
     var dif = endDate - startDate;
     dif = dif / 86400000;
@@ -699,10 +699,10 @@ var newNum = peopleOption;
 // console.log('The actual id');
 // console.log(p);
 
-console.log('Selected index');
-console.log(peopleOption);
-console.log('Selected index options');
-console.log(newNumOption);
+// console.log('Selected index');
+// console.log(peopleOption);
+// console.log('Selected index options');
+// console.log(newNumOption);
 
 // newNumOption.addEventListener('mouseleave', addNumber);
 
@@ -738,38 +738,112 @@ console.log(newNumOption);
 // var newNum = p.selectedIndex = "2";
 
 // document.getElementById("mySelect").selectedIndex = "2";
+var valueList = [];
+// NUMBER SPINNER
+(function () {
+
+  window.inputNumber = function (el) {
+
+    var min = el.attr('min') || false;
+    var max = el.attr('max') || false;
+
+    var els = {};
+
+    els.dec = el.prev();
+    els.inc = el.next();
+
+    el.each(function () {
+      init($(this));
+    });
+
+    function init(el) {
+
+      els.dec.on('click', decrement);
+      els.inc.on('click', increment);
+
+      function decrement() {
+        var value = el[0].value;
+        value--;
+        if (!min || value >= min) {
+          el[0].value = value;
+          valueList.splice(0, 1);
+          valueList.push(value);
+          console.log('Spinner value down');
+          console.log(value);
+          // console.log(valueList);
+          addNumber();
+          if (value == 0) {
+            $(".invalid-feedback-num").show();
+            $(".valid-feedback-num").hide();
+          } else {
+            $(".invalid-feedback-num").hide();
+            $(".valid-feedback-num").show();
+          }
+        }
+      }
+
+      function increment() {
+        var value = el[0].value;
+        value++;
+        if (!max || value <= max) {
+          el[0].value = value++;
+          var newSpinner = parseInt(value);
+          newValue = (newSpinner - 1);
+          valueList.splice(0, 1);
+          valueList.push(newValue);
+          console.log('Spinner value up');
+          console.log(newValue);
+          // console.log(valueList);
+          addNumber();
+          if (value == 0) {
+            $(".invalid-feedback-num").show();
+            // peopleText1.innerHTML = "";
+            // peopleSelected.innerHTML = "";
+            $(".valid-feedback-num").hide();
+          } else {
+            $(".invalid-feedback-num").hide();
+            $(".valid-feedback-num").show();
+          }
+        }
+      }
+    }
+  };
+})();
+
+inputNumber($('.input-number'));
+console.log(inputNumber);
 
 // FUNCTION
 function addNumber() {
-  var peopleOption = document.getElementById("peopleNum").selectedIndex;
-  var newNum = peopleOption;
+  var newValueList = parseInt(valueList[0]);
+  newNum = newValueList;
   numList.splice(0, 1);
   numList.push(newNum);
   console.log('Number of people');
   console.log(newNum);
   if (newNum == 1) {
-    peopleText1.innerHTML = ('You have selected... ');
-    peopleSelected.innerHTML = newNum;
+    // peopleText1.innerHTML = ('You have selected... ');
+    // peopleSelected.innerHTML = newNum;
     iconPnum1.innerHTML = '<p>' + newNum + '</p>';
     iconPnum2.innerHTML = '<p>' + newNum + '</p>';
     iconPnum3.innerHTML = '<p>' + newNum + '</p>';
     iconPnum4.innerHTML = '<p>' + newNum + '</p>';
     iconPnum5.innerHTML = '<p>' + newNum + '</p>';
     // iconPnum5confirm.innerHTML = '<p>' + newNum + 'Person' + '</p>';
-    peopleText2.innerHTML = (' person');
+    // peopleText2.innerHTML = (' person');
     $(inlineIconsNums).addClass("iconOpacity");
     $(".valid-feedback-num").show();
     $(".invalid-feedback-num").hide();
   } else {
-    peopleText1.innerHTML = ('You have selected... ');
-    peopleSelected.innerHTML = newNum;
+    // peopleText1.innerHTML = ('You have selected... ');
+    // peopleSelected.innerHTML = newNum;
     iconPnum1.innerHTML = '<p>' + newNum + '</p>';
     iconPnum2.innerHTML = '<p>' + newNum + '</p>';
     iconPnum3.innerHTML = '<p>' + newNum + '</p>';
     iconPnum4.innerHTML = '<p>' + newNum + '</p>';
     iconPnum5.innerHTML = '<p>' + newNum + '</p>';
     // iconPnum5confirm.innerHTML = '<p>' + newNum + 'People' + '</p>';
-    peopleText2.innerHTML = (' people');
+    // peopleText2.innerHTML = (' people');
     $(inlineIconsNums).addClass("iconOpacity");
     $(".valid-feedback-num").show();
     $(".invalid-feedback-num").hide();
@@ -847,7 +921,7 @@ function show2() {
 }
 
 function show3() {
-  if (numList.length == 0 || peopleSelected.innerHTML == '0') {
+  if (numList.length == 0 || numList[0] == 0) {
 
     console.log("No number entered");
     $(".invalid-feedback-num").show();
@@ -930,7 +1004,7 @@ function calculateData() {
     var dateString1 = dateList[0];
     dateString1 = dateString1.toString();
 
-    var dateString2 = dateList[0];
+    var dateString2 = dateList[1];
     dateString2 = dateString2.toString();
 
     datesFinal.innerHTML = '<span class="boldBlu">Dates: </span>' + dateString1.substring(0, 15) + '  -  ' + dateString2.substring(0, 15);
@@ -1238,6 +1312,9 @@ function toggleForeground() {
     $(".row-blue").toggle();
     $(".row-blue-med").toggle();
     $(".row-blue-vehicle").toggle();
+    // $(".section4").toggle();
+    // $("#section5").toggle();
+
   });
 }
 

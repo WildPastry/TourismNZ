@@ -52,7 +52,7 @@
     text-align: center;
     top: 0;
     width: 100%;
-    z-index: 15;
+    z-index: 1;
 }
 
 // HEADER MAP BUTTON
@@ -122,13 +122,16 @@
     }
 }
 
-@media (max-width: 578px) {
+@media (max-width: 586px) {
 
     .brand-title {
         margin-left: -150px;
         margin-top: -111.5px;
         height: 223px;
         width: 300px;
+    }
+    .header-fixed {
+        height: 80px;
     }
 }
 
@@ -141,3 +144,16 @@
         width: 250px;
     }
 }
+
+// @media (max-height: 586px) {
+
+//     .brand-title {
+//         margin-left: -150px;
+//         margin-top: -111.5px;
+//         height: 223px;
+//         width: 300px;
+//     }
+//     .header-fixed {
+//         height: 80px;
+//     }
+// }

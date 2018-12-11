@@ -150,6 +150,8 @@
 .container-fluid {
     max-width: 900px;
     margin: $main-mar;
+    padding-left: 20px;
+    padding-right: 20px;
 
     h2 {
         @include fontProperties($fnt-pure, $hdg-2, $spc, $l-blu);
@@ -243,7 +245,9 @@ select {
 // option {
 //     text-align: center;
 // }
-
+// .ui-datepicker {
+//     z-index: 50;
+// }
 .form-control {
     box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px;
     // width: 300px;
@@ -278,6 +282,9 @@ select {
     font-size: 100%;
 }
 
+// .invalid-feedback-num{
+//     margin-bottom: 200px;
+// }
 #vehicleErrorInfo {
     display: none;
 }
@@ -298,6 +305,11 @@ select {
 
 .col-title {
     height: 100px;
+    margin-top: 10px;
+}
+
+.col-title-big {
+    height: 160px;
     margin-top: 10px;
 }
 
@@ -339,6 +351,7 @@ select {
 //     height: 100%;
 //     width: 100%;
 // }
+
 .vehicleWrapperError {
     position: absolute;
     top: 0;
@@ -349,6 +362,7 @@ select {
     text-align: center;
     background: $blu-t;
 }
+
 .vehicleWrapperCheck {
     position: absolute;
     top: 0;
@@ -359,6 +373,7 @@ select {
     text-align: center;
     background: $green-t;
 }
+
 // .vehicleSelection {
 //     margin-bottom: 10px;
 // }
@@ -416,7 +431,7 @@ select {
     background-size: cover;
 }
 
-.finalVehicleImage{
+.finalVehicleImage {
     width: 100%;
     height: auto;
     // border: 2px solid $wht;
@@ -446,7 +461,7 @@ select {
     @include fontProperties($fnt-reg, 1.1em, $spc-zero, $wht);
 }
 
-.vehicle h3{
+.vehicle h3 {
     text-align: center;
     @include fontProperties($fnt-bld, 1.3em, $spc-zero, $wht);
 }
@@ -454,6 +469,10 @@ select {
 .vehicle h4 {
     text-align: center;
     @include fontProperties($fnt-bld, 1.2em, $spc-zero, $wht);
+}
+
+.vehicleToShow {
+    visibility: hidden;
 }
 
 // FEEDBACK
@@ -474,6 +493,13 @@ select {
 }
 
 .valid-feedback {
+    margin-top: 0.5em;
+    font-size: 100%;
+    color: $green;
+}
+
+.valid-feedback-num {
+    display: none;
     margin-top: 0.5em;
     font-size: 100%;
     color: $green;
@@ -537,6 +563,11 @@ select {
     border-color: $d-gry;
 }
 
+.btn-little {
+    visibility: hidden;
+    width: 30px;
+}
+
 .btn-dark:hover {
     background-color: $m-blu;
 }
@@ -590,12 +621,12 @@ select {
     width: 100%;
     position: absolute;
     top: 0;
+}
 
-    p {
-        text-align: center;
-        @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
-        opacity: 0.4;
-    }
+.progressBarWrapper p {
+    text-align: center;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    opacity: 0.4;
 }
 
 .progressBarBottomWrapper {
@@ -644,8 +675,9 @@ select {
     width: 20%;
     flex-direction: row;
     text-align: center;
+
     button {
-        width: 80%;
+        width: 100%;
         height: 100%;
     }
 }
@@ -709,8 +741,8 @@ select {
     }
 }
 
-.inlineIconsConfirm i{
-   font-size: 3em;
+.inlineIconsConfirm i {
+    font-size: 3em;
 }
 
 .iconP {
@@ -744,4 +776,319 @@ select {
     font-size: 1.3em;
 }
 
-// TRANSITIONS
+// NUMBER SPINNER
+.numberInput {
+    height: 100px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.input-number {
+    width: 100px;
+    height: 100px;
+    // padding: 0 12px;
+    vertical-align: top;
+    text-align: center;
+    background: none;
+    border: none;
+    outline: none;
+    @include fontProperties($fnt-bld, 4.5em, $spc, $wht);
+
+}
+
+.smallerHeading {
+    height: 60px;
+}
+
+// .input-number,
+// .input-number-decrement,
+// .input-number-increment {
+//     border: 1px solid #ccc;
+//     height: 40px;
+//     user-select: none;
+// }
+// .input-number-increment {
+//     padding-top: 2px;
+// }
+.input-number-decrement,
+.input-number-increment {
+    // display: inline-block;
+    width: 50px;
+    height: 100px;
+    line-height: 100px;
+    // background: #f1f1f1;
+    @include fontProperties($fnt-reg, 3em, $spc, $wht);
+    // text-align: center;
+    cursor: pointer;
+}
+
+.input-number-increment {
+    // display: inline-block;
+    line-height: 105px;
+}
+
+// .input-number-decrement {
+//     border-right: none;
+//     border-radius: 0.5em 0 0 0.5em;
+// }
+
+// .input-number-increment {
+//     border-left: none;
+//     border-radius: 0 0.5em 0.5em 0;
+// }
+.fa-chevron-right,
+.fa-chevron-left {
+    font-size: 20px;
+    color: $wht;
+}
+
+.fa-chevron-right {
+    padding-right: 7px;
+}
+
+.fa-chevron-left {
+    padding-left: 7px;
+}
+
+@media (max-width: 586px) {
+
+    .note {
+        font-size: 0.9em;
+
+    }
+
+    .note p {
+
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 1.9em;
+    }
+
+    .container-fluid h2 {
+        font-size: 1.9em;
+
+    }
+
+    .input-number {
+        font-size: 3em;
+    }
+
+    .col-title-big {
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    .smallerHeading {
+        height: auto;
+    }
+
+    .col-heading {
+        height: auto;
+    }
+
+    .progressBarWrapper {
+        height: 30px;
+    }
+
+    .progressBarBottomWrapper {
+        margin-bottom: 0;
+        padding: 0;
+        height: 30px;
+    }
+
+    .progressBar {
+        line-height: 30px;
+    }
+
+    .row-blue {
+        height: auto;
+    }
+
+    .progressBarWrapper p {
+        font-size: 0.9em;
+    }
+
+    .fa-user,
+    .fa-calendar-alt,
+    .fa-globe-asia {
+        font-size: 20px;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    .inlineIcons {
+        line-height: 20px;
+    }
+
+    .numberInput {
+        height: 80px;
+
+    }
+
+    .btn-toHide {
+        display: none;
+        visibility: hidden;
+    }
+
+    .btn-little {
+        display: block;
+        visibility: visible;
+    }
+
+    .progressBarBot {
+        .btn {
+            border: none !important;
+            background: none !important;
+    
+        }
+        button {
+            font-size: 0.9em;
+            width: 30px;
+            line-height: 10px;
+            background: none;
+            color: $wht;
+            border: none;
+            padding: 0;
+        }
+
+        button:hover {
+            background: none;
+            border: none;
+        }
+
+    }
+
+    .errorMessage {
+        font-size: 0.9em;
+    }
+
+    .btn:focus,
+    .btn.focus {
+        outline: 0;
+        box-shadow: none !important;
+    }
+
+    // .col-vehicle {
+    //     height: 120px;
+    // }
+
+    .form-control {
+        height: 30px;
+    }
+
+    .vehicle {
+        height: 100px;
+    }
+
+    .col-vehicle {
+        height: 100px;
+    }
+
+    .col-md-6 {
+        width: 50%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .vehicleWrapperError {
+        padding: 5px;
+    }
+
+    .marginTop30 {
+        margin-top: 15px;
+    }
+
+    #startDate,
+    #endDate,
+    #startPoint,
+    #endPoint {
+        font-size: 0.8em;
+    }
+
+    .vehicle h3 {
+        font-size: 0.9em;
+    }
+
+    .vehicle p {
+        font-size: 0.9em;
+    }
+
+    .invalid-feedback {
+        font-size: 0.8em;
+        margin-bottom: 10px;
+    }
+    .invalid-feedback-num {
+        font-size: 0.8em;
+        margin-bottom: 10px;
+    }
+    label {
+        font-size: 0.8em;
+    }
+
+    .iconP {
+        margin-left: 5px;
+    }
+
+    .vehicleToShow {
+        visibility: visible;
+        display: block;
+    }
+
+    .vehicleToHide {
+        visibility: hidden;
+        display: none;
+    }
+
+    .finalVehicleImage {
+        visibility: hidden;
+        display: none;
+    }
+
+    .row-blue-vehicle {
+        height: auto;
+    }
+
+    .row-blue-med {
+        height: auto;
+    }
+
+    .col-info {
+        // height: auto;
+        margin-top: 0;
+    }
+
+    .col-heading-vehicle {
+        height: auto;
+    }
+
+    .marginBotLrg {
+        margin-bottom: 0.5em;
+    }
+
+    .marginBotLrg p {
+        font-size: 0.9em;
+        margin-bottom: 0;
+    }
+
+    .finalFont {
+        font-size: 0.9em;
+        text-align: center;
+        margin-bottom: 0.2em;
+    }
+
+    .errorMessage {
+        margin-top: 10px;
+        ;
+    }
+}
+
+@media (max-height: 586px) {
+
+    .container-fluid {
+        max-width: 700px;
+    }
+}

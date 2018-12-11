@@ -6499,6 +6499,9 @@ small,
 .layerZed {
   z-index: 3; }
 
+.alignCenter {
+  text-align: center; }
+
 .tool-tip-right {
   cursor: pointer; }
 
@@ -6523,7 +6526,7 @@ small,
   height: 130px;
   position: fixed;
   bottom: 0;
-  z-index: 15; }
+  z-index: 1; }
 
 .footer-info {
   margin: 91.6px auto 20px auto; }
@@ -6548,8 +6551,11 @@ small,
 .footer-brand::after {
   clear: left; }
 
+#small-fern {
+  visibility: hidden; }
+
 .footer-social {
-  width: 180px;
+  width: auto;
   height: 40px;
   float: right;
   margin: 70px 20px 20px 20px; }
@@ -6587,6 +6593,40 @@ small,
 
 .in-icon:hover .in-ylw {
   fill: #383838; }
+
+@media (max-width: 586px) {
+  .footer-fixed {
+    height: 80px; }
+  .footer-brand {
+    width: 40px;
+    height: 45px; }
+    .footer-brand svg {
+      width: 40px; }
+  .footer-social {
+    margin: 20px 20px 20px 20px; }
+  #fern {
+    display: none;
+    visibility: hidden; }
+  #small-fern {
+    display: block;
+    visibility: visible; } }
+
+@media (max-height: 586px) {
+  .footer-fixed {
+    height: 80px; }
+  .footer-brand {
+    width: 40px;
+    height: 45px; }
+    .footer-brand svg {
+      width: 40px; }
+  .footer-social {
+    margin: 20px 20px 20px 20px; }
+  #fern {
+    display: none;
+    visibility: hidden; }
+  #small-fern {
+    display: block;
+    visibility: visible; } }
 
 @font-face {
   font-family: 'Open Sans Light';
@@ -6661,7 +6701,7 @@ small,
   text-align: center;
   top: 0;
   width: 100%;
-  z-index: 15; }
+  z-index: 1; }
 
 .header-map {
   float: left;
@@ -6712,12 +6752,14 @@ small,
     height: 300px;
     width: 404px; } }
 
-@media (max-width: 578px) {
+@media (max-width: 586px) {
   .brand-title {
     margin-left: -150px;
     margin-top: -111.5px;
     height: 223px;
-    width: 300px; } }
+    width: 300px; }
+  .header-fixed {
+    height: 80px; } }
 
 @media (max-width: 400px) {
   .brand-title {
@@ -6871,7 +6913,9 @@ small,
 
 .container-fluid {
   max-width: 900px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px; }
   .container-fluid h2 {
     font-family: "Pure Pakati";
     font-size: 3em;
@@ -6982,6 +7026,10 @@ select {
 
 .col-title {
   height: 100px;
+  margin-top: 10px; }
+
+.col-title-big {
+  height: 160px;
   margin-top: 10px; }
 
 .col-info {
@@ -7110,6 +7158,9 @@ select {
   letter-spacing: 0px;
   color: #fff; }
 
+.vehicleToShow {
+  visibility: hidden; }
+
 .invalid-feedback {
   margin-top: 0.5em;
   color: #a0ddf9;
@@ -7124,6 +7175,12 @@ select {
   font-size: 100%; }
 
 .valid-feedback {
+  margin-top: 0.5em;
+  font-size: 100%;
+  color: #0b9c60; }
+
+.valid-feedback-num {
+  display: none;
   margin-top: 0.5em;
   font-size: 100%;
   color: #0b9c60; }
@@ -7192,6 +7249,10 @@ select {
   background-color: #a0ddf9;
   border-color: #383838; }
 
+.btn-little {
+  visibility: hidden;
+  width: 30px; }
+
 .btn-dark:hover {
   background-color: #2178a6; }
 
@@ -7231,13 +7292,14 @@ select {
   width: 100%;
   position: absolute;
   top: 0; }
-  .progressBarWrapper p {
-    text-align: center;
-    font-family: "Open Sans Regular";
-    font-size: 1em;
-    letter-spacing: 0px;
-    color: #fff;
-    opacity: 0.4; }
+
+.progressBarWrapper p {
+  text-align: center;
+  font-family: "Open Sans Regular";
+  font-size: 1em;
+  letter-spacing: 0px;
+  color: #fff;
+  opacity: 0.4; }
 
 .progressBarBottomWrapper {
   border-bottom-left-radius: 0.5em;
@@ -7282,7 +7344,7 @@ select {
   flex-direction: row;
   text-align: center; }
   .progressBarBot button {
-    width: 80%;
+    width: 100%;
     height: 100%; }
 
 .inlineIcons {
@@ -7356,3 +7418,180 @@ select {
 
 .marginBotLrg p {
   font-size: 1.3em; }
+
+.numberInput {
+  height: 100px;
+  width: 200px;
+  margin: 0 auto; }
+
+.input-number {
+  width: 100px;
+  height: 100px;
+  vertical-align: top;
+  text-align: center;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: "Open Sans Bold";
+  font-size: 4.5em;
+  letter-spacing: 1px;
+  color: #fff; }
+
+.smallerHeading {
+  height: 60px; }
+
+.input-number-decrement,
+.input-number-increment {
+  width: 50px;
+  height: 100px;
+  line-height: 100px;
+  font-family: "Open Sans Regular";
+  font-size: 3em;
+  letter-spacing: 1px;
+  color: #fff;
+  cursor: pointer; }
+
+.input-number-increment {
+  line-height: 105px; }
+
+.fa-chevron-right,
+.fa-chevron-left {
+  font-size: 20px;
+  color: #fff; }
+
+.fa-chevron-right {
+  padding-right: 7px; }
+
+.fa-chevron-left {
+  padding-left: 7px; }
+
+@media (max-width: 586px) {
+  .note {
+    font-size: 0.9em; }
+  .note p {
+    font-size: 1em; }
+  h2 {
+    font-size: 1.9em; }
+  .container-fluid h2 {
+    font-size: 1.9em; }
+  .input-number {
+    font-size: 3em; }
+  .col-title-big {
+    height: 120px;
+    margin-bottom: 10px; }
+  .smallerHeading {
+    height: auto; }
+  .col-heading {
+    height: auto; }
+  .progressBarWrapper {
+    height: 30px; }
+  .progressBarBottomWrapper {
+    margin-bottom: 0;
+    padding: 0;
+    height: 30px; }
+  .progressBar {
+    line-height: 30px; }
+  .row-blue {
+    height: auto; }
+  .progressBarWrapper p {
+    font-size: 0.9em; }
+  .fa-user,
+  .fa-calendar-alt,
+  .fa-globe-asia {
+    font-size: 20px; }
+  p {
+    margin-bottom: 0; }
+  .inlineIcons {
+    line-height: 20px; }
+  .numberInput {
+    height: 80px; }
+  .btn-toHide {
+    display: none;
+    visibility: hidden; }
+  .btn-little {
+    display: block;
+    visibility: visible; }
+  .progressBarBot .btn {
+    border: none !important;
+    background: none !important; }
+  .progressBarBot button {
+    font-size: 0.9em;
+    width: 30px;
+    line-height: 10px;
+    background: none;
+    color: #fff;
+    border: none;
+    padding: 0; }
+  .progressBarBot button:hover {
+    background: none;
+    border: none; }
+  .errorMessage {
+    font-size: 0.9em; }
+  .btn:focus, .btn.focus {
+    outline: 0;
+    box-shadow: none !important; }
+  .form-control {
+    height: 30px; }
+  .vehicle {
+    height: 100px; }
+  .col-vehicle {
+    height: 100px; }
+  .col-md-6 {
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px; }
+  .vehicleWrapperError {
+    padding: 5px; }
+  .marginTop30 {
+    margin-top: 15px; }
+  #startDate,
+  #endDate,
+  #startPoint,
+  #endPoint {
+    font-size: 0.8em; }
+  .vehicle h3 {
+    font-size: 0.9em; }
+  .vehicle p {
+    font-size: 0.9em; }
+  .invalid-feedback {
+    font-size: 0.8em;
+    margin-bottom: 10px; }
+  .invalid-feedback-num {
+    font-size: 0.8em;
+    margin-bottom: 10px; }
+  label {
+    font-size: 0.8em; }
+  .iconP {
+    margin-left: 5px; }
+  .vehicleToShow {
+    visibility: visible;
+    display: block; }
+  .vehicleToHide {
+    visibility: hidden;
+    display: none; }
+  .finalVehicleImage {
+    visibility: hidden;
+    display: none; }
+  .row-blue-vehicle {
+    height: auto; }
+  .row-blue-med {
+    height: auto; }
+  .col-info {
+    margin-top: 0; }
+  .col-heading-vehicle {
+    height: auto; }
+  .marginBotLrg {
+    margin-bottom: 0.5em; }
+  .marginBotLrg p {
+    font-size: 0.9em;
+    margin-bottom: 0; }
+  .finalFont {
+    font-size: 0.9em;
+    text-align: center;
+    margin-bottom: 0.2em; }
+  .errorMessage {
+    margin-top: 10px; } }
+
+@media (max-height: 586px) {
+  .container-fluid {
+    max-width: 700px; } }
