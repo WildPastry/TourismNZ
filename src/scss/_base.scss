@@ -58,11 +58,6 @@ h4 {
     font-size: 1.3em;
 }
 
-small,
-.small body {
-    color: $d-blu;
-}
-
 // GLOBAL ADJUSTMENTS
 .marginTop {
     margin-top: 1em;
@@ -122,17 +117,4 @@ small,
 
 .alignCenter {
     text-align: center;
-}
-
-.layerZed {
-    z-index: 3;
-}
-
-.alignCenter {
-    text-align: center;
-}
-
-// TOOL TIPSTER
-.tool-tip-right {
-    cursor: pointer;
 }
