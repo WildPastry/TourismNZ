@@ -1,4 +1,13 @@
-/*jslint browser:true */
+// COPYRIGHT MICHAEL PARKER 2018
+
+// PLUG-INS USED
+/* jquery-3.3.1.min.js"></script>
+animsition.min.js"></script>
+jquery-ui-1.12.1.min.js"></script>
+bootstrap-4.1.3.min.js"></script>
+popper-1.0.0.min.js"></script>
+tooltipster-4.2.6.min.js"></script>
+izimodal-1.6.0.min.js"></script> */
 
 // LOAD MAP
 $(document).ready(function () {
@@ -676,14 +685,14 @@ function addNumber() {
   newNum = newValueList;
   numList.splice(0, 1);
   numList.push(newNum);
- iconPnum1.innerHTML = '<p>' + newNum + '</p>';
-    iconPnum2.innerHTML = '<p>' + newNum + '</p>';
-    iconPnum3.innerHTML = '<p>' + newNum + '</p>';
-    iconPnum4.innerHTML = '<p>' + newNum + '</p>';
-    iconPnum5.innerHTML = '<p>' + newNum + '</p>';
-    $(inlineIconsNums).addClass("iconOpacity");
-    $(".valid-feedback-num").show();
-    $(".invalid-feedback-num").hide();
+  iconPnum1.innerHTML = '<p>' + newNum + '</p>';
+  iconPnum2.innerHTML = '<p>' + newNum + '</p>';
+  iconPnum3.innerHTML = '<p>' + newNum + '</p>';
+  iconPnum4.innerHTML = '<p>' + newNum + '</p>';
+  iconPnum5.innerHTML = '<p>' + newNum + '</p>';
+  $(inlineIconsNums).addClass("iconOpacity");
+  $(".valid-feedback-num").show();
+  $(".invalid-feedback-num").hide();
 }
 
 // PAGE ANIMATION

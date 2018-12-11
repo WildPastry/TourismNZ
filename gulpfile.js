@@ -66,6 +66,12 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('dist/fonts'))
 });
 
+//FRAMEWORK BUILD
+gulp.task('framework', function () {
+  return gulp.src('src/framework/**/*')
+    .pipe(gulp.dest('dist/framework'))
+});
+
 // MEDIA 
 gulp.task('media', function () {
   return gulp.src('src/media/**/*')
@@ -109,6 +115,6 @@ gulp.task(
   'build',
   gulp.series(
     'clean',
-    gulp.parallel('sass', 'useref', 'images', 'script', 'fonts', 'media')
+    gulp.parallel('sass', 'useref', 'images', 'script', 'fonts', 'framework', 'media')
   )
 );
