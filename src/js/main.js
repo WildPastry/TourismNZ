@@ -14,27 +14,6 @@ $(window).on('load', function () {
   });
 });
 
-// KEYBOARD
-// var startKey = a;
-// jQuery.event.trigger({ type: 'keydown', which: startKey });
-// var e = jQuery.Event("keydown");
-// e.which = 77; // m code value
-// e.altKey = true; // Alt key pressed
-// $("#inputBox").trigger(e);
-
-// $(function() {
-//   $('item').keydown();
-//   $('#startDate').keypress();
-//   $('item').keyup();
-//   $('item').blur();
-// });
-
-// $(function() {
-//   var e = $.Event('keypress');
-//   e.which = 65; // Character 'A'
-//   $('#startDate').trigger(e);
-// });
-
 // GLOBAL VARIABLES
 var inlineIconsNums = document.getElementsByClassName('inlineIconsNums');
 var inlineIconsDays = document.getElementsByClassName('inlineIconsDays');
