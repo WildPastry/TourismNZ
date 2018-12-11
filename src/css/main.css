@@ -6800,17 +6800,6 @@ small,
   font-family: 'Pure Pakati';
   src: url("../fonts/pure-pakati/PurePakati-Regular.otf"); }
 
-.background {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background: radial-gradient(circle farthest-side, rgba(69, 149, 241, 0), rgba(10, 15, 27, 0.651));
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 5; }
-
 #brand-video {
   position: absolute;
   top: 0;
@@ -6908,8 +6897,14 @@ small,
 #section6 {
   display: none; }
 
-#section7 {
-  display: none; }
+#map {
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+
+#mode-selector {
+  display: none;
+  visibility: hidden; }
 
 .container-fluid {
   max-width: 900px;
@@ -6972,52 +6967,6 @@ small,
   display: flex;
   justify-content: center; }
 
-#map {
-  position: absolute;
-  height: 100%;
-  width: 100%; }
-
-.pac-container {
-  cursor: pointer; }
-
-input {
-  cursor: pointer; }
-
-select {
-  cursor: pointer; }
-
-.form-control {
-  box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px; }
-
-.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated
-.custom-select:invalid,
-.custom-select.is-invalid {
-  border-color: #a0ddf9; }
-
-.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated
-.custom-select:invalid,
-.custom-select.is-invalid {
-  border-color: #a0ddf9; }
-
-.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus, .was-validated
-.custom-select:invalid:focus,
-.custom-select.is-invalid:focus {
-  border-color: #a0ddf9;
-  box-shadow: 0 0 0 0.2rem rgba(160, 221, 249, 0.705); }
-
-.errorMessage {
-  display: none;
-  color: #a0ddf9;
-  font-size: 100%; }
-
-#vehicleErrorInfo {
-  display: none; }
-
-.validMessage {
-  margin-top: 0.5em;
-  display: none;
-  color: #0b9c60; }
-
 .col-heading {
   height: 120px; }
 
@@ -7042,6 +6991,9 @@ select {
   height: 50px;
   line-height: 50px; }
 
+.col-vehicle {
+  margin-top: 15px; }
+
 .col-vehicle-top {
   height: 40px; }
 
@@ -7057,8 +7009,27 @@ select {
   height: 100%;
   display: flex; }
 
-.col-vehicle {
-  margin-top: 15px; }
+.vehicle {
+  height: 170px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border-radius: .5em; }
+  .vehicle img {
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+
+.vehicleWrapper {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  text-align: center;
+  background: rgba(33, 119, 166, 0.808);
+  z-index: 10; }
 
 .vehicleWrapperError {
   position: absolute;
@@ -7080,26 +7051,39 @@ select {
   text-align: center;
   background: rgba(11, 156, 96, 0.815); }
 
-.vehicleWrapper {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 15px;
-  text-align: center;
-  background: rgba(33, 119, 166, 0.808); }
+.vehicleToShow {
+  visibility: hidden;
+  display: none; }
 
-.vehicle {
-  height: 170px;
-  overflow: hidden;
-  position: relative;
+.vehicleToHide {
+  margin-bottom: 0.4em; }
+
+.finalVehicleImage {
   width: 100%;
-  border-radius: .5em; }
-  .vehicle img {
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out; }
+  height: auto;
+  border-radius: .5em;
+  float: right; }
+
+#vehicleErrorInfo {
+  display: none; }
+
+#motorBike,
+#smallCar,
+#largeCar,
+#sportsUtilityVehicle {
+  cursor: pointer; }
+
+#motorBikeCheck {
+  display: none; }
+
+#smallCarCheck {
+  display: none; }
+
+#largeCarCheck {
+  display: none; }
+
+#suvCheck {
+  display: none; }
 
 .vehicle1 {
   background: url("../img/vehicles/ninja.jpg") no-repeat center center;
@@ -7117,11 +7101,11 @@ select {
   background: url("../img/vehicles/gls.jpg") no-repeat center center;
   background-size: cover; }
 
-.finalVehicleImage {
-  width: 100%;
-  height: auto;
-  border-radius: .5em;
-  float: right; }
+.marginBotLrg p {
+  font-size: 1.3em; }
+
+.smallerHeading {
+  height: 60px; }
 
 .note {
   text-align: center;
@@ -7157,44 +7141,6 @@ select {
   font-size: 1.2em;
   letter-spacing: 0px;
   color: #fff; }
-
-.vehicleToShow {
-  visibility: hidden; }
-
-.invalid-feedback {
-  margin-top: 0.5em;
-  color: #a0ddf9;
-  font-size: 100%; }
-
-.valid-feedback-start {
-  margin-top: 0.5em;
-  font-size: 100%; }
-
-.valid-feedback-end {
-  margin-top: 0.5em;
-  font-size: 100%; }
-
-.valid-feedback {
-  margin-top: 0.5em;
-  font-size: 100%;
-  color: #0b9c60; }
-
-.valid-feedback-num {
-  display: none;
-  margin-top: 0.5em;
-  font-size: 100%;
-  color: #0b9c60; }
-
-.datepicker1,
-.datepicker2 {
-  cursor: pointer; }
-
-.date h4 {
-  text-align: center;
-  color: #fff;
-  font-size: 1em;
-  z-index: 15;
-  margin-top: 20px; }
 
 .optionsFont {
   margin-bottom: 0;
@@ -7235,6 +7181,91 @@ select {
   color: #fff;
   text-align: center; }
 
+#perPersonFinal p {
+  color: #fff; }
+
+.finalFont p {
+  color: #fff; }
+
+.vehicleToHide p {
+  color: #fff; }
+
+.row p {
+  color: #fff; }
+
+.invalid-feedback {
+  margin-top: 0.5em;
+  color: #a0ddf9;
+  font-size: 100%; }
+
+.valid-feedback-start {
+  margin-top: 0.5em;
+  font-size: 100%; }
+
+.valid-feedback-end {
+  margin-top: 0.5em;
+  font-size: 100%; }
+
+.valid-feedback {
+  margin-top: 0.5em;
+  font-size: 100%;
+  color: #0b9c60; }
+
+.valid-feedback-num {
+  display: none;
+  margin-top: 0.5em;
+  font-size: 100%;
+  color: #0b9c60; }
+
+.errorMessage {
+  display: none;
+  color: #a0ddf9;
+  font-size: 100%; }
+
+.validMessage {
+  margin-top: 0.5em;
+  display: none;
+  color: #0b9c60; }
+
+.form-control {
+  box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px; }
+
+input {
+  cursor: pointer; }
+
+select {
+  cursor: pointer; }
+
+.pac-container {
+  cursor: pointer; }
+
+.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated
+.custom-select:invalid,
+.custom-select.is-invalid {
+  border-color: #a0ddf9; }
+
+.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated
+.custom-select:invalid,
+.custom-select.is-invalid {
+  border-color: #a0ddf9; }
+
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus, .was-validated
+.custom-select:invalid:focus,
+.custom-select.is-invalid:focus {
+  border-color: #a0ddf9;
+  box-shadow: 0 0 0 0.2rem rgba(33, 119, 166, 0.808); }
+
+.datepicker1,
+.datepicker2 {
+  cursor: pointer; }
+
+.date h4 {
+  text-align: center;
+  color: #fff;
+  font-size: 1em;
+  z-index: 15;
+  margin-top: 20px; }
+
 .howManyDays {
   display: inline; }
 
@@ -7256,34 +7287,6 @@ select {
 .btn-dark:hover {
   background-color: #2178a6; }
 
-#mode-selector {
-  display: none;
-  visibility: hidden; }
-
-#motorBike {
-  cursor: pointer; }
-
-#smallCar {
-  cursor: pointer; }
-
-#largeCar {
-  cursor: pointer; }
-
-#sportsUtilityVehicle {
-  cursor: pointer; }
-
-#motorBikeCheck {
-  display: none; }
-
-#smallCarCheck {
-  display: none; }
-
-#largeCarCheck {
-  display: none; }
-
-#suvCheck {
-  display: none; }
-
 .progressBarWrapper {
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
@@ -7292,14 +7295,6 @@ select {
   width: 100%;
   position: absolute;
   top: 0; }
-
-.progressBarWrapper p {
-  text-align: center;
-  font-family: "Open Sans Regular";
-  font-size: 1em;
-  letter-spacing: 0px;
-  color: #fff;
-  opacity: 0.4; }
 
 .progressBarBottomWrapper {
   border-bottom-left-radius: 0.5em;
@@ -7332,6 +7327,14 @@ select {
     font-size: 1em;
     letter-spacing: 0px;
     color: #fff; }
+
+.progressBarWrapper p {
+  text-align: center;
+  font-family: "Open Sans Regular";
+  font-size: 1em;
+  letter-spacing: 0px;
+  color: #fff;
+  opacity: 0.4; }
 
 .progressBar {
   width: 20%;
@@ -7416,9 +7419,6 @@ select {
 .iconPglobe {
   display: none; }
 
-.marginBotLrg p {
-  font-size: 1.3em; }
-
 .numberInput {
   height: 100px;
   width: 200px;
@@ -7436,9 +7436,6 @@ select {
   font-size: 4.5em;
   letter-spacing: 1px;
   color: #fff; }
-
-.smallerHeading {
-  height: 60px; }
 
 .input-number-decrement,
 .input-number-increment {
@@ -7465,13 +7462,15 @@ select {
 .fa-chevron-left {
   padding-left: 7px; }
 
-@media (max-width: 586px) {
+@media (max-width: 768px) {
   .note {
     font-size: 0.9em; }
   .note p {
     font-size: 1em; }
   h2 {
     font-size: 1.9em; }
+  .container-fluid {
+    max-width: 600px; }
   .container-fluid h2 {
     font-size: 1.9em; }
   .input-number {

@@ -1,22 +1,6 @@
 @import 'variables.scss';
 @import 'mixins.scss';
 
-// BACKGROUND OVERLAY
-.background {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background: radial-gradient(circle farthest-side,
-        rgba(69, 149, 241, 0),
-        rgba(10, 15, 27, 0.651),
-        );
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-}
-
 // VIDEO
 #brand-video {
     @include positioning(absolute, 0, 0, 0, 0);
@@ -130,10 +114,6 @@
     display: none;
 }
 
-// #section4mapInput {
-//     display: none;
-// }
-
 #section5 {
     display: none;
 }
@@ -142,8 +122,16 @@
     display: none;
 }
 
-#section7 {
+// MAP
+#map {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#mode-selector {
     display: none;
+    visibility: hidden;
 }
 
 // LAYOUT
@@ -163,12 +151,10 @@
     }
 }
 
-// padding: 0.375rem 0.75rem;
-
+// MAIN 3 ROWS
 .row-blue {
     position: relative;
     background-color: $blu-t;
-    // padding: 1em;
     border: 2px solid $wht;
     border-radius: .5em;
     margin: 0 auto;
@@ -182,7 +168,6 @@
 .row-blue-med {
     position: relative;
     background-color: $blu-t;
-    // padding: 1em;
     border: 2px solid $wht;
     border-radius: .5em;
     margin: 0 auto;
@@ -196,7 +181,6 @@
 .row-blue-vehicle {
     position: relative;
     background-color: $blu-t;
-    // padding: 1em;
     border: 2px solid $wht;
     border-radius: .5em;
     margin: 0 auto;
@@ -207,6 +191,7 @@
     padding-bottom: 15px;
 }
 
+// FLEX
 .row-flex {
     display: flex;
     justify-content: center;
@@ -221,80 +206,7 @@
     justify-content: center;
 }
 
-// MAP
-#map {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-// MAP AUTOCOMPLETE
-.pac-container {
-    cursor: pointer;
-}
-
-// FORMS
-input {
-    cursor: pointer;
-}
-
-select {
-    cursor: pointer;
-}
-
-// option {
-//     text-align: center;
-// }
-// .ui-datepicker {
-//     z-index: 50;
-// }
-.form-control {
-    box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px;
-    // width: 300px;
-    // margin: 0 auto;
-}
-
-.was-validated .form-control:invalid,
-.form-control.is-invalid,
-.was-validated .custom-select:invalid,
-.custom-select.is-invalid {
-    border-color: $l-blu;
-}
-
-.was-validated .form-control:invalid,
-.form-control.is-invalid,
-.was-validated .custom-select:invalid,
-.custom-select.is-invalid {
-    border-color: $l-blu;
-}
-
-.was-validated .form-control:invalid:focus,
-.form-control.is-invalid:focus,
-.was-validated .custom-select:invalid:focus,
-.custom-select.is-invalid:focus {
-    border-color: $l-blu;
-    box-shadow: 0 0 0 0.2rem rgba(160, 221, 249, 0.705);
-}
-
-.errorMessage {
-    display: none;
-    color: $l-blu;
-    font-size: 100%;
-}
-
-// .invalid-feedback-num{
-//     margin-bottom: 200px;
-// }
-#vehicleErrorInfo {
-    display: none;
-}
-
-.validMessage {
-    margin-top: 0.5em;
-    display: none;
-    color: $green;
-}
-
+// COLUMNS IN THE ROWS
 .col-heading {
     height: 120px;
 }
@@ -325,12 +237,15 @@ select {
     line-height: 50px;
 }
 
+.col-vehicle {
+    margin-top: 15px;
+}
+
 .col-vehicle-top {
     height: 40px;
 }
 
 .col-vehicles {
-    // padding-top: 40px;
     padding-top: 127.6px;
     padding-bottom: 100px;
     padding-right: 30px;
@@ -343,14 +258,32 @@ select {
     display: flex;
 }
 
-.col-vehicle {
-    margin-top: 15px;
+// VEHICLE ROW
+.vehicle {
+    height: 170px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    border-radius: .5em;
+
+    img {
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
 }
 
-// .row-vehicle {
-//     height: 100%;
-//     width: 100%;
-// }
+.vehicleWrapper {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    text-align: center;
+    background: $m-blu-t;
+    z-index: 10;
+}
 
 .vehicleWrapperError {
     position: absolute;
@@ -374,43 +307,50 @@ select {
     background: $green-t;
 }
 
-// .vehicleSelection {
-//     margin-bottom: 10px;
-// }
-.vehicleWrapper {
+.vehicleToShow {
+    visibility: hidden;
     display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 15px;
-    text-align: center;
-    background: $m-blu-t;
 }
 
-.vehicle {
-    height: 170px;
-    overflow: hidden;
-    position: relative;
+.vehicleToHide {
+    margin-bottom: 0.4em;
+}
+
+.finalVehicleImage {
     width: 100%;
+    height: auto;
     border-radius: .5em;
-
-    img {
-        -webkit-transition: all 0.5s ease-in-out;
-        transition: all 0.5s ease-in-out;
-    }
-
+    float: right;
 }
 
-// .vehicleErrorOuter {
-//     height: 170px;
-//     overflow: hidden;
-//     position: relative;
-//     width: 100%;
-//     border-radius: .5em;
-// }
+#vehicleErrorInfo {
+    display: none;
+}
 
+#motorBike,
+#smallCar,
+#largeCar,
+#sportsUtilityVehicle {
+    cursor: pointer;
+}
+
+#motorBikeCheck {
+    display: none;
+}
+
+#smallCarCheck {
+    display: none;
+}
+
+#largeCarCheck {
+    display: none;
+}
+
+#suvCheck {
+    display: none;
+}
+
+// VEHICLE IMAGES
 .vehicle1 {
     background: url('../img/vehicles/ninja.jpg') no-repeat center center;
     background-size: cover;
@@ -431,20 +371,14 @@ select {
     background-size: cover;
 }
 
-.finalVehicleImage {
-    width: 100%;
-    height: auto;
-    // border: 2px solid $wht;
-    border-radius: .5em;
-    float: right;
+// TYPOGRAPHY FOR THE ROWS
+.marginBotLrg p {
+    font-size: 1.3em;
 }
 
-// .finalVehicleImage img{
-//     width: auto;
-//     height: 170px;
-//     // border: 2px solid $wht;
-//     border-radius: .5em;
-// }
+.smallerHeading {
+    height: 60px;
+}
 
 .note {
     text-align: center;
@@ -471,8 +405,49 @@ select {
     @include fontProperties($fnt-bld, 1.2em, $spc-zero, $wht);
 }
 
-.vehicleToShow {
-    visibility: hidden;
+.optionsFont {
+    margin-bottom: 0;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    text-align: center;
+}
+
+.finalFontCenter {
+    margin-bottom: 0;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    text-align: center;
+}
+
+.finalFont {
+    margin-bottom: 0.5em;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    text-align: left;
+}
+
+.finalFontHeading {
+    margin-bottom: 1em;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    text-align: center;
+}
+
+.finalFontHeadingNoMargin {
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    text-align: center;
+}
+
+#perPersonFinal p {
+    color: $wht;
+}
+
+.finalFont p {
+    color: $wht;
+}
+
+.vehicleToHide p {
+    color: $wht;
+}
+
+.row p {
+    color: $wht
 }
 
 // FEEDBACK
@@ -505,6 +480,58 @@ select {
     color: $green;
 }
 
+.errorMessage {
+    display: none;
+    color: $l-blu;
+    font-size: 100%;
+}
+
+.validMessage {
+    margin-top: 0.5em;
+    display: none;
+    color: $green;
+}
+
+// FORMS
+.form-control {
+    box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px;
+}
+
+input {
+    cursor: pointer;
+}
+
+select {
+    cursor: pointer;
+}
+
+.pac-container {
+    cursor: pointer;
+}
+
+// BOOTSTRAP FORMS
+.was-validated .form-control:invalid,
+.form-control.is-invalid,
+.was-validated .custom-select:invalid,
+.custom-select.is-invalid {
+    border-color: $l-blu;
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid,
+.was-validated .custom-select:invalid,
+.custom-select.is-invalid {
+    border-color: $l-blu;
+}
+
+.was-validated .form-control:invalid:focus,
+.form-control.is-invalid:focus,
+.was-validated .custom-select:invalid:focus,
+.custom-select.is-invalid:focus {
+    border-color: $l-blu;
+    box-shadow: 0 0 0 0.2rem $m-blu-t;
+}
+
 // DATE PICKER
 .datepicker1,
 .datepicker2 {
@@ -517,35 +544,6 @@ select {
     font-size: $bdy;
     z-index: 15;
     margin-top: 20px;
-}
-
-.optionsFont {
-    margin-bottom: 0;
-    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
-    text-align: center;
-}
-
-.finalFontCenter {
-    margin-bottom: 0;
-    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
-    text-align: center;
-}
-
-.finalFont {
-    margin-bottom: 0.5em;
-    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
-    text-align: left;
-}
-
-.finalFontHeading {
-    margin-bottom: 1em;
-    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
-    text-align: center;
-}
-
-.finalFontHeadingNoMargin {
-    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
-    text-align: center;
 }
 
 .howManyDays {
@@ -572,61 +570,15 @@ select {
     background-color: $m-blu;
 }
 
-// TEST MAP STUFF
-#mode-selector {
-    display: none;
-    visibility: hidden;
-}
-
-// VEHICLES
-#motorBike {
-    cursor: pointer;
-}
-
-#smallCar {
-    cursor: pointer;
-}
-
-#largeCar {
-    cursor: pointer;
-}
-
-#sportsUtilityVehicle {
-    cursor: pointer;
-}
-
-#motorBikeCheck {
-    display: none;
-}
-
-#smallCarCheck {
-    display: none;
-}
-
-#largeCarCheck {
-    display: none;
-}
-
-#suvCheck {
-    display: none;
-}
-
 // PROGRESS BAR
 .progressBarWrapper {
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
-    // border-bottom: 1px solid $blk;
     display: flex;
     height: 40px;
     width: 100%;
     position: absolute;
     top: 0;
-}
-
-.progressBarWrapper p {
-    text-align: center;
-    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
-    opacity: 0.4;
 }
 
 .progressBarBottomWrapper {
@@ -635,8 +587,6 @@ select {
     display: flex;
     height: 40px;
     width: 100%;
-    // position: absolute;
-    // bottom: 30px;
     margin-bottom: 15px;
     padding: 0 15px;
 
@@ -655,13 +605,18 @@ select {
     position: absolute;
     bottom: 15px;
     left: 0;
-    // margin-bottom: 15px;
     padding: 0 15px 15px 15px;
 
     p {
         text-align: center;
         @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
     }
+}
+
+.progressBarWrapper p {
+    text-align: center;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    opacity: 0.4;
 }
 
 .progressBar {
@@ -771,11 +726,6 @@ select {
     display: none;
 }
 
-// HEADING FOR FINAL CONFIRMATION
-.marginBotLrg p {
-    font-size: 1.3em;
-}
-
 // NUMBER SPINNER
 .numberInput {
     height: 100px;
@@ -786,7 +736,6 @@ select {
 .input-number {
     width: 100px;
     height: 100px;
-    // padding: 0 12px;
     vertical-align: top;
     text-align: center;
     background: none;
@@ -796,46 +745,20 @@ select {
 
 }
 
-.smallerHeading {
-    height: 60px;
-}
-
-// .input-number,
-// .input-number-decrement,
-// .input-number-increment {
-//     border: 1px solid #ccc;
-//     height: 40px;
-//     user-select: none;
-// }
-// .input-number-increment {
-//     padding-top: 2px;
-// }
 .input-number-decrement,
 .input-number-increment {
-    // display: inline-block;
     width: 50px;
     height: 100px;
     line-height: 100px;
-    // background: #f1f1f1;
     @include fontProperties($fnt-reg, 3em, $spc, $wht);
-    // text-align: center;
     cursor: pointer;
 }
 
 .input-number-increment {
-    // display: inline-block;
     line-height: 105px;
 }
 
-// .input-number-decrement {
-//     border-right: none;
-//     border-radius: 0.5em 0 0 0.5em;
-// }
-
-// .input-number-increment {
-//     border-left: none;
-//     border-radius: 0 0.5em 0.5em 0;
-// }
+// REPLACEMENT BUTTONS FOR MOBILE
 .fa-chevron-right,
 .fa-chevron-left {
     font-size: 20px;
@@ -850,11 +773,11 @@ select {
     padding-left: 7px;
 }
 
-@media (max-width: 586px) {
+// MEDIA
+@media (max-width: 768px) {
 
     .note {
         font-size: 0.9em;
-
     }
 
     .note p {
@@ -866,9 +789,12 @@ select {
         font-size: 1.9em;
     }
 
+    .container-fluid {
+        max-width: 600px;
+    }
+
     .container-fluid h2 {
         font-size: 1.9em;
-
     }
 
     .input-number {
@@ -926,7 +852,6 @@ select {
 
     .numberInput {
         height: 80px;
-
     }
 
     .btn-toHide {
@@ -943,8 +868,8 @@ select {
         .btn {
             border: none !important;
             background: none !important;
-    
         }
+
         button {
             font-size: 0.9em;
             width: 30px;
@@ -959,7 +884,6 @@ select {
             background: none;
             border: none;
         }
-
     }
 
     .errorMessage {
@@ -971,10 +895,6 @@ select {
         outline: 0;
         box-shadow: none !important;
     }
-
-    // .col-vehicle {
-    //     height: 120px;
-    // }
 
     .form-control {
         height: 30px;
@@ -1021,10 +941,12 @@ select {
         font-size: 0.8em;
         margin-bottom: 10px;
     }
+
     .invalid-feedback-num {
         font-size: 0.8em;
         margin-bottom: 10px;
     }
+
     label {
         font-size: 0.8em;
     }
@@ -1057,7 +979,6 @@ select {
     }
 
     .col-info {
-        // height: auto;
         margin-top: 0;
     }
 

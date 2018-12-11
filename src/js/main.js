@@ -1,5 +1,4 @@
 /*jslint browser:true */
-console.log('JS READY');
 
 // LOAD MAP
 $(document).ready(function () {
@@ -297,9 +296,6 @@ function initMap() {
     ]
   });
 
-  console.log(map);
-  console.log("MAP READY");
-
   new AutocompleteDirectionsHandler(map);
 }
 
@@ -330,7 +326,6 @@ function AutocompleteDirectionsHandler(map) {
 
   this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
   this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
-  // console.log(map); DEFINED
 }
 
 // LISTENER FOR AUTOCOMPLETE FILTER
@@ -341,7 +336,6 @@ AutocompleteDirectionsHandler.prototype.setupClickListener = function (id, mode)
     me.travelMode = mode;
     me.route();
   });
-  // console.log(map); UNDEFINED
 };
 
 AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (autocomplete, mode) {
@@ -352,11 +346,6 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (au
     var place = autocomplete.getPlace();
     var latitude = place.geometry.location.lat();
     var longitude = place.geometry.location.lng();
-    console.log("Latitude and longitude");
-    console.log(latitude);
-    console.log(longitude);
-
-    // console.log(map); UNDEFINED
 
     if (!place.place_id) {
       window.alert("Please select an option from the dropdown list.");
@@ -374,8 +363,6 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (au
       me.destinationPlaceId = place.place_id;
       destSelectedEnd.innerHTML = (' to ') + place.name;
       journeyList.push(place.name);
-      console.log("Start and end locations");
-      console.log(journeyList);
       $("#destError2").hide();
       $("#destValid2").show();
     }
@@ -390,8 +377,6 @@ AutocompleteDirectionsHandler.prototype.route = function () {
   }
   var me = this;
 
-  // console.log(map); UNDEFINED
-
   this.directionsService.route({
     origin: {
       'placeId': this.originPlaceId
@@ -405,21 +390,13 @@ AutocompleteDirectionsHandler.prototype.route = function () {
 
       document.getElementById('time').innerHTML = '<span class="boldBlu">Travel time: </span>' + response.routes[0].legs[0].duration.text;
       document.getElementById('distance').innerHTML = '<span class="boldBlu">Distance: </span>' + response.routes[0].legs[0].distance.text;
-
       var distanceMin = response.routes[0].legs[0].distance;
-
       newDistance = (distanceMin.value / 1000);
-      console.log("Distance in kilometres");
-      console.log(newDistance);
-
       distanceList.splice(0, 1);
       distanceList.push(newDistance);
       $(".iconPglobe").show();
       $(inlineIconsDest).addClass("iconOpacity");
-
-      console.log("Start and end locations as waypoints");
       me.directionsDisplay.setDirections(response);
-      console.log(response);
 
     } else {
       window.alert('Directions request failed due to ' + status);
@@ -489,24 +466,16 @@ var daysList = [];
 var startFeedBack = $('#startDate').val();
 var endFeedBack = $('#endDate').val();
 
-// console.log(startFeedBack);
-// console.log(endFeedBack);
-
 $(function () {
   var dateFormat = "mm/dd/yy",
     from = $("#startDate")
     .datepicker({
-      // selectOtherMonths: true,
       minDate: 0,
-      // defaultDate: "-1y",
-      // changeMonth: true,
-      // changeYear: true,
       onClose: function () {
         var selected = $(this).val();
         if (selected == "") {
           $(".invalid-feedback-start").show();
         } else {
-          // console.log(document.getElementById('startDate').innerText);
           $(".valid-feedback-start").show();
           $(".invalid-feedback-start").hide();
           reCalculateDays();
@@ -517,18 +486,11 @@ $(function () {
       to.datepicker("option", "minDate", getDate(this));
     }),
     to = $("#endDate").datepicker({
-      // selectOtherMonths: true,
-      // minDate: 0,
-      // maxDate: 0,
-      // defaultDate: "-1y",
-      // changeMonth: true,
-      // changeYear: true,
       onClose: function () {
         var selected = $(this).val();
         if (selected == "") {
           $(".invalid-feedback-end").show();
         } else {
-          // console.log(document.getElementById('startDate').innerText);
           $(".valid-feedback-end").show();
           $(".invalid-feedback-end").hide();
           reCalculateDays();
@@ -565,22 +527,13 @@ function calculateDays() {
 
   if (startDate < 0 || startDate == ("Invalid Date")) {
 
-    console.log("Please enter start date first");
-
   } else {
-    console.log('Start date');
-    console.log(startDate);
     dateList.splice(0, 1);
     dateList.push(startDate);
-    console.log('End date');
-    console.log(endDate);
     dateList.splice(1, 1);
     dateList.push(endDate);
-    console.log(dateList);
     var dif = endDate - startDate;
     dif = dif / 86400000;
-    console.log('Number of Days');
-    console.log(dif);
     daysList.splice(0, 1);
     daysList.push(dif);
     if (dif == 1) {
@@ -604,14 +557,11 @@ function calculateDays() {
     }
     if (dif > 15 || dif < 1) {
 
-      // SHOW CUSTOM ERROR
       $("#dateError").show();
 
     } else if (dif < 15 || dif > 1) {
 
-      // HIDE CUSTOM ERROR
       $("#dateError").hide();
-      // $(".invalid-feedback-start").hide();
 
     }
   }
@@ -627,22 +577,13 @@ function reCalculateDays() {
 
   if (endDate < 0 || endDate == ("Invalid Date")) {
 
-    console.log("Nothing to re-calculate");
-
   } else {
-    console.log('Start date');
-    console.log(startDate);
     dateList.splice(0, 1);
     dateList.push(startDate);
-    console.log('End date');
-    console.log(endDate);
     dateList.splice(1, 1);
     dateList.push(endDate);
-    console.log(dateList);
     var dif = endDate - startDate;
     dif = dif / 86400000;
-    console.log('Number of Days');
-    console.log(dif);
     daysList.splice(0, 1);
     daysList.push(dif);
     if (dif == 1) {
@@ -669,76 +610,22 @@ function reCalculateDays() {
 
     if (dif > 15 || dif < 1) {
 
-      // SHOW CUSTOM ERROR
       $("#dateError").show();
 
     } else if (dif < 15 || dif > 1) {
 
-      // HIDE CUSTOM ERROR
       $("#dateError").hide();
-      // $(".invalid-feedback-start").hide();
     }
   }
 }
 
 // CREATE NUMBER LIST
 var numList = [];
-var numListValues = ["1", "2", "3", "4", "5", "6"];
-var p = document.getElementById("peopleNum");
-// var peopleOption = p.options[p.selectedIndex].text;
-
-var peopleOption = document.getElementById("peopleNum").selectedIndex;
-var newNumOption = document.getElementById("peopleNum").options;
+var peopleOption = document.getElementById("peopleNum");
 var newNum = peopleOption;
-// var peopleOption = p.options[p.selectedIndex].text;
-// var newNumOption = document.getElementById("peopleNum").options[2];
 
-// var newNum = [newNumOption.selectedIndex].value;
-// peopleOption.addEventListener('click', addNumber);
-
-// console.log('The actual id');
-// console.log(p);
-
-// console.log('Selected index');
-// console.log(peopleOption);
-// console.log('Selected index options');
-// console.log(newNumOption);
-
-// newNumOption.addEventListener('mouseleave', addNumber);
-
-// $(newNumOption).mouseleave(function () {
-//   addNumber();
-// });
-
-// $(newNumOption).mouseout(function () {
-//   addNumber();
-// });
-// console.log('Number list');
-// console.log(numList);
-// console.log('Number list length');
-// console.log(numList.length);
-// console.log('Number of people');
-// console.log(newNum);
-
-// $("#peopleNum: selected").text();
-// $("#peopleNum").val();
-
-// document.getElementById('loadCardsBtn').addEventListener('click', loadCards);
-// if(newNum.value == "1") {
-//   console.log(p);
-//   console.log(newNum);
-
-// alert("Index: " + y[x].index + " is " + y[x].text);
-
-//   addNumber();
-// }
-// var newNum = p.selectedIndex.value;
-// console.log(newNum);
-
-// var newNum = p.selectedIndex = "2";
-
-// document.getElementById("mySelect").selectedIndex = "2";
 var valueList = [];
+
 // NUMBER SPINNER
 (function () {
 
@@ -768,9 +655,6 @@ var valueList = [];
           el[0].value = value;
           valueList.splice(0, 1);
           valueList.push(value);
-          console.log('Spinner value down');
-          console.log(value);
-          // console.log(valueList);
           addNumber();
           if (value == 0) {
             $(".invalid-feedback-num").show();
@@ -791,14 +675,9 @@ var valueList = [];
           newValue = (newSpinner - 1);
           valueList.splice(0, 1);
           valueList.push(newValue);
-          console.log('Spinner value up');
-          console.log(newValue);
-          // console.log(valueList);
           addNumber();
           if (value == 0) {
             $(".invalid-feedback-num").show();
-            // peopleText1.innerHTML = "";
-            // peopleSelected.innerHTML = "";
             $(".valid-feedback-num").hide();
           } else {
             $(".invalid-feedback-num").hide();
@@ -811,43 +690,21 @@ var valueList = [];
 })();
 
 inputNumber($('.input-number'));
-console.log(inputNumber);
 
-// FUNCTION
+// ADD NUMBER FUNCTION
 function addNumber() {
   var newValueList = parseInt(valueList[0]);
   newNum = newValueList;
   numList.splice(0, 1);
   numList.push(newNum);
-  console.log('Number of people');
-  console.log(newNum);
-  if (newNum == 1) {
-    // peopleText1.innerHTML = ('You have selected... ');
-    // peopleSelected.innerHTML = newNum;
-    iconPnum1.innerHTML = '<p>' + newNum + '</p>';
+ iconPnum1.innerHTML = '<p>' + newNum + '</p>';
     iconPnum2.innerHTML = '<p>' + newNum + '</p>';
     iconPnum3.innerHTML = '<p>' + newNum + '</p>';
     iconPnum4.innerHTML = '<p>' + newNum + '</p>';
     iconPnum5.innerHTML = '<p>' + newNum + '</p>';
-    // iconPnum5confirm.innerHTML = '<p>' + newNum + 'Person' + '</p>';
-    // peopleText2.innerHTML = (' person');
     $(inlineIconsNums).addClass("iconOpacity");
     $(".valid-feedback-num").show();
     $(".invalid-feedback-num").hide();
-  } else {
-    // peopleText1.innerHTML = ('You have selected... ');
-    // peopleSelected.innerHTML = newNum;
-    iconPnum1.innerHTML = '<p>' + newNum + '</p>';
-    iconPnum2.innerHTML = '<p>' + newNum + '</p>';
-    iconPnum3.innerHTML = '<p>' + newNum + '</p>';
-    iconPnum4.innerHTML = '<p>' + newNum + '</p>';
-    iconPnum5.innerHTML = '<p>' + newNum + '</p>';
-    // iconPnum5confirm.innerHTML = '<p>' + newNum + 'People' + '</p>';
-    // peopleText2.innerHTML = (' people');
-    $(inlineIconsNums).addClass("iconOpacity");
-    $(".valid-feedback-num").show();
-    $(".invalid-feedback-num").hide();
-  }
 }
 
 // PAGE ANIMATION
@@ -906,6 +763,7 @@ function show1() {
     $("#section2").hide();
     $("#section3").hide();
     $("#section4").hide();
+    $(".section4").hide();
     $("#section5").hide();
     $("#section6").hide();
   });
@@ -923,7 +781,6 @@ function show2() {
 function show3() {
   if (numList.length == 0 || numList[0] == 0) {
 
-    console.log("No number entered");
     $(".invalid-feedback-num").show();
     $(".valid-feedback-num").hide();
 
@@ -945,13 +802,9 @@ function show4() {
 
   if (daysSelected.textContent > 15 || daysSelected.textContent < 1 || daysSelected.textContent == 'NaN') {
 
-    console.log("No dates or wrong dates entered");
-
-    // $(".invalid-feedback-start").show();
-    // $(".valid-feedback-start").hide();
-
   } else {
     $(function () {
+      $(".section4").show();
       $("#section4").show();
     });
     $(function () {
@@ -964,15 +817,13 @@ function show5() {
 
   if (destSelectedStart.textContent.length < 1 || destSelectedEnd.textContent.length < 1) {
 
-    console.log("No locations entered");
-
-    // SHOW CUSTOM ERRORS
     $("#destError1").show();
     $("#destError2").show();
 
   } else {
     filterVehicles();
     $(function () {
+      $("#section4").show();
       $("#section5").show();
     });
     $(function () {
@@ -984,12 +835,8 @@ function show5() {
 function calculateData() {
   var daysCheck = daysList[0];
   var peopleCheck = numList[0];
-  // var conditionalError = document.getElementById('vehicleError2')
   if (vehicleSelected.textContent.length < 1 || vehicleSelected.textContent.length < 1) {
 
-    console.log("No vehicle selected");
-
-    // SHOW CUSTOM ERROR
     $("#vehicleError").show();
 
     if ((daysCheck >= 11 && daysCheck <= 15) && peopleCheck == 1) {
@@ -1008,8 +855,6 @@ function calculateData() {
     dateString2 = dateString2.toString();
 
     datesFinal.innerHTML = '<span class="boldBlu">Dates: </span>' + dateString1.substring(0, 15) + '  -  ' + dateString2.substring(0, 15);
-    // daysFinal.innerHTML = '<span class="boldBlu">Total days: </span>' + daysList[0];
-    // peopleFinal.innerHTML = '<span class="boldBlu"> Total people: </span>' + numList[0];
     journeyFinal.innerHTML = '<span class="boldBlu">From: </span>' + journeyList[0] + ' to ' + journeyList[1];
     vehicleFinal.innerHTML = '<span class="boldBlu">Vehicle: </span>' + vehicleList[0].name;
     vehicleFinalImage.innerHTML = '<img class="finalVehicleImage" src="img/vehicles/' + vehicleList[0].imageURL + '">';
@@ -1034,10 +879,8 @@ function calculateData() {
   'use strict';
   window.addEventListener('load', function () {
 
-    // FETCH FORMS
     var forms = document.getElementsByClassName('needs-validation');
 
-    // PREVENT SUBMISSION
     var validation = Array.prototype.filter.call(forms, function (form) {
       form.addEventListener('submit', function (event) {
         if (form.checkValidity() === false) {
@@ -1135,8 +978,6 @@ function addMotorBike() {
   motorBike = allVehicles[0];
   vehicleList.splice(0, 1);
   vehicleList.push(motorBike);
-  console.log('Motorbike selected');
-  console.log(motorBike);
   vehicleText.innerHTML = ('You have selected... ');
   vehicleSelected.innerHTML = motorBikeName;
   $("#vehicleError").hide();
@@ -1151,8 +992,6 @@ function addSmallCar() {
   smallCar = allVehicles[1];
   vehicleList.splice(0, 1);
   vehicleList.push(smallCar);
-  console.log('Small car selected');
-  console.log(smallCar);
   vehicleText.innerHTML = ('You have selected... ');
   vehicleSelected.innerHTML = smallCarName;
   $("#vehicleError").hide();
@@ -1167,8 +1006,6 @@ function addLargeCar() {
   largeCar = allVehicles[2];
   vehicleList.splice(0, 1);
   vehicleList.push(largeCar);
-  console.log('Large car selected');
-  console.log(largeCar);
   vehicleText.innerHTML = ('You have selected... ');
   vehicleSelected.innerHTML = largeCarName;
   $("#vehicleError").hide();
@@ -1183,8 +1020,6 @@ function addSportsUtilityVehicle() {
   sportsUtilityVehicle = allVehicles[3];
   vehicleList.splice(0, 1);
   vehicleList.push(sportsUtilityVehicle);
-  console.log('SUV selected');
-  console.log(sportsUtilityVehicle);
   vehicleText.innerHTML = ('You have selected... ');
   vehicleSelected.innerHTML = sportsUtilityVehicleName;
   $("#vehicleError").hide();
@@ -1225,17 +1060,6 @@ function filterVehicles() {
     $("#sportsUtilityVehicle").show();
     $("#suvError").hide();
   }
-  // if ((daysCheck >= 11 && daysCheck <= 15) && peopleCheck == 1) {
-  //   $("#motorBikeError").show();
-  //   $("#smallCarError").show();
-  //   $("#largeCarError").show();
-  // }
-  // if (daysCheck == 1 && peopleCheck == 6) {
-  //   $("#motorBikeError").show();
-  //   $("#smallCarError").show();
-  //   $("#largeCarError").show();
-  //   $("#suvError").show();
-  // }
 }
 
 // CALCULATION FUNCTIONS
@@ -1252,24 +1076,16 @@ function getRentalPrice() {
   var r = rentalPrice.toFixed(2);
   rentalPriceList.splice(0, 1);
   rentalPriceList.push(r);
-  console.log('Rental price');
-  console.log(rentalPrice);
   getPetrolPrice();
 }
 
 function getPetrolPrice() {
   var totalDistance = (distanceList[0]);
-  console.log('Total distance');
-  console.log(totalDistance);
   fuelPricePerKM = vehicleList[0].fuelPerKM;
-  console.log('Fuel price per KM');
-  console.log(fuelPricePerKM);
   petrolPrice = (totalDistance * fuelPricePerKM);
   finalPetrolPrice = petrolPrice.toFixed(2);
   petrolPriceList.splice(0, 1);
   petrolPriceList.push(finalPetrolPrice);
-  console.log('Fuel price');
-  console.log(finalPetrolPrice);
   getFinalPrice();
 }
 
@@ -1280,8 +1096,6 @@ function getFinalPrice() {
   var f = finalPrice.toFixed(2);
   totalPriceList.splice(0, 1);
   totalPriceList.push(f);
-  console.log('Final price');
-  console.log(f);
   getCostPerDay();
 }
 
@@ -1291,8 +1105,6 @@ function getCostPerDay() {
   var dayFloat = costPerDayPrice.toFixed(2);
   perDayList.splice(0, 1);
   perDayList.push(dayFloat);
-  console.log('Cost per day');
-  console.log(dayFloat);
   getCostPerPerson();
 }
 
@@ -1302,8 +1114,6 @@ function getCostPerPerson() {
   var personFloat = costPerPersonPrice.toFixed(2);
   perPersonList.splice(0, 1);
   perPersonList.push(personFloat);
-  console.log('Cost per person');
-  console.log(personFloat);
 }
 
 // TOGGLE FOREGROUND FUNCTION
@@ -1312,9 +1122,6 @@ function toggleForeground() {
     $(".row-blue").toggle();
     $(".row-blue-med").toggle();
     $(".row-blue-vehicle").toggle();
-    // $(".section4").toggle();
-    // $("#section5").toggle();
-
   });
 }
 
@@ -1328,27 +1135,9 @@ $(document).on("mouseleave", ".vehicle", function () {
 });
 
 // TRANSITIONS
-// $(document).ready(function() {
-//   $(".animsition").animsition({
-//     inClass: 'fade-in',
-//     outClass: 'fade-out',
-//     inDuration: 1500,
-//     outDuration: 800,
-//   });
-// });
-
 $(".animsition").animsition({
   inClass: 'fade-in',
   outClass: 'fade-out',
   inDuration: 1200,
   outDuration: 800,
-  // loading: true,
-  // loadingParentElement: 'body',
-  // loadingClass: 'preLoader',
-  // timeout: false,
-  // timeoutCountdown: 5000,
-  // onLoadEvent: true,
 });
-
-// ('#section2').animsition('in');
-// $('#section2').on('animsition.inStart', function(){})
