@@ -28,7 +28,7 @@
     cursor: pointer;
     left: 50%;
     margin-left: -300px;
-    margin-top: -270px;
+    margin-top: -222.425px;
     position: absolute;
     top: 50%;
     height: 444.85px;
@@ -36,8 +36,8 @@
     z-index: 30;
 }
 
-.brand-title:hover .in-ylw {
-    fill: $m-blu;
+.brand-title:hover .l-blu {
+    fill: $in-ylw;
 }
 
 // LIGHT BLUE FILL
@@ -52,7 +52,7 @@
     text-align: center;
     top: 0;
     width: 100%;
-    z-index: 15;
+    z-index: 1;
 }
 
 // HEADER MAP BUTTON
@@ -100,13 +100,47 @@
         cursor: pointer;
         margin: 0;
         width: 40px;
-
-        :hover {
-            fill: $in-ylw;
-        }
     }
+}
+
+.header-info:hover svg path,
+.header-info-inner:hover{
+    fill: $in-ylw;
 }
 
 .header-info::after {
     clear: right;
+}
+
+@media (max-width: 1024px) {
+
+    .brand-title {
+        margin-left: -202px;
+        margin-top: -150px;
+        height: 300px;
+        width: 404px;
+    }
+}
+
+@media (max-width: 586px) {
+
+    .brand-title {
+        margin-left: -150px;
+        margin-top: -111.5px;
+        height: 223px;
+        width: 300px;
+    }
+    .header-fixed {
+        height: 80px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .brand-title {
+        margin-left: -125px;
+        margin-top: -92.5px;
+        height: 185px;
+        width: 250px;
+    }
 }

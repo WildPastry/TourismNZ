@@ -6,14 +6,36 @@ $m-blu: #2178a6;
 $d-blu: #2b2f3a;
 $gry: #e9e9e9;
 $l-gry: #f4f4f4;
-$d-gry: #727272;
-$blu-t: rgba(43, 47, 58, 0.87);
+$d-gry: #383838;
+$green: #0b9c60;
+// $green: #28a745;
+$d-green:#076954;
+$m-blu-t: rgba(33, 119, 166, 0.808);
+$green-t:rgba(11, 156, 96, 0.815);
+$blu-t: rgba(43, 47, 58, 0.80);
+$d-gry-t: rgba(54, 54, 54, 0.87);
 
 // SOCIAL ICON COLOURS
 $fb-blu:#3B5999;
 $tw-blu:#61C9F0;
 $in-ylw:#f79e33;
 $p-red:#850D17;
+
+// MAP COLOURS
+$labelsTextFill: #f4f4f4;
+$labelsTextStroke: #f4f4f4;
+$land: #417241;
+$road: #80b880;
+$roadStroke: #80b880;
+$roadTextFill: #9ca5b3;
+$roadHighwayFill: #54a754;
+$roadHighwayStroke: #727272;
+$roadHighwayTextFill: #f3d19c;
+$transit: #2f3948;
+$transitStationTextFill: #d59563;
+$water: #2178a6;
+$waterTextFill: #515c6d;
+$waterTextStroke: #17263c;
 
 // TRANSITIONS
 $speed: all 0.2s ease-in-out;
@@ -52,7 +74,7 @@ $bdy: 1em;
 $hdg-1: 4em;
 $hdg-2: 3em;
 $hdg-3: 2em;
-$hdg-4: 1.2em;
+$hdg-4: 1.1em;
 
 //MARGINS
 $main-mar: 0 auto;

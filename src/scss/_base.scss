@@ -7,12 +7,13 @@
     @include transitions($speed, $speed, $speed, $speed);
 }
 
+// TYPOGRAPHY
 body {
-    @include fontProperties($fnt-lgt, $bdy, $spc-zero, $wht);
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
 }
 
 p {
-    @include fontProperties($fnt-lgt, $bdy, $spc-zero, $d-blu);
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $d-blu);
 }
 
 h1 {
@@ -35,6 +36,103 @@ h4 {
     font-family: $fnt-bld;
 }
 
+.boldWht {
+    font-family: $fnt-bld;
+    color: $wht;
+}
+
+.boldBlu {
+    font-family: $fnt-bld;
+    color: $l-blu;
+}
+
+.boldBluLrg {
+    font-family: $fnt-bld;
+    color: $l-blu;
+    font-size: 1.3em;
+}
+
+.boldWhtLrg {
+    font-family: $fnt-bld;
+    color: $wht;
+    font-size: 1.3em;
+}
+
+small,
+.small body {
+    color: $d-blu;
+}
+
+// GLOBAL ADJUSTMENTS
 .marginTop {
     margin-top: 1em;
+}
+
+.marginTop10{
+    margin-top: 10px;
+ }
+
+.marginTop30{
+   margin-top: 32px;
+}
+
+.marginTop20{
+    margin-top: 25px;
+ }
+
+ .lessMarginTop{
+    margin-top: 5px;
+ }
+
+.marginBot {
+    margin-bottom: 1em;
+}
+
+.marginBotLrg {
+    margin-bottom: 1.5em;
+}
+
+.paddingTop {
+    padding-top: 60px;
+}
+.paddingRight {
+    padding-top: 15px;
+}
+.paddingLeft {
+    padding-top: 15px;
+}
+.paddingBot {
+    padding-bottom: 60px;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.floatLeft::after {
+    clear: left;
+}
+.floatRight {
+    float: right;
+}
+
+.floatRight::after {
+    clear: right;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.layerZed {
+    z-index: 3;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+// TOOL TIPSTER
+.tool-tip-right {
+    cursor: pointer;
 }

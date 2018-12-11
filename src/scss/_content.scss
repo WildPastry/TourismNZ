@@ -1,22 +1,6 @@
 @import 'variables.scss';
 @import 'mixins.scss';
 
-// BACKGROUND OVERLAY
-.background {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background: radial-gradient(circle farthest-side,
-        rgba(8, 88, 179, 0.37),
-        rgba(10, 15, 27, 0.89),
-        );
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-}
-
 // VIDEO
 #brand-video {
     @include positioning(absolute, 0, 0, 0, 0);
@@ -28,84 +12,532 @@
 }
 
 // SECTIONS
-.section {
-    background-attachment: fixed;
+.section2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-position: 50% 0%;
-    background-repeat: no-repeat;
+    background-position: center center;
+    background: radial-gradient(circle farthest-side,
+        rgba(255, 255, 255, 0),
+        rgba(10, 15, 27, 0.651),
+        ), url('../img/sections/2.jpg');
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.section3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background: radial-gradient(circle farthest-side,
+        rgba(255, 255, 255, 0),
+        rgba(10, 15, 27, 0.651),
+        ), url('../img/sections/3.jpg');
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.section4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background: radial-gradient(circle farthest-side,
+        rgba(255, 255, 255, 0),
+        rgba(10, 15, 27, 0.4),
+        );
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.section5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background: radial-gradient(circle farthest-side,
+        rgba(255, 255, 255, 0),
+        rgba(10, 15, 27, 0.4),
+        );
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.section6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background: radial-gradient(circle farthest-side,
+        rgba(255, 255, 255, 0),
+        rgba(10, 15, 27, 0.651),
+        ), url('../img/sections/6.jpg');
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }
 
 #section2 {
-    background-image: url('../img/sections/2.jpg');
+    display: none;
 }
 
 #section3 {
-    background-image: url('../img/sections/3.jpg');
+    display: none;
 }
 
 #section4 {
-    // background-image: url('../img/sections/4.jpg');
-    background: $d-blu;
+    display: none;
 }
 
 #section5 {
-    background-image: url('../img/sections/5.jpg');
+    display: none;
 }
 
 #section6 {
-    background-image: url('../img/sections/6.jpg');
-}
-
-// SIDE NAVIGATION
-#pp-nav ul li a span,
-.pp-slidesNav ul li a span {
-    height: 9px;
-    width: 9px;
-    background: $in-ylw;
+    display: none;
 }
 
 // MAP
 #map {
+    position: absolute;
     height: 100%;
     width: 100%;
-    cursor: pointer;
 }
 
-.controls {
-    margin-top: 1em;
+#mode-selector {
+    display: none;
+    visibility: hidden;
 }
 
-.radio-inline {
-    display: inline-block;
-    margin-right: 2em;
+// LAYOUT
+.container-fluid {
+    max-width: 900px;
+    margin: $main-mar;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    h2 {
+        @include fontProperties($fnt-pure, $hdg-2, $spc, $l-blu);
+        text-align: center;
+    }
+
+    h3 {
+        color: $wht;
+    }
 }
 
-.text p {
-    color: $wht;
+// MAIN 3 ROWS
+.row-blue {
+    position: relative;
+    background-color: $blu-t;
+    border: 2px solid $wht;
+    border-radius: .5em;
+    margin: 0 auto;
+    height: 470px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
 }
 
-// CALENDER
-.checkInOut {
-    margin-top: 1em;
+.row-blue-med {
+    position: relative;
+    background-color: $blu-t;
+    border: 2px solid $wht;
+    border-radius: .5em;
+    margin: 0 auto;
+    height: 590px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.row-blue-vehicle {
+    position: relative;
+    background-color: $blu-t;
+    border: 2px solid $wht;
+    border-radius: .5em;
+    margin: 0 auto;
+    height: 670px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+// FLEX
+.row-flex {
     display: flex;
     justify-content: center;
 }
 
+.col-flex {
+    text-align: center;
+}
+
+.vehicle-flex {
+    display: flex;
+    justify-content: center;
+}
+
+// COLUMNS IN THE ROWS
+.col-heading {
+    height: 120px;
+}
+
+.col-heading-vehicle {
+    height: 115px;
+}
+
+.col-title {
+    height: 100px;
+    margin-top: 10px;
+}
+
+.col-title-big {
+    height: 160px;
+    margin-top: 10px;
+}
+
+.col-info {
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.col-bottom {
+    height: 50px;
+    line-height: 50px;
+}
+
+.col-vehicle {
+    margin-top: 15px;
+}
+
+.col-vehicle-top {
+    height: 40px;
+}
+
+.col-vehicles {
+    padding-top: 127.6px;
+    padding-bottom: 100px;
+    padding-right: 30px;
+    padding-left: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+// VEHICLE ROW
+.vehicle {
+    height: 170px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    border-radius: .5em;
+
+    img {
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+.vehicleWrapper {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    text-align: center;
+    background: $m-blu-t;
+    z-index: 10;
+}
+
+.vehicleWrapperError {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    text-align: center;
+    background: $blu-t;
+}
+
+.vehicleWrapperCheck {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    text-align: center;
+    background: $green-t;
+}
+
+.vehicleToShow {
+    visibility: hidden;
+    display: none;
+}
+
+.vehicleToHide {
+    margin-bottom: 0.4em;
+}
+
+.finalVehicleImage {
+    width: 100%;
+    height: auto;
+    border-radius: .5em;
+    float: right;
+}
+
+#vehicleErrorInfo {
+    display: none;
+}
+
+#motorBike,
+#smallCar,
+#largeCar,
+#sportsUtilityVehicle {
+    cursor: pointer;
+}
+
+#motorBikeCheck {
+    display: none;
+}
+
+#smallCarCheck {
+    display: none;
+}
+
+#largeCarCheck {
+    display: none;
+}
+
+#suvCheck {
+    display: none;
+}
+
+// VEHICLE IMAGES
+.vehicle1 {
+    background: url('../img/vehicles/ninja.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.vehicle2 {
+    background: url('../img/vehicles/s4.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.vehicle3 {
+    background: url('../img/vehicles/m5.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.vehicle4 {
+    background: url('../img/vehicles/gls.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+// TYPOGRAPHY FOR THE ROWS
+.marginBotLrg p {
+    font-size: 1.3em;
+}
+
+.smallerHeading {
+    height: 60px;
+}
+
+.note {
+    text-align: center;
+    @include fontProperties($fnt-reg, $hdg-4, $spc-zero, $wht);
+}
+
+.note p {
+    text-align: center;
+    @include fontProperties($fnt-bld, $hdg-4, $spc-zero, $l-blu);
+}
+
+.vehicle p {
+    text-align: center;
+    @include fontProperties($fnt-reg, 1.1em, $spc-zero, $wht);
+}
+
+.vehicle h3 {
+    text-align: center;
+    @include fontProperties($fnt-bld, 1.3em, $spc-zero, $wht);
+}
+
+.vehicle h4 {
+    text-align: center;
+    @include fontProperties($fnt-bld, 1.2em, $spc-zero, $wht);
+}
+
+.optionsFont {
+    margin-bottom: 0;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    text-align: center;
+}
+
+.finalFontCenter {
+    margin-bottom: 0;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    text-align: center;
+}
+
+.finalFont {
+    margin-bottom: 0.5em;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    text-align: left;
+}
+
+.finalFontHeading {
+    margin-bottom: 1em;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    text-align: center;
+}
+
+.finalFontHeadingNoMargin {
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    text-align: center;
+}
+
+#perPersonFinal p {
+    color: $wht;
+}
+
+.finalFont p {
+    color: $wht;
+}
+
+.vehicleToHide p {
+    color: $wht;
+}
+
+.row p {
+    color: $wht
+}
+
+// FEEDBACK
+.invalid-feedback {
+    margin-top: 0.5em;
+    color: $l-blu;
+    font-size: 100%;
+}
+
+.valid-feedback-start {
+    margin-top: 0.5em;
+    font-size: 100%;
+}
+
+.valid-feedback-end {
+    margin-top: 0.5em;
+    font-size: 100%;
+}
+
+.valid-feedback {
+    margin-top: 0.5em;
+    font-size: 100%;
+    color: $green;
+}
+
+.valid-feedback-num {
+    display: none;
+    margin-top: 0.5em;
+    font-size: 100%;
+    color: $green;
+}
+
+.errorMessage {
+    display: none;
+    color: $l-blu;
+    font-size: 100%;
+}
+
+.validMessage {
+    margin-top: 0.5em;
+    display: none;
+    color: $green;
+}
+
+// FORMS
 .form-control {
     box-shadow: rgba(0, 0, 0, 0.2) -6px 7px 2px 0px;
 }
 
-.invalid-feedback {
-    margin-top: 1em;
-    color: $p-red;
+input {
+    cursor: pointer;
 }
 
+select {
+    cursor: pointer;
+}
+
+.pac-container {
+    cursor: pointer;
+}
+
+// BOOTSTRAP FORMS
+.was-validated .form-control:invalid,
+.form-control.is-invalid,
+.was-validated .custom-select:invalid,
+.custom-select.is-invalid {
+    border-color: $l-blu;
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid,
+.was-validated .custom-select:invalid,
+.custom-select.is-invalid {
+    border-color: $l-blu;
+}
+
+.was-validated .form-control:invalid:focus,
+.form-control.is-invalid:focus,
+.was-validated .custom-select:invalid:focus,
+.custom-select.is-invalid:focus {
+    border-color: $l-blu;
+    box-shadow: 0 0 0 0.2rem $m-blu-t;
+}
+
+// DATE PICKER
 .datepicker1,
 .datepicker2 {
     cursor: pointer;
 }
 
-// DATE
 .date h4 {
     text-align: center;
     color: $wht;
@@ -114,151 +546,470 @@
     margin-top: 20px;
 }
 
-.optionsFont {
-    margin-bottom: 0;
-    font-size: 2em;
-    color: $wht;
-}
-
-.note p {
-    color: $wht;
-}
-
 .howManyDays {
     display: inline;
-}
-
-.daySelectedTitle {
-    margin-top: 1.5em;
-}
-
-// CONTAINERS AND ROWS
-.paddingTop {
-    padding-top: 130px;
-}
-
-.container-fluid {
-    max-width: 1200px;
-    margin: $main-mar;
-
-    h2 {
-        @include fontProperties($fnt-pure, $hdg-2, $spc, $l-blu);
-        text-align: center;
-    }
-}
-
-.peopleNumDisplay h3 {
-    color: $wht;
-}
-
-.row-blue {
-    background-color: $blu-t;
-    padding: 1em;
-    border: 1px solid $wht;
-    border-radius: .5em;
-    left: 50%;
-    margin-left: -400px;
-    margin-top: -270px;
-    position: absolute;
-    top: 50%;
-    height: 444.85px;
-    width: 800px;
-}
-
-.row-blue-small {
-    background-color: $blu-t;
-    padding: 1em;
-    border: 1px solid $wht;
-    border-radius: .5em;
-    left: 20%;
-    margin-left: -250px;
-    margin-top: -100px;
-    position: absolute;
-    top: 20%;
-    height: 200px;
-    width: 500px;
-}
-
-// BUTTONS
-.btn-dark {
-    @include fontProperties($fnt-reg, $bdy, $spc, $d-blu);
-    background-color: $l-blu;
-    border-color: #343a40;
-}
-
-.floatRight {
-    float: right;
-}
-
-.floatRight::after {
-    clear: right;
-}
-
-// FORMS
-
-.was-validated .form-control:invalid, .form-control.is-invalid, .was-validated .custom-select:invalid, .custom-select.is-invalid {
-
-    border-color: $in-ylw;
-
-}
-.fa-check {
-    font-size: 1em;
-}
-
-.invalid-feedback {
-    margin-top: 0.5em;
-    color: $in-ylw;
-    // color: rgb(255, 66, 82);
-    font-size: 100%;
 }
 
 .picker__input.picker__input--active {
     border-color: $l-blu;
 }
 
-#dateErrorMessage {
+// BUTTONS
+.btn-dark {
+    @include fontProperties($fnt-reg, $bdy, $spc, $d-blu);
+    background-color: $l-blu;
+    border-color: $d-gry;
+}
+
+.btn-little {
+    visibility: hidden;
+    width: 30px;
+}
+
+.btn-dark:hover {
+    background-color: $m-blu;
+}
+
+// PROGRESS BAR
+.progressBarWrapper {
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    display: flex;
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.progressBarBottomWrapper {
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    display: flex;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 0 15px;
+
+    p {
+        text-align: center;
+        @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    }
+}
+
+.progressBarBottomVehicles {
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    display: flex;
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    padding: 0 15px 15px 15px;
+
+    p {
+        text-align: center;
+        @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    }
+}
+
+.progressBarWrapper p {
+    text-align: center;
+    @include fontProperties($fnt-reg, $bdy, $spc-zero, $wht);
+    opacity: 0.4;
+}
+
+.progressBar {
+    width: 20%;
+    line-height: 40px;
+    flex-direction: row;
+    text-align: center;
+}
+
+.progressBarBot {
+    width: 20%;
+    flex-direction: row;
+    text-align: center;
+
+    button {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.inlineIcons {
+    opacity: 0.4;
+    padding-top: 5px;
+}
+
+.iconOpacity {
+    opacity: 1;
+}
+
+.progress1 {
+    border-top-left-radius: 0.5em;
+    border-right: 1px solid $d-gry-t;
+}
+
+.progress2 {
+    border-right: 1px solid $d-gry-t;
+}
+
+.progress3 {
+    border-right: 1px solid $d-gry-t;
+}
+
+.progress4 {
+    border-right: 1px solid $d-gry-t;
+}
+
+.progress5 {
+    border-top-right-radius: 0.5em;
+
+}
+
+.progressActive {
+    background: $m-blu;
+
+    p {
+        opacity: 1;
+    }
+}
+
+.progressInactive {
+    background: $d-gry-t;
+}
+
+.progressComplete {
+    background: $green;
+}
+
+.inlineIcons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    line-height: 30px;
+
+    p {
+        @include fontProperties($fnt-bld, $bdy, $spc-zero, $wht);
+    }
+}
+
+.inlineIconsConfirm i {
+    font-size: 3em;
+}
+
+.iconP {
+    margin-left: 10px;
+    opacity: 1;
+}
+
+// FONT AWESOME
+.fa-check {
+    font-size: 1em;
+}
+
+.lrgTick i {
+    font-size: 2em;
+    color: $green;
+}
+
+.fa-user,
+.fa-calendar-alt,
+.fa-globe-asia {
+    color: $wht;
+    font-size: 30px;
+}
+
+.iconPglobe {
     display: none;
-    // margin-top: 0.5em;
-    color: $in-ylw;
-    // color: rgb(255, 66, 82);
-    font-size: 100%;
 }
 
-.col-date {
+// NUMBER SPINNER
+.numberInput {
     height: 100px;
+    width: 200px;
+    margin: 0 auto;
 }
 
-.col-info {
-    height: 50px;
-}
-
-.note p {
+.input-number {
+    width: 100px;
+    height: 100px;
+    vertical-align: top;
     text-align: center;
-    color: $l-blu;
+    background: none;
+    border: none;
+    outline: none;
+    @include fontProperties($fnt-bld, 4.5em, $spc, $wht);
+
 }
 
-.col-info {
-    text-align: center;
+.input-number-decrement,
+.input-number-increment {
+    width: 50px;
+    height: 100px;
+    line-height: 100px;
+    @include fontProperties($fnt-reg, 3em, $spc, $wht);
+    cursor: pointer;
 }
-// input {
-//     padding-bottom: 1em;
-// }
-// SPINNER
-// input { 
-//     text-align: center; 
-// }
 
-// .peopleNum input {
-//     width: 300px;
-// }
+.input-number-increment {
+    line-height: 105px;
+}
 
-// SELECT MENU
-// select::-ms-expand {
-//     display: none;
-// }
+// REPLACEMENT BUTTONS FOR MOBILE
+.fa-chevron-right,
+.fa-chevron-left {
+    font-size: 20px;
+    color: $wht;
+}
 
-// select {
-//     cursor: pointer;
-//     -webkit-appearance: none;
-//     appearance: none;
-// }
+.fa-chevron-right {
+    padding-right: 7px;
+}
+
+.fa-chevron-left {
+    padding-left: 7px;
+}
+
+// MEDIA
+@media (max-width: 768px) {
+
+    .note {
+        font-size: 0.9em;
+    }
+
+    .note p {
+
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 1.9em;
+    }
+
+    .container-fluid {
+        max-width: 600px;
+    }
+
+    .container-fluid h2 {
+        font-size: 1.9em;
+    }
+
+    .input-number {
+        font-size: 3em;
+    }
+
+    .col-title-big {
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    .smallerHeading {
+        height: auto;
+    }
+
+    .col-heading {
+        height: auto;
+    }
+
+    .progressBarWrapper {
+        height: 30px;
+    }
+
+    .progressBarBottomWrapper {
+        margin-bottom: 0;
+        padding: 0;
+        height: 30px;
+    }
+
+    .progressBar {
+        line-height: 30px;
+    }
+
+    .row-blue {
+        height: auto;
+    }
+
+    .progressBarWrapper p {
+        font-size: 0.9em;
+    }
+
+    .fa-user,
+    .fa-calendar-alt,
+    .fa-globe-asia {
+        font-size: 20px;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    .inlineIcons {
+        line-height: 20px;
+    }
+
+    .numberInput {
+        height: 80px;
+    }
+
+    .btn-toHide {
+        display: none;
+        visibility: hidden;
+    }
+
+    .btn-little {
+        display: block;
+        visibility: visible;
+    }
+
+    .progressBarBot {
+        .btn {
+            border: none !important;
+            background: none !important;
+        }
+
+        button {
+            font-size: 0.9em;
+            width: 30px;
+            line-height: 10px;
+            background: none;
+            color: $wht;
+            border: none;
+            padding: 0;
+        }
+
+        button:hover {
+            background: none;
+            border: none;
+        }
+    }
+
+    .errorMessage {
+        font-size: 0.9em;
+    }
+
+    .btn:focus,
+    .btn.focus {
+        outline: 0;
+        box-shadow: none !important;
+    }
+
+    .form-control {
+        height: 30px;
+    }
+
+    .vehicle {
+        height: 100px;
+    }
+
+    .col-vehicle {
+        height: 100px;
+    }
+
+    .col-md-6 {
+        width: 50%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .vehicleWrapperError {
+        padding: 5px;
+    }
+
+    .marginTop30 {
+        margin-top: 15px;
+    }
+
+    #startDate,
+    #endDate,
+    #startPoint,
+    #endPoint {
+        font-size: 0.8em;
+    }
+
+    .vehicle h3 {
+        font-size: 0.9em;
+    }
+
+    .vehicle p {
+        font-size: 0.9em;
+    }
+
+    .invalid-feedback {
+        font-size: 0.8em;
+        margin-bottom: 10px;
+    }
+
+    .invalid-feedback-num {
+        font-size: 0.8em;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 0.8em;
+    }
+
+    .iconP {
+        margin-left: 5px;
+    }
+
+    .vehicleToShow {
+        visibility: visible;
+        display: block;
+    }
+
+    .vehicleToHide {
+        visibility: hidden;
+        display: none;
+    }
+
+    .finalVehicleImage {
+        visibility: hidden;
+        display: none;
+    }
+
+    .row-blue-vehicle {
+        height: auto;
+    }
+
+    .row-blue-med {
+        height: auto;
+    }
+
+    .col-info {
+        margin-top: 0;
+    }
+
+    .col-heading-vehicle {
+        height: auto;
+    }
+
+    .marginBotLrg {
+        margin-bottom: 0.5em;
+    }
+
+    .marginBotLrg p {
+        font-size: 0.9em;
+        margin-bottom: 0;
+    }
+
+    .finalFont {
+        font-size: 0.9em;
+        text-align: center;
+        margin-bottom: 0.2em;
+    }
+
+    .errorMessage {
+        margin-top: 10px;
+        ;
+    }
+}
+
+@media (max-height: 586px) {
+
+    .container-fluid {
+        max-width: 700px;
+    }
+}
