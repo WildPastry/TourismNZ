@@ -1104,15 +1104,6 @@ function getCostPerPerson() {
   perPersonList.push(personFloat);
 }
 
-// TOGGLE FOREGROUND FUNCTION
-// function toggleForeground() {
-//   $(function () {
-//     $("#section1").hide();
-//     $("#section4").show();
-//     $(".section4").hide();
-//   });
-// }
-
 function toggleForeground() {
   $(function () {
     $(".row-blue").toggle();
