@@ -1126,6 +1126,14 @@ $(document).on("mouseleave", ".vehicle", function () {
   $(this).find(".vehicleWrapper").toggle();
 });
 
+$(document).on("touchleave", ".vehicle", function () {
+  $(this).find(".vehicleWrapper").toggle();
+
+});
+$(document).on("touchleave", ".vehicle", function () {
+  $(this).find(".vehicleWrapper").toggle();
+});
+
 // TRANSITIONS
 $(".animsition").animsition({
   inClass: 'fade-in',
