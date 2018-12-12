@@ -4,7 +4,6 @@
 //CSS RESETS
 * {
     @include reset(0, 0, border-box, none, none);
-    @include transitions($speed, $speed, $speed, $speed);
 }
 
 // TYPOGRAPHY

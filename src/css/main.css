@@ -6379,11 +6379,7 @@ a.text-dark:hover, a.text-dark:focus {
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
-  list-style-type: none;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out; }
+  list-style-type: none; }
 
 body {
   font-family: "Open Sans Regular";
