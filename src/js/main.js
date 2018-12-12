@@ -10,9 +10,9 @@ tooltipster-4.2.6.min.js"></script>
 izimodal-1.6.0.min.js"></script> */
 
 // LOAD MAP
-// $(document).ready(function () {
-//   initMap();
-// });
+$(document).ready(function () {
+  initMap();
+});
 
 // LOADER
 $(window).on('load', function () {

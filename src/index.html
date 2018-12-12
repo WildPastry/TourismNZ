@@ -32,13 +32,13 @@
         <div class="header-map tool-tip-right" title="View Background">
             <svg onclick="toggleForeground()" class="lds-ripple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
                 preserveAspectRatio="xMidYMid" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
-                <circle class="header-map-icon-inner" cx="50" cy="50" r="0" fill="none" stroke-width="4">
+                <circle class="header-map-icon-inner" cx="50" cy="50" r="0" fill="none" stroke-width="6">
                     <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="2" keySplines="0 1 0.8 1"
                         begin="-1s" repeatCount="indefinite"></animate>
                     <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="2" keySplines="0.2 0 0.8 1"
                         begin="-1s" repeatCount="indefinite"></animate>
                 </circle>
-                <circle class="header-map-icon-outer" cx="50" cy="50" r="0" fill="none" stroke-width="4">
+                <circle class="header-map-icon-outer" cx="50" cy="50" r="0" fill="none" stroke-width="6">
                     <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="2" keySplines="0 0.2 0.8 1"
                         begin="0s" repeatCount="indefinite"></animate>
                     <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="2" keySplines="0.2 0 0.8 1"
@@ -377,7 +377,7 @@
 
                         <div class="numberInput">
                             <span class="input-number-decrement floatLeft alignCenter">–</span>
-                            <input class="input-number" type="text" id="peopleNum" autocomplete="off">
+                            <input class="input-number" type="text" id="peopleNum" autocomplete="off" value="0" min="0" max="6">
                             <span class="input-number-increment floatRight alignCenter">+</span>
                         </div>
 
@@ -981,7 +981,7 @@
     </div>
 
     <!-- MAP -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ5qWqvPupVZb1AlLikNVFw4U3Lm5Oycs&libraries=places&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ5qWqvPupVZb1AlLikNVFw4U3Lm5Oycs&libraries=places"></script>
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/animsition.min.js"></script>
     <script src="framework/js/jquery-ui-1.12.1.min.js"></script>
