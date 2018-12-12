@@ -6581,7 +6581,8 @@ h4 {
     .footer-brand svg {
       width: 40px; }
   .footer-social {
-    margin: 20px 20px 20px 20px; }
+    display: none;
+    visibility: hidden; }
   #fern {
     display: none;
     visibility: hidden; }
@@ -6598,7 +6599,8 @@ h4 {
     .footer-brand svg {
       width: 40px; }
   .footer-social {
-    margin: 20px 20px 20px 20px; }
+    display: none;
+    visibility: hidden; }
   #fern {
     display: none;
     visibility: hidden; }
@@ -6737,7 +6739,8 @@ h4 {
     height: 223px;
     width: 300px; }
   .header-fixed {
-    height: 80px; } }
+    display: none;
+    visibility: hidden; } }
 
 @media (max-width: 400px) {
   .brand-title {
@@ -7381,6 +7384,10 @@ select {
   margin-left: 10px;
   opacity: 1; }
 
+.proToShow {
+  visibility: hidden;
+  display: none; }
+
 .fa-check {
   font-size: 1em; }
 
@@ -7526,6 +7533,8 @@ select {
   #startPoint,
   #endPoint {
     font-size: 0.8em; }
+  #perDayFinal {
+    margin-bottom: 0.5em; }
   .vehicle h3 {
     font-size: 0.9em; }
   .vehicle p {
@@ -7544,6 +7553,12 @@ select {
     visibility: visible;
     display: block; }
   .vehicleToHide {
+    visibility: hidden;
+    display: none; }
+  .proToShow {
+    visibility: visible;
+    display: block; }
+  .proToHide {
     visibility: hidden;
     display: none; }
   .finalVehicleImage {

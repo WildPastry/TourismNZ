@@ -1105,15 +1105,20 @@ function getCostPerPerson() {
 }
 
 // TOGGLE FOREGROUND FUNCTION
+// function toggleForeground() {
+//   $(function () {
+//     $("#section1").hide();
+//     $("#section4").show();
+//     $(".section4").hide();
+//   });
+// }
+
 function toggleForeground() {
   $(function () {
-    // $(".row-blue").toggle();
-    // $(".row-blue-med").toggle();
-    // $(".row-blue-vehicle").toggle();
-    // $(".brand-title").toggle();
-    $("#section1").hide();
-    $("#section4").show();
-    $(".section4").hide();
+    $(".row-blue").toggle();
+    $(".row-blue-med").toggle();
+    $(".row-blue-vehicle").toggle();
+    $(".brand-title").toggle();
   });
 }
 
@@ -1123,14 +1128,6 @@ $(document).on("mouseenter", ".vehicle", function () {
 
 });
 $(document).on("mouseleave", ".vehicle", function () {
-  $(this).find(".vehicleWrapper").toggle();
-});
-
-$(document).on("touchleave", ".vehicle", function () {
-  $(this).find(".vehicleWrapper").toggle();
-
-});
-$(document).on("touchleave", ".vehicle", function () {
   $(this).find(".vehicleWrapper").toggle();
 });
 

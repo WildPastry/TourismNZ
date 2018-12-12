@@ -131,7 +131,8 @@
         width: 300px;
     }
     .header-fixed {
-        height: 80px;
+        display: none;
+        visibility: hidden;
     }
 }
 

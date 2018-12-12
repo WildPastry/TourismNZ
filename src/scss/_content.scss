@@ -705,6 +705,11 @@ select {
     opacity: 1;
 }
 
+.proToShow {
+    visibility: hidden;
+    display: none;
+}
+
 // FONT AWESOME
 .fa-check {
     font-size: 1em;
@@ -929,6 +934,10 @@ select {
         font-size: 0.8em;
     }
 
+    #perDayFinal {
+        margin-bottom: 0.5em;
+    }
+
     .vehicle h3 {
         font-size: 0.9em;
     }
@@ -961,6 +970,16 @@ select {
     }
 
     .vehicleToHide {
+        visibility: hidden;
+        display: none;
+    }
+
+    .proToShow {
+        visibility: visible;
+        display: block;
+    }
+
+    .proToHide {
         visibility: hidden;
         display: none;
     }

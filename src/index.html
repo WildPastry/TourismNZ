@@ -33,7 +33,7 @@
             <svg onclick="toggleForeground()" class="lds-ripple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
                 preserveAspectRatio="xMidYMid" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
                 <circle class="header-map-icon-inner" cx="50" cy="50" r="0" fill="none" stroke-width="6">
-                    <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="2" keySplines="0 1 0.8 1"
+                    <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="2" keySplines="0 0.2 0.8 1"
                         begin="-1s" repeatCount="indefinite"></animate>
                     <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="2" keySplines="0.2 0 0.8 1"
                         begin="-1s" repeatCount="indefinite"></animate>
@@ -361,8 +361,11 @@
                         <div class="progressBar progressInactive progress4">
                             <p>4</p>
                         </div>
-                        <div class="progressBar progressInactive progress5">
+                        <div class="progressBar proToHide progressInactive progress5">
                             <p>CONFIRM</p>
+                        </div>
+                        <div class="progressBar proToShow progressInactive progress5">
+                            <p>5</p>
                         </div>
                     </div>
                     <div class="col-md-12 col-heading paddingTop">
@@ -377,7 +380,8 @@
 
                         <div class="numberInput">
                             <span class="input-number-decrement floatLeft alignCenter">–</span>
-                            <input class="input-number" type="text" id="peopleNum" autocomplete="off" value="0" min="0" max="6">
+                            <input class="input-number" type="text" id="peopleNum" autocomplete="off" value="0" min="0"
+                                max="6">
                             <span class="input-number-increment floatRight alignCenter">+</span>
                         </div>
 
@@ -426,7 +430,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- SECTION 3 (DATES) -->
     <div id="section3">
         <!-- BACKGROUND OVERLAY -->
@@ -450,8 +454,11 @@
                             <div class="progressBar progressInactive progress4">
                                 <p>4</p>
                             </div>
-                            <div class="progressBar progressInactive progress5">
+                            <div class="progressBar proToHide progressInactive progress5">
                                 <p>CONFIRM</p>
+                            </div>
+                            <div class="progressBar proToShow progressInactive progress5">
+                                <p>5</p>
                             </div>
                         </div>
                         <div class="col-md-12 col-heading  paddingTop">
@@ -570,8 +577,11 @@
                             <div class="progressBar progressInactive progress4">
                                 <p>4</p>
                             </div>
-                            <div class="progressBar progressInactive progress5">
+                            <div class="progressBar proToHide progressInactive progress5">
                                 <p>CONFIRM</p>
+                            </div>
+                            <div class="progressBar proToShow progressInactive progress5">
+                                <p>5</p>
                             </div>
                         </div>
                         <div class="col-md-12 col-heading paddingTop">
@@ -674,8 +684,11 @@
                             <div class="progressBar progressActive progress4">
                                 <p>4</p>
                             </div>
-                            <div class="progressBar progressInactive progress5">
+                            <div class="progressBar proToHide progressInactive progress5">
                                 <p>CONFIRM</p>
+                            </div>
+                            <div class="progressBar proToShow progressInactive progress5">
+                                <p>5</p>
                             </div>
                         </div>
                         <div class="col-md-12 col-heading-vehicle paddingTop">
@@ -683,6 +696,14 @@
                         </div>
                         <div class="col-md-6 col-vehicle">
                             <div class="vehicle vehicle1">
+                                <div id="motorBike" onclick="addMotorBike()">
+                                    <div class="vehicleWrapper">
+                                        <h3 class="marginTop30">Ninja H2-R</h3>
+                                        <p class="vehicleToHide">Fuel: $7.6 Per 100km<br>
+                                            Rental: $109 Per day</p>
+                                        <p class="vehicleToShow">$109 / day</p>
+                                    </div>
+                                </div>
                                 <div class="vehicleWrapperError" id="motorBikeError">
                                     <h3 class="marginTop30 vehicleToHide">Vehicle unavailable</h3>
                                     <h3 class="marginTop30 vehicleToShow">Unavailable</h3>
@@ -694,18 +715,18 @@
                                     <p class="vehicleToHide">Vehicle selected</p>
                                     <p class="vehicleToShow">Selected</p>
                                 </div>
-                                <div id="motorBike">
-                                    <div class="vehicleWrapper" onclick="addMotorBike()">
-                                        <h3 class="marginTop30">Ninja H2-R</h3>
-                                        <p class="vehicleToHide">Fuel: $7.6 Per 100km<br>
-                                            Rental: $109 Per day</p>
-                                        <p class="vehicleToShow">$109 / day</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-vehicle">
                             <div class="vehicle vehicle2">
+                                <div id="smallCar" onclick="addSmallCar()">
+                                    <div class="vehicleWrapper">
+                                        <h3 class="marginTop30">Audi S3</h3>
+                                        <p class="vehicleToHide">Fuel: $17.5 Per 100km<br>
+                                            Rental: $129 Per day</p>
+                                        <p class="vehicleToShow">$129 / day</p>
+                                    </div>
+                                </div>
                                 <div class="vehicleWrapperError" id="smallCarError">
                                     <h3 class="marginTop30 vehicleToHide">Vehicle unavailable</h3>
                                     <h3 class="marginTop30 vehicleToShow">Unavailable</h3>
@@ -719,18 +740,18 @@
                                     <p class="vehicleToHide">Vehicle selected</p>
                                     <p class="vehicleToShow">Selected</p>
                                 </div>
-                                <div id="smallCar">
-                                    <div class="vehicleWrapper" onclick="addSmallCar()">
-                                        <h3 class="marginTop30">Audi S3</h3>
-                                        <p class="vehicleToHide">Fuel: $17.5 Per 100km<br>
-                                            Rental: $129 Per day</p>
-                                        <p class="vehicleToShow">$129 / day</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-vehicle">
                             <div class="vehicle vehicle3">
+                                <div id="largeCar" onclick="addLargeCar()">
+                                    <div class="vehicleWrapper">
+                                        <h3 class="marginTop30">BMW M5</h3>
+                                        <p class="vehicleToHide">Fuel: $19.9 Per 100km<br>
+                                            Rental: $144 Per day</p>
+                                        <p class="vehicleToShow">$144 / day</p>
+                                    </div>
+                                </div>
                                 <div class="vehicleWrapperError" id="largeCarError">
                                     <h3 class="marginTop30 vehicleToHide">Vehicle unavailable</h3>
                                     <h3 class="marginTop30 vehicleToShow">Unavailable</h3>
@@ -744,18 +765,18 @@
                                     <p class="vehicleToHide">Vehicle selected</p>
                                     <p class="vehicleToShow">Selected</p>
                                 </div>
-                                <div id="largeCar">
-                                    <div class="vehicleWrapper" onclick="addLargeCar()">
-                                        <h3 class="marginTop30">BMW M5</h3>
-                                        <p class="vehicleToHide">Fuel: $19.9 Per 100km<br>
-                                            Rental: $144 Per day</p>
-                                        <p class="vehicleToShow">$144 / day</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-vehicle">
                             <div class="vehicle vehicle4">
+                                <div id="sportsUtilityVehicle" onclick="addSportsUtilityVehicle()">
+                                    <div class="vehicleWrapper">
+                                        <h3 class="marginTop30">Mercedes GLS SUV</h3>
+                                        <p class="vehicleToHide">Fuel: $35 Per 100km<br>
+                                            Rental: $200 Per day</p>
+                                        <p class="vehicleToShow">$200 / day</p>
+                                    </div>
+                                </div>
                                 <div class="vehicleWrapperError" id="suvError">
                                     <h3 class="marginTop30 vehicleToHide">Vehicle unavailable</h3>
                                     <h3 class="marginTop30 vehicleToShow">Unavailable</h3>
@@ -769,15 +790,6 @@
                                     <div class="marginTop30"><i class="fas fa-check"></i></div>
                                     <p class="vehicleToHide">Vehicle selected</p>
                                     <p class="vehicleToShow">Selected</p>
-                                </div>
-                                <div id="sportsUtilityVehicle">
-                                    <div class="vehicleWrapper" onclick="addSportsUtilityVehicle()">
-                                        <h3 class="marginTop30">Mercedes GLS SUV</h3>
-                                        <p class="vehicleToHide">Fuel: $35 Per 100km<br>
-                                            Rental: $200 Per day</p>
-                                        <p class="vehicleToShow">$200 / day</p>
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -856,8 +868,11 @@
                         <div class="progressBar progressComplete progress4">
                             <p>4&nbsp;&nbsp;<i class="fas fa-check"></i></p>
                         </div>
-                        <div class="progressBar progressActive progress5">
+                        <div class="progressBar proToHide progressActive progress5">
                             <p>CONFIRM</p>
+                        </div>
+                        <div class="progressBar proToShow progressActive progress5">
+                            <p>5</p>
                         </div>
                     </div>
                     <div class="col-md-12 col-heading paddingTop">
@@ -878,6 +893,7 @@
                         <p id="perDayFinal" class="finalFont boldWht"></p>
                         <p class="vehicleToHide finalFont boldWht" id="perPersonFinal"></p>
                         <p class="vehicleToHide finalFontHeadingLeft boldWhtLrg" id="priceFinal"></p>
+                        <!-- <i class="fas fa-check"></i> -->
                     </div>
                     <!-- PROGRESS BAR BOTTOM-->
                     <div class="progressBarBottomWrapper">
