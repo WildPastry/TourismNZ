@@ -38,6 +38,8 @@
   "dependencies": {
     "del": "^3.0.0",
     "event-stream": "^3.3.3",
-    "fullpage.js": "^3.0.3"
+    "fullpage.js": "^3.0.3",
+    "gulp-html-validator": "0.0.5",
+    "gulp-w3c-css": "^1.0.2"
   }
 }

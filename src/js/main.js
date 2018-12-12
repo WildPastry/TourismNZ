@@ -30,7 +30,7 @@ var inlineIconsDest = document.getElementsByClassName('inlineIconsDest');
 
 // MAP
 var map;
-var newMarker;
+// var newMarker;
 var distanceList = [];
 var journeyList = [];
 var newZealand = {
@@ -1110,6 +1110,9 @@ function toggleForeground() {
     $(".row-blue").toggle();
     $(".row-blue-med").toggle();
     $(".row-blue-vehicle").toggle();
+    $("#section1").hide();
+    $("#section4").show();
+    $(".section4").hide();
   });
 }
 

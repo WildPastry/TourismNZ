@@ -12,6 +12,7 @@ cache = require('gulp-cache');
 del = require('del');
 jshint = require('gulp-jshint');
 runSequence = require('run-sequence');
+htmlv = require('gulp-html-validator');
 
 //LOCAL SERVER
 gulp.task('serve', function (event) {
@@ -35,6 +36,13 @@ gulp.task('sass', function () {
 gulp.task('html', function () {
   return gulp.src('src/*.html')
     .pipe(connect.reload());
+});
+
+// HTML VALIDATION
+gulp.task('htmlv', function () {
+ return gulp.src('src/*.html')
+    .pipe(htmlv({format: 'html'}))
+    .pipe(gulp.dest('./error'));
 });
 
 // JS LINT
