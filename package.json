@@ -36,6 +36,7 @@
     "run-sequence": "^2.2.1"
   },
   "dependencies": {
+    "tar": ">=4.4.2",
     "del": "^3.0.0",
     "event-stream": "^3.3.3",
     "fullpage.js": "^3.0.3",
